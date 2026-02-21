@@ -1,0 +1,424 @@
+/* ========================================= */
+/* 1. STILI BASE                             */
+/* ========================================= */
+body {
+  font-family: "Merriweather", serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #070812; }
+
+
+
+/* ========================================= */
+/* 2. MODALITA' MENU (Lista Diari / Storie)  */
+/* ========================================= */
+.vista-menu {
+  background-size: cover !important; 
+  background-position: center !important; 
+  background-attachment: fixed !important; 
+  width: 100% !important;
+  max-width: 100% !important; 
+}
+
+.container-cards {
+  width: 90%;
+  max-width: 900px; 
+  margin: 0 auto;   
+}
+
+/* CARD Generica (Diario o Storia) */
+.card-diario {
+  background: rgba(0, 0, 0, 0.65); 
+  color: white;
+  padding: 20px 25px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  display: block; 
+}
+
+.card-diario:hover {
+  transform: scale(1.02); 
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.card-diario.card-storie {
+  padding: 8px 12px !important; 
+}
+/* ========================================= */
+/* 3. MODALITA' LETTURA (Pagina con Sfondo)  */
+/* ========================================= */
+
+.vista-lettura {
+  width: 100% !important;
+  max-width: 100% !important;
+  background-color: transparent !important; 
+  padding: 0 !important;
+}
+
+
+/* IL FOGLIO BIANCO AL CENTRO (default: diari, intro se non cambi classi) */
+.foglio-lettura {
+  max-width: 680px !important;
+  margin: 80px auto 50px auto !important;
+  padding: 40px !important;
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Storie: beige leggero */
+.foglio-storia{
+  background-color: rgba(248, 238, 220, 0.90) !important;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+/* Storie su pergamena: un filo più trasparente */
+.foglio-pergamena{
+  background-color: rgba(248,238,220,0.82) !important;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+/* Opzione futura: foglio trasparente bianco */
+.foglio-trasparente{
+  background-color: rgba(255,255,255,0.78) !important;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+
+
+/* Titoli */
+.font-ui-titolo {
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+}
+.diario-titolo{
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+  text-align: center;
+  font-size: 2.4rem;
+  line-height: 1.15;
+  margin: 0 0 1.3rem 0;
+}
+
+@media (min-width: 768px){
+  .diario-titolo{ font-size: 3rem; }
+}
+
+
+
+/* Testo */
+.diario-text {
+  font-size: 1.15rem;
+  line-height: 1.4;
+  color: #2c2c2c;
+  text-align: justify;
+
+  margin: 0 0 0.45em 0;  /* molto più stretto tra paragrafi */
+}
+/* ========================================= */
+/* STORIE: lettura più scorrevole (solo Storie) */
+/* Incolla in FONDO al file */
+/* ========================================= */
+
+
+
+  /* 1) IMMAGINI STORIE: sempre 16:9, grandi e leggibili */
+..foglio-storia img:not(.sigillo),
+.foglio-pergamena img:not(.sigillo) {
+  width: 100% !important;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  height: auto !important;
+  margin: 18px auto 10px auto !important;
+}
+
+/* Se hai iframe/video nelle storie */
+.foglio-storia iframe,
+.foglio-pergamena iframe,
+.foglio-storia video,
+.foglio-pergamena video,
+.foglio-storia .video-container,
+.foglio-pergamena .video-container {
+  width: 100% !important;
+  aspect-ratio: 16 / 9;
+  height: auto !important;
+  object-fit: cover;              /* aggiungi */
+  margin: 18px auto 10px auto !important;
+}
+
+
+/* 2) Testo: interlinea più “editoriale” e meno spazio tra frasi */
+.foglio-storia .diario-text,
+.foglio-pergamena .diario-text {
+  line-height: 1.45 !important;      /* prima era 1.8 */
+  margin-bottom: 0.85rem !important; /* prima era 1.5rem */
+}
+
+/* 3) Se dentro .diario-text hai <br> doppi, evitano la scorrevolezza.
+   Questa regola NON li rimuove, ma evita che si creino “buchi” enormi in alcuni casi. */
+.foglio-storia .diario-text br + br,
+.foglio-pergamena .diario-text br + br {
+  display: none;
+}
+
+
+
+/* ========================================= */
+/* 4. IMMAGINI E MEDIA                       */
+/* ========================================= */
+img:not(.sigillo), iframe, video, .video-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  margin: 30px auto 15px auto !important;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* --- SIGILLO CERLACCA (non w-full) --- */
+img.sigillo {
+  width: 90px !important;
+  max-width: 90px !important;
+  height: auto !important;
+  display: block !important;
+  margin: 0 !important;            /* evita i margin globali delle immagini */
+  border-radius: 0 !important;     /* se vuoi lasciarlo “pulito” */
+  box-shadow: none !important;     /* lo mettiamo via Tailwind/inline */
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (max-width: 480px) {
+  img.sigillo {
+    width: 72px !important;
+    max-width: 72px !important;
+  }
+}
+
+
+.diario-didascalia {
+  font-family: "Merriweather", serif;
+  font-style: italic !important;
+  font-weight: 700 !important; 
+  font-size: 0.95rem !important;
+  color: #444 !important;
+  text-align: center !important;
+  line-height: 1.4 !important;
+  width: 90% !important;
+  margin: 0 auto 40px auto !important;
+}
+
+.box-approfondimento {
+  background-color: #f9f9f9;
+  border-left: 5px solid #ccc;
+  padding: 20px;
+  margin: 30px 0;
+  border-radius: 5px;
+}
+
+/* ========================================= */
+/* 5. BOTTONE GALLEGGIANTE (Indietro)        */
+/* ========================================= */
+.header-galleggiante {
+  position: fixed !important;
+  top: 20px !important;
+  left: 20px !important;
+  width: auto !important;
+  z-index: 9999 !important;
+}
+
+.header-galleggiante button {
+  background: #ffc471 !important;
+  backdrop-filter: blur(5px);
+  border-radius: 50px !important;
+  padding: 10px 25px !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+  color: #333 !important;
+  font-weight: 900 !important;
+  font-size: 0.9rem !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid #eee !important;
+  cursor: pointer;
+}
+
+/* ========================================= */
+/* 6. UTILITIES VARIE                        */
+/* ========================================= */
+.flag-icon {
+  width: 40px !important;       
+  height: auto !important;      
+  display: inline-block !important; 
+  margin: 0 5px !important; 
+  box-shadow: none !important;  
+  vertical-align: middle;       
+  border-radius: 4px;           
+}
+/* STORIE: controllo spazi tra paragrafi (robusto) */
+.foglio-storia .diario-text,
+.foglio-pergamena .diario-text {
+  line-height: 1.45 !important;
+}
+
+/* Caso A: .diario-text è il CONTENITORE e dentro ci sono <p> */
+.foglio-storia .diario-text p,
+.foglio-pergamena .diario-text p {
+  margin: 0 0 0.55em 0 !important;   /* <-- stringi qui */
+}
+
+/* Caso B: .diario-text è applicata direttamente ai <p> */
+.foglio-storia p.diario-text,
+.foglio-pergamena p.diario-text {
+  margin: 0 0 0.55em 0 !important;
+}
+
+/* evita “paragrafi vuoti” che creano buchi */
+.foglio-storia .diario-text p:empty,
+.foglio-pergamena .diario-text p:empty {
+  display: none !important;
+}
+/* STORIE: controlla davvero gli spazi tra paragrafi */
+.foglio-storia .diario-text,
+.foglio-pergamena .diario-text {
+  line-height: 1.45 !important;
+}
+/* BOTTONE HOME */
+.home-cta{
+  position: absolute;
+  right: 20px;
+  
+  /* Desktop: usiamo bottom */
+  top: auto;
+  bottom: 26%;
+
+  padding: 10px 16px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #FFD700;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+}
+
+
+.home-cta-bg{
+  position: absolute;
+  inset: 0;
+  background-image: url('../img/bottone_tappeto.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.home-cta-text{
+  position: relative;
+  z-index: 1;
+
+  font-size: clamp(16px, 1.6vw, 22px);
+  line-height: 1.05;
+  white-space: nowrap;
+
+  font-weight: 900 !important;                 /* corposo */
+  color: #FFD700 !important;                   /* oro */
+  -webkit-text-fill-color: #FFD700 !important; /* anti “testo trasparente” */
+  background: none !important;                 /* toglie eventuali gradient/clip */
+
+  text-shadow:
+    0 2px 0 rgba(0,0,0,0.85),
+    0 0 10px rgba(0,0,0,0.70),
+    0 10px 18px rgba(0,0,0,0.55) !important;
+}
+
+.home-cta-bg{
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+/* Mobile: sposta sotto (ma non sullo skyline) */
+@media (max-width: 640px){
+  .home-cta{
+    top: auto;
+    bottom: 42%;
+    right: 6%;
+    padding: 9px 14px;
+  }
+}
+/* ========================================= */
+/* HOME — INTRO PERGAMENA (top-right / mobile)*/
+/* ========================================= */
+
+.home-intro-pergamena{
+  position: relative;
+  background-image: url('../img/sfondo_pergamena.jpg');
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #FFD700;
+  border-radius: 18px;
+  padding: 16px 18px;
+  box-shadow: 0 14px 34px rgba(0,0,0,0.35);
+
+  max-width: 520px;
+  overflow: hidden;
+}
+
+/* velo chiaro sopra la texture per leggibilità */
+.home-intro-pergamena::before{
+  display: none;
+}
+
+
+/* testo sopra al velo */
+.home-intro-pergamena > *{
+  position: relative;
+}
+
+@media (min-width: 768px){
+  .home-intro-pos{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 5;
+  }
+}
+
+@media (max-width: 767px){
+  .home-intro-pos{
+    position: relative;
+    margin: 12px auto 16px auto;
+    width: calc(100% - 24px);
+  }
+}
+/* HOME — rendi la pergamena più “verticale” e discreta */
+@media (min-width: 768px){
+  .home-intro-pergamena{
+    max-width: 320px;     /* più stretta */
+    padding: 12px 14px;   /* meno pancia */
+  }
+}
+
+/* riduci un filo i font solo dentro la pergamena */
+.home-intro-pergamena .font-ui-titolo{
+  font-size: 1.25rem;   /* circa text-xl */
+  line-height: 1.15;
+}
+
+.home-intro-pergamena .font-ui-testo{
+  font-size: 0.95rem;   /* poco sotto base */
+  line-height: 1.28;
+}
+/* HOME — testo più piccolo dentro la pergamena (senza ridurre la pergamena) */
+.home-intro-pergamena .font-ui-titolo{
+  font-size: 1.1rem;   /* più piccolo di prima */
+  line-height: 1.15;
+}
+
+.home-intro-pergamena .font-ui-testo{
+  font-size: 0.88rem;  /* ancora un filo più piccolo */
+  line-height: 1.25;
+}

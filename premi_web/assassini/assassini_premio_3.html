@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Premio Assassini 3 - Dall’Ombra alla Luce</title>
+  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #1a1a1a;
+      --accent: #5a3e1b; /* marrone per titoli */
+      --maxw: 820px;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Merriweather', serif;
+      line-height: 1.65;
+      color: var(--ink);
+      background-image: url("../../IMG/sfondo_pergamena.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    main {
+      max-width: var(--maxw);
+      margin: 40px auto;
+      padding: 32px 28px;
+      background-color: rgba(255, 255, 255, 0.85); /* leggero velo per leggibilità */
+      border: 2px solid #8b5e3c;
+      outline: 6px double #6b4226;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+    }
+
+    h1, h2 {
+      font-family: 'MedievalSharp', cursive;
+      color: var(--accent);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    h2 {
+      margin-top: 28px;
+      border-bottom: 1px solid #c7b299;
+      padding-bottom: 6px;
+    }
+
+    p {
+      margin: 12px 0;
+      text-align: justify;
+    }
+
+    figure.hero {
+      margin: 0 0 18px 0;
+      text-align: center;
+    }
+    figure.hero img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #8b5e3c;
+      outline: 4px double #6b4226;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      display: block;
+      margin: 0 auto;
+    }
+    figure.hero figcaption {
+      margin-top: 8px;
+      font-size: 0.95rem;
+      color: #5a3e1b;
+      font-style: italic;
+    }
+
+    .firma {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      align-items: end;
+      margin-top: 24px;
+    }
+    .logo {
+      grid-column: 2;
+      justify-self: center;
+      max-width: 200px;
+      height: auto;
+    }
+    .sigillo {
+      grid-column: 3;
+      justify-self: end;
+      max-width: 80px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <!-- Titolo del premio -->
+    <h1>Dall’Ombra alla Luce: i Nizariti oggi</h1>
+
+    <!-- Immagine principale -->
+    <figure class="hero">
+      <img src="../../IMG/aga_khan.jpg" alt="Shāh Karīm al-Ḥusaynī, Aga Khan IV" />
+      <figcaption>
+        Ritratto di Shāh Karīm al-Ḥusaynī, Aga Khan IV.  
+        Foto di Patrick Tsui/FCO, via 
+        <a href="https://commons.wikimedia.org/wiki/File:His_Highness_the_Aga_Khan_(15760993697)_(cropped).jpg" target="_blank">
+          Wikimedia Commons
+        </a> (CC BY 2.0).
+      </figcaption>
+    </figure>
+
+    <!-- Testo narrativo -->
+    <h2>La diaspora</h2>
+    <p>Dopo la caduta delle roccaforti, i Nizariti si dispersero in Persia, Siria, India e oltre. Sopravvissero in clandestinità, tramandando la loro fede e le loro tradizioni sotto la minaccia della persecuzione.</p>
+
+    <h2>La rinascita con l’Aga Khan</h2>
+    <p>Nel XIX secolo, la guida spirituale degli Ismailiti fu riconosciuta nell’Aga Khan. Sotto la sua leadership, la comunità si riorganizzò, fondando istituzioni educative, sanitarie e culturali in tutto il mondo. Oggi <strong>Shāh Karīm al-Ḥusaynī, conosciuto come Aga Khan IV</strong>, è una figura di rilievo internazionale, promotore di dialogo e sviluppo.</p>
+
+    <h2>I valori attuali</h2>
+    <p>I Nizariti moderni si distinguono per il loro impegno nel pluralismo, nell’educazione e nella giustizia sociale. Con progetti in oltre 30 paesi, la comunità contribuisce attivamente al progresso umano, mantenendo vive le radici di una storia millenaria.</p>
+
+    <!-- Firma -->
+    <div class="firma">
+      <img class="logo" src="https://i.ibb.co/8Dtgbq5M/1765060192646.png" alt="Logo del progetto" />
+      <img class="sigillo" src="https://i.ibb.co/r2GRcxGp/sigillo-ceralacca-lorella.png" alt="Sigillo Lorella" />
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Tappeto Volante - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body { margin: 0; padding: 0; background-color: #070812; color: #f0f0f0; font-family: 'Merriweather', serif; display: flex; flex-direction: column; align-items: center; overflow-x: hidden; }
+        .header-img { width: 100%; height: auto; display: block; }
+        .divisore { width: 33%; max-width: 450px; height: auto; margin: 25px auto; display: block; }
+        .sezione-pergamena { position: relative; width: 100%; display: flex; justify-content: center; align-items: center; }
+        .img-pergamena-bg { width: 100%; height: auto; display: block; border: 3px solid #8B4513; border-radius: 2% 5% 3% 4% / 4% 3% 5% 2%; box-shadow: inset 0 0 30px 10px rgba(139, 69, 19, 0.6), 0 0 20px rgba(139, 69, 19, 0.4); }
+        .contenuto-testuale { position: absolute; width: 85%; max-width: 900px; text-align: center; color: #2c1a1a; background-color: rgba(255, 250, 240, 0.45); padding: 30px; border-radius: 20px; }
+        .incipit-pergamena { font-family: 'Dancing Script', cursive; font-size: 2.2rem; margin-bottom: 30px; display: block; line-height: 1.2; }
+        .contenuto-testuale p { font-size: 1.05rem; line-height: 1.4; margin-bottom: 10px; font-style: italic; }
+        .pulsante-tappeto-wrap { display: inline-block; width: 33%; max-width: 380px; margin-top: 15px; text-decoration: none; transition: 0.4s; border: 2px solid #FFD700; border-radius: 10px; overflow: hidden; line-height: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        .pulsante-tappeto-wrap img { width: 100%; height: auto; display: block; }
+        .mappa-sito { width: 100%; height: auto; display: block; }
+        .linea-dorata-fine { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.5), transparent); margin: 30px 0; }
+        footer { width: 90%; max-width: 1100px; padding-bottom: 50px; text-align: center; }
+        .riga-anima-sigillo { display: flex; justify-content: center; align-items: center; gap: 25px; margin-bottom: 30px; }
+        .testo-anima { font-family: 'Dancing Script', cursive; font-size: 26px; color: #FFD700; }
+        .sigillo-wrapper { position: relative; cursor: pointer; display: inline-block; line-height: 0; }
+        .sigillo-wrapper:hover::after { content: "Chi è l'Anima Nomade?"; position: absolute; bottom: 125%; left: 50%; transform: translateX(-50%); background: rgba(255, 215, 0, 0.95); color: #070812; padding: 6px 14px; border-radius: 6px; font-family: 'Dancing Script', cursive; font-size: 1.2rem; white-space: nowrap; box-shadow: 0 5px 15px rgba(0,0,0,0.4); z-index: 1000; }
+        .sigillo-footer { width: 90px; height: auto; filter: drop-shadow(0 0 8px #FFD700); transition: 0.3s; }
+        .licenza-giustificata { font-size: 13px; text-align: justify; line-height: 1.6; opacity: 0.8; border-top: 1px solid rgba(255, 215, 0, 0.2); padding-top: 20px; margin-bottom: 25px; }
+        .copyright-chiusura { font-size: 12px; font-weight: bold; color: #FFD700; }
+        .modal-bio { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); backdrop-filter: blur(8px); justify-content: center; align-items: center; padding: 20px; }
+        .modal-content { background-image: url('https://i.ibb.co/PzsZfXjh/bottone-pergamena.png'); background-size: cover; padding: 60px 50px 100px 50px; width: 95%; max-width: 1100px; border-radius: 15px; position: relative; display: flex; flex-direction: column; gap: 40px; box-shadow: 0 0 50px rgba(139, 69, 19, 0.9); border: 2px solid #8B4513; max-height: 95vh; overflow-y: auto; }
+        .close-modal { position: absolute; top: 20px; right: 25px; font-size: 35px; color: #2c1a1a; cursor: pointer; z-index: 10; }
+        .bio-top-section { display: flex; gap: 40px; align-items: stretch; }
+        .colonna-testo { flex: 1.8; color: #2c1a1a; background-color: rgba(255, 250, 240, 0.55); padding: 35px; border-radius: 15px; display: flex; flex-direction: column; }
+        .testo-bio-poetico { font-style: italic; line-height: 1.9; font-size: 1.2rem; text-align: justify; flex-grow: 1; }
+        .sigillo-bio-firma { align-self: flex-end; width: 75px; margin-top: 15px; filter: drop-shadow(0 0 5px rgba(139, 69, 19, 0.5)); }
+        .colonna-foto-laterale { flex: 0.7; display: flex; flex-direction: column; gap: 25px; justify-content: space-between; }
+        .bio-bottom-section { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+        .bottom-left-wrap { flex: 1.8; display: flex; justify-content: flex-start; padding-right: 20px; }
+        .bottom-right-wrap { flex: 0.7; display: flex; justify-content: flex-end; padding-left: 20px; }
+        .center-logo-img { width: 150px; height: auto; filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.4)); z-index: 5; }
+        .cornice-oro { border: 3px solid #FFD700; padding: 5px; background: #2c1a1a; box-shadow: 0 5px 15px rgba(0,0,0,0.4); width: 100%; }
+        .cornice-oro img { width: 100%; height: auto; display: block; }
+        .didascalia-minimal { text-align: center; font-size: 0.8rem; color: #FFD700; margin-top: 5px; font-weight: bold; letter-spacing: 1px; }
+        @media (max-width: 768px) { .sezione-pergamena { display: block; padding: 40px 20px; width: 95%; margin: 0 auto; background-image: url('https://i.ibb.co/PzsZfXjh/bottone-pergamena.png'); background-size: 100% 100%; background-repeat: no-repeat; } .img-pergamena-bg { display: none; } .contenuto-testuale { position: static; width: 100%; padding: 0; background: none; } .riga-anima-sigillo { flex-direction: column; gap: 10px; } .bio-top-section { flex-direction: column; } .colonna-foto-laterale { flex-direction: row; flex-wrap: wrap; justify-content: center; } .cornice-oro { max-width: 48%; } .bio-bottom-section { flex-direction: column; gap: 30px; } .bottom-left-wrap, .bottom-right-wrap { padding: 0; justify-content: center; } .center-logo-img { width: 120px; order: 2; } .bottom-left-wrap { order: 1; } .bottom-right-wrap { order: 3; } }
+    </style>
+</head>
+<body>
+    <img src="https://i.ibb.co/Zp66pV64/sfondo-home.png" class="header-img">
+    <img src="https://i.ibb.co/pBK9pFdy/divisore-oro.png" class="divisore">
+    <div class="sezione-pergamena">
+        <img src="https://i.ibb.co/PzsZfXjh/bottone-pergamena.png" class="img-pergamena-bg">
+        <div class="contenuto-testuale">
+            <span class="incipit-pergamena">Il Tappeto Volante è un luogo di viaggio e di racconto.</span>
+            <p>Un diario che attraversa città reali e immaginate, storie antiche e voci lontane, seguendo il filo invisibile che unisce Oriente e Mediterraneo.</p>
+            <p>Qui il viaggio non è solo movimento nello spazio, ma uno sguardo che osserva, ascolta e ricompone.</p>
+            <p>Non c’è un percorso obbligato. C’è solo un invito: salire sul tappeto e lasciarsi portare.</p>
+            <a href="hub.html" class="pulsante-tappeto-wrap">
+                <img src="https://i.ibb.co/gLk84Xp2/sali-sul-tappeto1.png" alt="Sali sul Tappeto">
+            </a>
+        </div>
+    </div>
+    <img src="https://i.ibb.co/pBK9pFdy/divisore-oro.png" class="divisore">
+    <img src="https://i.ibb.co/ppz0MkP/mappa-sito-tappeto.png" class="mappa-sito">
+    <img src="https://i.ibb.co/pBK9pFdy/divisore-oro.png" class="divisore">
+    <div class="linea-dorata-fine"></div>
+    <footer>
+        <div class="riga-anima-sigillo">
+            <div class="testo-anima">"Questo sito è il Diario di un'Anima Nomade dal Cuore Volante"</div>
+            <div class="sigillo-wrapper" onclick="openBio()"><img src="https://i.ibb.co/r2GRcxGp/sigillo-ceralacca-lorella.png" class="sigillo-footer"></div>
+        </div>
+        <div class="licenza-giustificata">Tutti i testi, le fotografie e i contenuti originali sono di proprietà dell'autrice. Ne è vietata la riproduzione, la diffusione o l'utilizzo senza espressa autorizzazione scritta.</div>
+        <div class="copyright-chiusura">© 2026 Lorella — Tutti i diritti riservati.</div>
+    </footer>
+    <div id="bioModal" class="modal-bio" onclick="closeBioOutside(event)">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeBio()">&times;</span>
+            <div class="bio-top-section">
+                <div class="colonna-testo">
+                    <h2 style="font-family: 'Dancing Script'; color: #8B4513; margin-top: 0; font-size: 2.5rem;">L'Istinto della Traccia</h2>
+                    <div class="testo-bio-poetico">Non scelgo l’arte, la respiro. La <strong>fotografia</strong> è il mio fermo immagine sul mondo, il <strong>disegno</strong> è il mio modo di toccarne i contorni... Sono un’<strong>Anima Nomade dal Cuore Volante</strong>, e questo è il mio Diario.</div>
+                    <img src="https://i.ibb.co/r2GRcxGp/sigillo-ceralacca-lorella.png" class="sigillo-bio-firma">
+                </div>
+                <div class="colonna-foto-laterale">
+                    <div class="cornice-oro"><img src="https://i.ibb.co/S4ZCCywm/oltre-lo-sguardo.jpg"><div class="didascalia-minimal">OLTRE LO SGUARDO</div></div>
+                    <div class="cornice-oro"><img src="https://i.ibb.co/YTp1pbzp/tracce-di-carta.jpg"><div class="didascalia-minimal">TRACCE DI CARTA</div></div>
+                </div>
+            </div>
+            <div class="bio-bottom-section">
+                <div class="bottom-left-wrap"><div class="cornice-oro" style="max-width: 450px;"><img src="https://i.ibb.co/3yHmr6kM/materia-e-pensiero.png"><div class="didascalia-minimal">MATERIA E PENSIERO</div></div></div>
+                <img src="https://i.ibb.co/35VzfqyB/logo-tondo-tappeto-volante.webp" class="center-logo-img">
+                <div class="bottom-right-wrap"><div class="cornice-oro"><img src="https://i.ibb.co/hFsNgHG2/frammenti-di-altrove.jpg"><div class="didascalia-minimal">FRAMMENTI DI ALTROVE</div></div></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function openBio() { document.getElementById("bioModal").style.display = "flex"; }
+        function closeBio() { document.getElementById("bioModal").style.display = "none"; }
+        function closeBioOutside(event) { if (event.target.id === "bioModal") closeBio(); }
+    </script>
+</body>
+</html>
