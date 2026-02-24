@@ -1135,8 +1135,7 @@ function TappaView(dId, tId) {
         </header>
         <main class="vista-lettura flex-1 overflow-y-auto">
             <div class="foglio-lettura">${withAutoTitle(t.contenuto, t.titolo).map(b => renderBlocco(b, t.theme)).join('')}
-}
-}</div>
+</div>
         </main>
     </div>`;
 }
