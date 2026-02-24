@@ -36,36 +36,7 @@
   <script src="js/contenuti/intro_mediterraneo.js"></script>
   <script src="js/contenuti/danzatrici_mediterraneo.js"></script>
   <script src="js/script.js"></script>
-<script>
-(function () {
-  const box = document.createElement('pre');
-  box.id = 'debug-log';
-  box.style.cssText = `
-    position: fixed; z-index: 999999;
-    left: 8px; right: 8px; bottom: 8px;
-    max-height: 45vh; overflow: auto;
-    background: rgba(0,0,0,.9); color: #fff;
-    padding: 10px; border-radius: 10px;
-    font: 12px/1.35 monospace; white-space: pre-wrap;
-  `;
-  box.textContent = 'DEBUG LOG ✅\n';
-  document.body.appendChild(box);
-
-  const log = (msg) => { box.textContent += msg + '\n'; };
-
-  window.addEventListener('error', (e) => {
-    log('❌ ERROR: ' + (e.message || ''));
-    if (e.filename) log('📄 ' + e.filename + ':' + e.lineno + ':' + e.colno);
-  });
-
-  window.addEventListener('unhandledrejection', (e) => {
-    log('❌ PROMISE REJECTION: ' + (e.reason && (e.reason.stack || e.reason.message) || e.reason));
-  });
-
-  const oldLog = console.log;
-  console.log = function (...args) { oldLog.apply(console, args); log('ℹ️ ' + args.join(' ')); };
-})();
-</script>
 </body>
 
 </html>
+
