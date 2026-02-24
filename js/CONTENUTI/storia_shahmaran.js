@@ -82,32 +82,37 @@ E il silenzio, finalmente, guarisce.`,
     didascalia: "Finale: la candela"
   }
 ];
+const _SHAHMARAN_SRC =
+  (typeof CONTENUTI_SHAHMARAN !== "undefined" && Array.isArray(CONTENUTI_SHAHMARAN))
+    ? CONTENUTI_SHAHMARAN
+    : [];
+
 const STORIA_SHAHMARAN_DATA = [
   { type: "titolo", testo: "Şahmaran, la Regina che guarisce" },
 
-  ...CONTENUTI_SHAHMARAN.flatMap((s, idx) => {
+  ..._SHAHMARAN_SRC.flatMap((s, idx) => {
     const blocks = [];
 
-    // testo prima (paragrafi veri)
-String(s.testo)
-  .split(/\n\s*\n/)
-  .map(p => p.replace(/\n/g, " ").trim())
-  .filter(Boolean)
-  .forEach(paragrafo => {
-    blocks.push({ type: "testo", paragrafo });
-  });
+    String(s.testo || "")
+      .split(/\n\s*\n/)
+      .map(p => p.replace(/\n/g, " ").trim())
+      .filter(Boolean)
+      .forEach(paragrafo => {
+        blocks.push({ type: "testo", paragrafo });
+      });
 
-// immagine dopo
-blocks.push({
-  type: "immagine",
-  src: s.img,
-  alt: s.didascalia || `Şahmaran ${idx + 1}`
-});
+    if (s.img) {
+      blocks.push({
+        type: "immagine",
+        src: s.img,
+        alt: s.didascalia || `Şahmaran ${idx + 1}`
+      });
 
-// didascalia dopo l'immagine
-if (s.didascalia) {
-  blocks.push({ type: "didascalia", testo: s.didascalia });
-}
+      if (s.didascalia) {
+        blocks.push({ type: "didascalia", testo: s.didascalia });
+      }
+    }
+
     return blocks;
   })
 ];
