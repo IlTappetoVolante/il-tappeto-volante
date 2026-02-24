@@ -34,10 +34,10 @@ const DATABASE = {
         {
             id: "intro-storie",
             titolo: "Introduzione",
-            icon: "<img src='img/icona_intro.png' style='width: 50px !important; height: 50px !important;' class='object-contain'>",
-            sfondo: "img/sfondo_intro_storie.png",
+            icon: "<img src='img/icona_intro.jpg' style='width: 50px !important; height: 50px !important;' class='object-contain'>",
+            sfondo: "img/sfondo_intro_storie.jpg",
             theme: {
-            side_overlay: "img/lanterna.png", // <-- la tua lanterna (PNG trasparente)
+            side_overlay: "img/lanterna.jpg", // <-- la tua lanterna (PNG trasparente)
             side_overlay_width: 90,                    // opzionale
             side_overlay_opacity: 0.85                 // opzionale
              },
@@ -47,7 +47,7 @@ const DATABASE = {
             {
                 id: "storia-1",
                 titolo: "Sultan Baybars: Il Leone dell’Islam",
-                icon: "<img src='img/baybars_icon.jpeg' style='width: 50px !important; height: 50px !important;' class='object-cover rounded-full border-2 border-white'>",
+                icon: "<img src='img/baybars_icon.jpg' style='width: 50px !important; height: 50px !important;' class='object-cover rounded-full border-2 border-white'>",
                 sfondo: "img/WMC_Baybars_Hakawati_book.jpg",
                 contenuto: typeof STORIA_BAYBARS_DATA !== 'undefined' ? STORIA_BAYBARS_DATA : [],
                 quiz: {
@@ -84,7 +84,7 @@ const DATABASE = {
             {
             id: "cantastoria-1",
             titolo: "Il Segno Regale",
-            icon: "<img src='img/icona_segno_regale.png' style='width: 50px !important; height: 50px !important;' class='object-cover rounded-full border-2 border-[#ff4444]'>",
+            icon: "<img src='img/icona_segno_regale.jpg' style='width: 50px !important; height: 50px !important;' class='object-cover rounded-full border-2 border-[#ff4444]'>",
             sfondo: "img/sfondo_pergamena.jpg",
             sezione: "cantastorie",
             theme: { bg: 'bg-[#800000]', text: 'text-[#FFD700]', border: 'border-[#DAA520]', text_header: 'text-[#FFD700]' },
@@ -288,7 +288,7 @@ function HomeView() {
 
   return `
     <div class="h-full w-full relative overflow-y-auto custom-scrollbar"
-         style="background-image: url('img/sfondo_home.png');
+         style="background-image: url('img/sfondo_home.jpg');
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;">
@@ -345,7 +345,7 @@ function HomeView() {
 function HubView() {
   return `
     <div class="flex flex-col h-full"
-     style="background-image: url('img/sfondo_hub.png');
+     style="background-image: url('img/sfondo_hub.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -448,7 +448,7 @@ function MenuMediterraneoView() {
 // VISTA MENU STORIE (mancava)
 function StorieMenuView() {
     const storiesData = DATABASE.storie;
-    const linkSfondo = "img/libro.png"; 
+    const linkSfondo = "img/libro.jpg"; 
     const storieNarrativa = storiesData.elenco.filter(s => s.sezione !== 'cantastorie');
     const storiePoesia = storiesData.elenco.filter(s => s.sezione === 'cantastorie');
     const imgDivisore = `<img src="img/divisore_oro.png" style="width: 150px !important; height: auto !important;" class="mx-auto my-3 opacity-90 drop-shadow-md">`;
@@ -587,7 +587,7 @@ const sideOverlaysHTML = sideOverlay ? `
         </div>` : '';
 const renderSigilloFinale = () => `
   <div class="mt-10 mb-8 flex justify-end">
-    <img src="img/sigillo_ceralacca_lorella.png"
+    <img src="img/sigillo_ceralacca_lorella.jpg"
          alt="Sigillo in ceralacca con nome Lorella"
          loading="lazy"
          class="sigillo drop-shadow-lg">
@@ -649,7 +649,7 @@ function LampadaView(storiaId) {
  return `
  <div class="flex flex-col h-full text-white overflow-hidden"
      style="
-       background-image: url('img/sfondo_quiz.png');
+       background-image: url('img/sfondo_quiz.jpg');
        background-size: cover;
        background-position: 55% 75%;
        background-repeat: no-repeat;
@@ -732,7 +732,7 @@ function LampadaView(storiaId) {
     </div>
 
     <!-- CORNICE sopra -->
-    <img src="img/cornice_quiz.png"
+    <img src="img/cornice_quiz.jpg"
          alt=""
          class="absolute inset-0 z-20 w-full h-full object-contain pointer-events-none select-none" />
   </div>
@@ -833,7 +833,7 @@ function renderRisultatiLampada() {
     // 3. Funzione Scatole (Versione MINI: solo icona scatola)
 const renderPremio = (index) => {
   const numScatola = index + 1;
-  const imgScatola = `img/scatola_regalo_${numScatola}.png`;
+  const imgScatola = `img/scatola_regalo_${numScatola}.jpg`;
   const premioLink = premiFiles?.[index];
 
   // vinto
@@ -955,7 +955,7 @@ if (premioFile) {
   linkPremio.target = "_blank";
   linkPremio.rel = "noopener";
 
-  const imgIcon = `img/scatola_regalo_${premioN}.png`;
+  const imgIcon = `img/scatola_regalo_${premioN}.jpg`;
 
   // bottone: stile inline (non dipende da Tailwind)
   linkPremio.style.display = "inline-flex";
