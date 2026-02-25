@@ -394,11 +394,25 @@ function HubView() {
             </div>
           </div>
 
+          <!-- 🪔 NUOVA CARD LAMPADA MAGICA -->
+<div class="card-diario" onclick="navigate('lampada')">
+  <div class="flex items-center space-x-4">
+    <img
+      src="img/icona_lampada_800.png"
+      alt="La Lampada Magica"
+      class="w-10 h-10 object-contain flex-shrink-0"
+      loading="lazy"
+    >
+    <h2 class="font-ui-titolo text-xl font-semibold">La Lampada Magica</h2>
+  </div>
+</div>
+
         </div>
       </main>
     </div>
   `;
 }
+
 // VISTA MEDITERRANEO (menu principale)
 function MenuMediterraneoView() {
   return `
