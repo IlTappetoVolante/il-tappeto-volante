@@ -422,3 +422,10 @@ img.sigillo {
   font-size: 0.88rem;  /* ancora un filo più piccolo */
   line-height: 1.25;
 }
+
+/* HUB: evita sovrapposizione header su mobile */
+@media (max-width: 768px){
+  .vista-menu { 
+    padding-top: 72px;
+  }
+}
