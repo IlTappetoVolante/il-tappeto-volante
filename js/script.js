@@ -352,7 +352,7 @@ return `
            background-color: #070812;">
 
      <header class="header-galleggiante">
-       <button onclick="navigate('home')">Home</button>
+       <button onclick="window.location.href='./index.html'">Home</button>
      </header>
 
      <div class="w-full mb-6 text-center">
