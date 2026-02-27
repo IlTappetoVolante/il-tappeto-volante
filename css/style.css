@@ -426,6 +426,6 @@ img.sigillo {
 /* HUB: evita sovrapposizione header su mobile */
 @media (max-width: 768px){
   .vista-menu { 
-    padding-top: 72px;
+    padding-top: 100px;
   }
 }
