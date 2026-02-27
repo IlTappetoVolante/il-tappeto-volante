@@ -368,21 +368,21 @@ return `
          <div class="card-diario" onclick="navigate('diario', '${DATABASE.diari[0].id}')">
            <div class="flex items-center space-x-4">
              <span class="text-3xl">📖</span>
-             <h2 class="font-ui-titolo text-xl font-semibold">Diari di Viaggio</h2>
+             <h2 class="font-ui-titolo text-xl font-semibold">La Porta dei Diari</h2>
            </div>
          </div>
 
          <div class="card-diario" onclick="navigate('menu-storie')">
            <div class="flex items-center space-x-4">
              <span class="text-3xl">📜</span>
-             <h2 class="font-ui-titolo text-xl font-semibold">Le Storie</h2>
+             <h2 class="font-ui-titolo text-xl font-semibold">Le Trame delle Storie</h2>
            </div>
          </div>
 
          <div class="card-diario" onclick="navigate('diario', '${DATABASE.diari[0].id}')">
            <div class="flex items-center space-x-4">
              <span class="text-3xl">🧭</span>
-             <h2 class="font-ui-titolo text-xl font-semibold">Viaggi Immaginati</h2>
+             <h2 class="font-ui-titolo text-xl font-semibold">I Viaggi Immaginati</h2>
            </div>
          </div>
 
@@ -390,7 +390,7 @@ return `
          <div class="card-diario" onclick="navigate('menu-mediterraneo')">
            <div class="flex items-center space-x-4">
              <span class="text-3xl">🌊</span>
-             <h2 class="font-ui-titolo text-xl font-semibold">Volando tra le culture del Mediterraneo</h2>
+             <h2 class="font-ui-titolo text-xl font-semibold">Volando tra le Culture del Mediterraneo</h2>
            </div>
          </div>
 
@@ -400,7 +400,7 @@ return `
     <img
       src="img/icona_lampada_800.png"
       alt="La Lampada Magica"
-      class="w-10 h-10 object-contain flex-shrink-0"
+      class="w-50 h-50 object-contain flex-shrink-0"
       loading="lazy"
     >
     <h2 class="font-ui-titolo text-xl font-semibold">La Lampada Magica</h2>
