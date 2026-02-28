@@ -428,4 +428,8 @@ img.sigillo {
   .vista-menu { 
     padding-top: 100px;
   }
+
+}
+ @media (max-width: 768px){
+  .header-galleggiante{ top: 74px !important; }
 }
