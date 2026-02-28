@@ -463,3 +463,8 @@ img.sigillo {
     line-height: 1.1;
   }
 }
+
+.icona-card{
+  width: 50px !important;
+  height: 50px !important;
+}
