@@ -381,7 +381,7 @@ return `
          <div class="card-diario" onclick="navigate('menu-storie')">
            <div class="flex items-center space-x-4">
              <img
-              src="img/icona_storie_800.png"
+              src="img/icona_storie_800.jpg"
               alt="Le Trame delle Storie"
               class="icona-card object-contain flex-shrink-0"
               loading="lazy"
@@ -406,7 +406,7 @@ return `
          <div class="card-diario" onclick="navigate('menu-mediterraneo')">
            <div class="flex items-center space-x-4">
              <img
-              src="img/mediterraneo_800.png"
+              src="img/icona_mediterraneo_800.png"
               alt="Volando tra le Culture del Mediterraneo"
               class="icona-card object-contain flex-shrink-0"
               loading="lazy"
