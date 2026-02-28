@@ -479,3 +479,16 @@ img.sigillo {
   display: block;
   flex: 0 0 auto;
 }
+
+/* HUB: layout interno card coerente (icona a sinistra, testo accanto) */
+.card-diario > div{
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  justify-content: flex-start !important;
+}
+
+.card-diario h2{
+  text-align: left !important;
+  margin: 0 !important;
+}
