@@ -368,21 +368,36 @@ return `
 
          <div class="card-diario" onclick="navigate('diario', '${DATABASE.diari[0].id}')">
            <div class="flex items-center space-x-4">
-             <span class="text-3xl">📖</span>
+             <img
+              src="img/icona_diari_800.png"
+              alt="La Porta dei Diari"
+              class="icona-card object-contain flex-shrink-0"
+              loading="lazy"
+              />
              <h2 class="font-ui-titolo text-xl font-semibold">La Porta dei Diari</h2>
            </div>
          </div>
 
          <div class="card-diario" onclick="navigate('menu-storie')">
            <div class="flex items-center space-x-4">
-             <span class="text-3xl">📜</span>
+             <img
+              src="img/icona_storie_800.png"
+              alt="Le Trame delle Storie"
+              class="icona-card object-contain flex-shrink-0"
+              loading="lazy"
+              />
              <h2 class="font-ui-titolo text-xl font-semibold">Le Trame delle Storie</h2>
            </div>
          </div>
 
          <div class="card-diario" onclick="navigate('diario', '${DATABASE.diari[0].id}')">
            <div class="flex items-center space-x-4">
-             <span class="text-3xl">🧭</span>
+            <img
+              src="img/icona_immaginati_800.png"
+              alt="I Viaggi Immaginati"
+              class="icona-card object-contain flex-shrink-0"
+              loading="lazy"
+              />
              <h2 class="font-ui-titolo text-xl font-semibold">I Viaggi Immaginati</h2>
            </div>
          </div>
@@ -390,7 +405,12 @@ return `
          <!-- 🌊 NUOVA SEZIONE MEDITERRANEO -->
          <div class="card-diario" onclick="navigate('menu-mediterraneo')">
            <div class="flex items-center space-x-4">
-             <span class="text-3xl">🌊</span>
+             <img
+              src="img/mediterraneo_800.png"
+              alt="Volando tra le Culture del Mediterraneo"
+              class="icona-card object-contain flex-shrink-0"
+              loading="lazy"
+              />
              <h2 class="font-ui-titolo text-xl font-semibold">Volando tra le Culture del Mediterraneo</h2>
            </div>
          </div>
