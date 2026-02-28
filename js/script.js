@@ -362,7 +362,7 @@ return `
        </div>
      </div>
 
-     <main class="vista-menu flex-1 overflow-y-auto p-4 pt-6">
+     <main class="vista-menu flex-1 overflow-y-auto p-4 pt-24 md:pt-4">
        <div class="container-cards">
 
          <div class="card-diario" onclick="navigate('diario', '${DATABASE.diari[0].id}')">
