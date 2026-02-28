@@ -21,6 +21,11 @@ body {
   max-width: 100% !important; 
 }
 
+/* HUB: titolo centrato nella cornice anche su desktop */
+.hub-titolo{
+  margin-top: 30px !important;
+}
+
 .container-cards {
   width: 90%;
   max-width: 900px; 
