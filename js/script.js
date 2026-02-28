@@ -350,7 +350,9 @@ return `
            background-position: center;
            background-attachment: fixed;
            background-color: #070812;">
-
+           
+      <div class="h-20 md:hidden"></div>
+      
      <header class="header-galleggiante">
        <button onclick="window.location.href='./index.html'">Home</button>
      </header>
