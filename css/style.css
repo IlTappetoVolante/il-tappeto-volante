@@ -468,3 +468,14 @@ img.sigillo {
   width: 50px !important;
   height: 50px !important;
 }
+
+/* FIX: icone immagini dentro le card sempre 50x50 */
+.card-diario img.icona-card{
+  width: 50px !important;
+  height: 50px !important;
+  max-width: 50px !important;
+  max-height: 50px !important;
+  object-fit: contain !important;
+  display: block;
+  flex: 0 0 auto;
+}
