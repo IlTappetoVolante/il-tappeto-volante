@@ -455,3 +455,11 @@ img.sigillo {
     margin-top: 30px !important;  /* se troppo: 60; se poco: 80 */
   }
 }
+
+/* Titolo più grande solo su desktop */
+@media (min-width: 768px){
+  .diario-titolo{
+    font-size: 3.2rem;
+    line-height: 1.1;
+  }
+}
