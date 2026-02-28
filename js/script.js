@@ -401,7 +401,7 @@ return `
    <img
   src="img/icona_lampada_800.png"
   alt="La Lampada Magica"
-  class="w-[50px] h-[50px] object-contain flex-shrink-0"
+  class="icona-card object-contain flex-shrink-0"
   loading="lazy"
 />
     <h2 class="font-ui-titolo text-xl font-semibold">La Lampada Magica</h2>
