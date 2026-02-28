@@ -356,7 +356,7 @@ return `
        <button onclick="window.location.href='./index.html'">Home</button>
      </header>
 
-     <div class="w-full mb-6 text-center">
+    <div class="hub-titolo w-full mb-6 text-center">
        <div class="font-ui-titolo text-3xl font-bold text-white"
             style="text-shadow: 0 2px 10px rgba(0,0,0,0.9);">
          Diari di Viaggio e altre Storie...
