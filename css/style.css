@@ -492,3 +492,5 @@ img.sigillo {
   text-align: left !important;
   margin: 0 !important;
 }
+
+.card-diario{ outline: 5px solid lime !important; }
