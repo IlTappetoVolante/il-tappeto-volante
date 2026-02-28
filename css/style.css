@@ -440,6 +440,6 @@ img.sigillo {
 /* HUB: centra meglio titolo dentro la cornice su mobile */
 @media (max-width: 768px){
   .container-cards{
-    padding-top: 24px !important;   /* prova 24; se serve 32 */
+    padding-top: 40px !important;   /* prova 24; se serve 32 */
   }
 }
