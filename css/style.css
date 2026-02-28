@@ -443,3 +443,10 @@ img.sigillo {
     padding-top: 40px !important;   /* prova 24; se serve 32 */
   }
 }
+
+/* HUB: abbassa il titolo su mobile */
+@media (max-width: 768px){
+  .hub-titolo{
+    margin-top: 70px !important;  /* se troppo: 60; se poco: 80 */
+  }
+}
