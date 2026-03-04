@@ -372,9 +372,6 @@ return `
     <h2 class="font-ui-titolo text-xl font-semibold">La Porta dei Diari</h2>
   </div>
 </div>
-             <h2 class="font-ui-titolo text-xl font-semibold">La Porta dei Diari</h2>
-           </div>
-         </div>
 
          <div class="card-diario" onclick="navigate('menu-storie')">
            <div class="flex items-center space-x-4">
