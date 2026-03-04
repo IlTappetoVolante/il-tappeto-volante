@@ -526,8 +526,6 @@ img.sigillo {
   margin: 0 !important;
 }
 
-.card-diario{ outline: 3px solid red !important; 
-
              /* STEP 3: niente spinta a destra */
 .card-diario-inner{
   justify-content: flex-start;
