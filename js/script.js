@@ -367,8 +367,11 @@ return `
        <div class="container-cards">
 
        <div class="card-diario" onclick="navigate('diario', '${DATABASE.diari[0].id}')">
-  <div class="card-diario-inner">
-    <img src="img/icona_diari_800.png" alt="La Porta dei Diari" class="icona-card" loading="lazy" />
+  <div class="flex items-center space-x-4">
+    <img src="img/icona_diari_800.png"
+         alt="La Porta dei Diari"
+         class="icona-card"
+         loading="lazy" />
     <h2 class="font-ui-titolo text-xl font-semibold">La Porta dei Diari</h2>
   </div>
 </div>
