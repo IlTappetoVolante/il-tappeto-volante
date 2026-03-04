@@ -391,14 +391,13 @@ function HubView() {
             onClick: `navigate('menu-storie')`
           })}
 
-          ${renderCard({
-            title: "I Viaggi Immaginati",
-            img: "img/icona_immaginati_800.png",
-            alt: "I Viaggi Immaginati",
-            // ⚠️ Cambia questa route se la tua si chiama diversamente
-            <div class="card-diario" onclick="navigate('in-costruzione', 'viaggi-immaginati')`
+         ${renderCard({
+          title: "I Viaggi Immaginati",
+          img: "img/icona_immaginati_800.png",
+          alt: "I Viaggi Immaginati",
+          onClick: `navigate('in-costruzione', 'viaggi-immaginati')`
           })}
-
+          
           ${renderCard({
             title: "Volando tra le Culture del Mediterraneo",
             img: "img/icona_mediterraneo_800.png",
