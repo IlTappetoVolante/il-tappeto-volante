@@ -420,8 +420,8 @@ function HubView() {
 
 function ViaggiImmaginatiView() {
   return `
-    <div class="flex flex-col h-full"
-      style="background-image: url('img/sfondo_diari.jpg');
+    <div class="flex flex-col min-h-screen"
+      style="background-image: url('img/sfondo_diario.jpg');
              background-size: cover;
              background-position: center;
              background-attachment: fixed;
@@ -431,31 +431,35 @@ function ViaggiImmaginatiView() {
         <button onclick="navigate('hub')">Indietro</button>
       </header>
 
-      <main class="vista-lettura p-4">
-        <div class="max-w-4xl mx-auto px-6">
+      <main class="flex-1 flex flex-col items-center justify-between px-4 pt-24 pb-10">
+        
+        <!-- Titolo centrato -->
+        <h1 class="font-ui-titolo text-4xl md:text-5xl font-bold text-white text-center"
+            style="text-shadow: 0 2px 12px rgba(0,0,0,0.85);">
+          I Viaggi Immaginati
+        </h1>
 
-  <h1 class="font-ui-titolo text-3xl font-bold mb-6">
-    I Viaggi Immaginati
-  </h1>
+        <!-- Immagine centrale -->
+        <div class="w-full max-w-5xl mt-6 mb-6">
+          <img src="img/mappa_viaggi_immaginati.jpg"
+               alt="Mappa dei Viaggi Immaginati"
+               class="w-full h-auto rounded-lg shadow-lg"
+               loading="lazy" />
+        </div>
 
-  <p class="diario-text mb-4">
-    Questa sezione del Tappeto Volante è ancora in preparazione.
-  </p>
+        <!-- Testo in basso e centrato -->
+        <div class="w-full max-w-4xl text-center text-white"
+             style="text-shadow: 0 2px 10px rgba(0,0,0,0.85);">
+          <p class="text-lg md:text-xl mb-3">
+            Questa sezione del Tappeto Volante è ancora in preparazione.
+          </p>
+          <p class="text-lg md:text-xl">
+            Presto potrai salire sul tappeto e visitare luoghi che ancora non ho percorso,
+            ma che esistono già nella mia immaginazione.
+          </p>
+        </div>
 
-  <p class="diario-text mb-8">
-    Presto potrai salire sul tappeto e visitare luoghi che ancora non ho percorso,
-    ma che esistono già nella mia immaginazione.
-  </p>
-
-  <img
-    src="img/mappa_viaggi_immaginati.jpg"
-    class="w-full rounded-lg shadow-lg"
-    loading="lazy"
-  />
-
-</div>
       </main>
-
     </div>
   `;
 }
