@@ -34,7 +34,7 @@ elenco: [
 {
 id: "intro-storie",
 titolo: "Introduzione",
-icon: "<img src='img/icona_intro.jpg' style='width: 50px !important; height: 50px !important;' class='object-contain'>",
+icon: "<img src='img/icona_intro.png' style='width: 50px !important; height: 50px !important;' class='object-contain'>",
 sfondo: "img/sfondo_intro_storie.jpg",
 theme: {
 side_overlay: "img/lanterna.jpg", // <-- la tua lanterna (PNG trasparente)
