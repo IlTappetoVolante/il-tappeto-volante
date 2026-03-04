@@ -396,7 +396,7 @@ function HubView() {
             img: "img/icona_immaginati_800.png",
             alt: "I Viaggi Immaginati",
             // ⚠️ Cambia questa route se la tua si chiama diversamente
-            <div class="card-diario" onclick="navigate('in-costruzione', 'viaggi-immaginati')">
+            <div class="card-diario" onclick="navigate('in-costruzione', 'viaggi-immaginati')`
           })}
 
           ${renderCard({
