@@ -341,95 +341,116 @@ return `
 
 
 
+// Template unico per le card del menu (HUB / menu vari)
+function renderCard({ title, img, alt, onClick, extraClass = "" }) {
+  return `
+    <div class="card-diario ${extraClass}" onclick="${onClick}">
+      <div class="flex items-center space-x-4">
+        <img src="${img}" alt="${alt}" class="icona-card" loading="lazy" />
+        <h2 class="font-ui-titolo text-xl font-semibold">${title}</h2>
+      </div>
+    </div>
+  `;
+}
+
 // VISTA HUB (menu principale)
 function HubView() {
-return `
-   <div class="flex flex-col h-full"
-    style="background-image: url('img/sfondo_hub.jpg');
-           background-size: cover;
-           background-position: center;
-           background-attachment: fixed;
-           background-color: #070812;">
-           
-      
-     <header class="header-galleggiante">
-       <button onclick="window.location.href='./index.html'">Home</button>
-     </header>
+  return `
+    <div class="flex flex-col h-full"
+      style="background-image: url('img/sfondo_hub.jpg');
+             background-size: cover;
+             background-position: center;
+             background-attachment: fixed;
+             background-color: #070812;">
 
-    <div class="hub-titolo w-full mb-6 text-center">
-       <div class="font-ui-titolo text-3xl font-bold text-white"
-            style="text-shadow: 0 2px 10px rgba(0,0,0,0.9);">
-         Diari di Viaggio e altre Storie...
-       </div>
-     </div>
+      <header class="header-galleggiante">
+        <button onclick="window.location.href='./index.html'">Home</button>
+      </header>
 
-     <main class="vista-menu flex-1 overflow-y-auto p-4 pt-24 md:pt-4">
-       <div class="container-cards">
+      <div class="hub-titolo w-full mb-6 text-center">
+        <div class="font-ui-titolo text-3xl font-bold text-white"
+             style="text-shadow: 0 2px 10px rgba(0,0,0,0.9);">
+          Diari di Viaggio e altre Storie...
+        </div>
+      </div>
 
-       <div class="card-diario" onclick="navigate('diario', '${DATABASE.diari[0].id}')">
-  <div class="flex items-center space-x-4">
-    <img src="img/icona_diari_800.png"
-         alt="La Porta dei Diari"
-         class="icona-card"
-         loading="lazy" />
-    <h2 class="font-ui-titolo text-xl font-semibold">La Porta dei Diari</h2>
-  </div>
-</div>
+      <main class="vista-menu flex-1 overflow-y-auto p-4 pt-24 md:pt-4">
+        <div class="container-cards">
 
-         <div class="card-diario" onclick="navigate('menu-storie')">
-           <div class="flex items-center space-x-4">
-             <img
-              src="img/icona_storie_800.jpg"
-              alt="Le Trame delle Storie"
-              class="icona-card object-contain flex-shrink-0"
-              loading="lazy"
-              />
-             <h2 class="font-ui-titolo text-xl font-semibold">Le Trame delle Storie</h2>
-           </div>
-         </div>
+          ${renderCard({
+            title: "La Porta dei Diari",
+            img: "img/icona_diari_800.png",
+            alt: "La Porta dei Diari",
+            onClick: `navigate('diario', '${DATABASE.diari[0].id}')`
+          })}
 
-         <div class="card-diario" onclick="navigate('diario', '${DATABASE.diari[0].id}')">
-           <div class="flex items-center space-x-4">
-            <img
-              src="img/icona_immaginati_800.png"
-              alt="I Viaggi Immaginati"
-              class="icona-card object-contain flex-shrink-0"
-              loading="lazy"
-              />
-             <h2 class="font-ui-titolo text-xl font-semibold">I Viaggi Immaginati</h2>
-           </div>
-         </div>
+          ${renderCard({
+            title: "Le Trame delle Storie",
+            img: "img/icona_storie_800.jpg",
+            alt: "Le Trame delle Storie",
+            onClick: `navigate('menu-storie')`
+          })}
 
-         <!-- 🌊 NUOVA SEZIONE MEDITERRANEO -->
-         <div class="card-diario" onclick="navigate('menu-mediterraneo')">
-           <div class="flex items-center space-x-4">
-             <img
-              src="img/icona_mediterraneo_800.png"
-              alt="Volando tra le Culture del Mediterraneo"
-              class="icona-card object-contain flex-shrink-0"
-              loading="lazy"
-              />
-             <h2 class="font-ui-titolo text-xl font-semibold">Volando tra le Culture del Mediterraneo</h2>
-           </div>
-         </div>
+          ${renderCard({
+            title: "I Viaggi Immaginati",
+            img: "img/icona_immaginati_800.png",
+            alt: "I Viaggi Immaginati",
+            // ⚠️ Cambia questa route se la tua si chiama diversamente
+            <div class="card-diario" onclick="navigate('in-costruzione', 'viaggi-immaginati')">
+          })}
 
-          <!-- 🪔 NUOVA CARD LAMPADA MAGICA -->
-<div class="card-diario" onclick="navigate('lampada')">
-  <div class="flex items-center space-x-4">
-   <img
-  src="img/icona_lampada_800.png"
-  alt="La Lampada Magica"
-  class="icona-card object-contain flex-shrink-0"
-  loading="lazy"
-/>
-    <h2 class="font-ui-titolo text-xl font-semibold">La Lampada Magica</h2>
-  </div>
-</div>
+          ${renderCard({
+            title: "Volando tra le Culture del Mediterraneo",
+            img: "img/icona_mediterraneo_800.png",
+            alt: "Volando tra le Culture del Mediterraneo",
+            onClick: `navigate('menu-mediterraneo')`
+          })}
 
-       </div>
-     </main>
-   </div>
- `;
+          ${renderCard({
+            title: "La Lampada Magica",
+            img: "img/icona_lampada_800.png",
+            alt: "La Lampada Magica",
+            onClick: `navigate('lampada')`
+          })}
+
+        </div>
+      </main>
+    </div>
+  `;
+}
+
+function ViaggiImmaginatiView() {
+  return `
+    <div class="flex flex-col h-full"
+      style="background-image: url('img/sfondo_diari.jpg');
+             background-size: cover;
+             background-position: center;
+             background-attachment: fixed;
+             background-color: #070812;">
+
+      <header class="header-galleggiante">
+        <button onclick="navigate('hub')">Indietro</button>
+      </header>
+
+      <main class="vista-lettura p-4">
+        <div class="foglio-storia">
+
+          <h1 class="diario-titolo">I Viaggi Immaginati</h1>
+
+          <p class="diario-text">
+            Questa sezione del Tappeto Volante è ancora in preparazione.
+          </p>
+
+          <p class="diario-text">
+            Presto potrai salire sul tappeto e visitare luoghi che ancora
+            non ho percorso, ma che esistono già nella mia immaginazione.
+          </p>
+
+        </div>
+      </main>
+
+    </div>
+  `;
 }
 
 // VISTA MEDITERRANEO (menu principale)
@@ -1208,6 +1229,7 @@ else if(view === 'menu-mediterraneo') appContainer.innerHTML = MenuMediterraneoV
 else if(view === 'storia') appContainer.innerHTML = StoriaLetturaView(p1);
 else if(view === 'leggi-storia') appContainer.innerHTML = StoriaLetturaView(p1);
 else if(view === 'lampada') appContainer.innerHTML = LampadaView(p1);
+else if(view === 'in-costruzione') appContainer.innerHTML = ViaggiImmaginatiView();
 else appContainer.innerHTML = HomeView();
 }
 const manifest = {"name":"Tappeto","display":"standalone","start_url":location.href};
