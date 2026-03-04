@@ -441,7 +441,7 @@ function ViaggiImmaginatiView() {
 
         <!-- Immagine centrale -->
         <div class="w-full max-w-5xl mt-6 mb-6">
-          <img src="img/icona_immaginati_800.jpg"
+          <img src="img/icona_immaginati_800.png"
                alt="Castelli in Aria"
                class="w-full h-auto rounded-lg shadow-lg"
                loading="lazy" />
