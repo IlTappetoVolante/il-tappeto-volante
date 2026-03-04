@@ -21,6 +21,18 @@ body {
   max-width: 100% !important; 
 }
 
+/* STEP 4: forza testo vicino all'icona (anti "a destra") */
+.card-diario .card-diario-inner{
+  justify-content: flex-start !important;
+}
+
+.card-diario .card-diario-inner > h2{
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  text-align: left !important;
+  flex: 0 1 auto !important;
+  width: auto !important;
+}
 /* HUB: titolo centrato nella cornice anche su desktop */
 .hub-titolo{
   margin-top: 30px !important;
