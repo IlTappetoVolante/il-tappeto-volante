@@ -53,6 +53,27 @@ body {
 .card-diario.card-storie {
   padding: 8px 12px !important; 
 }
+
+/* Layout interno card: blocca icona+testo in modo stabile */
+.card-diario-inner{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Icona: dimensione fissa, non si allarga mai */
+.card-diario .icona-card{
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  object-fit: contain;
+  display: block;
+}
+
+/* Titolo: niente margin strani */
+.card-diario h2{
+  margin: 0;
+}
 /* ========================================= */
 /* 3. MODALITA' LETTURA (Pagina con Sfondo)  */
 /* ========================================= */
