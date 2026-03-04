@@ -432,20 +432,28 @@ function ViaggiImmaginatiView() {
       </header>
 
       <main class="vista-lettura p-4">
-        <div class="foglio-storia">
+        <div class="max-w-4xl mx-auto px-6">
 
-          <h1 class="diario-titolo">I Viaggi Immaginati</h1>
+  <h1 class="font-ui-titolo text-3xl font-bold mb-6">
+    I Viaggi Immaginati
+  </h1>
 
-          <p class="diario-text">
-            Questa sezione del Tappeto Volante è ancora in preparazione.
-          </p>
+  <p class="diario-text mb-4">
+    Questa sezione del Tappeto Volante è ancora in preparazione.
+  </p>
 
-          <p class="diario-text">
-            Presto potrai salire sul tappeto e visitare luoghi che ancora
-            non ho percorso, ma che esistono già nella mia immaginazione.
-          </p>
+  <p class="diario-text mb-8">
+    Presto potrai salire sul tappeto e visitare luoghi che ancora non ho percorso,
+    ma che esistono già nella mia immaginazione.
+  </p>
 
-        </div>
+  <img
+    src="img/mappa_viaggi_immaginati.jpg"
+    class="w-full rounded-lg shadow-lg"
+    loading="lazy"
+  />
+
+</div>
       </main>
 
     </div>
