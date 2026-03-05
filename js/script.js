@@ -421,7 +421,7 @@ function HubView() {
 function ViaggiImmaginatiView() {
   return `
     <div class="flex flex-col min-h-screen"
-      style="background-image: url('img/sfondo_diario.jpg');
+      style="background-image: url('img/sfondo_diari.jpg');
              background-size: cover;
              background-position: center;
              background-attachment: fixed;
@@ -441,7 +441,7 @@ function ViaggiImmaginatiView() {
 
         <!-- Immagine centrale -->
         <div class="w-full max-w-5xl mt-6 mb-6">
-          <img src="img/mappa_viaggi_immaginati.jpg"
+          <img src="img/icona_immaginati_800.png"
                alt="Mappa dei Viaggi Immaginati"
                class="w-full h-auto rounded-lg shadow-lg"
                loading="lazy" />
