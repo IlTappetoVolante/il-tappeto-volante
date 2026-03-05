@@ -464,11 +464,6 @@ function ViaggiImmaginatiView() {
   `;
 }
 
-      </main>
-    </div>
-  `;
-}
-
 // VISTA MEDITERRANEO (menu principale)
 function MenuMediterraneoView() {
 return `
