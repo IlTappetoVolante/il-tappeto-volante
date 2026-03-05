@@ -421,7 +421,7 @@ function HubView() {
 function ViaggiImmaginatiView() {
   return `
     <div class="flex flex-col min-h-screen"
-      style="background-image: url('img/sfondo_diari.jpg');
+      style="background-image: url('img/sfondo_immaginati.jpg');
              background-size: cover;
              background-position: center;
              background-attachment: fixed;
