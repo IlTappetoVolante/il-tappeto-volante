@@ -439,14 +439,6 @@ function ViaggiImmaginatiView() {
           I Viaggi Immaginati
         </h1>
 
-        <!-- Immagine centrale -->
-        <div class="w-full max-w-5xl mt-6 mb-6">
-          <img src="img/icona_immaginati_800.png"
-               alt="Mappa dei Viaggi Immaginati"
-               class="w-full h-auto rounded-lg shadow-lg"
-               loading="lazy" />
-        </div>
-
         <!-- Testo in basso e centrato -->
         <div class="w-full max-w-4xl text-center text-white"
              style="text-shadow: 0 2px 10px rgba(0,0,0,0.85);">
