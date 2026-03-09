@@ -423,3 +423,29 @@ img.sigillo {
     line-height: 1.1;
   }
 }
+/* --- FIX BIOGRAFIA PER CELLULARE --- */
+@media (max-width: 768px) {
+    .colonna-testo {
+        width: 100% !important;
+        padding: 0 15px !important;
+        margin: 0 auto !important;
+    }
+    .testo-bio-poetico {
+        width: 100% !important;
+        padding: 0 !important;
+        font-size: 1.1rem !important; /* Opzionale: ingrandisce un filo il testo */
+    }
+}
+/* --- FIX BIOGRAFIA PER CELLULARE --- */
+@media (max-width: 768px) {
+    .colonna-testo {
+        width: 100% !important;
+        padding: 0 15px !important;
+        margin: 0 auto !important;
+    }
+    .testo-bio-poetico {
+        width: 100% !important;
+        padding: 0 !important;
+        font-size: 1.1rem !important; /* Opzionale: ingrandisce un filo il testo */
+    }
+}
