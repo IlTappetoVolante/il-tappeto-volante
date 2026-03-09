@@ -127,6 +127,6 @@ const TAPPA_1_DATA = {
         { type: "testo", paragrafo: "Tutto è contraddizione, tutto è armonia. È questo, in fondo, il Caos Affascinante." },
         { type: "immagine", src: "https://i.postimg.cc/wvz6YWxW/1762012924052.png" },
         { type: "didascalia", testo: "Ma il viaggio attraverso gli Stretti è appena iniziato. Lasciando alle spalle il vibrante caos di Istanbul, la nostra rotta ci conduce (nel secondo capitolo) verso l'altra sorella, quella che veglia sull'Atlantico; 'Tangeri, la Sentinella'." },
-        { type: "video", src: "https://youtu.be/LwtSP6LadGk?is=h0cEMPEJx4db73Vo" }
+        { type: "video", src: "https://youtu.be/LwtSP6LadGk" }
     ]
 };
