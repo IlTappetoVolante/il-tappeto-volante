@@ -22,7 +22,7 @@ const TAPPA_1_DATA = {
         { type: "immagine", src: "img/mura_teodosiane_istanbul.jpg" },
         { type: "testo", paragrafo: "La leggenda vuole che Orban avesse offerto i suoi servigi prima ai Bizantini, che però non potevano permettersi le sue tariffe. Il Sultano Fatih, invece, lo coprì d’oro. Furono quelle <em>super-bombarde</em> a sbriciolare le mura che avevano resistito a ogni assedio per mille anni. Subito dopo la conquista, Fatih <strong>sigillò</strong> l’antico ingresso trionfale bizantino, la <em>Golden Gate</em>, costruendoci attorno la sua fortezza ottomana: <strong>Yedikule (Le Sette Torri)</strong>." },
         { type: "testo", paragrafo: "Istintivamente lo sguardo riconosce ciò che resta di quella corazza leggendaria. Le Mura Teodosiane si estendono ancora oggi per chilometri, un serpente di pietra e torri che separa la città vecchia dalla metropoli moderna. Camminarci accanto significa toccare con mano mille anni di storia bizantina e il momento esatto in cui finì." },
-        { type: "immagine", src: "" },
+        { type: "immagine", src: "img/porta_san_romano_istanbul" },
         { type: "testo", paragrafo: "Poco oltre, lo sguardo indaga un muro ibrido: è l’architettura ottomana che ha letteralmente <em>inglobato</em> e sigillato i magnifici archi di marmo della Porta Aurea bizantina. È la prova architettonica della conquista: la fortezza del nuovo impero costruita sigillando la porta trionfale di quello vecchio." },
         { type: "testo", paragrafo: "All’interno delle mura, molte delle chiese segnate sulla mappa sono sopravvissute perché convertite in moschee." },
         { type: "immagine", src: "INSERIRE_LINK_IMMAGINE_QUI" },
