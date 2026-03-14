@@ -62,7 +62,7 @@ const TAPPA_1_DATA = {
         { type: "immagine", src: "https://i.postimg.cc/2STgddGw/Yeni-Camii-di-notte.jpg" },
         { type: "didascalia", testo: "Yeni Camii, la pietra che prega sotto il cielo d'inchiostro" },
 
-        { type: "immagine", src: "https://i.postimg.cc/x1d62wGN/Minareto-Yeni-Camii-di-notte.jpg" },
+        { type: "immagine", src: "minareto_yeni_camii_notte.jpg.jpg" },
         { type: "didascalia", testo: "Yeni Camii. Eleganza ottomana: l'ago che ricama la notte di Istanbul" },
 
         { type: "immagine", src: "img/interno-yeni-camii.jpg" },
