@@ -153,7 +153,7 @@ const TAPPA_1_DATA = {
 
         { type: "testo", paragrafo: "Ne è testimone il suo ascensore storico, il primo elettrico in Turchia, installato appena tre anni dopo quello della Torre Eiffel. Un gioiello di legno e ferro battuto che saliva silenzioso, portando re, spie, scrittori e diplomatici attraverso i piani sontuosi." },
 
-        { type: "immagine", sr: "im/targa_ascensore.jpg" },
+        { type: "immagine", src: "img/targa_ascensore.jpg" },
 
         { type: "immagine", src: "https://i.postimg.cc/gkjFvCW5/stanza-di-Ataturk.jpg" },
         { type: "didascalia", testo: "Stanza di Atatürk al Pera Palace" },
