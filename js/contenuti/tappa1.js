@@ -54,7 +54,7 @@ const TAPPA_1_DATA = {
 
         { type: "testo", paragrafo: "I moli sono i veri protagonisti. Da qui, i vapur (i traghetti) partono incessantemente, instancabili, cucendo la sponda europea a quella asiatica, risalendo il Corno d'Oro o navigando su e giù per il Bosforo. L'aria è un assalto ai sensi: l'eco metallico dei tram, il richiamo dei venditori di simit, il grido acuto dei gabbiani e l'odore inconfondibile del balık ekmek." },
 
-        { type: "immagine", src: "https://i.postimg.cc/B6GdwGQs/Vista-di-Beyoglu-Galata-dall'acqua.jpg" },
+        { type: "immagine", src: "img/vista_beyoglu_galata_corno_doro.jpg" },
         { type: "didascalia", testo: "Beyoğlu vista dai moli di Eminönü: l'invito al dialogo attraverso il Corno d'Oro" },
 
         { type: "testo", paragrafo: "A dominare questo caos, quasi a custodire l'ingresso del ponte, sorge la Yeni Camii, la Moschea Nuova. Il suo nome è un dolce inganno: è \"nuova\" da quasi quattrocento anni." },
