@@ -70,7 +70,7 @@ const TAPPA_1_DATA = {
 
         { type: "testo", paragrafo: "Ma il vero protagonista di questo capitolo è il ponte stesso. Il Ponte di Galata non è un semplice pezzo di asfalto; è un palcoscenico a due livelli, un quartiere galleggiante." },
 
-        { type: "immagine", src: "https://i.postimg.cc/SQCS65Mn/pescatori-sul-Ponte-di-Galata.jpg" },
+        { type: "immagine", src: "img/pescatori_ponte_galata.jpg" },
         { type: "didascalia", testo: "Fili gettati nella storia: i pescatori di Galata, un rituale sospeso tra cielo e acqua" },
 
         { type: "testo", paragrafo: "Il livello inferiore è il suo esatto contrario: è il regno del cibo e del riposo. È una fila ininterrotta di ristoranti." },
