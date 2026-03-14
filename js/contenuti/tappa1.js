@@ -59,7 +59,7 @@ const TAPPA_1_DATA = {
 
         { type: "testo", paragrafo: "A dominare questo caos, quasi a custodire l'ingresso del ponte, sorge la Yeni Camii, la Moschea Nuova. Il suo nome è un dolce inganno: è \"nuova\" da quasi quattrocento anni." },
 
-        { type: "immagine", src: "https://i.postimg.cc/2STgddGw/Yeni-Camii-di-notte.jpg" },
+        { type: "immagine", src: "yeni_camii_notte.jpg" },
         { type: "didascalia", testo: "Yeni Camii, la pietra che prega sotto il cielo d'inchiostro" },
 
         { type: "immagine", src: "minareto_yeni_camii_notte.jpg.jpg" },
