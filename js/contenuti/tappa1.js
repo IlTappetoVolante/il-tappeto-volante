@@ -11,7 +11,7 @@ const TAPPA_1_DATA = {
     },
     contenuto: [
         { type: "testo", paragrafo: "Se c'è un luogo che definisce Istanbul così come io la vedo, non è un singolo palazzo o una moschea, ma un punto di incontro, un connettore pulsante che incarna alla perfezione quell'essenza \"affascinante e caotica\" che ho sempre percepito." },
-        { type: "immagine", src: "ponte_galata_notte.jpg" },
+        { type: "immagine", src: "img/ponte_galata_notte.jpg" },
         { type: "didascalia", testo: "L'acqua divide, il ponte abbraccia: l'anima notturna del Corno d'Oro" },
         { type: "testo", paragrafo: "È il Galata Köprüsü (Ponte di Galata), visto di notte.Il mio \"sguardo\" cerca di catturare proprio questo. È un'immagine che vive di contrasti: un fiume d'acqua scura e inquieta, il Corno d'Oro, tagliato da un fiume orizzontale di luce. È qui che l' \"Anima Multipla\" di Istanbul si rivela. Questo ponte non unisce semplicemente due quartieri odierni Eminönü sulla riva sud, cuore della vecchia Stamboul (nome storico della penisola murata, l'antica Costantinopoli, centro religioso e imperiale), e Beyoğlu sulla riva nord, l'antica Galata ma due mondi, due anime storiche costrette a dialogare." },
         { type: "testo", paragrafo: "Iniziamo proprio da Stamboul, dalla riva sud, Eminönü. È l'anima imperiale e religiosa, la terra dei sultani, del palazzo Topkapi, delle cupole di Ayasofya (Santa Sofia) e della Sultanahmet Camii (Moschea Blu). È la storia romana, bizantina e ottomana." },
