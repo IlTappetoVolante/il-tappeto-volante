@@ -65,7 +65,7 @@ const TAPPA_1_DATA = {
         { type: "immagine", src: "https://i.postimg.cc/x1d62wGN/Minareto-Yeni-Camii-di-notte.jpg" },
         { type: "didascalia", testo: "Yeni Camii. Eleganza ottomana: l'ago che ricama la notte di Istanbul" },
 
-        { type: "immagine", src: "https://i.postimg.cc/5216QJKv/Interno-Yeni-Camii.jpg" },
+        { type: "immagine", src: "img/interno-yeni-camii.jpg" },
         { type: "didascalia", testo: "Yeni Camii, un cielo stellato di lampade in un giardino di maioliche" },
 
         { type: "testo", paragrafo: "Ma il vero protagonista di questo capitolo è il ponte stesso. Il Ponte di Galata non è un semplice pezzo di asfalto; è un palcoscenico a due livelli, un quartiere galleggiante." },
