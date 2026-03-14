@@ -1,7 +1,7 @@
 const TAPPA_1_DATA = {
     id: "tappa-1",
     titolo: "Prima Tappa: Il Caos Affascinante di Istanbul",
-    icon: "<img src='https://flagcdn.com/w80/tr.png' class='flag-icon'>", 
+    icon: "<img src='https://flagcdn.com/w80/tr.png' class='flag-icon'>" }, 
     theme: { 
         bg: 'bg-[#48D1CC]',
         text: 'text-[#005F5B]',
