@@ -4,7 +4,7 @@
 
 { type: "testo", paragrafo: "La leggenda vuole che Orban avesse offerto i suoi servigi prima ai Bizantini, che però non potevano permettersi le sue tariffe. Il Sultano Fatih, invece, lo coprì d’oro. Furono quelle <em>super‑bombarde</em> a sbriciolare il settore delle mura attorno alla <strong>Porta di San Romano</strong>, oggi chiamata <strong>Topkapı Kapısı</strong>: è qui che si aprì la breccia decisiva, ed è da qui che Mehmet II fece il suo ingresso nella città conquistata." },
 
-{ type: "immagine", src: "https://i.postimg.cc/T2zQdZgJ/Yedikule-Fortress-Golden-Gate.jpg" },
+{ type: "immagine", src: "img/istanbul_yedikule_porta_oro.jpg" },
 
 { type: "testo", paragrafo: "Poco più a sud, lo sguardo incontra un’altra storia. <strong>Altınkapı</strong>, la Porta Aurea bizantina, era l’antico ingresso trionfale dell’Impero Romano d’Oriente. Non fu coinvolta nell’assalto del 1453, ma subito dopo la conquista Fatih decise di <strong>sigillarla</strong> e di costruirci attorno una nuova fortezza ottomana: <strong>Yedikule</strong>, la “Fortezza delle Sette Torri”. È un’architettura ibrida, un luogo in cui le torri ottomane abbracciano e inglobano i magnifici archi di marmo della porta imperiale bizantina." },
 
