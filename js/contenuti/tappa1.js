@@ -49,7 +49,7 @@ const TAPPA_1_DATA = {
         
         { type: "testo", paragrafo: "Dopo la passeggiata nel passato, torniamo al presente. Secondo me, non c'è luogo che incarni il concetto di \"cuore pulsante\" più di Eminönü Meydanı. Non è una piazza nel senso rinascimentale italiano, un \"salotto\" ordinato. È un nodo vitale, un formicaio glorioso dove la città incontra l'acqua." },
 
-        { type: "immagine", src: "https://i.postimg.cc/907ynsx0/la-folla-ad-eminonu.jpg" },
+        { type: "immagine", src: "img/folla_eminonu.jpg" },
         { type: "didascalia", testo: "Eminönü: il cuore pulsante. Un fiume di volti all'ombra delle cupole imperiali" },
 
         { type: "testo", paragrafo: "I moli sono i veri protagonisti. Da qui, i vapur (i traghetti) partono incessantemente, instancabili, cucendo la sponda europea a quella asiatica, risalendo il Corno d'Oro o navigando su e giù per il Bosforo. L'aria è un assalto ai sensi: l'eco metallico dei tram, il richiamo dei venditori di simit, il grido acuto dei gabbiani e l'odore inconfondibile del balık ekmek." },
