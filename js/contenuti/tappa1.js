@@ -1,16 +1,16 @@
 const TAPPA_1_DATA = {
-    id "tappa-1",
-    titolo "Prima Tappa Il Caos Affascinante di Istanbul",
-    icon "<img src='https//flagcdn.com/w80/tr.png' class='flag-icon'>" };
-    theme { 
-        bg 'bg-[#48D1CC]',
-        text 'text-[#005F5B]',
-        border 'border-[#48D1CC]',
-        sfondo "https//upload.wikimedia.org/wikipedia/commons/d/dc/Hunername_15b.jpg"
+    id: "tappa-1",
+    titolo: "Prima Tappa: Il Caos Affascinante di Istanbul",
+    icon: "<img src='https://flagcdn.com/w80/tr.png' class='flag-icon'>",
+    theme: { 
+        bg: 'bg-[#48D1CC]',
+        text: 'text-[#005F5B]',
+        border: 'border-[#48D1CC]',
+        sfondo: "https://upload.wikimedia.org/wikipedia/commons/d/dc/Hunername_15b.jpg"
     },
-    contenuto [
+    contenuto: [
+        { type: "testo", paragrafo: "Se c'è un luogo che definisce Istanbul così come io la vedo, non è un singolo palazzo o una moschea, ma un punto di incontro, un connettore pulsante che incarna alla perfezione quell'essenza \"affascinante e caotica\" che ho sempre percepito." },
 
-        { type "testo", paragrafo "Se c'è un luogo che definisce Istanbul così come io la vedo, non è un singolo palazzo o una moschea, ma un punto di incontro, un connettore pulsante che incarna alla perfezione quell'essenza \"affascinante e caotica\" che ho sempre percepito." },
         { type "immagine", src "img/ponte_galata_notte" },
         { type "didascalia", testo "L'acqua divide, il ponte abbraccia l'anima notturna del Corno d'Oro" },
 
