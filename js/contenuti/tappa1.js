@@ -10,152 +10,71 @@ const TAPPA_1_DATA = {
     },
     contenuto: [
         { type: "testo", paragrafo: "Se c'è un luogo che definisce Istanbul così come io la vedo, non è un singolo palazzo o una moschea, ma un punto di incontro, un connettore pulsante che incarna alla perfezione quell'essenza \"affascinante e caotica\" che ho sempre percepito." },
-
-        { type "immagine", src "img/ponte_galata_notte" },
-        { type "didascalia", testo "L'acqua divide, il ponte abbraccia l'anima notturna del Corno d'Oro" },
-
-        { type "testo", paragrafo "È il Galata Köprüsü (Ponte di Galata), visto di notte. Il mio \"sguardo\" cerca di catturare proprio questo. È un'immagine che vive di contrasti un fiume d'acqua scura e inquieta, il Corno d'Oro, tagliato da un fiume orizzontale di luce. È qui che l' \"Anima Multipla\" di Istanbul si rivela." },
-
-        { type "testo", paragrafo "Iniziamo proprio da Stamboul, dalla riva sud, Eminönü. È l'anima imperiale e religiosa, la terra dei sultani, del palazzo Topkapi, delle cupole di Ayasofya (Santa Sofia) e della Sultanahmet Camii (Moschea Blu). È la storia romana, bizantina e ottomana." },
-
-        { type "approfondimento", titolo "UNO SGUARDO SULLA STORIA LE RADICI DI COSTANTINOPOLI", paragrafo "È affascinante vedere come il <em>DNA</em> di Costantinopoli sia ancora perfettamente leggibile nella Istanbul moderna. L’odierno quartiere di Fatih è essenzialmente la città raffigurata su questa mappa le tracce bizantine sono ancora lì, spesso <em>nascoste in bella vista</em>." },
-
-        { type "immagine", src "https//lh3.googleusercontent.com/d/1Vl_n8-rOjEHH0g0KeCVpmib8kr-J-CEy" },
-
-        { type "testo", paragrafo "La nostra passeggiata inizia dalle Mura Terrestri (Mura Teodosiane), quelle che vediamo sul lato ovest della mappa. Queste sono le mura leggendarie che il Sultano Mehmet II Fatih (il Conquistatore) sfondò nel 1453. La storia racconta che ci riuscì grazie a cannoni giganti, i più grandi mai visti all’epoca, progettati da un ingegnere ungherese di nome Orban." },
-
-        { type "immagine", src "https//i.postimg.cc/mD41VfG1/17628816004148.jpeg" },
-
-        { type "testo", paragrafo "La leggenda vuole che Orban avesse offerto i suoi servigi prima ai Bizantini, che però non potevano permettersi le sue tariffe. Il Sultano Fatih, invece, lo coprì d’oro. Furono quelle <em>super‑bombarde</em> a sbriciolare il settore delle mura attorno alla <strong>Porta di San Romano</strong>, oggi chiamata <strong>Topkapı Kapısı</strong> è qui che si aprì la breccia decisiva, ed è da qui che Mehmet II fece il suo ingresso nella città conquistata." },
-
-        { type "immagine", src "https//i.postimg.cc/T2zQdZgJ/Yedikule-Fortress-Golden-Gate.jpg" },
-
-        { type "testo", paragrafo "Poco più a sud, lo sguardo incontra un’altra storia. <strong>Altınkapı</strong>, la Porta Aurea bizantina, era l’antico ingresso trionfale dell’Impero Romano d’Oriente. Non fu coinvolta nell’assalto del 1453, ma subito dopo la conquista Fatih decise di <strong>sigillarla</strong> e di costruirci attorno una nuova fortezza ottomana <strong>Yedikule</strong>, la “Fortezza delle Sette Torri”. È un’architettura ibrida, un luogo in cui le torri ottomane abbracciano e inglobano i magnifici archi di marmo della porta imperiale bizantina." },
-
-        { type "testo", paragrafo "Istintivamente lo sguardo riconosce ciò che resta di quella corazza leggendaria. Le Mura Teodosiane si estendono ancora oggi per chilometri, un serpente di pietra e torri che separa la città vecchia dalla metropoli moderna. Camminarci accanto significa toccare con mano mille anni di storia bizantina e il momento esatto in cui finì." },
-
-        { type "testo", paragrafo "E prima di lasciare questo mondo di pietra e secoli, lo sguardo si concede un ultimo respiro un volo sopra le Mura Teodosiane, dove la storia non è mai davvero finita. È un passaggio sospeso tra passato e presente, un modo per salutare Costantinopoli dall’alto, prima di tornare nella Istanbul di oggi." },
-
-        { type "video", src "https//youtube.com/shorts/oGXX0SRYpQs" },
-
-        { type "didascalia", testo "Le Mura Teodosiane dall’alto l’ultimo respiro di Costantinopoli" },
-
-        { type "testo", paragrafo "E infine, sazio di storia, lo sguardo si allarga. Dalla mappa antica passiamo alla mappa di oggi. Tutto ciò che abbiamo esplorato è solo la piccola penisola in basso a sinistra. Istanbul è cresciuta, immensa e multipla, attorno a questo cuore antico." },
-
-        { type "immagine", src "https//i.postimg.cc/k4GKY4dC/Free-Touristic-Map-Of-Istanbul-2.jpg" },
-        { type "testo", paragrafo "E per chiudere, un ultimo volo. Lo sguardo abbraccia tutto il Corno d’Oro, il Bosforo, le moschee imperiali e la città infinita. Un gioco pirotecnico di luci che celebra il <strong>Caos Affascinante di Istanbul</strong>." },
-
-        { type "immagine", src "https//i.postimg.cc/kMfL0y1Y/1762880601876.jpeg" },
-        
-        { type "testo", paragrafo "Dopo la passeggiata nel passato, torniamo al presente. Secondo me, non c'è luogo che incarni il concetto di \"cuore pulsante\" più di Eminönü Meydanı. Non è una piazza nel senso rinascimentale italiano, un \"salotto\" ordinato. È un nodo vitale, un formicaio glorioso dove la città incontra l'acqua." },
-
-        { type "immagine", src "img/folla_eminonu.jpg" },
-        { type "didascalia", testo "Eminönü il cuore pulsante. Un fiume di volti all'ombra delle cupole imperiali" },
-
-        { type "testo", paragrafo "I moli sono i veri protagonisti. Da qui, i vapur (i traghetti) partono incessantemente, instancabili, cucendo la sponda europea a quella asiatica, risalendo il Corno d'Oro o navigando su e giù per il Bosforo. L'aria è un assalto ai sensi l'eco metallico dei tram, il richiamo dei venditori di simit, il grido acuto dei gabbiani e l'odore inconfondibile del balık ekmek." },
-
-        { type "immagine", src "img/vista_beyoglu_galata_corno_doro.jpg" },
-        { type "didascalia", testo "Beyoğlu vista dai moli di Eminönü l'invito al dialogo attraverso il Corno d'Oro" },
-
-        { type "testo", paragrafo "A dominare questo caos, quasi a custodire l'ingresso del ponte, sorge la Yeni Camii, la Moschea Nuova. Il suo nome è un dolce inganno è \"nuova\" da quasi quattrocento anni." },
-
-        { type "immagine", src "yeni_camii_notte.jpg" },
-        { type "didascalia", testo "Yeni Camii, la pietra che prega sotto il cielo d'inchiostro" },
-
-        { type "immagine", src "minareto_yeni_camii_notte.jpg.jpg" },
-        { type "didascalia", testo "Yeni Camii. Eleganza ottomana l'ago che ricama la notte di Istanbul" },
-
-        { type "immagine", src "img/interno-yeni-camii.jpg" },
-        { type "didascalia", testo "Yeni Camii, un cielo stellato di lampade in un giardino di maioliche" },
-
-        { type "testo", paragrafo "Ma il vero protagonista di questo capitolo è il ponte stesso. Il Ponte di Galata non è un semplice pezzo di asfalto; è un palcoscenico a due livelli, un quartiere galleggiante." },
-
-        { type "immagine", src "img/pescatori_ponte_galata.jpg" },
-        { type "didascalia", testo "Fili gettati nella storia i pescatori di Galata, un rituale sospeso tra cielo e acqua" },
-
-        { type "testo", paragrafo "Il livello inferiore è il suo esatto contrario è il regno del cibo e del riposo. È una fila ininterrotta di ristoranti." },
-
-        { type "immagine", src "https//i.postimg.cc/VNh6mf4G/Ristorante-sotto-il-ponte-di-galata.jpg" },
-        { type "didascalia", testo "Cenando sospesi sull'acqua, nel cuore del dialogo tra le rive dove le anime si osservano" },
-
-        { type "testo", paragrafo "Attraversare il ponte significa lasciare un mondo ed entrare in un altro. Si sbarca a Karaköy e si inizia a salire. La collina di Beyoğlu (l'antica Pera) ti accoglie con un'energia diversa." },
-
-        { type "immagine", src "https//i.postimg.cc/sx21rTZ0/Vicolo-verso-la-Torre-di-galata.jpg" },
-        { type "didascalia", testo "Salendo verso l'altra anima echi d'Europa sui ciottoli di Galata" },
-
-        { type "testo", paragrafo "Come si vede nello scatto, i vicoli si stringono, i ciottoli si inerpicano e l'architettura cambia i palazzi diventano neoclassici, fin-de-siècle, europei. È l'anima \"altra\" della città, quella levantina." },
-
-        { type "immagine", src "https//i.postimg.cc/hj2PpV5n/collina-di-galata-al-tramonto.jpg" },
-        { type "didascalia", testo "La collina dorata lo sguardo dell'Europa al calar del sole" },
-        
-        { type "testo", paragrafo "E lassù, a dominare tutto, c'è lei. La Galata Kulesi (Torre di Galata) non è solo un punto all'orizzonte, è una presenza fisica, un perno attorno a cui ruota la vita del quartiere." },
-
-        { type "immagine", src "https//i.postimg.cc/FKD44Ngm/Torre-di-galata-con-folla.jpg" },
-        { type "didascalia", testo "Sotto la sentinella genovese il cuore giovane di Beyoğlu" },
-
-        { type "immagine", src "https//i.postimg.cc/25PPmyLL/Dettaglio-cima-galata-kulesi.jpg" },
-        { type "didascalia", testo "Lo sguardo della Christea Turris sette secoli puntati sul Corno d'Oro" },
-
-        { type "testo", paragrafo "La piazza ai suoi piedi brulica di una folla giovane e cosmopolita, molto diversa da quella più tradizionale di Eminönü. Questa è la torre genovese, la Christea Turris, lo \"sguardo\" dell'Europa che da sette secoli osserva la città vecchia sull'altra sponda." },
-
-        { type "immagine", src "https//lh3.googleusercontent.com/d/1vjxshUWy2y-N5B8DMMZKyJ-Sj78Fujs9" },
-        { type "testo", paragrafo "E una volta saliti in cima, ecco la ricompensa. Lo \"sguardo\" domina l'Anima Multipla. Da quassù, abbraccia tutto i tetti rossi di Galata sotto di noi, il Ponte di Galata che taglia il Corno d'Oro, e l'intera penisola storica di Fatih. Da qui si riconoscono perfettamente Eminönü con la Yeni Camii, l'ingresso del Bazaar delle Spezie e, maestosa sulla collina, la Moschea di Solimano il Magnifico. È il \"Caos Affascinante\" visto dall'alto." },
-
-        { type "testo", paragrafo "Ma l'anima europea di Beyoğlu/Pera ha il suo epicentro, il suo \"salotto\" più scintillante il Pera Palace Hotel." },
-
-        { type "immagine", src "https//i.postimg.cc/yNYFdy9w/esterno-Pera-palace.jpg" },
-        { type "didascalia", testo "L'iconico Pera Palace Hotel. Più che un albergo, il capolinea di lusso dell'Orient Express e il salotto cosmopolita di Istanbul" },
-
-        { type "immagine", src "https//i.postimg.cc/x19mx3sX/Tappeto-ingresso-Pera-Palace.jpg" },
-        { type "didascalia", testo "Il sigillo del Pera Palace impresso sul tappeto d'ingresso. Il rosso del lusso e il 1892, l'anno in cui tutto ebbe inizio" },
-
-        { type "immagine", src "https//i.postimg.cc/7YwbwYSm/Hall-Pera-Palace.jpg" },
-        { type "didascalia", testo "La hall del Pera Palace, la 'Kubbeli Saloon'. Un tuffo nell'eleganza della Belle Époque" },
-
-        { type "immagine", src "https//i.postimg.cc/yY162pzh/Ascensore-storico-Pera-Palace.jpg" },
-        { type "didascalia", testo "Ascensore storico Pera Palace" },
-
-        { type "testo", paragrafo "Ne è testimone il suo ascensore storico, il primo elettrico in Turchia, installato appena tre anni dopo quello della Torre Eiffel. Un gioiello di legno e ferro battuto che saliva silenzioso, portando re, spie, scrittori e diplomatici attraverso i piani sontuosi." },
-
-        { type "immagine", src "img/targa-ascensore_pera.jpg" },
-
-        { type "immagine", src "https//i.postimg.cc/gkjFvCW5/stanza-di-Ataturk.jpg" },
-        { type "didascalia", testo "Stanza di Atatürk al Pera Palace" },
-
-        { type "testo", paragrafo "La stanza 101 era l'abituale residenza di Mustafa Kemal Atatürk durante le sue visite in città. Fu qui che il fondatore della Repubblica prese decisioni cruciali, incontrò figure chiave e, in un certo senso, progettò il futuro della nazione." },
-        
-        { type "testo", paragrafo "E lassù, a dominare tutto, c'è lei. La Galata Kulesi (Torre di Galata) non è solo un punto all'orizzonte, è una presenza fisica, un perno attorno a cui ruota la vita del quartiere." },
-
-        { type "immagine", src "https//i.postimg.cc/FKD44Ngm/Torre-di-galata-con-folla.jpg" },
-        { type "didascalia", testo "Sotto la sentinella genovese il cuore giovane di Beyoğlu" },
-
-        { type "immagine", src "https//i.postimg.cc/25PPmyLL/Dettaglio-cima-galata-kulesi.jpg" },
-        { type "didascalia", testo "Lo sguardo della Christea Turris sette secoli puntati sul Corno d'Oro" },
-
-        { type "testo", paragrafo "La piazza ai suoi piedi brulica di una folla giovane e cosmopolita, molto diversa da quella più tradizionale di Eminönü. Questa è la torre genovese, la Christea Turris, lo \"sguardo\" dell'Europa che da sette secoli osserva la città vecchia sull'altra sponda." },
-
-        { type "immagine", src "https//lh3.googleusercontent.com/d/1vjxshUWy2y-N5B8DMMZKyJ-Sj78Fujs9" },
-        { type "testo", paragrafo "E una volta saliti in cima, ecco la ricompensa. Lo \"sguardo\" domina l'Anima Multipla. Da quassù, abbraccia tutto i tetti rossi di Galata sotto di noi, il Ponte di Galata che taglia il Corno d'Oro, e l'intera penisola storica di Fatih. Da qui si riconoscono perfettamente Eminönü con la Yeni Camii, l'ingresso del Bazaar delle Spezie e, maestosa sulla collina, la Moschea di Solimano il Magnifico. È il \"Caos Affascinante\" visto dall'alto." },
-
-        { type "testo", paragrafo "Ma l'anima europea di Beyoğlu/Pera ha il suo epicentro, il suo \"salotto\" più scintillante il Pera Palace Hotel." },
-
-        { type "immagine", src "https//i.postimg.cc/yNYFdy9w/esterno-Pera-palace.jpg" },
-        { type "didascalia", testo "L'iconico Pera Palace Hotel. Più che un albergo, il capolinea di lusso dell'Orient Express e il salotto cosmopolita di Istanbul" },
-
-        { type "immagine", src "https//i.postimg.cc/x19mx3sX/Tappeto-ingresso-Pera-Palace.jpg" },
-        { type "didascalia", testo "Il sigillo del Pera Palace impresso sul tappeto d'ingresso. Il rosso del lusso e il 1892, l'anno in cui tutto ebbe inizio" },
-
-        { type "immagine", src "https//i.postimg.cc/7YwbwYSm/Hall-Pera-Palace.jpg" },
-        { type "didascalia", testo "La hall del Pera Palace, la 'Kubbeli Saloon'. Un tuffo nell'eleganza della Belle Époque" },
-
-        { type "immagine", src "https//i.postimg.cc/yY162pzh/Ascensore-storico-Pera-Palace.jpg" },
-        { type "didascalia", testo "Ascensore storico Pera Palace" },
-
-        { type "testo", paragrafo "Ne è testimone il suo ascensore storico, il primo elettrico in Turchia, installato appena tre anni dopo quello della Torre Eiffel. Un gioiello di legno e ferro battuto che saliva silenzioso, portando re, spie, scrittori e diplomatici attraverso i piani sontuosi." },
-
-        { type "immagine", src "img/targa_ascensore.jpg" },
-
-        { type "immagine", src "https//i.postimg.cc/gkjFvCW5/stanza-di-Ataturk.jpg" },
-        { type "didascalia", testo "Stanza di Atatürk al Pera Palace" },
-
-        { type "testo", paragrafo "La stanza 101 era l'abituale residenza di Mustafa Kemal Atatürk durante le sue visite in città. Fu qui che il fondatore della Repubblica prese decisioni cruciali, incontrò figure chiave e, in un certo senso, progettò il futuro della nazione." },
+        { type: "immagine", src: "img/ponte_galata_notte" },
+        { type: "didascalia", testo: "L'acqua divide, il ponte abbraccia l'anima notturna del Corno d'Oro" },
+        { type: "testo", paragrafo: "È il Galata Köprüsü (Ponte di Galata), visto di notte. Il mio \"sguardo\" cerca di catturare proprio questo. È un'immagine che vive di contrasti un fiume d'acqua scura e inquieta, il Corno d'Oro, tagliato da un fiume orizzontale di luce. È qui che l' \"Anima Multipla\" di Istanbul si rivela." },
+        { type: "testo", paragrafo: "Iniziamo proprio da Stamboul, dalla riva sud, Eminönü. È l'anima imperiale e religiosa, la terra dei sultani, del palazzo Topkapi, delle cupole di Ayasofya (Santa Sofia) e della Sultanahmet Camii (Moschea Blu). È la storia romana, bizantina e ottomana." },
+        { type: "approfondimento", titolo: "UNO SGUARDO SULLA STORIA LE RADICI DI COSTANTINOPOLI", paragrafo: "È affascinante vedere come il <em>DNA</em> di Costantinopoli sia ancora perfettamente leggibile nella Istanbul moderna. L’odierno quartiere di Fatih è essenzialmente la città raffigurata su questa mappa le tracce bizantine sono ancora lì, spesso <em>nascoste in bella vista</em>." },
+        { type: "immagine", src: "https://lh3.googleusercontent.com/d/1Vl_n8-rOjEHH0g0KeCVpmib8kr-J-CEy" },
+        { type: "testo", paragrafo: "La nostra passeggiata inizia dalle Mura Terrestri (Mura Teodosiane), quelle che vediamo sul lato ovest della mappa. Queste sono le mura leggendarie che il Sultano Mehmet II Fatih (il Conquistatore) sfondò nel 1453. La storia racconta che ci riuscì grazie a cannoni giganti, i più grandi mai visti all’epoca, progettati da un ingegnere ungherese di nome Orban." },
+        { type: "immagine", src: "https://i.postimg.cc/mD41VfG1/17628816004148.jpeg" },
+        { type: "testo", paragrafo: "La leggenda vuole che Orban avesse offerto i suoi servigi prima ai Bizantini, che però non potevano permettersi le sue tariffe. Il Sultano Fatih, invece, lo coprì d’oro. Furono quelle <em>super‑bombarde</em> a sbriciolare il settore delle mura attorno alla <strong>Porta di San Romano</strong>, oggi chiamata <strong>Topkapı Kapısı</strong> è qui che si aprì la breccia decisiva, ed è da qui che Mehmet II fece il suo ingresso nella città conquistata." },
+        { type: "immagine", src: "https://i.postimg.cc/T2zQdZgJ/Yedikule-Fortress-Golden-Gate.jpg" },
+        { type: "testo", paragrafo: "Poco più a sud, lo sguardo incontra un’altra storia. <strong>Altınkapı</strong>, la Porta Aurea bizantina, era l’antico ingresso trionfale dell’Impero Romano d’Oriente. Non fu coinvolta nell’assalto del 1453, ma subito dopo la conquista Fatih decise di <strong>sigillarla</strong> e di costruirci attorno una nuova fortezza ottomana <strong>Yedikule</strong>, la “Fortezza delle Sette Torri”. È un’architettura ibrida, un luogo in cui le torri ottomane abbracciano e inglobano i magnifici archi di marmo della porta imperiale bizantina." },
+        { type: "testo", paragrafo: "Istintivamente lo sguardo riconosce ciò che resta di quella corazza leggendaria. Le Mura Teodosiane si estendono ancora oggi per chilometri, un serpente di pietra e torri che separa la città vecchia dalla metropoli moderna. Camminarci accanto significa toccare con mano mille anni di storia bizantina e il momento esatto in cui finì." },
+        { type: "testo", paragrafo: "E prima di lasciare questo mondo di pietra e secoli, lo sguardo si concede un ultimo respiro un volo sopra le Mura Teodosiane, dove la storia non è mai davvero finita. È un passaggio sospeso tra passato e presente, un modo per salutare Costantinopoli dall’alto, prima di tornare nella Istanbul di oggi." },
+        { type: "video", src: "https://youtube.com/shorts/oGXX0SRYpQs" },
+        { type: "didascalia", testo: "Le Mura Teodosiane dall’alto l’ultimo respiro di Costantinopoli" },
+        { type: "testo", paragrafo: "E infine, sazio di storia, lo sguardo si allarga. Dalla mappa antica passiamo alla mappa di oggi. Tutto ciò che abbiamo esplorato è solo la piccola penisola in basso a sinistra. Istanbul è cresciuta, immensa e multipla, attorno a questo cuore antico." },
+        { type: "immagine", src: "https://i.postimg.cc/k4GKY4dC/Free-Touristic-Map-Of-Istanbul-2.jpg" },
+        { type: "testo", paragrafo: "E per chiudere, un ultimo volo. Lo sguardo abbraccia tutto il Corno d’Oro, il Bosforo, le moschee imperiali e la città infinita. Un gioco pirotecnico di luci che celebra il <strong>Caos Affascinante di Istanbul</strong>." },
+        { type: "immagine", src: "https://i.postimg.cc/kMfL0y1Y/1762880601876.jpeg" },
+        { type: "testo", paragrafo: "Dopo la passeggiata nel passato, torniamo al presente. Secondo me, non c'è luogo che incarni il concetto di \"cuore pulsante\" più di Eminönü Meydanı. Non è una piazza nel senso rinascimentale italiano, un \"salotto\" ordinato. È un nodo vitale, un formicaio glorioso dove la città incontra l'acqua." },
+        { type: "immagine", src: "img/folla_eminonu.jpg" },
+        { type: "didascalia", testo: "Eminönü il cuore pulsante. Un fiume di volti all'ombra delle cupole imperiali" },
+        { type: "testo", paragrafo: "I moli sono i veri protagonisti. Da qui, i vapur (i traghetti) partono incessantemente, instancabili, cucendo la sponda europea a quella asiatica, risalendo il Corno d'Oro o navigando su e giù per il Bosforo. L'aria è un assalto ai sensi l'eco metallico dei tram, il richiamo dei venditori di simit, il grido acuto dei gabbiani e l'odore inconfondibile del balık ekmek." },
+        { type: "immagine", src: "img/vista_beyoglu_galata_corno_doro.jpg" },
+        { type: "didascalia", testo: "Beyoğlu vista dai moli di Eminönü l'invito al dialogo attraverso il Corno d'Oro" },
+        { type: "testo", paragrafo: "A dominare questo caos, quasi a custodire l'ingresso del ponte, sorge la Yeni Camii, la Moschea Nuova. Il suo nome è un dolce inganno è \"nuova\" da quasi quattrocento anni." },
+        { type: "immagine", src: "yeni_camii_notte.jpg" },
+        { type: "didascalia", testo: "Yeni Camii, la pietra che prega sotto il cielo d'inchiostro" },
+        { type: "immagine", src: "minareto_yeni_camii_notte.jpg.jpg" },
+        { type: "didascalia", testo: "Yeni Camii. Eleganza ottomana l'ago che ricama la notte di Istanbul" },
+        { type: "immagine", src: "img/interno-yeni-camii.jpg" },
+        { type: "didascalia", testo: "Yeni Camii, un cielo stellato di lampade in un giardino di maioliche" },
+        { type: "testo", paragrafo: "Ma il vero protagonista di questo capitolo è il ponte stesso. Il Ponte di Galata non è un semplice pezzo di asfalto; è un palcoscenico a due livelli, un quartiere galleggiante." },
+        { type: "immagine", src: "img/pescatori_ponte_galata.jpg" },
+        { type: "didascalia", testo: "Fili gettati nella storia i pescatori di Galata, un rituale sospeso tra cielo e acqua" },
+        { type: "testo", paragrafo: "Il livello inferiore è il suo esatto contrario è il regno del cibo e del riposo. È una fila ininterrotta di ristoranti." },
+        { type: "immagine", src: "https://i.postimg.cc/VNh6mf4G/Ristorante-sotto-il-ponte-di-galata.jpg" },
+        { type: "didascalia", testo: "Cenando sospesi sull'acqua, nel cuore del dialogo tra le rive dove le anime si osservano" },
+        { type: "testo", paragrafo: "Attraversare il ponte significa lasciare un mondo ed entrare in un altro. Si sbarca a Karaköy e si inizia a salire. La collina di Beyoğlu (l'antica Pera) ti accoglie con un'energia diversa." },
+        { type: "immagine", src: "https://i.postimg.cc/sx21rTZ0/Vicolo-verso-la-Torre-di-galata.jpg" },
+        { type: "didascalia", testo: "Salendo verso l'altra anima echi d'Europa sui ciottoli di Galata" },
+        { type: "testo", paragrafo: "Come si vede nello scatto, i vicoli si stringono, i ciottoli si inerpicano e l'architettura cambia i palazzi diventano neoclassici, fin-de-siècle, europei. È l'anima \"altra\" della città, quella levantina." },
+        { type: "immagine", src: "https://i.postimg.cc/hj2PpV5n/collina-di-galata-al-tramonto.jpg" },
+        { type: "didascalia", testo: "La collina dorata lo sguardo dell'Europa al calar del sole" },
+        { type: "testo", paragrafo: "E lassù, a dominare tutto, c'è lei. La Galata Kulesi (Torre di Galata) non è solo un punto all'orizzonte, è una presenza fisica, un perno attorno a cui ruota la vita del quartiere." },
+        { type: "immagine", src: "https://i.postimg.cc/FKD44Ngm/Torre-di-galata-con-folla.jpg" },
+        { type: "didascalia", testo: "Sotto la sentinella genovese il cuore giovane di Beyoğlu" },
+        { type: "immagine", src: "https://i.postimg.cc/25PPmyLL/Dettaglio-cima-galata-kulesi.jpg" },
+        { type: "didascalia", testo: "Lo sguardo della Christea Turris sette secoli puntati sul Corno d'Oro" },
+        { type: "testo", paragrafo: "La piazza ai suoi piedi brulica di una folla giovane e cosmopolita, molto diversa da quella più tradizionale di Eminönü. Questa è la torre genovese, la Christea Turris, lo \"sguardo\" dell'Europa che da sette secoli osserva la città vecchia sull'altra sponda." },
+        { type: "immagine", src: "https://lh3.googleusercontent.com/d/1vjxshUWy2y-N5B8DMMZKyJ-Sj78Fujs9" },
+        { type: "testo", paragrafo: "E una volta saliti in cima, ecco la ricompensa. Lo \"sguardo\" domina l'Anima Multipla. Da quassù, abbraccia tutto i tetti rossi di Galata sotto di noi, il Ponte di Galata che taglia il Corno d'Oro, e l'intera penisola storica di Fatih. Da qui si riconoscono perfettamente Eminönü con la Yeni Camii, l'ingresso del Bazaar delle Spezie e, maestosa sulla collina, la Moschea di Solimano il Magnifico. È il \"Caos Affascinante\" visto dall'alto." },
+        { type: "testo", paragrafo: "Ma l'anima europea di Beyoğlu/Pera ha il suo epicentro, il suo \"salotto\" più scintillante il Pera Palace Hotel." },
+        { type: "immagine", src: "https://i.postimg.cc/yNYFdy9w/esterno-Pera-palace.jpg" },
+        { type: "didascalia", testo: "L'iconico Pera Palace Hotel. Più che un albergo, il capolinea di lusso dell'Orient Express e il salotto cosmopolita di Istanbul" },
+        { type: "immagine", src: "https://i.postimg.cc/x19mx3sX/Tappeto-ingresso-Pera-Palace.jpg" },
+        { type: "didascalia", testo: "Il sigillo del Pera Palace impresso sul tappeto d'ingresso. Il rosso del lusso e il 1892, l'anno in cui tutto ebbe inizio" },
+        { type: "immagine", src: "https://i.postimg.cc/7YwbwYSm/Hall-Pera-Palace.jpg" },
+        { type: "didascalia", testo: "La hall del Pera Palace, la 'Kubbeli Saloon'. Un tuffo nell'eleganza della Belle Époque" },
+        { type: "immagine", src: "https://i.postimg.cc/yY162pzh/Ascensore-storico-Pera-Palace.jpg" },
+        { type: "didascalia", testo: "Ascensore storico Pera Palace" },
+        { type: "testo", paragrafo: "Ne è testimone il suo ascensore storico, il primo elettrico in Turchia, installato appena tre anni dopo quello della Torre Eiffel. Un gioiello di legno e ferro battuto che saliva silenzioso, portando re, spie, scrittori e diplomatici attraverso i piani sontuosi." },
+        { type: "immagine", src: "img/targa-ascensore_pera.jpg" },
+        { type: "immagine", src: "https://i.postimg.cc/gkjFvCW5/stanza-di-Ataturk.jpg" },
+        { type: "didascalia", testo: "Stanza di Atatürk al Pera Palace" },
+        { type: "testo", paragrafo: "La stanza 101 era l'abituale residenza di Mustafa Kemal Atatürk durante le sue visite in città. Fu qui che il fondatore della Repubblica prese decisioni cruciali, incontrò figure chiave e, in un certo senso, progettò il futuro della nazione." }
+    ]
+};
