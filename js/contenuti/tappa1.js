@@ -26,7 +26,8 @@ const TAPPA_1_DATA = {
          {type: "immagine", src: "img/istanbul_fortezza_yedikule.jpg" }, 
         { type: "testo", paragrafo: "Istintivamente lo sguardo riconosce ciò che resta di quella corazza leggendaria. Le Mura Teodosiane si estendono ancora oggi per chilometri, un serpente di pietra e torri che separa la città vecchia dalla metropoli moderna. Camminarci accanto significa toccare con mano mille anni di storia bizantina e il momento esatto in cui finì." },
         { type: "testo", paragrafo: "E prima di lasciare questo mondo di pietra e secoli, lo sguardo si concede un ultimo respiro un volo sopra le Mura Teodosiane, dove la storia non è mai davvero finita. È un passaggio sospeso tra passato e presente, un modo per salutare Costantinopoli dall’alto, prima di tornare nella Istanbul di oggi." },
-        { type: "video", src: "https://youtube.com/shorts/oGXX0SRYpQs" },
+       { type: "video", src: "https://www.youtube.com/embed/hvpj1UAxkiA" },
+
         { type: "didascalia", testo: "Le Mura Teodosiane dall’alto l’ultimo respiro di Costantinopoli" },
         { type: "testo", paragrafo: "E infine, sazio di storia, lo sguardo si allarga. Dalla mappa antica passiamo alla mappa di oggi. Tutto ciò che abbiamo esplorato è solo la piccola penisola in basso a sinistra. Istanbul è cresciuta, immensa e multipla, attorno a questo cuore antico." },
         { type: "immagine", src: "https://i.postimg.cc/k4GKY4dC/Free-Touristic-Map-Of-Istanbul-2.jpg" },
