@@ -1176,25 +1176,27 @@ return `
 }
 
 function TappaView(dId, tId) {
-const diario = (Array.isArray(DATABASE.diari) ? (DATABASE.diari.find(d => d.id === dId) || DATABASE.diari[0]) : null);
-if (!diario || !Array.isArray(diario.tappe)) return HomeView();
+    const diario = (Array.isArray(DATABASE.diari) ? (DATABASE.diari.find(d => d.id === dId) || DATABASE.diari[0]) : null);
+    if (!diario || !Array.isArray(diario.tappe)) return HomeView();
 
-const t = diario.tappe.find(x => x && x.id === tId);
-if (!t || !t.theme || !Array.isArray(t.contenuto)) return HomeView();
+    const t = diario.tappe.find(x => x && x.id === tId);
+    if (!t || !t.theme || !Array.isArray(t.contenuto)) return HomeView();
 
-const bgStyle = t.theme.sfondo
-? `background-image: url('${t.theme.sfondo}'); background-size: 400px;`
-: `background-color: white;`;
+    const bgStyle = t.theme.sfondo
+        ? `background-image: url('${t.theme.sfondo}'); background-size: 400px;`
+        : `background-color: white;`;
 
-return `<div class="flex flex-col h-full" style="${bgStyle}">
-       <header class="header-galleggiante">
-           <button onclick="navigate('diario', '${diario.id}')">← Indietro</button>
-       </header>
-       <main class="vista-lettura flex-1 overflow-y-auto">
-           <div class="foglio-lettura">${withAutoTitle(t.contenuto, t.titolo).map(b => renderBlocco(b, t.theme)).join('')}
-</div>
-       </main>
-   </div>`;
+    // LA NOSTRA MAGIA: Se nel file della tappa c'è un paper_color, lo usa!
+    const paperColor = t.theme.paper_color ? `background-color: ${t.theme.paper_color} !important;` : '';
+
+    return `<div class="flex flex-col h-full" style="${bgStyle}">
+           <header class="header-galleggiante">
+               <button onclick="navigate('diario', '${diario.id}')">← Indietro</button>
+           </header>
+           <main class="vista-lettura flex-1 overflow-y-auto">
+               <div class="foglio-lettura" style="${paperColor}">${withAutoTitle(t.contenuto, t.titolo).map(b => renderBlocco(b, t.theme)).join('')}</div>
+           </main>
+       </div>`;
 }
 function IntroduzioneView(dId) {
 const d = (Array.isArray(DATABASE.diari) ? (DATABASE.diari.find(x => x.id === dId) || DATABASE.diari[0]) : null);

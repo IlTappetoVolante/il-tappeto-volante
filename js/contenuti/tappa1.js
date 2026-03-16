@@ -1,12 +1,13 @@
 const TAPPA_1_DATA = {
     id: "tappa-1",
     titolo: "Prima Tappa: Il Caos Affascinante di Istanbul",
-    icon: "<img src='https://flagcdn.com/w80/tr.png' class='flag-icon'>",
+    icon: "<img src='https://flagcdn.com/w80/tr.png' class='flag-icon'>", 
     theme: { 
-        bg: 'bg-[#48D1CC]',
-        text: 'text-[#005F5B]',
-        border: 'border-[#48D1CC]',
-        sfondo: "https://upload.wikimedia.org/wikipedia/commons/d/dc/Hunername_15b.jpg"
+        bg: 'bg-orange-50',           // Questo è il beige/crema "standard" di Tailwind
+        paper_color: '#C3C3C3',       // IL NOSTRO GRIGIO PER IL FOGLIO GRANDE!
+        text: 'text-[#005F5B]', 
+        border: 'border-[#C3C3C3]',   
+        sfondo: "img/sfondo_caos_affascinante.jpg"
     },
     contenuto: [
         { type: "testo", paragrafo: "Se c'è un luogo che definisce Istanbul così come io la vedo, non è un singolo palazzo o una moschea, ma un punto di incontro, un connettore pulsante che incarna alla perfezione quell'essenza \"affascinante e caotica\" che ho sempre percepito." },
@@ -14,6 +15,7 @@ const TAPPA_1_DATA = {
         { type: "didascalia", testo: "L'acqua divide, il ponte abbraccia l'anima notturna del Corno d'Oro" },
         { type: "testo", paragrafo: "È il Galata Köprüsü (Ponte di Galata), visto di notte. Il mio \"sguardo\" cerca di catturare proprio questo. È un'immagine che vive di contrasti un fiume d'acqua scura e inquieta, il Corno d'Oro, tagliato da un fiume orizzontale di luce. È qui che l' \"Anima Multipla\" di Istanbul si rivela." },
         { type: "testo", paragrafo: "Iniziamo proprio da Stamboul, dalla riva sud, Eminönü. È l'anima imperiale e religiosa, la terra dei sultani, del palazzo Topkapi, delle cupole di Ayasofya (Santa Sofia) e della Sultanahmet Camii (Moschea Blu). È la storia romana, bizantina e ottomana." },
+        
         { type: "approfondimento", titolo: "UNO SGUARDO SULLA STORIA LE RADICI DI COSTANTINOPOLI", paragrafo: "È affascinante vedere come il <em>DNA</em> di Costantinopoli sia ancora perfettamente leggibile nella Istanbul moderna. L’odierno quartiere di Fatih è essenzialmente la città raffigurata su questa mappa le tracce bizantine sono ancora lì, spesso <em>nascoste in bella vista</em>." },
         { type: "immagine", src: "img/mappa_costantinopoli_bizantina.png"},
         { type: "testo", paragrafo: "La nostra passeggiata inizia dalle Mura Terrestri (Mura Teodosiane), quelle che vediamo sul lato ovest della mappa. Queste sono le mura leggendarie che il Sultano Mehmet II Fatih (il Conquistatore) sfondò nel 1453. La storia racconta che ci riuscì grazie a cannoni giganti, i più grandi mai visti all’epoca, progettati da un ingegnere ungherese di nome Orban." },
@@ -22,17 +24,53 @@ const TAPPA_1_DATA = {
         { type: "testo", paragrafo: "La leggenda vuole che Orban avesse offerto i suoi servigi prima ai Bizantini, che però non potevano permettersi le sue tariffe. Il Sultano Fatih, invece, lo coprì d’oro. Furono quelle <em>super‑bombarde</em> a sbriciolare il settore delle mura attorno alla <strong>Porta di San Romano</strong>, oggi chiamata <strong>Topkapı Kapısı</strong> è qui che si aprì la breccia decisiva, ed è da qui che Mehmet II fece il suo ingresso nella città conquistata." },
         { type: "immagine", src: "img/porta_san_romano_istanbul.jpg" },
         { type: "testo", paragrafo: "Poco più a sud, lo sguardo incontra un’altra storia. <strong>Altınkapı</strong>, la Porta Aurea bizantina, era l’antico ingresso trionfale dell’Impero Romano d’Oriente. Non fu coinvolta nell’assalto del 1453, ma subito dopo la conquista Fatih decise di <strong>sigillarla</strong> e di costruirci attorno una nuova fortezza ottomana <strong>Yedikule</strong>, la “Fortezza delle Sette Torri”. È un’architettura ibrida, un luogo in cui le torri ottomane abbracciano e inglobano i magnifici archi di marmo della porta imperiale bizantina." },
-         {type: "immagine", src: "img/istanbul_yedikule_porta_oro.jpg" },
-         {type: "immagine", src: "img/istanbul_fortezza_yedikule.jpg" }, 
+        { type: "immagine", src: "img/istanbul_yedikule_porta_oro.jpg" },
+        { type: "immagine", src: "img/istanbul_fortezza_yedikule.jpg" }, 
         { type: "testo", paragrafo: "Istintivamente lo sguardo riconosce ciò che resta di quella corazza leggendaria. Le Mura Teodosiane si estendono ancora oggi per chilometri, un serpente di pietra e torri che separa la città vecchia dalla metropoli moderna. Camminarci accanto significa toccare con mano mille anni di storia bizantina e il momento esatto in cui finì." },
-        { type: "testo", paragrafo: "E prima di lasciare questo mondo di pietra e secoli, lo sguardo si concede un ultimo respiro un volo sopra le Mura Teodosiane, dove la storia non è mai davvero finita. È un passaggio sospeso tra passato e presente, un modo per salutare Costantinopoli dall’alto, prima di tornare nella Istanbul di oggi." },
-       { type: "video", src: "https://www.youtube.com/embed/hvpj1UAxkiA" },
+        
+        // --- INIZIO PARTE RECUPERATA DELLE CHIESE E SOTTERRANEI ---
+        { type: "testo", paragrafo: "All’interno delle mura, molte delle chiese segnate sulla mappa sono sopravvissute perché convertite in moschee." },
+        { type: "immagine", src: "https://i.postimg.cc/FR4wzH6z/Chora-Church-Exterior.jpg" },
+        { type: "testo", paragrafo: "Il primo sguardo alle <em>sopravvissute</em> raggiunge la <strong>Chiesa del S. Salvatore in Chora</strong>, oggi conosciuta come <strong>Moschea di Kariye (Kariye Camii)</strong>. Se ne percorrere l’esterno significa decifrare subito la sua storia complessa: un capolavoro di architettura bizantina in mattoni e pietra, con le sue cupole e absidi, a cui gli Ottomani hanno <strong>innestato</strong> il minareto dopo la conversione in moschee." },
+        { type: "immagine", src: "https://i.postimg.cc/ydwLnZ3F/Chora-Mosaic-Christ.jpg" },
+        { type: "testo", paragrafo: "Ed ecco uno di quei tesori interni. Lo sguardo viene rapito da un bagliore improvviso: è l’incredibile mosaico bizantino del <strong>Cristo Pantocratore</strong> (<em>Signore di tutte le cose</em>), con il libro del Vangelo in mano. Le tessere dorate che compongono lo sfondo sono il motivo per cui San Salvatore in Chora è così famosa: la luce che filtrava nella chiesa faceva letteralmente <strong>brillare</strong> queste immagini, dando ai fedeli una visione ultraterrena del divino." },
+        { type: "testo", paragrafo: "Proseguendo nella passeggiata attraverso la mappa, incontriamo altri gioielli nascosti." },
+        { type: "immagine", src: "https://i.postimg.cc/W3LwRkZ6/1762881865067.jpeg" },
+        { type: "testo", paragrafo: "Troviamo la <strong>Chiesa di S. Maria Pammakaristos</strong>, oggi <strong>Moschea Fethiye</strong>. Fu la sede del Patriarcato Greco-Ortodosso dopo la caduta della città. Il suo <em>Parekklesion</em> (cappella laterale) è uno scrigno di arte sacra." },
+        { type: "immagine", src: "https://i.postimg.cc/85z07z0y/1762882023958.jpeg" },
+        { type: "testo", paragrafo: "All’interno, lo sguardo naviga tra i mosaici dorati, soffermandosi su questo maestoso Cristo nella cupola, che rivaleggia con quello della Chora per bellezza e spiritualità." },
+        { type: "immagine", src: "https://i.postimg.cc/ncDqswgP/Zeyrek-Mosque-Exterior.jpg" },
+        { type: "testo", paragrafo: "Poco lontano sorge la massiccia <strong>Chiesa del S. Salvatore Pantocratore</strong>, oggi <strong>Moschea di Zeyrek</strong>. È il secondo edificio bizantino più grande rimasto dopo Santa Sofia. Non è una chiesa sola, ma tre chiese fuse insieme, un gigante di mattoni che domina la collina." },
+        { type: "testo", paragrafo: "Avvicinandoci al mare, la mappa menziona la <strong>Chiesa dei SS. Sergio e Bacco</strong>, oggi conosciuta come <strong>Piccola Aya Sofya (Küçük Ayasofya Camii)</strong>." },
+        { type: "immagine", src: "https://i.postimg.cc/Pf0j1dXy/Little-Hagia-Sophia-Exterior.jpg" },
+        { type: "testo", paragrafo: "Come dice il nome, è considerata la <em>prova generale</em> voluta dall’Imperatore Giustiniano prima di costruire la sua immensa e omonima basilica. Lo sguardo la abbraccia al crepuscolo. Come la Chora, ci mostra la sua storia stratificata: la solida struttura bizantina in mattoni del VI secolo, il portico a colonne aggiunto dagli Ottomani (il <em>son cemaat yeri</em>) e l’immancabile minareto che la trasforma in moschea." },
+        { type: "immagine", src: "https://i.postimg.cc/WzMydtQy/Little-Hagia-Sophia-Interior.jpg" },
+        { type: "testo", paragrafo: "Una volta entrati, lo sguardo scala le massicce colonne di marmo fino ad ammirare la complessità della cupola a <em>ombrello</em>. Anche se oggi è spoglia dei mosaici dorati che un tempo la ricoprivano, si può ancora percepire la grandezza e la sperimentazione architettonica che Giustiniano stava testando qui, prima di creare il suo capolavoro assoluto." },
+        { type: "testo", paragrafo: "Il cuore della città vecchia è dove si trovano le tracce più famose." },
+        { type: "immagine", src: "https://i.postimg.cc/T3jC8kZ0/17628819998315.jpeg" },
+        { type: "testo", paragrafo: "Lungo la via principale, lo sguardo inciampa nella <strong>Colonna di Costantino (Çemberlitaş)</strong>. Annerita dal tempo e fasciata da cerchi di ferro, è il vero <em>ombelico</em> della città, eretta nel 330 d.C. dallo stesso fondatore per celebrare la nascita della Nuova Roma." },
+        { type: "testo", paragrafo: "Continuando la passeggiata incontriamo l’Ippodromo che oggi corrisponde alla vasta piazza Sultanahmet; i monumenti che un tempo adornavano il centro della pista da corsa (la spina) sono ancora lì, a sfidare i millenni." },
+        { type: "immagine", src: "https://i.postimg.cc/0jbz7YyR/Hippodrome-Obelisks.jpg" },
+        { type: "testo", paragrafo: "Nella penombra, lo sguardo interroga i due testimoni di pietra: l’<strong>Obelisco di Teodosio</strong> (portato dall’Egitto nel IV secolo) e, alle sue spalle, l’<strong>Obelisco Murato</strong>. Sono i resti dell’antica grandezza bizantina, che oggi vegliano sulla vita notturna della piazza." },
+        { type: "testo", paragrafo: "La <strong>Chiesa di S. Sofia</strong> (Basilica di Santa Sofia) è oggi <strong>Aya Sofya</strong>. Lo sguardo risale, quasi con soggezione, verso l’icona di Costantinopoli: la cupola di Aya Sofya che si staglia contro il cielo. È la <strong>Ch. of S. Sophia</strong> della mappa, la chiesa madre di Bisanzio, sopravvissuta ai secoli e ancora oggi punto evocativo della città antica." },
+        { type: "immagine", src: "https://i.postimg.cc/W4WqWqWq/Hagia-Sophia-Dome.jpg" },
+        { type: "testo", paragrafo: "Ed ecco che lo sguardo trova una nuova prospettiva, questa volta incorniciata. Vista da uno dei grandi portali della piazza, Aya Sofya appare come una visione al tramonto, un gigante di pietra rosa che osserva la marea di persone che anima l’antico Ippodromo." },
+        { type: "immagine", src: "https://i.postimg.cc/XYZ12345/Hagia-Sophia-Framed.jpg" },
+        { type: "testo", paragrafo: "Ma il cuore di Costantinopoli non batteva solo in superficie. Proprio qui accanto si nascondeva il <em>Palazzo Sommerso</em>: la <strong>Cisterna Basilica</strong>." },
+        { type: "immagine", src: "https://i.postimg.cc/9X7BqG3f/1762887390061.jpeg" },
+        { type: "testo", paragrafo: "Qui lo sguardo deve scendere nel buio e nell’acqua, perdendosi in una foresta di 336 colonne di marmo. In fondo, quasi per caso, incontra il mito: due teste di <strong>Medusa</strong>, capovolte e usate come basi per le colonne. Il paganesimo antico, sconfitto, fatto fondamenta della nuova città cristiana." },
+        { type: "immagine", src: "https://i.postimg.cc/k4yYjGjP/1762889336497.jpeg" },
+        { type: "testo", paragrafo: "In sintesi, passeggiare per il quartiere di Fatih oggi significa letteralmente camminare attraverso l’antica Costantinopoli. Lo <em>scheletro urbano</em>, le mura e i principali edifici sono ancora tutti lì, testimoni di secoli di storia." },
+        // --- FINE PARTE RECUPERATA ---
 
+        { type: "testo", paragrafo: "E prima di lasciare questo mondo di pietra e secoli, lo sguardo si concede un ultimo respiro un volo sopra le Mura Teodosiane, dove la storia non è mai davvero finita. È un passaggio sospeso tra passato e presente, un modo per salutare Costantinopoli dall’alto, prima di tornare nella Istanbul di oggi." },
+        { type: "video", src: "https://www.youtube.com/embed/hvpj1UAxkiA" },
         { type: "didascalia", testo: "Le Mura Teodosiane dall’alto l’ultimo respiro di Costantinopoli" },
         { type: "testo", paragrafo: "E infine, sazio di storia, lo sguardo si allarga. Dalla mappa antica passiamo alla mappa di oggi. Tutto ciò che abbiamo esplorato è solo la piccola penisola in basso a sinistra. Istanbul è cresciuta, immensa e multipla, attorno a questo cuore antico." },
         { type: "immagine", src: "https://i.postimg.cc/k4GKY4dC/Free-Touristic-Map-Of-Istanbul-2.jpg" },
         { type: "testo", paragrafo: "E per chiudere, un ultimo volo. Lo sguardo abbraccia tutto il Corno d’Oro, il Bosforo, le moschee imperiali e la città infinita. Un gioco pirotecnico di luci che celebra il <strong>Caos Affascinante di Istanbul</strong>." },
         { type: "immagine", src: "https://i.postimg.cc/kMfL0y1Y/1762880601876.jpeg" },
+        
         { type: "testo", paragrafo: "Dopo la passeggiata nel passato, torniamo al presente. Secondo me, non c'è luogo che incarni il concetto di \"cuore pulsante\" più di Eminönü Meydanı. Non è una piazza nel senso rinascimentale italiano, un \"salotto\" ordinato. È un nodo vitale, un formicaio glorioso dove la città incontra l'acqua." },
         { type: "immagine", src: "img/folla_eminonu.jpg" },
         { type: "didascalia", testo: "Eminönü il cuore pulsante. Un fiume di volti all'ombra delle cupole imperiali" },
@@ -79,6 +117,16 @@ const TAPPA_1_DATA = {
         { type: "immagine", src: "img/targa-ascensore_pera.jpg" },
         { type: "immagine", src: "https://i.postimg.cc/gkjFvCW5/stanza-di-Ataturk.jpg" },
         { type: "didascalia", testo: "Stanza di Atatürk al Pera Palace" },
-        { type: "testo", paragrafo: "La stanza 101 era l'abituale residenza di Mustafa Kemal Atatürk durante le sue visite in città. Fu qui che il fondatore della Repubblica prese decisioni cruciali, incontrò figure chiave e, in un certo senso, progettò il futuro della nazione." }
+        { type: "testo", paragrafo: "La stanza 101 era l'abituale residenza di Mustafa Kemal Atatürk durante le sue visite in città. Fu qui che il fondatore della Repubblica prese decisioni cruciali, incontrò figure chiave e, in un certo senso, progettò il futuro della nazione." },
+        { type: "testo", paragrafo: "È un'altra delle affascinanti contraddizioni di Istanbul: la culla della Repubblica si trova nel cuore del suo quartiere più cosmopolita e internazionale." },
+        { type: "immagine", src: "https://i.postimg.cc/L8mytfLD/Yacht-sul-Bosforo-con-grattacieli.jpg" },
+        { type: "didascalia", testo: "Uno scafo moderno taglia le acque storiche del Bosforo. Sullo sfondo, la città si mostra com'è: un intreccio inseparabile di ricchezza, storia antica e vita brulicante" },
+        { type: "testo", paragrafo: "Il \"Caos Affascinante\" di cui parlo, non è semplice disordine; è la tensione vibrante di queste diverse essenze, l'imperiale e la levantina, l'ottomana e la genovese, la tradizionale e la moderna, costrette a guardarsi negli occhi attraverso un braccio di mare. L'acqua separa le due anime, ma questo ponte pulsante le costringe a un abbraccio eterno, fondendole in un'unica, complessa, \"Anima Multipla\"." },
+        { type: "immagine", src: "https://i.postimg.cc/pdwzZb3H/COLLAGE-finale.jpg" },
+        { type: "testo", paragrafo: "Sguardi conclusivi. Sacro e profano, antico e moderno, gioia e protesta si mescolano sui muri e sull'acqua. Questa è l'essenza di Istanbul: una città che non sceglie mai tra le sue diverse anime, ma le costringe a convivere in un equilibrio impossibile e meraviglioso. È un luogo dove i colori vivaci della quotidianità si arrampicano su muri carichi di storia e politica, e dove le luci millenarie riflesse sul Bosforo incontrano il fumo incessante dei traghetti." },
+        { type: "testo", paragrafo: "Tutto è contraddizione, tutto è armonia. È questo, in fondo, il Caos Affascinante." },
+        { type: "immagine", src: "https://i.postimg.cc/wvz6YWxW/1762012924052.png" },
+        { type: "didascalia", testo: "Ma il viaggio attraverso gli Stretti è appena iniziato. Lasciando alle spalle il vibrante caos di Istanbul, la nostra rotta ci conduce (nel secondo capitolo) verso l'altra sorella, quella che veglia sull'Atlantico; 'Tangeri, la Sentinella'." },
+        { type: "video", src: "https://youtube.com/shorts/oGXX0SRYpQs" }
     ]
 };
