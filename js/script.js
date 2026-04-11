@@ -674,145 +674,151 @@ return `
 
 }
 // LAMPADA VIEW
-let quizState = { active: false, currentQuestions: [], index: 0, score: 0, finished: false, activeQuizData: null, _answeredCorrectly: false };
+let quizState = {
+  active: false,
+  currentQuestions: [],
+  index: 0,
+  score: 0,
+  finished: false,
+  activeQuizData: null,
+  _answeredCorrectly: false
+};
 
 function LampadaView(storiaId) {
-if (!storiaId) return LampadaHubView();
-if (!quizState.active || quizState.storiaId !== storiaId) {
-let quizData;
-if (storiaId) {
-const storia = DATABASE.storie.elenco.find(s => s.id === storiaId);
-quizData = (storia && storia.quiz) ? storia.quiz : DATABASE.quiz_generale;
-} else {
-quizData = DATABASE.quiz_generale;
-}
+  if (!storiaId) return LampadaHubView();
 
-quizState.activeQuizData = quizData;
-const pool = [...quizData.domande];
-quizState.currentQuestions = pool.sort(() => 0.5 - Math.random()).slice(0, 3);
-quizState.active = true;
-quizState.index = 0;
-quizState.score = 0;
-quizState.finished = false;
-quizState._answeredCorrectly = false;
-quizState.storiaId = storiaId; 
-}
+  if (!quizState.active || quizState.storiaId !== storiaId) {
+    let quizData;
 
-if (quizState.finished) return renderRisultatiLampada();
+    if (storiaId) {
+      const storia = DATABASE.storie.elenco.find(s => s.id === storiaId);
+      quizData = (storia && storia.quiz) ? storia.quiz : DATABASE.quiz_generale;
+    } else {
+      quizData = DATABASE.quiz_generale;
+    }
 
-const domandaCorrente = quizState.currentQuestions[quizState.index];
-const risposteMiste = domandaCorrente.risposte.map((r, i) => ({ testo: r, originale: i })).sort(() => 0.5 - Math.random());
+    quizState.activeQuizData = quizData;
+    const pool = [...quizData.domande];
+    quizState.currentQuestions = pool.sort(() => 0.5 - Math.random()).slice(0, 3);
+    quizState.active = true;
+    quizState.index = 0;
+    quizState.score = 0;
+    quizState.finished = false;
+    quizState._answeredCorrectly = false;
+    quizState.storiaId = storiaId;
+  }
 
-return `
-<div class="flex flex-col h-full text-white overflow-hidden"
-    style="
-      background-image: url('img/sfondo_quiz.jpg');
-      background-size: cover;
-      background-position: 55% 75%;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-    ">
+  if (quizState.finished) return renderRisultatiLampada();
 
-   <header class="header-galleggiante">
-     <button onclick="resetLampada()">← Esci</button>
-   </header>
+  const domandaCorrente = quizState.currentQuestions[quizState.index];
+  const risposteMiste = domandaCorrente.risposte
+    .map((r, i) => ({ testo: r, originale: i }))
+    .sort(() => 0.5 - Math.random());
 
-   <div id="quiz-layout" class="flex-1 flex items-center justify-center px-4 pt-24">
+  return `
+<div class="flex flex-col min-h-screen text-white overflow-hidden"
+     style="
+       background-image: url('img/sfondo_quiz.jpg');
+       background-size: cover;
+       background-position: 55% 75%;
+       background-repeat: no-repeat;
+       background-attachment: scroll;
+     ">
 
+  <header class="header-galleggiante">
+    <button onclick="resetLampada()">← Esci</button>
+  </header>
 
-   <div class="flex-1 p-4 pt-24">
-    <div class="w-full max-w-2xl mx-auto">
+  <div id="quiz-layout" class="flex-1 flex items-start justify-center px-4 pt-24">
 
-<div class="relative w-full"
-    style="aspect-ratio: 2048 / 1118;">
+    <div class="w-full max-w-5xl mx-auto">
+      <div class="flex-1 p-4 pt-24 flex items-start justify-center">
 
+        <div class="relative w-full mx-auto"
+             style="max-width: 980px; aspect-ratio: 2048 / 1118;">
 
- <!-- DOMANDA FUORI CORNICE -->
- <div class="font-ui-titolo text-[#FFD700] text-sm md:text-base tracking-widest uppercase mb-2"
-    style="text-shadow: 0 1px 0 rgba(0,0,0,0.45);">
- ${quizState.index === 0 ? "Prima domanda" : (quizState.index === 1 ? "Seconda domanda" : "Terza domanda")}
+          <!-- DOMANDA FUORI CORNICE -->
+          <div class="font-ui-titolo text-[#FFD700] text-sm md:text-base tracking-widest uppercase mb-2"
+               style="text-shadow: 0 1px 0 rgba(0,0,0,0.45);">
+            ${quizState.index === 0 ? "Prima domanda" : (quizState.index === 1 ? "Seconda domanda" : "Terza domanda")}
+          </div>
+
+          <h1 class="font-ui-titolo text-2xl md:text-3xl text-[#FFD700] leading-relaxed mb-3"
+              style="text-shadow: 0 1px 0 rgba(0,0,0,0.45);">
+            ${domandaCorrente.domanda}
+          </h1>
+
+          <div class="text-white/70 text-sm italic mb-3"
+               style="text-shadow: 0 1px 0 rgba(0,0,0,0.35);">
+            Se sbagli puoi ritentare.
+          </div>
+
+          <!-- CORNICE + CONTENUTO -->
+          <div class="relative w-full"
+               style="aspect-ratio: 2048 / 1118;">
+
+            <!-- CONTENUTO DENTRO LA FINESTRA -->
+            <div class="absolute inset-0 z-10 flex flex-col justify-center"
+                 style="padding: 14% 10% 12% 12%;">
+
+              <!-- RISPOSTE -->
+              <div class="flex flex-col justify-center h-full"
+                   style="border-top: 1px solid rgba(255,215,0,0.18);">
+
+                ${risposteMiste.map((r) => `
+                  <button
+                    onclick="gestisciRisposta(${r.originale}, '${storiaId || ''}')"
+                    data-answer="1"
+                    class="w-full text-left flex items-center gap-4 py-3"
+                    style="
+                      background: rgba(0,0,0,0.18);
+                      border-bottom: 1px solid rgba(255,215,0,0.18);
+                      color: rgba(255,255,255,0.92);
+                      border-radius: 10px;
+                    ">
+                    <span style="
+                      width: 14px;
+                      height: 14px;
+                      border-radius: 999px;
+                      background: #FFD700;
+                      box-shadow: 0 0 10px rgba(255,215,0,0.28);
+                      flex: 0 0 auto;">
+                    </span>
+
+                    <span class="font-serif text-lg md:text-xl">
+                      ${r.testo}
+                    </span>
+                  </button>
+                `).join('')}
+
+              </div>
+            </div>
+
+            <!-- CORNICE SOPRA -->
+            <img src="img/cornice_quiz.jpg"
+                 alt=""
+                 class="absolute inset-0 z-20 w-full h-full object-contain pointer-events-none select-none" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- FEEDBACK -->
+    <div id="feedback"
+         style="
+           position: fixed;
+           left: 20px;
+           bottom: 170px;
+           width: min(520px, 42vw);
+           z-index: 99999;
+           transform: none;
+         ">
+    </div>
+
+  </div>
 </div>
-
-<h1 class="font-ui-titolo text-2xl md:text-3xl text-[#FFD700] leading-relaxed mb-3"
-   style="text-shadow: 0 1px 0 rgba(0,0,0,0.45);">
- ${domandaCorrente.domanda}
-</h1>
-
-<div class="text-white/70 text-sm italic mb-3"
-    style="text-shadow: 0 1px 0 rgba(0,0,0,0.35);">
- Se sbagli puoi ritentare.
-</div>
-
- <!-- CORNICE + CONTENUTO -->
- <div class="relative"
-      style="aspect-ratio: 2048 / 1118;">
-
-   <!-- CONTENUTO dentro finestra (lascia spazio sotto per bottoni feedback) -->
-   <div class="absolute inset-0 z-10 flex flex-col"
-        style="padding: 21% 10% 10% 12%;">
-
-     <!-- RISPOSTE -->
-     <div class="flex flex-col"
-          style="border-top: 1px solid rgba(255,215,0,0.18);">
-
-       ${risposteMiste.map((r) => `
-         <button onclick="gestisciRisposta(${r.originale}, '${storiaId || ''}')" data-answer="1"
-                 class="w-full text-left flex items-center gap-4 py-3"
-                 style="
-                   background: rgba(0,0,0,0.18);
-                   border-bottom: 1px solid rgba(255,215,0,0.18);
-                   color: rgba(255,255,255,0.92);
-                   border-radius: 10px;
-                 ">
-           <!-- pallino oro pieno (NO A/B/C) -->
-           <span style="
-             width: 14px; height: 14px;
-             border-radius: 999px;
-             background: #FFD700;
-             box-shadow: 0 0 10px rgba(255,215,0,0.28);
-             flex: 0 0 auto;">
-           </span>
-
-           <span class="font-serif text-lg md:text-xl">
-             ${r.testo}
-           </span>
-         </button>
-       `).join('')}
-
-     </div>
-   </div>
-
-   <!-- CORNICE sopra -->
-   <img src="img/cornice_quiz.jpg"
-        alt=""
-        class="absolute inset-0 z-20 w-full h-full object-contain pointer-events-none select-none" />
- </div>
-</div>
-
- </div>
-</div>
-
-<!-- FEEDBACK FISSO: sopra la lampada (mai sotto la cornice) -->
-<div id="feedback"
-    style="
-      position: fixed;
-      left: 20px;
-      bottom: 170px;
-      width: min(520px, 42vw);
-      z-index: 99999;
-      transform: none;
-    ">
-</div>
-
-  </div>  <!-- chiude max-w-3xl -->
-
-   </div>    <!-- chiude flex-1 -->
-
- </div>      <!-- chiude quiz-layout -->
-
-</div>        <!-- chiude contenitore principale -->
 `;
-
 }
 function LampadaHubView() {
 const quizStories = DATABASE.storie.elenco.filter(s => !!s.quiz);
