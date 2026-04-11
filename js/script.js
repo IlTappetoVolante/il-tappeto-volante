@@ -673,23 +673,11 @@ return `
 `;
 
 }
-// LAMPADA VIEW
-let quizState = {
-  active: false,
-  currentQuestions: [],
-  index: 0,
-  score: 0,
-  finished: false,
-  activeQuizData: null,
-  _answeredCorrectly: false
-};
-
 function LampadaView(storiaId) {
   if (!storiaId) return LampadaHubView();
 
   if (!quizState.active || quizState.storiaId !== storiaId) {
     let quizData;
-
     if (storiaId) {
       const storia = DATABASE.storie.elenco.find(s => s.id === storiaId);
       quizData = (storia && storia.quiz) ? storia.quiz : DATABASE.quiz_generale;
@@ -716,107 +704,54 @@ function LampadaView(storiaId) {
     .sort(() => 0.5 - Math.random());
 
   return `
-<div class="flex flex-col min-h-screen text-white overflow-hidden"
-     style="
-       background-image: url('img/sfondo_quiz.jpg');
-       background-size: cover;
-       background-position: 55% 75%;
-       background-repeat: no-repeat;
-       background-attachment: scroll;
-     ">
+<div class="flex flex-col min-h-screen text-white relative overflow-hidden"
+     style="background-image: url('img/sfondo_quiz.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
 
-  <header class="header-galleggiante">
-    <button onclick="resetLampada()">← Esci</button>
+  <header class="header-galleggiante z-50">
+    <button onclick="resetLampada()" class="bg-black/40 p-2 rounded-lg">← ESCI</button>
   </header>
 
-  <div id="quiz-layout" class="flex-1 flex items-start justify-center px-4 pt-24">
+  <main class="flex-1 flex flex-col items-center justify-center p-4 relative z-10">
+    
+    <div class="w-full max-w-3xl text-center mb-6">
+      <div class="font-ui-titolo text-[#FFD700] text-sm tracking-widest uppercase opacity-80">
+        ${quizState.index === 0 ? "PRIMA DOMANDA" : (quizState.index === 1 ? "SECONDA DOMANDA" : "TERZA DOMANDA")}
+      </div>
+      <h1 class="font-ui-titolo text-2xl md:text-4xl text-[#FFD700] mt-2 mb-1" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+        ${domandaCorrente.domanda}
+      </h1>
+      <p class="text-white/70 italic text-sm">Se sbagli puoi ritentare.</p>
+    </div>
 
-    <div class="w-full max-w-5xl mx-auto">
-      <div class="flex-1 p-4 pt-24 flex items-start justify-center">
+    <div class="relative w-full max-w-[900px] mx-auto" style="aspect-ratio: 2048 / 1118;">
+      
+      <img src="img/cornice_quiz.jpg" alt="" class="absolute inset-0 w-full h-full object-contain z-0" />
 
-        <div class="relative w-full mx-auto"
-             style="max-width: 980px; aspect-ratio: 2048 / 1118;">
-
-          <!-- DOMANDA FUORI CORNICE -->
-          <div class="font-ui-titolo text-[#FFD700] text-sm md:text-base tracking-widest uppercase mb-2"
-               style="text-shadow: 0 1px 0 rgba(0,0,0,0.45);">
-            ${quizState.index === 0 ? "Prima domanda" : (quizState.index === 1 ? "Seconda domanda" : "Terza domanda")}
-          </div>
-
-          <h1 class="font-ui-titolo text-2xl md:text-3xl text-[#FFD700] leading-relaxed mb-3"
-              style="text-shadow: 0 1px 0 rgba(0,0,0,0.45);">
-            ${domandaCorrente.domanda}
-          </h1>
-
-          <div class="text-white/70 text-sm italic mb-3"
-               style="text-shadow: 0 1px 0 rgba(0,0,0,0.35);">
-            Se sbagli puoi ritentare.
-          </div>
-
-          <!-- CORNICE + CONTENUTO -->
-          <div class="relative w-full"
-               style="aspect-ratio: 2048 / 1118;">
-
-            <!-- CONTENUTO DENTRO LA FINESTRA -->
-            <div class="absolute inset-0 z-10 flex flex-col justify-center"
-                 style="padding: 14% 10% 12% 12%;">
-
-              <!-- RISPOSTE -->
-              <div class="flex flex-col justify-center h-full"
-                   style="border-top: 1px solid rgba(255,215,0,0.18);">
-
-                ${risposteMiste.map((r) => `
-                  <button
-                    onclick="gestisciRisposta(${r.originale}, '${storiaId || ''}')"
-                    data-answer="1"
-                    class="w-full text-left flex items-center gap-4 py-3"
-                    style="
-                      background: rgba(0,0,0,0.18);
-                      border-bottom: 1px solid rgba(255,215,0,0.18);
-                      color: rgba(255,255,255,0.92);
-                      border-radius: 10px;
-                    ">
-                    <span style="
-                      width: 14px;
-                      height: 14px;
-                      border-radius: 999px;
-                      background: #FFD700;
-                      box-shadow: 0 0 10px rgba(255,215,0,0.28);
-                      flex: 0 0 auto;">
-                    </span>
-
-                    <span class="font-serif text-lg md:text-xl">
-                      ${r.testo}
-                    </span>
-                  </button>
-                `).join('')}
-
-              </div>
-            </div>
-
-            <!-- CORNICE SOPRA -->
-            <img src="img/cornice_quiz.jpg"
-                 alt=""
-                 class="absolute inset-0 z-20 w-full h-full object-contain pointer-events-none select-none" />
-          </div>
+      <div class="absolute inset-0 z-20 flex flex-col justify-center" 
+           style="padding: 12% 15% 10% 15%;"> 
+        
+        <div class="flex flex-col gap-2 w-full overflow-y-auto custom-scrollbar">
+          ${risposteMiste.map((r) => `
+            <button
+              onclick="gestisciRisposta(${r.originale}, '${storiaId || ''}')"
+              data-answer="1"
+              class="w-full text-left flex items-center gap-3 p-3 transition-all hover:bg-white/10 rounded-lg group"
+              style="border-bottom: 1px solid rgba(255,215,0,0.2);">
+              
+              <span class="w-3 h-3 rounded-full bg-[#FFD700] shadow-[0_0_8px_#FFD700] flex-shrink-0"></span>
+              <span class="font-serif text-lg md:text-xl text-white group-hover:text-[#FFD700]">
+                ${r.testo}
+              </span>
+            </button>
+          `).join('')}
         </div>
 
       </div>
     </div>
 
-    <!-- FEEDBACK -->
-    <div id="feedback"
-         style="
-           position: fixed;
-           left: 20px;
-           bottom: 170px;
-           width: min(520px, 42vw);
-           z-index: 99999;
-           transform: none;
-         ">
-    </div>
+    <div id="feedback" class="mt-6 w-full max-w-md flex flex-col items-center"></div>
 
-  </div>
+  </main>
 </div>
 `;
 }
