@@ -291,7 +291,7 @@ return `
         style="background-image: url('img/sfondo_home.jpg');
                background-size: cover;
                background-position: center;
-               background-attachment: fixed;">
+               background-attachment: scroll;">
 
      <button onclick="navigate('hub')"
              class="home-cta absolute z-20 rounded-xl shadow-2xl transform transition-all hover:scale-105
@@ -717,20 +717,14 @@ return `
      <button onclick="resetLampada()">← Esci</button>
    </header>
 
-   <div id="quiz-layout" style="margin-top: -70px;">
+   <div id="quiz-layout" class="flex-1 flex items-center justify-center px-4 pt-24">
 
 
    <div class="flex-1 p-4 pt-24">
-     <div class="mx-auto" style="max-width: 640px; margin-left: 6vw; margin-right: auto;">
+    <div class="w-full max-w-2xl mx-auto">
 
-
-<div class="mx-auto relative"
-    style="
-      width: min(680px, 50vw);
-      margin-left: 30vw;
-      margin-top: 0px;
-      aspect-ratio: 2048 / 1118;
-    ">
+<div class="relative w-full"
+    style="aspect-ratio: 2048 / 1118;">
 
 
  <!-- DOMANDA FUORI CORNICE -->
