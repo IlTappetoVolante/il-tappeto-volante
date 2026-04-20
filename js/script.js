@@ -646,7 +646,7 @@ const renderSigilloFinale = () => `
   <div class="mt-12 mb-10 relative z-50">
 
     <!-- SIGILLO FIRMA -->
-    <div class="flex justify-end mb-6">
+    <div class="flex justify-end mb-6 relative z-50">
       <img src="img/sigillo_ceralacca_lorella_cr.png"
            alt="Sigillo in ceralacca Lorella"
            loading="lazy"
