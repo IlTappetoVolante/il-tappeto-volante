@@ -650,7 +650,7 @@ const renderSigilloFinale = () => `
       <img src="img/sigillo_ceralacca_lorella.jpg"
            alt="Sigillo in ceralacca Lorella"
            loading="lazy"
-           class="sigillo drop-shadow-lg">
+           class="sigillo sigillo-firma drop-shadow-lg">
     </div>
 
     <!-- PERGAMENA LEGENDA -->
