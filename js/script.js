@@ -647,7 +647,7 @@ const renderSigilloFinale = () => `
 
     <!-- SIGILLO FIRMA -->
     <div class="flex justify-end mb-6">
-      <img src="img/sigillo_ceralacca_lorella.jpg"
+      <img src="img/sigillo_ceralacca_lorella_cr.png"
            alt="Sigillo in ceralacca Lorella"
            loading="lazy"
            class="sigillo sigillo-firma drop-shadow-lg">
