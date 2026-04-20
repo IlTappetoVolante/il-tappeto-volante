@@ -643,7 +643,7 @@ const pulsanteLampada = storia.quiz ? `
            </button>
        </div>` : '';
 const renderSigilloFinale = () => `
-  <div class="mt-12 mb-10">
+  <div class="mt-12 mb-10 relative z-50">
 
     <!-- SIGILLO FIRMA -->
     <div class="flex justify-end mb-6">
