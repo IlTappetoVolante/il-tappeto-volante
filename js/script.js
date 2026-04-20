@@ -643,12 +643,39 @@ const pulsanteLampada = storia.quiz ? `
            </button>
        </div>` : '';
 const renderSigilloFinale = () => `
- <div class="mt-10 mb-8 flex justify-end">
-   <img src="img/sigillo_ceralacca_lorella.jpg"
-        alt="Sigillo in ceralacca con nome Lorella"
-        loading="lazy"
-        class="sigillo drop-shadow-lg">
- </div>
+  <div class="mt-12 mb-10">
+
+    <!-- SIGILLO FIRMA -->
+    <div class="flex justify-end mb-6">
+      <img src="img/sigillo_ceralacca_lorella.jpg"
+           alt="Sigillo in ceralacca Lorella"
+           loading="lazy"
+           class="sigillo drop-shadow-lg">
+    </div>
+
+    <!-- PERGAMENA LEGENDA -->
+    <div class="pergamena-sigilli">
+      
+      <p class="pergamena-titolo">Sigilli delle immagini</p>
+
+      <div class="pergamena-riga">
+        <img src="img/sigillo_rosso.png" class="sigillo-mini">
+        <span>Scatto originale dell’autrice</span>
+      </div>
+
+      <div class="pergamena-riga">
+        <img src="img/sigillo_verde.png" class="sigillo-mini">
+        <span>Ricostruzione AI da scatto originale</span>
+      </div>
+
+      <div class="pergamena-riga">
+        <img src="img/sigillo_blu.png" class="sigillo-mini">
+        <span>Immagine generata interamente con AI</span>
+      </div>
+
+    </div>
+
+  </div>
 `;
 
 
