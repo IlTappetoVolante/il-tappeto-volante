@@ -1150,9 +1150,9 @@ function renderPergamenaSigilli() {
       <!-- INTRO -->
       <div class="pergamena-intro">
         <p>
-          Per trasparenza editoriale, ogni immagine pubblicata all’interno de Il Tappeto Volante è accompagnata da un sigillo identificativo.
+          Per trasparenza editoriale, ogni immagine pubblicata è accompagnata da un sigillo identificativo.
           I sigilli indicano la natura del contenuto e il suo processo di produzione in forma sintetica e leggibile.
-          Questo sistema non è decorativo, ma serve a rendere chiaro il livello di origine e trasformazione delle immagini.
+          Questo sistema serve a rendere chiaro il livello di origine e trasformazione delle immagini.
         </p>
       </div>
 
