@@ -190,7 +190,7 @@ id: "danzatriciMediterraneo",
 titolo: "Le Donne che Danzano il Mediterraneo",
 icon: "<span style='font-size: 40px;'>💃</span>",
 sfondo: "img/mediterranean-topographic-map-stockcake-free-use.jpg",
-contenuto: typeof STORIA_DANZATRICI_MEDITERRANEO_DATA !== 'undefined' ? STORIA_DANZATRICI_MEDITERRANEO_DATA : {}
+contenuto: typeof STORIA_DANZATRICI_MEDITERRANEO_DATA !== 'undefined' ? STORIA_DANZATRICI_MEDITERRANEO_DATA : []
 }
 
 ] // <--- Chiude l'elenco delle storie (quadra)
