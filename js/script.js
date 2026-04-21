@@ -670,6 +670,7 @@ return `
           style="${foglioStyle} border: 1px solid ${borderColor};">
        ${withAutoTitle(storia.contenuto, storia.titolo).map(b => renderBlocco(b, renderTheme)).join('')}
        ${renderSigilloFinale()}
+        ${renderPergamenaSigilli()}
        ${(typeof renderQuizSection === 'function') ? renderQuizSection(storia.id) : ''}
        ${pulsanteLampada}
      </div>
