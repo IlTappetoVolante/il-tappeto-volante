@@ -1135,7 +1135,10 @@ function TappaView(dId, tId) {
                <button onclick="navigate('diario', '${diario.id}')">← Indietro</button>
            </header>
            <main class="vista-lettura flex-1 overflow-y-auto">
-               <div class="foglio-lettura" style="${paperColor}">${withAutoTitle(t.contenuto, t.titolo).map(b => renderBlocco(b, t.theme)).join('')}</div>
+               <div class="foglio-lettura" style="${paperColor}">${withAutoTitle(t.contenuto, t.titolo).map(b => renderBlocco(b, t.theme)).join('')}
+                ${renderSigilloFinale()}
+       ${renderPergamenaSigilli()} 
+               </div>
            </main>
        </div>`;
 }
