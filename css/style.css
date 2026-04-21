@@ -480,7 +480,7 @@ img.sigillo {
   gap: 8px;
   margin-bottom: 6px;
 }
-.sigillo-mini {
+img.sigillo-mini {
   width: 35px !important;  /* Qui puoi cambiare il numero: più piccolo è il numero, più piccolo è il sigillo */
   height: auto !important;
   display: inline-block !important; /* Serve per farlo stare di fianco al testo */
