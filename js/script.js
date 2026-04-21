@@ -1141,34 +1141,39 @@ function TappaView(dId, tId) {
 
 function renderPergamenaSigilli() {
   return `
-  <div class="pergamena-sigilli">
+    <div class="pergamena-sigilli">
 
-    <div class="pergamena-intro">
-      <p>
-        Per trasparenza editoriale, ogni immagine pubblicata all’interno de Il Tappeto Volante è accompagnata da un sigillo identificativo.
-        I sigilli distinguono la natura del contenuto lungo tre livelli: origine, trasformazione e generazione.
-        Questo sistema non è decorativo, ma serve a rendere leggibile il processo creativo che accompagna ogni immagine.
-      </p>
+      <!-- INTRO -->
+      <div class="pergamena-intro">
+        <p>
+          Per trasparenza editoriale, ogni immagine pubblicata all’interno de Il Tappeto Volante è accompagnata da un sigillo identificativo.
+          I sigilli indicano la natura del contenuto e il suo processo di produzione in forma sintetica e leggibile.
+          Questo sistema non è decorativo, ma serve a rendere chiaro il livello di origine e trasformazione delle immagini.
+        </p>
+      </div>
+
+      <!-- TITOLO -->
+      <p class="pergamena-titolo">Sigilli del Tappeto Volante</p>
+
+      <!-- ROSSO -->
+      <div class="pergamena-riga">
+        <img src="img/sigillo_rosso.png" class="sigillo-mini">
+        <span>Scatto originale dell’autrice</span>
+      </div>
+
+      <!-- BLU -->
+      <div class="pergamena-riga">
+        <img src="img/sigillo_blu.png" class="sigillo-mini">
+        <span>Scatto originale rielaborato con AI</span>
+      </div>
+
+      <!-- VERDE -->
+      <div class="pergamena-riga">
+        <img src="img/sigillo_verde.png" class="sigillo-mini">
+        <span>Immagine generata interamente da AI</span>
+      </div>
+
     </div>
-
-    <p class="pergamena-titolo">Sigilli del Tappeto Volante</p>
-
-    <div class="pergamena-riga">
-      <img src="img/sigillo_rosso.png" class="sigillo-mini">
-      <span>Scatto originale dell’autrice</span>
-    </div>
-
-    <div class="pergamena-riga">
-      <img src="img/sigillo_blu.png" class="sigillo-mini">
-      <span>Scatto originale rielaborato con AI</span>
-    </div>
-
-    <div class="pergamena-riga">
-      <img src="img/sigillo_verde.png" class="sigillo-mini">
-      <span>Immagine generata interamente da AI</span>
-    </div>
-
-  </div>
   `;
 }
 function IntroduzioneView(dId) {
