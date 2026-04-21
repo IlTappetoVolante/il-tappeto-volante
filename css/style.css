@@ -443,6 +443,7 @@ img.sigillo {
         padding: 0 15px !important;
         margin: 0 auto !important;
     }
+}
     .testo-bio-poetico {
         width: 100% !important;
         padding: 0 !important;
@@ -453,7 +454,7 @@ img.sigillo {
 /* ========================================= */
 
 .pergamena-sigilli {
-  background-image: url("img/pergamena.png");
+  background-image: url("img/sfondo_pergamena.jpg");
   background-size: cover;
   background-position: center;
   padding: 24px;
