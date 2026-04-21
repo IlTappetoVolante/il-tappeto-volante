@@ -642,42 +642,20 @@ const pulsanteLampada = storia.quiz ? `
                <span class="text-2xl">🧞‍♂️</span> Strofina la Lampada
            </button>
        </div>` : '';
-const renderSigilloFinale = () => `
-  <div class="mt-12 mb-10 relative z-50">
+const renderSigilloFinale = () => {
+  return `
+    <div class="mt-12 mb-10 relative z-50">
 
-    <!-- SIGILLO FIRMA -->
-    <div class="flex justify-end mb-6 relative z-50">
-      <img src="img/sigillo_ceralacca_lorella_cr.png"
-           alt="Sigillo in ceralacca Lorella"
-           loading="lazy"
-           class="sigillo sigillo-firma drop-shadow-lg">
-    </div>
-
-    <!-- PERGAMENA LEGENDA -->
-    <div class="pergamena-sigilli">
-      
-      <p class="pergamena-titolo">Sigilli delle immagini</p>
-
-      <div class="pergamena-riga">
-        <img src="img/sigillo_rosso.png" class="sigillo-mini">
-        <span>Scatto originale dell’autrice</span>
-      </div>
-
-      <div class="pergamena-riga">
-        <img src="img/sigillo_verde.png" class="sigillo-mini">
-        <span>Ricostruzione AI da scatto originale</span>
-      </div>
-
-      <div class="pergamena-riga">
-        <img src="img/sigillo_blu.png" class="sigillo-mini">
-        <span>Immagine generata interamente con AI</span>
+      <div class="flex justify-end mb-6">
+        <img src="img/sigillo_ceralacca_lorella_cr.png"
+             alt="Sigillo in ceralacca Lorella"
+             loading="lazy"
+             class="sigillo sigillo-firma drop-shadow-lg">
       </div>
 
     </div>
-
-  </div>
-`;
-
+  `;
+};
 
 return `
  <div class="flex flex-col h-full relative overflow-hidden" style="${backgroundCSS}">
@@ -1159,6 +1137,39 @@ function TappaView(dId, tId) {
                <div class="foglio-lettura" style="${paperColor}">${withAutoTitle(t.contenuto, t.titolo).map(b => renderBlocco(b, t.theme)).join('')}</div>
            </main>
        </div>`;
+}
+
+function renderPergamenaSigilli() {
+  return `
+  <div class="pergamena-sigilli">
+
+    <div class="pergamena-intro">
+      <p>
+        Per trasparenza editoriale, ogni immagine pubblicata all’interno de Il Tappeto Volante è accompagnata da un sigillo identificativo.
+        I sigilli distinguono la natura del contenuto lungo tre livelli: origine, trasformazione e generazione.
+        Questo sistema non è decorativo, ma serve a rendere leggibile il processo creativo che accompagna ogni immagine.
+      </p>
+    </div>
+
+    <p class="pergamena-titolo">Sigilli del Tappeto Volante</p>
+
+    <div class="pergamena-riga">
+      <img src="img/sigillo_rosso.png" class="sigillo-mini">
+      <span>Scatto originale dell’autrice</span>
+    </div>
+
+    <div class="pergamena-riga">
+      <img src="img/sigillo_blu.png" class="sigillo-mini">
+      <span>Scatto originale rielaborato con AI</span>
+    </div>
+
+    <div class="pergamena-riga">
+      <img src="img/sigillo_verde.png" class="sigillo-mini">
+      <span>Immagine generata interamente da AI</span>
+    </div>
+
+  </div>
+  `;
 }
 function IntroduzioneView(dId) {
 const d = (Array.isArray(DATABASE.diari) ? (DATABASE.diari.find(x => x.id === dId) || DATABASE.diari[0]) : null);
