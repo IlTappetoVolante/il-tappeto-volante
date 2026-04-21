@@ -1147,39 +1147,35 @@ function renderPergamenaSigilli() {
   return `
     <div class="pergamena-sigilli">
 
-      <!-- INTRO -->
       <div class="pergamena-intro">
         <p>
-          Per trasparenza editoriale, ogni immagine pubblicata è accompagnata da un sigillo identificativo.
+          Per trasparenza editoriale, ogni immagine pubblicata all’interno de Il Tappeto Volante è accompagnata da un sigillo identificativo.
           I sigilli indicano la natura del contenuto e il suo processo di produzione in forma sintetica e leggibile.
-          Questo sistema serve a rendere chiaro il livello di origine e trasformazione delle immagini.
+          Questo sistema non è decorativo, ma serve a rendere chiaro il livello di origine e trasformazione delle immagini.
         </p>
       </div>
 
-      <!-- TITOLO -->
       <p class="pergamena-titolo">Sigilli del Tappeto Volante</p>
 
-      <!-- ROSSO -->
       <div class="pergamena-riga">
-        <img src="img/sigillo_rosso.png" class="sigillo-mini">
+        <img src="img/sigillo_rosso.png" class="sigillo-mini" style="width: 35px !important; height: auto !important; box-shadow: none !important; border-radius: 0 !important; margin-right: 10px !important;">
         <span>Scatto originale dell’autrice</span>
       </div>
 
-      <!-- BLU -->
       <div class="pergamena-riga">
-        <img src="img/sigillo_blu.png" class="sigillo-mini">
+        <img src="img/sigillo_blu.png" class="sigillo-mini" style="width: 35px !important; height: auto !important; box-shadow: none !important; border-radius: 0 !important; margin-right: 10px !important;">
         <span>Scatto originale rielaborato con AI</span>
       </div>
 
-      <!-- VERDE -->
       <div class="pergamena-riga">
-        <img src="img/sigillo_verde.png" class="sigillo-mini">
+        <img src="img/sigillo_verde.png" class="sigillo-mini" style="width: 35px !important; height: auto !important; box-shadow: none !important; border-radius: 0 !important; margin-right: 10px !important;">
         <span>Immagine generata interamente da AI</span>
       </div>
 
     </div>
   `;
 }
+
 function IntroduzioneView(dId) {
 const d = (Array.isArray(DATABASE.diari) ? (DATABASE.diari.find(x => x.id === dId) || DATABASE.diari[0]) : null);
 if (!d) return HomeView();
