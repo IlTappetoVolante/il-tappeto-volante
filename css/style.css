@@ -196,7 +196,7 @@ body {
 /* 4. IMMAGINI E MEDIA                       */
 /* ========================================= */
 /* NB: ESCLUDO icone-card e bandiere, così non diventano w-100% */
-img:not(.sigillo):not(.icona-card):not(.flag-icon),
+img:not(.sigillo):not(.sigillo-mini):not(.icona-card):not(.flag-icon),
 iframe, video, .video-container {
   width: 100% !important;
   max-width: 100% !important;
@@ -480,9 +480,19 @@ img.sigillo {
   gap: 8px;
   margin-bottom: 6px;
 }
-
 .sigillo-mini {
-  width: 18px;
-  height: 18px;
+  width: 35px !important;  /* Qui puoi cambiare il numero: più piccolo è il numero, più piccolo è il sigillo */
+  height: auto !important;
+  display: inline-block !important; /* Serve per farlo stare di fianco al testo */
+  margin: 0 10px 0 0 !important;    /* Crea un po' di spazio a destra tra sigillo e testo */
+  box-shadow: none !important;      /* Toglie l'ombra che hanno le foto grandi */
+  border-radius: 0 !important;      /* Toglie i bordi arrotondati delle foto */
+}.sigillo-mini {
+  width: 35px !important;  /* Qui puoi cambiare il numero: più piccolo è il numero, più piccolo è il sigillo */
+  height: auto !important;
+  display: inline-block !important; /* Serve per farlo stare di fianco al testo */
+  margin: 0 10px 0 0 !important;    /* Crea un po' di spazio a destra tra sigillo e testo */
+  box-shadow: none !important;      /* Toglie l'ombra che hanno le foto grandi */
+  border-radius: 0 !important;      /* Toglie i bordi arrotondati delle foto */
 }
 }
