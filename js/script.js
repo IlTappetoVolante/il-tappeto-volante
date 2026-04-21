@@ -1158,23 +1158,24 @@ function renderPergamenaSigilli() {
       <p class="pergamena-titolo">Sigilli del Tappeto Volante</p>
 
       <div class="pergamena-riga">
-        <img src="img/sigillo_rosso.png" class="sigillo-mini" style="width: 35px !important; height: auto !important; box-shadow: none !important; border-radius: 0 !important; margin-right: 10px !important;">
+        <img src="img/sigillo_rosso.png" class="sigillo-mini" style="width: 25px !important; height: auto !important; border: none !important; padding: 0 !important; background: transparent !important; box-shadow: none !important; object-fit: contain !important; margin-right: 10px !important;">
         <span>Scatto originale dell’autrice</span>
       </div>
 
       <div class="pergamena-riga">
-        <img src="img/sigillo_blu.png" class="sigillo-mini" style="width: 35px !important; height: auto !important; box-shadow: none !important; border-radius: 0 !important; margin-right: 10px !important;">
+        <img src="img/sigillo_blu.png" class="sigillo-mini" style="width: 25px !important; height: auto !important; border: none !important; padding: 0 !important; background: transparent !important; box-shadow: none !important; object-fit: contain !important; margin-right: 10px !important;">
         <span>Scatto originale rielaborato con AI</span>
       </div>
 
       <div class="pergamena-riga">
-        <img src="img/sigillo_verde.png" class="sigillo-mini" style="width: 35px !important; height: auto !important; box-shadow: none !important; border-radius: 0 !important; margin-right: 10px !important;">
+        <img src="img/sigillo_verde.png" class="sigillo-mini" style="width: 25px !important; height: auto !important; border: none !important; padding: 0 !important; background: transparent !important; box-shadow: none !important; object-fit: contain !important; margin-right: 10px !important;">
         <span>Immagine generata interamente da AI</span>
       </div>
 
     </div>
   `;
 }
+
 
 function IntroduzioneView(dId) {
 const d = (Array.isArray(DATABASE.diari) ? (DATABASE.diari.find(x => x.id === dId) || DATABASE.diari[0]) : null);
