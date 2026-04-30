@@ -37,9 +37,9 @@ titolo: "Introduzione",
 icon: "<img src='img/icona_intro.png' style='width: 50px !important; height: 50px !important;' class='object-contain'>",
 sfondo: "img/sfondo_intro_storie.jpg",
 theme: {
-side_overlay: "img/lanterna.jpg", // <-- la tua lanterna (PNG trasparente)
-side_overlay_width: 90,                    // opzionale
-side_overlay_opacity: 0.85                 // opzionale
+side_overlay: "img/lanterna.jpg", 
+side_overlay_width: 90,                    
+side_overlay_opacity: 0.85                 
 },
 contenuto: (typeof STORIA_INTRO_DATA !== "undefined") ? STORIA_INTRO_DATA : []
 },
@@ -140,7 +140,7 @@ titolo: "Şahmaran, la Regina che guarisce",
 icon: "<img src='img/figura_shahmaran.jpg' style='width:50px !important;height:50px !important;' class='object-cover rounded-full border-2 border-[#ff4444]'>",
 sfondo: "img/sfondo_pergamena.jpg",
 quiz: {
-video_premio: "video/video_premio_shahmaran.mp4",  // se non ce l’hai, puoi anche toglierla
+video_premio: "video/video_premio_shahmaran.mp4",  
 premi_files: [
 "premi_web/shahmaran/premio_shahmaran_1.html",
 "premi_web/shahmaran/premio_shahmaran_2.html",
@@ -176,7 +176,7 @@ corretta: 0
 }
 ]
 },         
-contenuto: STORIA_SHAHMARAN_DATA
+contenuto: typeof STORIA_SHAHMARAN_DATA !== 'undefined' ? STORIA_SHAHMARAN_DATA : []
 },
 {
 id: "introMediterraneo",
@@ -193,8 +193,8 @@ sfondo: "img/mediterranean-topographic-map-stockcake-free-use.jpg",
 contenuto: typeof STORIA_DANZATRICI_MEDITERRANEO_DATA !== 'undefined' ? STORIA_DANZATRICI_MEDITERRANEO_DATA : {}
 }
 
-] // <--- Chiude l'elenco delle storie (quadra)
-},   // <--- Chiude la sezione "storie" (graffa) e METTE LA VIRGOLA
+] 
+},   
 
 // QUIZ GENERALE
 quiz_generale: {
@@ -208,6 +208,33 @@ domande: [
 }
 };
 
+// =============================================================================
+// FUNZIONI GLOBALI (SIGILLI)
+// =============================================================================
+
+window.renderSigilloFinale = window.renderSigilloFinale || function () {
+    return `
+        <div class="mt-10 mb-8 flex justify-end">
+            <img src="img/sigillo_ceralacca_lorella.jpg"
+                 alt="Sigillo in ceralacca con nome Lorella"
+                 loading="lazy"
+                 class="sigillo drop-shadow-lg"
+                 style="width: 100px; height: auto;">
+        </div>
+    `;
+};
+
+window.renderPergamenaSigilli = window.renderPergamenaSigilli || function () {
+    return `
+        <div class="mt-10 mb-8 flex justify-end">
+            <img src="img/sigillo_ceralacca_lorella.jpg"
+                 alt="Sigillo in ceralacca con nome Lorella"
+                 loading="lazy"
+                 class="sigillo drop-shadow-lg"
+                 style="width: 100px; height: auto;">
+        </div>
+    `;
+};
 
 // =============================================================================
 // 2. LOGICA APPLICAZIONE (VISTE)
@@ -215,12 +242,9 @@ domande: [
 
 // FUNZIONE RENDER BLOCCO (SEMPLIFICATA)
 const renderBlocco = (blocco, theme) => {
-// Recuperiamo il colore forzato
 const textColor = theme.forceText || theme.text;
 
 switch (blocco.type) {
-// NOTA: Qui NON applichiamo più il fontStyle riga per riga, perché lo mettiamo nel contenitore padre.
-// Lasciamo solo font-bold per sicurezza.
 case 'titolo': return `<h1 class="diario-titolo ${theme.text_header || textColor} font-bold">${blocco.testo}</h1>`;
 case 'testo': return `<p class="diario-text my-6 ${textColor} font-bold">${blocco.paragrafo}</p>`; 
 case 'immagine': return `<img src="${blocco.src}" alt="${blocco.alt || 'Immagine'}" class="w-full h-auto rounded-lg shadow-md my-4">`;
@@ -234,7 +258,6 @@ case 'video': {
 const src = blocco.src || '';
 const caption = blocco.didascalia || blocco.testo || '';
 
-// Se è un link YouTube, lo embeddiamo come prima
 if (src.includes("youtube.com") || src.includes("youtu.be/")) {
 let embedSrc = src;
 if (embedSrc.includes("youtube.com/watch?v=")) embedSrc = embedSrc.replace("watch?v=", "embed/");
@@ -245,10 +268,8 @@ embedSrc = embedSrc.split('?')[0];
 return `<div class="video-container"><iframe src="${embedSrc}" frameborder="0" allowfullscreen></iframe></div>`;
 }
 
-// Altrimenti: video locale (mp4) dentro al contenuto
 const vidId = blocco.id ? `id="${blocco.id}"` : '';
 const shouldAutoplay = !!blocco.autoplay;
-const shouldLoop = !!blocco.loop; // loop solo se lo scrivi nel contenuto
 const controlsAttr = (blocco.controls === false) ? '' : 'controls';
 
 return `
@@ -279,7 +300,6 @@ const hasTitle = contenuto.some(b => b && b.type === 'titolo');
 if (hasTitle || !titolo) return contenuto;
 return [{ type: 'titolo', testo: titolo }, ...contenuto];
 };
-
 
 // VISTA HOME
 function HomeView() {
@@ -338,8 +358,6 @@ return `
    </div>
  `;
 }
-
-
 
 // Template unico per le card del menu (HUB / menu vari)
 function renderCard({ title, img, alt, onClick, extraClass = "" }) {
@@ -433,13 +451,11 @@ function ViaggiImmaginatiView() {
 
       <main class="flex-1 flex flex-col items-center justify-between px-4 pt-24 pb-10">
         
-        <!-- Titolo centrato -->
         <h1 class="font-ui-titolo text-4xl md:text-5xl font-bold text-white text-center"
             style="text-shadow: 0 2px 12px rgba(0,0,0,0.85);">
           I Viaggi Immaginati
         </h1>
 
-        <!-- Testo in basso e centrato -->
         <div class="w-full max-w-4xl text-center text-white"
              style="text-shadow: 0 2px 10px rgba(0,0,0,0.85);">
           <p class="text-lg md:text-xl mb-3">
@@ -480,7 +496,6 @@ return `
      <main class="vista-menu flex-1 overflow-y-auto p-4 pt-6">
        <div class="container-cards">
 
-         <!-- INTRODUZIONE -->
          <div class="card-diario" onclick="navigate('storia', 'introMediterraneo')">
            <div class="flex items-center space-x-4">
              <span class="text-3xl">✨</span>
@@ -488,7 +503,6 @@ return `
            </div>
          </div>
 
-         <!-- STORIA DELLE DANZATRICI -->
          <div class="card-diario" onclick="navigate('storia', 'danzatriciMediterraneo')">
            <div class="flex items-center space-x-4">
              <span class="text-3xl">💃</span>
@@ -502,7 +516,7 @@ return `
  `;
 }
 
-// VISTA MENU STORIE (mancava)
+// VISTA MENU STORIE 
 function StorieMenuView() {
 const storiesData = DATABASE.storie;
 const linkSfondo = "img/libro.jpg"; 
@@ -562,8 +576,6 @@ if (!storia) return StorieMenuView();
 const hasDarkPaper = !!(storia.theme && storia.theme.paper_color);
 const isPergamena = (storia.sfondo || "").toLowerCase().includes("pergamena");
 
-// 1. GESTIONE SFONDO PAGINA (immagine + eventuale immagine laterale)
-//    Per le storie "dark" (Assassini) NON applichiamo overlay: l'immagine deve restare originale.
 let backgroundCSS = "";
 if (storia.theme && storia.theme.side_image) {
 backgroundCSS = `
@@ -585,10 +597,8 @@ backgroundCSS = `
                background-color: ${storia.theme.paper_color};
            `;
 } else {
-// Storie standard: overlay (molto leggero su pergamena)
 const overlay = isPergamena ? 0.10 : 0.35;
 backgroundCSS = `background-image: linear-gradient(rgba(0,0,0,${overlay}), rgba(0,0,0,${overlay})), url('${storia.sfondo}'); background-size: cover; background-position: center; background-attachment: fixed;`;
-
 }
 } else {
 backgroundCSS = `background-image: url('${DATABASE.storie.theme.sfondo}'); background-color: #f4f4f9; background-repeat: repeat;`;
@@ -596,7 +606,6 @@ backgroundCSS = `background-image: url('${DATABASE.storie.theme.sfondo}'); backg
 
 const theme = storia.theme ? { ...DATABASE.storie.theme, ...storia.theme } : DATABASE.storie.theme;
 
-// ✅ LANTERNE LATERALI (come Sabah: fisse nel viewport)
 const sideOverlay = theme?.side_overlay || null;
 const sideW = theme?.side_overlay_width ?? 90;
 const sideO = theme?.side_overlay_opacity ?? 0.85;
@@ -613,17 +622,14 @@ const sideOverlaysHTML = sideOverlay ? `
  </div>
 ` : '';
 
-// 2. STILE FOGLIO (UNA SOLA style="" per evitare che il browser ignori quella col background)
 let foglioStyle = "";
 let forceTextClass = "";
 
 if (hasDarkPaper) {
-// Forziamo un background pieno per vincere eventuali CSS "bulli"
 foglioStyle = `background: ${storia.theme.paper_color} !important;`;
 forceTextClass = theme.text;
 if (theme.font) foglioStyle += ` ${theme.font}`;
 } else {
-// Niente background inline: lo gestiscono le classi CSS (foglio-storia / foglio-pergamena)
 foglioStyle = theme.font ? theme.font : "";
 forceTextClass = "text-gray-900";
 }
@@ -642,15 +648,6 @@ const pulsanteLampada = storia.quiz ? `
                <span class="text-2xl">🧞‍♂️</span> Strofina la Lampada
            </button>
        </div>` : '';
-const renderSigilloFinale = () => `
- <div class="mt-10 mb-8 flex justify-end">
-   <img src="img/sigillo_ceralacca_lorella.jpg"
-        alt="Sigillo in ceralacca con nome Lorella"
-        loading="lazy"
-        class="sigillo drop-shadow-lg">
- </div>
-`;
-
 
 return `
  <div class="flex flex-col h-full relative overflow-hidden" style="${backgroundCSS}">
@@ -664,7 +661,7 @@ return `
      <div class="${isPergamena ? 'foglio-lettura foglio-storia foglio-pergamena' : 'foglio-lettura foglio-storia'}"
           style="${foglioStyle} border: 1px solid ${borderColor};">
        ${withAutoTitle(storia.contenuto, storia.titolo).map(b => renderBlocco(b, renderTheme)).join('')}
-       ${renderSigilloFinale()}
+       ${window.renderSigilloFinale?.() ?? ''}
        ${(typeof renderQuizSection === 'function') ? renderQuizSection(storia.id) : ''}
        ${pulsanteLampada}
      </div>
@@ -755,6 +752,7 @@ function LampadaView(storiaId) {
 </div>
 `;
 }
+
 function LampadaHubView() {
 const quizStories = DATABASE.storie.elenco.filter(s => !!s.quiz);
 
@@ -771,19 +769,20 @@ return `
          <p class="opacity-90 mt-2">Scegli un quiz e rigioca quando vuoi.</p>
        </div>
 
-       <div class="space-y-4">
-         ${quizStories.map(s => `
-           <div class="card-diario card-storie" onclick="navigate('lampada', '${s.id}')">
-             <div class="flex items-center space-x-4">
-               <span class="text-3xl flex-shrink-0">${(typeof s.icon === 'string') ? s.icon : ''}</span>
-               <div class="flex flex-col text-left">
-                 <h2 class="font-ui-titolo text-xl font-semibold text-white">${s.titolo}</h2>
-                 <span class="text-sm opacity-80">Quiz disponibile</span>
-               </div>
-             </div>
-           </div>
-         `).join('')}
-       </div>
+      <div class="space-y-4">
+  ${quizStories.map(s => `
+    <div class="card-diario card-storie cursor-pointer hover:brightness-110" 
+         onclick="renderApp('lampada', '${s.id}')">
+      <div class="flex items-center space-x-4">
+        <span class="text-3xl flex-shrink-0">${(typeof s.icon === 'string') ? s.icon : ''}</span>
+        <div class="flex flex-col text-left">
+          <h2 class="font-ui-titolo text-xl font-semibold text-white">${s.titolo}</h2>
+          <span class="text-sm opacity-80">Quiz disponibile</span>
+        </div>
+      </div>
+    </div>
+  `).join('')}
+</div>
 
        ${quizStories.length === 0 ? `<p class="text-center opacity-80 mt-10">Per ora non ci sono quiz disponibili.</p>` : ``}
      </div>
@@ -828,7 +827,6 @@ const numScatola = index + 1;
 const imgScatola = `img/scatola_regalo_${numScatola}.jpg`;
 const premioLink = premiFiles?.[index];
 
-// vinto
 if (score >= numScatola && premioLink) {
 return `
      <a href="${premioLink}" target="_blank" rel="noopener"
@@ -840,7 +838,6 @@ return `
    `;
 }
 
-// non vinto (grigio, non cliccabile)
 return `
    <div class="inline-flex items-center justify-center opacity-50 grayscale"
         title="Scrigno sigillato">
@@ -891,7 +888,7 @@ const isCorretta = rispostaIndex === domanda.corretta;
 const feedbackContainer = document.getElementById("feedback");
 if (!feedbackContainer) return;
 
-feedbackContainer.innerHTML = ""; // pulisce il precedente
+feedbackContainer.innerHTML = ""; 
 feedbackContainer.className = "mt-4 flex flex-col gap-3 items-start";
 
 const messaggio = document.createElement("div");
@@ -902,7 +899,6 @@ messaggio.classList.add(
 
 const premioN = domandaIndex + 1;
 
-// Messaggi diversi per ogni premio (personalizzabili nel quizData: feedback_premi)
 const quizData = quizState.activeQuizData || {};
 const defaultOk = [
 "✅ Risposta corretta! Hai sbloccato il Primo Tesoro.",
@@ -922,13 +918,11 @@ if (isCorretta) {
 messaggio.classList.add("bg-green-800", "border-green-400");
 messaggio.textContent = "✅ Risposta corretta.";
 
-// layout verticale del feedback (così non si coprono)
 feedbackContainer.style.display = "flex";
 feedbackContainer.style.flexDirection = "column";
 feedbackContainer.style.gap = "12px";
 feedbackContainer.style.alignItems = "flex-start";
 
-// messaggio verde: stile inline (sempre visibile)
 messaggio.style.background = "rgba(20, 120, 60, 0.85)";
 messaggio.style.border = "1px solid rgba(120, 255, 180, 0.55)";
 messaggio.style.padding = "10px 12px";
@@ -939,7 +933,6 @@ messaggio.style.maxWidth = "520px";
 
 feedbackContainer.appendChild(messaggio);
 
-// ✅ Premio subito (1/2/3) appena risponde correttamente
 const premioFile = quizData.premi_files?.[premioN - 1];
 if (premioFile) {
 const linkPremio = document.createElement("a");
@@ -949,7 +942,6 @@ linkPremio.rel = "noopener";
 
 const imgIcon = `img/scatola_regalo_${premioN}.jpg`;
 
-// bottone: stile inline (non dipende da Tailwind)
 linkPremio.style.display = "inline-flex";
 linkPremio.style.alignItems = "center";
 linkPremio.style.gap = "10px";
@@ -963,7 +955,6 @@ linkPremio.style.textDecoration = "none";
 linkPremio.style.whiteSpace = "nowrap";
 linkPremio.style.boxShadow = "0 10px 22px rgba(0,0,0,0.35)";
 
-// icona: forza dimensione (anche se c'è un img{width:100% !important})
 linkPremio.innerHTML = `
  <img src="${imgIcon}" alt=""
       style="
@@ -986,15 +977,11 @@ linkPremio.innerHTML = `
 feedbackContainer.appendChild(linkPremio);
 }
 
-
-
-// evita doppio punteggio se si clicca più volte
 if (!quizState._answeredCorrectly) {
 quizState.score++;
 quizState._answeredCorrectly = true;
 }
 
-// disabilita le risposte dopo una risposta corretta
 document.querySelectorAll('[data-answer="1"]').forEach(btn => {
 btn.disabled = true;
 btn.classList.add("opacity-60", "cursor-not-allowed");
@@ -1013,7 +1000,6 @@ messaggio.innerHTML = customKo || defaultKo[premioN - 1];
 
 feedbackContainer.appendChild(messaggio);
 
-// ✅ Riprova (resta sulla stessa domanda)
 const retry = document.createElement("div");
 retry.className = "mt-4 text-white/80 italic";
 retry.textContent = "Riprova: scegli un’altra risposta.";
@@ -1034,7 +1020,6 @@ renderApp('lampada', storiaId);
 }
 };
 
-// Compatibilità: se qualcosa chiama ancora checkRisposta
 window.checkRisposta = (scelta, corretta, storiaId) => {
 window.gestisciRisposta(scelta, storiaId);
 };
@@ -1049,37 +1034,34 @@ navigate('home');
 }
 };
 
-
-
-
-// ... (Resto funzioni standard DiarioView, TappaView, IntroduzioneView, Router, Init)
 function DiarioView(param) { return DATABASE.diari[0].id === param ? renderDiarioStandard(DATABASE.diari[0]) : HomeView(); }
 function renderDiarioStandard(diario) {
-return `
+  return `
    <div class="flex flex-col h-full">
-
-     <!-- Titolo libero -->
      <header class="header-galleggiante">
-     <button onclick="navigate('hub')">Menù</button>
+       <button onclick="renderApp('hub')">Menù</button>
      </header>
-<main class="vista-menu flex-1 overflow-y-auto p-4 pt-8"
-     style="background-image: url('https://i.postimg.cc/zBXrqHfS/1762382249179.png'); background-size: cover; background-position: center;">
 
- <div class="mb-6 flex justify-center">
- <div class="inline-flex px-5 py-3 rounded-2xl bg-black/55 backdrop-blur-md border border-white/15 shadow-lg">
-   <h1 class="font-ui-titolo text-4xl font-bold text-white text-center"
-       style="text-shadow: 0 2px 10px rgba(0,0,0,0.9);">
-     ${diario.titolo}
-   </h1>
- </div>
-</div>
+     <main class="vista-menu flex-1 overflow-y-auto p-4 pt-8"
+           style="background-image: url('https://i.postimg.cc/zBXrqHfS/1762382249179.png'); background-size: cover; background-position: center;">
 
-     <div class="container-cards">
+       <div class="mb-6 flex justify-center">
+         <div class="inline-flex px-5 py-3 rounded-2xl bg-black/55 backdrop-blur-md border border-white/15 shadow-lg">
+           <h1 class="font-ui-titolo text-4xl font-bold text-white text-center"
+               style="text-shadow: 0 2px 10px rgba(0,0,0,0.9);">
+             ${diario.titolo}
+           </h1>
+         </div>
+       </div>
 
-         <div class="card-diario" onclick="navigate('introduzione', '${diario.id}')">
-           <div class="flex items-center space-x-4">
+       <div class="container-cards max-w-3xl mx-auto">
+         
+         <div class="card-diario cursor-pointer hover:bg-white/10 transition-all"
+              style="position: relative; z-index: 50;"
+              onclick="renderApp('introduzione', '${diario.id}')">
+           <div class="flex items-center space-x-4 pointer-events-none">
              <span class="text-3xl">${diario.icon}</span>
-             <h2 class="font-ui-titolo text-xl font-semibold">
+             <h2 class="font-ui-titolo text-xl font-semibold text-white">
                Introduzione: L’Eco degli Sguardi
              </h2>
            </div>
@@ -1092,11 +1074,12 @@ return `
 
          <div class="space-y-4">
            ${diario.tappe.map(t => `
-             <div class="card-diario"
-                  onclick="navigate('tappa', '${diario.id}', '${t.id}')">
-               <div class="flex items-center space-x-4">
+             <div class="card-diario cursor-pointer hover:bg-white/10 transition-all"
+                  style="position: relative; z-index: 50;"
+                  onclick="renderApp('tappa', '${diario.id}', '${t.id}')">
+               <div class="flex items-center space-x-4 pointer-events-none">
                  <span class="text-3xl">${t.icon}</span>
-                 <h2 class="font-ui-titolo text-xl font-semibold">
+                 <h2 class="font-ui-titolo text-xl font-semibold text-white">
                    ${t.titolo}
                  </h2>
                </div>
@@ -1111,28 +1094,98 @@ return `
 }
 
 function TappaView(dId, tId) {
-    const diario = (Array.isArray(DATABASE.diari) ? (DATABASE.diari.find(d => d.id === dId) || DATABASE.diari[0]) : null);
-    if (!diario || !Array.isArray(diario.tappe)) return HomeView();
+    const diario = getDiario(dId);
+    if (!diario) return HubView();
 
-    const t = diario.tappe.find(x => x && x.id === tId);
-    if (!t || !t.theme || !Array.isArray(t.contenuto)) return HomeView();
+    const tappa = getTappa(diario, tId);
+    if (!tappa) return DiarioView(dId);
 
-    const bgStyle = t.theme.sfondo
-        ? `background-image: url('${t.theme.sfondo}'); background-size: 400px;`
-        : `background-color: white;`;
+    const styles = buildTappaStyles(tappa);
 
-    // LA NOSTRA MAGIA: Se nel file della tappa c'è un paper_color, lo usa!
-    const paperColor = t.theme.paper_color ? `background-color: ${t.theme.paper_color} !important;` : '';
-
-    return `<div class="flex flex-col h-full" style="${bgStyle}">
-           <header class="header-galleggiante">
-               <button onclick="navigate('diario', '${diario.id}')">← Indietro</button>
-           </header>
-           <main class="vista-lettura flex-1 overflow-y-auto">
-               <div class="foglio-lettura" style="${paperColor}">${withAutoTitle(t.contenuto, t.titolo).map(b => renderBlocco(b, t.theme)).join('')}</div>
-           </main>
-       </div>`;
+    return renderTappaPage(diario, tappa, styles);
 }
+
+/* =========================
+   DATA ACCESS LAYER
+========================= */
+
+function getDiario(dId) {
+    const diario = DATABASE.diari.find(d => d.id === dId);
+    if (!diario) {
+        console.error("Diario non trovato:", dId);
+        return null;
+    }
+    return diario;
+}
+
+function getTappa(diario, tId) {
+    const tappa = diario.tappe.find(t => t && t.id === tId);
+    if (!tappa) {
+        console.error("Tappa non trovata:", tId);
+        return null;
+    }
+    return tappa;
+}
+
+/* =========================
+   STYLE BUILDER
+========================= */
+
+function buildTappaStyles(tappa) {
+    const bgStyle = tappa.theme?.sfondo
+        ? `background-image: url('${tappa.theme.sfondo}'); background-size: cover; background-position: center;`
+        : `background-color: #f4f4f4;`;
+
+    const paperStyle = tappa.theme?.paper_color
+        ? `background-color: ${tappa.theme.paper_color} !important;`
+        : '';
+
+    return { bgStyle, paperStyle };
+}
+
+/* =========================
+   RENDER LAYER
+========================= */
+
+function renderTappaPage(diario, tappa, styles) {
+    return `
+        <div class="flex flex-col h-full" style="${styles.bgStyle}">
+            
+            ${renderTappaHeader(diario)}
+
+            <main class="vista-lettura flex-1 overflow-y-auto">
+                <div class="foglio-lettura" style="${styles.paperStyle}">
+                    
+                    ${renderTappaContent(tappa)}
+
+                    ${renderTappaExtras(tappa)}
+                    
+                </div>
+            </main>
+        </div>
+    `;
+}
+
+function renderTappaHeader(diario) {
+    return `
+        <header class="header-galleggiante">
+            <button onclick="renderApp('diario', '${diario.id}')">← Indietro</button>
+        </header>
+    `;
+}
+
+function renderTappaContent(tappa) {
+    return withAutoTitle(tappa.contenuto, tappa.titolo)
+        .map(blocco => renderBlocco(blocco, tappa.theme))
+        .join('');
+}
+
+function renderTappaExtras(tappa) {
+    return `
+        ${window.renderPergamenaSigilli?.() ?? ''}
+    `;
+}
+
 function IntroduzioneView(dId) {
 const d = (Array.isArray(DATABASE.diari) ? (DATABASE.diari.find(x => x.id === dId) || DATABASE.diari[0]) : null);
 if (!d) return HomeView();
