@@ -196,7 +196,7 @@ body {
 /* 4. IMMAGINI E MEDIA                       */
 /* ========================================= */
 /* NB: ESCLUDO icone-card e bandiere, così non diventano w-100% */
-img:not(.sigillo):not(.icona-card):not(.flag-icon),
+img:not(.sigillo):not(.sigillo-mini):not(.icona-card):not(.flag-icon),
 iframe, video, .video-container {
   width: 100% !important;
   max-width: 100% !important;
@@ -443,9 +443,56 @@ img.sigillo {
         padding: 0 15px !important;
         margin: 0 auto !important;
     }
+}
     .testo-bio-poetico {
         width: 100% !important;
         padding: 0 !important;
         font-size: 1.1rem !important; /* Opzionale: ingrandisce un filo il testo */
     }
+    /* ========================================= */
+/* 7. PERGAMENA + SIGILLI                    */
+/* ========================================= */
+
+.pergamena-sigilli {
+  background-image: url("../img/sfondo_pergamena.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 24px;
+  border-radius: 12px;
+  color: #2b1b10;
+  font-family: serif;
+}
+
+.pergamena-intro {
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.pergamena-titolo {
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.pergamena-riga {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+img.sigillo-mini {
+  width: 35px !important;  /* Qui puoi cambiare il numero: più piccolo è il numero, più piccolo è il sigillo */
+  height: auto !important;
+  display: inline-block !important; /* Serve per farlo stare di fianco al testo */
+  margin: 0 10px 0 0 !important;    /* Crea un po' di spazio a destra tra sigillo e testo */
+  box-shadow: none !important;      /* Toglie l'ombra che hanno le foto grandi */
+  border-radius: 0 !important;      /* Toglie i bordi arrotondati delle foto */
+}.sigillo-mini {
+  width: 35px !important;  /* Qui puoi cambiare il numero: più piccolo è il numero, più piccolo è il sigillo */
+  height: auto !important;
+  display: inline-block !important; /* Serve per farlo stare di fianco al testo */
+  margin: 0 10px 0 0 !important;    /* Crea un po' di spazio a destra tra sigillo e testo */
+  box-shadow: none !important;      /* Toglie l'ombra che hanno le foto grandi */
+  border-radius: 0 !important;      /* Toglie i bordi arrotondati delle foto */
+}
 }

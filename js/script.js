@@ -190,7 +190,7 @@ id: "danzatriciMediterraneo",
 titolo: "Le Donne che Danzano il Mediterraneo",
 icon: "<span style='font-size: 40px;'>💃</span>",
 sfondo: "img/mediterranean-topographic-map-stockcake-free-use.jpg",
-contenuto: typeof STORIA_DANZATRICI_MEDITERRANEO_DATA !== 'undefined' ? STORIA_DANZATRICI_MEDITERRANEO_DATA : {}
+contenuto: typeof STORIA_DANZATRICI_MEDITERRANEO_DATA !== 'undefined' ? STORIA_DANZATRICI_MEDITERRANEO_DATA : []
 }
 
 ] 
@@ -648,6 +648,23 @@ const pulsanteLampada = storia.quiz ? `
                <span class="text-2xl">🧞‍♂️</span> Strofina la Lampada
            </button>
        </div>` : '';
+<<<<<<< HEAD
+=======
+const renderSigilloFinale = () => {
+  return `
+    <div class="mt-12 mb-10 relative z-50">
+
+      <div class="flex justify-end mb-6">
+        <img src="img/sigillo_ceralacca_lorella_cr.png"
+             alt="Sigillo in ceralacca Lorella"
+             loading="lazy"
+             class="sigillo sigillo-firma drop-shadow-lg">
+      </div>
+
+    </div>
+  `;
+};
+>>>>>>> 52753d0cefaf56887662ae370380a79381d3fc8e
 
 return `
  <div class="flex flex-col h-full relative overflow-hidden" style="${backgroundCSS}">
@@ -661,7 +678,12 @@ return `
      <div class="${isPergamena ? 'foglio-lettura foglio-storia foglio-pergamena' : 'foglio-lettura foglio-storia'}"
           style="${foglioStyle} border: 1px solid ${borderColor};">
        ${withAutoTitle(storia.contenuto, storia.titolo).map(b => renderBlocco(b, renderTheme)).join('')}
+<<<<<<< HEAD
        ${window.renderSigilloFinale?.() ?? ''}
+=======
+       ${renderSigilloFinale()}
+        ${renderPergamenaSigilli()}
+>>>>>>> 52753d0cefaf56887662ae370380a79381d3fc8e
        ${(typeof renderQuizSection === 'function') ? renderQuizSection(storia.id) : ''}
        ${pulsanteLampada}
      </div>
@@ -1102,6 +1124,7 @@ function TappaView(dId, tId) {
 
     const styles = buildTappaStyles(tappa);
 
+<<<<<<< HEAD
     return renderTappaPage(diario, tappa, styles);
 }
 
@@ -1185,6 +1208,57 @@ function renderTappaExtras(tappa) {
         ${window.renderPergamenaSigilli?.() ?? ''}
     `;
 }
+=======
+    // LA NOSTRA MAGIA: Se nel file della tappa c'è un paper_color, lo usa!
+    const paperColor = t.theme.paper_color ? `background-color: ${t.theme.paper_color} !important;` : '';
+
+    return `<div class="flex flex-col h-full" style="${bgStyle}">
+           <header class="header-galleggiante">
+               <button onclick="navigate('diario', '${diario.id}')">← Indietro</button>
+           </header>
+           <main class="vista-lettura flex-1 overflow-y-auto">
+               <div class="foglio-lettura" style="${paperColor}">${withAutoTitle(t.contenuto, t.titolo).map(b => renderBlocco(b, t.theme)).join('')}
+                ${renderSigilloFinale()}
+       ${renderPergamenaSigilli()} 
+               </div>
+           </main>
+       </div>`;
+}
+
+function renderPergamenaSigilli() {
+  return `
+    <div class="pergamena-sigilli">
+
+      <div class="pergamena-intro">
+        <p>
+          Per trasparenza editoriale, ogni immagine pubblicata all’interno de Il Tappeto Volante è accompagnata da un sigillo identificativo.
+          I sigilli indicano la natura del contenuto e il suo processo di produzione in forma sintetica e leggibile.
+          Questo sistema non è decorativo, ma serve a rendere chiaro il livello di origine e trasformazione delle immagini.
+        </p>
+      </div>
+
+      <p class="pergamena-titolo">Sigilli del Tappeto Volante</p>
+
+      <div class="pergamena-riga">
+        <img src="img/sigillo_rosso.png" class="sigillo-mini" style="width: 35px !important; height: auto !important; border: none !important; padding: 0 !important; background: transparent !important; box-shadow: none !important; object-fit: contain !important; margin-right: 10px !important;">
+        <span>Scatto originale dell’autrice</span>
+      </div>
+
+      <div class="pergamena-riga">
+        <img src="img/sigillo_blu.png" class="sigillo-mini" style="width: 25px !important; height: auto !important; border: none !important; padding: 0 !important; background: transparent !important; box-shadow: none !important; object-fit: contain !important; margin-right: 10px !important;">
+        <span>Scatto originale rielaborato con AI</span>
+      </div>
+
+      <div class="pergamena-riga">
+        <img src="img/sigillo_verde.png" class="sigillo-mini" style="width: 25px !important; height: auto !important; border: none !important; padding: 0 !important; background: transparent !important; box-shadow: none !important; object-fit: contain !important; margin-right: 10px !important;">
+        <span>Immagine generata interamente da AI</span>
+      </div>
+
+    </div>
+  `;
+}
+
+>>>>>>> 52753d0cefaf56887662ae370380a79381d3fc8e
 
 function IntroduzioneView(dId) {
 const d = (Array.isArray(DATABASE.diari) ? (DATABASE.diari.find(x => x.id === dId) || DATABASE.diari[0]) : null);
