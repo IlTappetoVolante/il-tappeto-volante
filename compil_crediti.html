@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compilatore crediti immagini</title>
+
+  <style>
+    body{
+      background:#0c0e17;
+      color:#f2efe9;
+      font-family:Georgia, serif;
+      margin:0;
+      padding:24px 16px 60px;
+      line-height:1.6;
+    }
+
+    .container{
+      max-width:1000px;
+      margin:auto;
+    }
+
+    h1{
+      text-align:center;
+      color:#f1d39a;
+      margin-bottom:10px;
+    }
+
+    .intro{
+      text-align:center;
+      margin-bottom:24px;
+      color:#ddd4c5;
+    }
+
+    .toolbar{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:center;
+      margin-bottom:30px;
+    }
+
+    .sezione{
+      margin-bottom:50px;
+    }
+
+    .sezione h2{
+      border-bottom:1px solid rgba(255,255,255,0.2);
+      padding-bottom:6px;
+      color:#f0c777;
+    }
+
+    .schede{
+      margin-top:15px;
+    }
+
+    .scheda{
+      background:rgba(255,255,255,0.05);
+      border-radius:12px;
+      padding:16px;
+      margin-top:15px;
+      position: relative;
+    }
+
+    .label{
+      font-size:0.85rem;
+      color:#cbbfa9;
+      margin-top:10px;
+    }
+
+    .campo,
+    select.campo,
+    textarea.campo{
+      width:100%;
+      box-sizing:border-box;
+      background:rgba(255,255,255,0.06);
+      color:#f2efe9;
+      border:none;
+      border-radius:8px;
+      margin-top:4px;
+      padding:10px 12px;
+      font-family:Georgia, serif;
+      font-size:1rem;
+    }
+
+    textarea.campo{
+      min-height:52px;
+      resize:vertical;
+    }
+
+    .campo:focus,
+    select.campo:focus,
+    textarea.campo:focus{
+      outline:1px solid #e3b867;
+    }
+
+    .preview{
+      margin-top:12px;
+      max-width:220px;
+      max-height:160px;
+      border-radius:8px;
+      display:none;
+      background:#1a1d28;
+    }
+
+    .checkbox{
+      margin-top:12px;
+    }
+
+    .btn{
+      background:#f0c777;
+      color:#1b1b1b;
+      border:none;
+      border-radius:999px;
+      padding:10px 18px;
+      font-weight:700;
+      cursor:pointer;
+      font-family:inherit;
+    }
+
+    .btn:hover{
+      opacity:0.92;
+    }
+
+    .btn-secondario{
+      background:#2a2e42;
+      color:#f2efe9;
+    }
+
+    .btn-scarica {
+      background:#4caf50;
+      color:white;
+    }
+
+    .btn-elimina {
+      background:#cc4444;
+      color:white;
+      font-size: 0.8rem;
+      padding: 6px 12px;
+      margin-top: 15px;
+    }
+
+    .output{
+      margin-top:24px;
+    }
+
+    #exportOutput{
+      min-height:300px;
+      white-space:pre-wrap;
+    }
+
+    .mini-help{
+      font-size:0.86rem;
+      color:#d8ccba;
+      margin-top:8px;
+    }
+
+    .stato{
+      margin-top:10px;
+      font-size:0.88rem;
+      color:#f0c777;
+    }
+
+    .nota{
+      margin-top:30px;
+      font-size:0.92rem;
+      color:#d7cbb6;
+      text-align:center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Compilatore crediti immagini</h1>
+
+    <p class="intro">
+      Inserisci i dati qui, genera il codice e scarica il file finale da usare nel sito.
+    </p>
+
+    <div class="toolbar">
+      <button class="btn btn-secondario" onclick="caricaDati()">Ricarica dati</button>
+      <button class="btn" onclick="esportaPaginaCompleta()">1. Genera Codice</button>
+      <button class="btn btn-scarica" onclick="scaricaFileHTML()">2. Scarica crediti.html</button>
+      <button class="btn btn-secondario" onclick="copiaCodice()">Copia negli appunti</button>
+      <button class="btn" onclick="esportaJSON()">Esporta dati JSON</button>
+      <button class="btn btn-secondario" onclick="importaJSON()">Importa dati JSON</button>
+    </div>
+
+    <div class="output">
+      <div class="label">Anteprima Codice HTML</div>
+      <textarea id="exportOutput" class="campo" placeholder="Qui comparirà l'intero file pronto da scaricare..."></textarea>
+      <div class="mini-help">
+        Wikimedia: incolla il link della pagina file su Commons per l’autocompilazione di autore e licenza.
+      </div>
+      <div id="stato" class="stato"></div>
+    </div>
+
+    <div class="sezione">
+      <h2>Diari di viaggio</h2>
+      <div id="diari-schede" class="schede"></div>
+      <button class="btn" onclick="aggiungiScheda('diari','Il caos affascinante')">+ Nuova scheda</button>
+      <button class="btn btn-secondario" onclick="salvaDati()">Salva dati</button>
+    </div>
+
+    <div class="sezione">
+      <h2>I Viaggi Immaginati</h2>
+      <div id="immaginati-schede" class="schede"></div>
+      <button class="btn" onclick="aggiungiScheda('immaginati','Viaggi immaginati')">+ Nuova scheda</button>
+      <button class="btn btn-secondario" onclick="salvaDati()">Salva dati</button>
+    </div>
+
+    <div class="sezione">
+      <h2>Varie</h2>
+      <div id="varie-schede" class="schede"></div>
+      <button class="btn" onclick="aggiungiScheda('varie','')">+ Nuova scheda</button>
+      <button class="btn btn-secondario" onclick="salvaDati()">Salva dati</button>
+    </div>
+
+    <p class="nota">
+      Il compilatore salva i dati nella cartella Download del dispositivo tramite i pulsanti appositi.
+    </p>
+  </div>
+
+<script>
+let ultimoValorePagina = "";
+let contatoreID = 1;
+
+function generaID(){
+  const id = "IMG-" + String(contatoreID).padStart(4,"0");
+  contatoreID++;
+  return id;
+}
+
+function setStato(testo){
+  document.getElementById("stato").textContent = testo || "";
+}
+
+function aggiornaInfoJSON() {
+  const ultimoImportato = localStorage.getItem("ultimoJSONImportato") || "nessuno";
+  const ultimoBackup = localStorage.getItem("ultimoBackupJSON") || "nessuno";
+
+  setStato(
+    "Ultimo importato: " + ultimoImportato +
+    " | Backup consigliato da importare: " + ultimoBackup
+  );
+}
+
+function opzioniFonte(valore = "") {
+  return `
+    <option value="" ${valore === "" ? "selected" : ""}></option>
+    <option value="Wikimedia Commons" ${valore === "Wikimedia Commons" ? "selected" : ""}>Wikimedia Commons</option>
+    <option value="Pexels" ${valore === "Pexels" ? "selected" : ""}>Pexels</option>
+    <option value="Unsplash" ${valore === "Unsplash" ? "selected" : ""}>Unsplash</option>
+    <option value="Archivio personale" ${valore === "Archivio personale" ? "selected" : ""}>Archivio personale</option>
+    <option value="Altro" ${valore === "Altro" ? "selected" : ""}>Altro</option>
+  `;
+}
+
+function opzioniLicenza(valore = "") {
+  return `
+    <option value="" ${valore === "" ? "selected" : ""}></option>
+    <option value="CC BY 4.0" ${valore === "CC BY 4.0" ? "selected" : ""}>CC BY 4.0</option>
+    <option value="CC BY-SA 3.0" ${valore === "CC BY-SA 3.0" ? "selected" : ""}>CC BY-SA 3.0</option>
+    <option value="CC BY-SA 4.0" ${valore === "CC BY-SA 4.0" ? "selected" : ""}>CC BY-SA 4.0</option>
+    <option value="Pubblico dominio" ${valore === "Pubblico dominio" ? "selected" : ""}>Pubblico dominio</option>
+    <option value="GFDL" ${valore === "GFDL" ? "selected" : ""}>GFDL</option>
+    <option value="Pexels License" ${valore === "Pexels License" ? "selected" : ""}>Pexels License</option>
+    <option value="© Lorella Lo Rizzo" ${valore === "© Lorella Lo Rizzo" ? "selected" : ""}>© Lorella Lo Rizzo</option>
+    <option value="Altro" ${valore === "Altro" ? "selected" : ""}>Altro</option>
+  `;
+}
+
+function escapeHtml(str) {
+  return String(str || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function escapeHtmlAttr(str) {
+  return escapeHtml(str).replace(/'/g, "&#39;");
+}
+
+function stripHtml(html) {
+  const temp = document.createElement("div");
+  temp.innerHTML = html || "";
+  return temp.textContent || temp.innerText || "";
+}
+
+function cleanWikiText(text) {
+  if (!text) return "";
+  let t = stripHtml(text);
+  t = t.replace(/\s+/g, " ").trim();
+  return t;
+}
+
+function commonsFileNameFromUrl(url){
+  try{
+    const u = new URL(url.trim());
+    if (u.hostname.includes("commons.wikimedia.org")) {
+      const path = decodeURIComponent(u.pathname);
+      const match = path.match(/\/wiki\/File:(.+)$/i);
+      if (match) return "File:" + match[1];
+    }
+    return "";
+  } catch(e){
+    return "";
+  }
+}
+
+function creaSchedaHTML(dati = {}, paginaDefault = "") {
+  const paginaValore = dati.pagina || ultimoValorePagina || paginaDefault || "";
+  const licenzeStandard = [
+    "", "CC BY 4.0", "CC BY-SA 3.0", "CC BY-SA 4.0", "Pubblico dominio", "GFDL", "Pexels License", "© Lorella Lo Rizzo", "Altro"
+  ];
+
+  const licenzaValore = dati.licenza || "";
+  const usaAltro = licenzaValore && !licenzeStandard.includes(licenzaValore);
+
+  return `
+    <div class="scheda">
+      <div class="label">ID immagine</div>
+      <input class="campo id-img" value="${dati.id || generaID()}" readonly>
+
+      <div class="label">Link originale / pagina file</div>
+      <textarea class="campo link" oninput="aggiornaPreview(this); autoCompilaDaLink(this)">${escapeHtml(dati.link || "")}</textarea>
+
+      <img class="preview" ${dati.preview ? `src="${escapeHtmlAttr(dati.preview)}" style="display:block"` : `style="display:none"`}>
+
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" class="mia-check" onchange="segnaMia(this)" ${dati.mia ? "checked" : ""}>
+          immagine originale mia
+        </label>
+      </div>
+
+      <div class="label">Descrizione</div>
+      <input class="campo descrizione" value="${escapeHtmlAttr(dati.descrizione || "")}">
+
+      <div class="label">Didascalia (facoltativa)</div>
+      <textarea class="campo didascalia">${escapeHtml(dati.didascalia || "")}</textarea>
+
+      <div class="label">Autore</div>
+      <input class="campo autore" value="${escapeHtmlAttr(dati.autore || "")}">
+
+      <div class="label">Fonte</div>
+      <select class="campo fonte-select">
+        ${opzioniFonte(dati.fonte || "")}
+      </select>
+
+      <div class="label">Licenza</div>
+      <select class="campo licenza-select" onchange="gestisciLicenzaAltro(this)">
+        ${opzioniLicenza(usaAltro ? "Altro" : licenzaValore)}
+      </select>
+
+      <input
+        class="campo licenza-altro"
+        placeholder="Scrivi la licenza..."
+        value="${escapeHtmlAttr(usaAltro ? licenzaValore : "")}"
+        style="display:${usaAltro ? "block" : "none"}; margin-top:6px;">
+
+      <div class="label">Pagina del sito</div>
+      <input class="campo pagina" value="${escapeHtmlAttr(paginaValore)}" oninput="aggiornaUltimoValorePagina(this)">
+
+      <button class="btn btn-elimina" onclick="if(confirm('Sei sicuro di voler eliminare questa scheda?')){this.closest('.scheda').remove(); salvaDati();}">Elimina scheda</button>
+    </div>
+  `;
+}
+
+function aggiungiScheda(sezione, paginaDefault, dati = {}) {
+  const contenitore = document.getElementById(sezione + "-schede");
+  if (!contenitore) return;
+
+  const wrapper = document.createElement("div");
+  wrapper.innerHTML = creaSchedaHTML(dati, paginaDefault);
+  contenitore.appendChild(wrapper.firstElementChild);
+}
+
+function aggiornaPreview(el) {
+  const scheda = el.closest(".scheda");
+  const img = scheda.querySelector(".preview");
+  const link = el.value.trim().split("?")[0];
+  if (!link) {
+    img.removeAttribute("src");
+    img.style.display = "none";
+    return;
+  }
+
+  if (link.includes("upload.wikimedia.org") || /\.(jpg|jpeg|png|webp|gif)$/i.test(link)) {
+    img.src = link;
+    img.style.display = "block";
+  }
+}
+
+async function autoCompilaDaLink(el) {
+  const scheda = el.closest(".scheda");
+  const link = el.value.trim();
+  const fonte = scheda.querySelector(".fonte-select");
+  const licenza = scheda.querySelector(".licenza-select");
+  const licenzaAltro = scheda.querySelector(".licenza-altro");
+  const autore = scheda.querySelector(".autore");
+  const descrizione = scheda.querySelector(".descrizione");
+  const img = scheda.querySelector(".preview");
+
+  if (!link) return;
+  const low = link.toLowerCase();
+
+  if (low.includes("pexels.com")) {
+    if (!fonte.value) fonte.value = "Pexels";
+    if (!licenza.value) licenza.value = "Pexels License";
+    return;
+  }
+
+  if (low.includes("unsplash.com")) {
+    if (!fonte.value) fonte.value = "Unsplash";
+    return;
+  }
+
+  const fileName = commonsFileNameFromUrl(link);
+  if (!fileName) return;
+
+  try {
+    setStato("Recupero dati da Wikimedia Commons...");
+    const apiUrl =
+      "https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo&iiprop=url|extmetadata&titles=" + 
+      encodeURIComponent(fileName) + "&origin=*";
+
+    const res = await fetch(apiUrl);
+    const data = await res.json();
+
+    const pages = data?.query?.pages || {};
+    const firstPage = Object.values(pages)[0];
+    const ii = firstPage?.imageinfo?.[0];
+    const meta = ii?.extmetadata || {};
+
+    if (!fonte.value) fonte.value = "Wikimedia Commons";
+
+    const artist = cleanWikiText(meta?.Artist?.value || "");
+    if (artist && !autore.value) autore.value = artist;
+
+    const objectName = cleanWikiText(meta?.ObjectName?.value || "");
+    if (objectName && !descrizione.value) descrizione.value = objectName;
+
+    const licenseShort = cleanWikiText(meta?.LicenseShortName?.value || "");
+    if (licenseShort) {
+      const standard = [
+        "CC BY 4.0", "CC BY-SA 3.0", "CC BY-SA 4.0", "Pubblico dominio", "GFDL", "Pexels License", "© Lorella Lo Rizzo"
+      ];
+
+      if (standard.includes(licenseShort)) {
+        licenza.value = licenseShort;
+        licenzaAltro.style.display = "none";
+        licenzaAltro.value = "";
+      } else {
+        licenza.value = "Altro";
+        licenzaAltro.style.display = "block";
+        licenzaAltro.value = licenseShort;
+      }
+    }
+
+    if (ii?.url) {
+      img.src = ii.url;
+      img.style.display = "block";
+    }
+
+    setStato("Dati Wikimedia aggiornati.");
+  } catch (err) {
+    setStato("Autocompilazione Wikimedia non riuscita.");
+  }
+}
+
+function segnaMia(checkbox) {
+  const scheda = checkbox.closest(".scheda");
+  const autore = scheda.querySelector(".autore");
+  const fonte = scheda.querySelector(".fonte-select");
+  const licenza = scheda.querySelector(".licenza-select");
+  const licenzaAltro = scheda.querySelector(".licenza-altro");
+
+  if (checkbox.checked) {
+    autore.value = "Lorella Lo Rizzo";
+    fonte.value = "Archivio personale";
+    licenza.value = "© Lorella Lo Rizzo";
+    licenzaAltro.style.display = "none";
+    licenzaAltro.value = "";
+  }
+}
+
+function gestisciLicenzaAltro(select) {
+  const scheda = select.closest(".scheda");
+  const campoAltro = scheda.querySelector(".licenza-altro");
+
+  if (select.value === "Altro") {
+    campoAltro.style.display = "block";
+  } else {
+    campoAltro.style.display = "none";
+    campoAltro.value = "";
+  }
+}
+
+function aggiornaUltimoValorePagina(input) {
+  ultimoValorePagina = input.value;
+  localStorage.setItem("ultimoValorePagina", ultimoValorePagina);
+}
+
+function raccogliDatiSezione(id) {
+  const schede = document.querySelectorAll("#" + id + "-schede .scheda");
+  return Array.from(schede).map(s => {
+    const img = s.querySelector(".preview");
+    return {
+      id: s.querySelector(".id-img").value,
+      link: s.querySelector(".link").value.trim(),
+      preview: img.getAttribute("src") || "",
+      mia: s.querySelector(".mia-check").checked,
+      descrizione: s.querySelector(".descrizione").value.trim(),
+      didascalia: s.querySelector(".didascalia")?.value.trim() || "",
+      autore: s.querySelector(".autore").value.trim(),
+      fonte: s.querySelector(".fonte-select").value,
+      licenza: (
+        s.querySelector(".licenza-select").value === "Altro"
+          ? s.querySelector(".licenza-altro").value.trim()
+          : s.querySelector(".licenza-select").value
+      ),
+      pagina: s.querySelector(".pagina").value.trim()
+    };
+  });
+}
+
+function salvaDati() {
+  const dati = {
+    ultimoValorePagina,
+    diari: raccogliDatiSezione("diari"),
+    immaginati: raccogliDatiSezione("immaginati"),
+    varie: raccogliDatiSezione("varie")
+  };
+  localStorage.setItem("crediti_immagini_tappeto", JSON.stringify(dati));
+  setStato("Dati salvati nel browser.");
+  aggiornaInfoJSON();
+}
+
+function caricaDati() {
+  const raw = localStorage.getItem("crediti_immagini_tappeto");
+  if (!raw) return;
+
+  const dati = JSON.parse(raw);
+  ultimoValorePagina = dati.ultimoValorePagina || localStorage.getItem("ultimoValorePagina") || "";
+
+  document.getElementById("diari-schede").innerHTML = "";
+  document.getElementById("immaginati-schede").innerHTML = "";
+  document.getElementById("varie-schede").innerHTML = "";
+
+  (dati.diari || []).forEach(d => aggiungiScheda("diari", "Il caos affascinante", d));
+  (dati.immaginati || []).forEach(d => aggiungiScheda("immaginati", "Viaggi immaginati", d));
+  (dati.varie || []).forEach(d => aggiungiScheda("varie", "", d));
+
+  const tutteSchede = [
+    ...(dati.diari || []),
+    ...(dati.immaginati || []),
+    ...(dati.varie || [])
+  ];
+
+  if (tutteSchede.length) {
+    const idsNumerici = tutteSchede
+      .map(s => parseInt((s.id || "").replace("IMG-", ""), 10))
+      .filter(n => !isNaN(n));
+
+    if (idsNumerici.length) {
+      contatoreID = Math.max(...idsNumerici) + 1;
+    }
+  }
+
+  setStato("Dati ricaricati.");
+  aggiornaInfoJSON();
+}
+
+function schedaCompilata(s) {
+  return !!(s.descrizione || s.autore || s.fonte || s.licenza || s.link || s.pagina);
+}
+
+function generaSezioneHTML(schede) {
+  const valide = schede.filter(schedaCompilata);
+  if (!valide.length) return "";
+
+  let out = "";
+
+  valide.forEach(s => {
+    out += `        <div class="scheda-credito">\n`;
+    if (s.preview) {
+      out += `          <img src="${escapeHtml(s.preview)}" alt="${escapeHtml(s.descrizione || "Immagine")}" class="miniatura">\n`;
+    }
+    if (s.descrizione) out += `          <p><strong>Descrizione:</strong> ${escapeHtml(s.descrizione)}</p>\n`;
+    
+    if (s.didascalia) out += `          <p><em>${escapeHtml(s.didascalia)}</em></p>\n`;
+    
+    if (s.autore) out += `          <p><strong>Autore:</strong> ${escapeHtml(s.autore)}</p>\n`;
+    if (s.fonte) out += `          <p><strong>Fonte:</strong> ${escapeHtml(s.fonte)}</p>\n`;
+    if (s.licenza) out += `          <p><strong>Licenza:</strong> ${escapeHtml(s.licenza)}</p>\n`;
+    if (s.link) out += `          <p><strong>Link:</strong> <a href="${escapeHtml(s.link)}" target="_blank" style="color:#f1d39a;">Visualizza originale</a></p>\n`;
+    if (s.pagina) out += `          <p><strong>Pagina del sito:</strong> ${escapeHtml(s.pagina)}</p>\n`;
+    out += `        </div>\n\n`;
+  });
+
+  return out;
+}
+
+function esportaPaginaCompleta() {
+  const diari = raccogliDatiSezione("diari");
+  const immaginati = raccogliDatiSezione("immaginati");
+  const varie = raccogliDatiSezione("varie");
+
+  const blocchiDiari = generaSezioneHTML(diari);
+  const blocchiImmaginati = generaSezioneHTML(immaginati);
+  const blocchiVarie = generaSezioneHTML(varie);
+
+  const paginaFinale = `<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crediti immagini – Il Tappeto Volante</title>
+  <style>
+    body{
+      margin:0;
+      padding:0;
+      background:#0c0d14;
+      color:#f4efe6;
+      font-family:Georgia, "Times New Roman", serif;
+      line-height:1.6;
+    }
+
+    .pagina{
+      max-width:1100px;
+      margin:0 auto;
+      padding:36px 18px 60px;
+    }
+
+    .titolo-pagina{
+      text-align:center;
+      font-size:2.4rem;
+      margin:0 0 12px;
+      color:#f1d39a;
+    }
+
+    .intro{
+      text-align:center;
+      max-width:860px;
+      margin:0 auto 18px;
+      color:#ddd3c4;
+    }
+
+    .nota-aggiunta{
+      text-align:center;
+      margin:0 auto 36px;
+      color:#f0c979;
+      font-style:italic;
+    }
+
+    .sezione-crediti{
+      margin-bottom:50px;
+      padding:18px;
+      border-radius:18px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .sezione-crediti h2{
+      margin:0 0 18px;
+      font-size:1.7rem;
+      color:#f0c979;
+      border-bottom:1px solid rgba(255,255,255,0.12);
+      padding-bottom:8px;
+    }
+
+    .griglia-crediti{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+      gap:18px;
+    }
+
+    .scheda-credito{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:14px;
+      padding:14px;
+      margin-top:0;
+    }
+
+    .miniatura{
+      width:100%;
+      max-width:320px;
+      display:block;
+      border-radius:10px;
+      margin-bottom:12px;
+      background:#1a1d28;
+    }
+
+    .scheda-credito p{
+      margin:6px 0;
+    }
+  </style>
+</head>
+<body>
+  <main class="pagina">
+    <h1 class="titolo-pagina">Crediti immagini</h1>
+    <p class="intro">
+      In questa pagina sono raccolti i crediti delle immagini non originali utilizzate nel progetto
+      <em>Il Tappeto Volante</em>, con indicazione di autore, fonte, licenza e link.
+    </p>
+
+    <p class="nota-aggiunta">Aggiungere le foto qui sotto.</p>
+
+    <section class="sezione-crediti">
+      <h2>Diari di viaggio</h2>
+      <div class="griglia-crediti">
+${blocchiDiari}
+      </div>
+    </section>
+
+    <section class="sezione-crediti">
+      <h2>I Viaggi Immaginati</h2>
+      <div class="griglia-crediti">
+${blocchiImmaginati}
+      </div>
+    </section>
+
+    <section class="sezione-crediti">
+      <h2>Varie</h2>
+      <div class="griglia-crediti">
+${blocchiVarie}
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>`;
+
+  document.getElementById("exportOutput").value = paginaFinale;
+  setStato("File crediti.html generato nella finestra! Ora puoi scaricarlo.");
+}
+
+function scaricaFileHTML() {
+  const contenuto = document.getElementById("exportOutput").value;
+  if (!contenuto) {
+    alert("Attenzione: Genera prima il codice con il bottone '1. Genera Codice'!");
+    return;
+  }
+
+  const blob = new Blob([contenuto], { type: "text/html" });
+  const url = URL.createObjectURL(blob);
+  
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "crediti.html"; 
+  document.body.appendChild(a);
+  a.click();
+  
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  
+  setStato("File crediti.html salvato in Download.");
+}
+
+function copiaCodice() {
+  const out = document.getElementById("exportOutput");
+  out.select();
+  out.setSelectionRange(0, 999999);
+  navigator.clipboard.writeText(out.value)
+    .then(() => setStato("Codice copiato negli appunti."))
+    .catch(() => setStato("Copia non riuscita."));
+}
+
+function esportaJSON(){
+  const dati = {
+    ultimoValorePagina,
+    diari: raccogliDatiSezione("diari"),
+    immaginati: raccogliDatiSezione("immaginati"),
+    varie: raccogliDatiSezione("varie")
+  };
+
+  const json = JSON.stringify(dati, null, 2);
+
+  const now = new Date();
+  const dataNome =
+    now.getFullYear() + "-" +
+    String(now.getMonth()+1).padStart(2,"0") + "-" +
+    String(now.getDate()).padStart(2,"0") + "_" +
+    String(now.getHours()).padStart(2,"0") + "-" +
+    String(now.getMinutes()).padStart(2,"0");
+
+  const blob = new Blob([json], {type:"application/json"});
+  const url = URL.createObjectURL(blob);
+
+  // Scarica il file con la data
+  const a1 = document.createElement("a");
+  a1.href = url;
+  a1.download = "tappeto_crediti_" + dataNome + ".json";
+  document.body.appendChild(a1);
+  a1.click();
+  document.body.removeChild(a1);
+
+  // Scarica il file latest
+  const a2 = document.createElement("a");
+  a2.href = url;
+  a2.download = "tappeto_crediti_latest.json";
+  document.body.appendChild(a2);
+  a2.click();
+  document.body.removeChild(a2);
+
+  URL.revokeObjectURL(url);
+
+  localStorage.setItem("ultimoBackupJSON","tappeto_crediti_latest.json");
+  setStato("Backup JSON creato: storico + latest scaricati in Download.");
+  aggiornaInfoJSON();
+}
+
+function importaJSON(){
+  const input = document.createElement("input");
+  input.type = "file";
+  input.accept = ".json";
+
+  input.onchange = e=>{
+    const file = e.target.files[0];
+    if(!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = function(){
+      try{
+        const dati = JSON.parse(reader.result);
+
+        localStorage.setItem(
+          "crediti_immagini_tappeto",
+          JSON.stringify(dati)
+        );
+
+        localStorage.setItem("ultimoJSONImportato", file.name);
+
+        caricaDati();
+        aggiornaInfoJSON();
+        setStato("Dati importati dal file JSON: " + file.name);
+      }catch(err){
+        setStato("Errore nel file JSON.");
+      }
+    };
+
+    reader.readAsText(file);
+  };
+
+  input.click();
+}
+
+ultimoValorePagina = localStorage.getItem("ultimoValorePagina") || "";
+caricaDati();
+aggiornaInfoJSON();
+
+if (!document.querySelector("#diari-schede .scheda")) aggiungiScheda("diari", "Il caos affascinante");
+if (!document.querySelector("#immaginati-schede .scheda")) aggiungiScheda("immaginati", "Viaggi immaginati");
+if (!document.querySelector("#varie-schede .scheda")) aggiungiScheda("varie", "");
+</script>
+</body>
+</html>
