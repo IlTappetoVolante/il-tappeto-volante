@@ -2,11 +2,18 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Crediti Immagini - Social</title>
+  <title>Crediti Immagini - Il Tappeto Volante</title>
   <style>
     body{ background:#0c0d14; color:#f4efe6; font-family:Georgia, serif; padding:40px 20px; }
     .pagina{ max-width:1100px; margin:auto; }
-    h1{ color:#f1d39a; text-align:center; }
+    
+    /* Stili banner e firma */
+    .header-img { text-align:center; margin-bottom: 25px; }
+    .header-img img { max-width:100%; height:auto; border-radius:12px; max-height:300px; object-fit:cover; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+    .footer-firma { text-align:center; margin-top:50px; padding-top:30px; border-top:1px solid rgba(241, 211, 154, 0.2); }
+    .footer-firma img { max-width:140px; height:auto; }
+
+    h1{ color:#f1d39a; text-align:center; margin-bottom:40px; }
     .sezione-crediti{ background:rgba(255,255,255,0.04); border-radius:18px; padding:20px; margin-bottom:30px; }
     .griglia-crediti{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:20px; }
     .scheda-credito{ background:rgba(255,255,255,0.05); padding:15px; border-radius:12px; border:1px solid rgba(255,255,255,0.1); }
@@ -16,7 +23,13 @@
 </head>
 <body>
   <div class="pagina">
+    
+    <div class="header-img">
+      <img src="img/logo_tappeto_volante.jpg" alt="Il Tappeto Volante">
+    </div>
+
     <h1>Crediti Immagini</h1>
+
     <section class="sezione-crediti"><h2>Diari di viaggio</h2><div class="griglia-crediti">
     <div class="scheda-credito">
       <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Theodosianische_Landmauer_in_Istanbul.jpg" alt="Istanbul  mura teodosiane" class="miniatura">
@@ -96,6 +109,11 @@
     </div></div></section>
     <section class="sezione-crediti"><h2>Viaggi Immaginati</h2><div class="griglia-crediti"></div></section>
     <section class="sezione-crediti"><h2>Varie</h2><div class="griglia-crediti"></div></section>
+    
+    <div class="footer-firma">
+      <img src="img/sigillo_ceralacca_lorella_cr.png" alt="Firma Lorella Lo Rizzo">
+    </div>
+
   </div>
 </body>
 </html>
