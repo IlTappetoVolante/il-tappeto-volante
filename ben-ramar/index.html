@@ -42,14 +42,6 @@
             border-left: 4px solid #8b0000;
             margin-bottom: 40px;
         }
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 4px;
-            margin: 25px auto;
-            display: block;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        }
         p {
             margin-bottom: 15px;
             text-align: justify;
@@ -60,6 +52,51 @@
             background: #ccc;
             margin: 30px 0;
         }
+        
+        /* AUTOMAZIONE SIGILLO AZZURRO SULLE IMMAGINI */
+        .foto-container {
+            position: relative; /* Permette al sigillo di posizionarsi sopra la foto */
+            display: block;
+            margin: 25px auto;
+            max-width: 100%;
+            width: fit-content;
+        }
+        .foto-container img.principale {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            display: block;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .foto-container .sigillo-watermark {
+            position: absolute;
+            top: 15px; /* Distanza dall'alto */
+            left: 15px; /* Distanza da sinistra */
+            width: 60px; /* Dimensione del sigillo sulle foto */
+            height: auto;
+            opacity: 0.35; /* Trasparenza per non essere invasivo */
+            pointer-events: none; /* Impedisce di cliccarlo per sbaglio */
+        }
+
+        /* STILE FIRMA (SIGILLO LORELLA) */
+        .firma-box {
+            text-align: right; /* Allinea a destra */
+            margin: 40px 0;
+        }
+        .firma-box img {
+            max-width: 130px; /* Dimensione elegante per la firma */
+            height: auto;
+            display: inline-block;
+        }
+
+        /* STILE BANNER FINALE DI CHIUSURA */
+        .banner-chiusura {
+            display: block;
+            margin: 60px auto 20px auto; /* Adeguatamente distanziato (60px in alto) */
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body>
@@ -68,26 +105,35 @@
         <h1>Il Tappeto Volante</h1>
         <hr class="separatore">
 
-        <img src="benramar-1.jpg" alt="Illustrazione 1">
+        <div class="foto-container">
+            <img src="benramar-1.jpg" alt="Illustrazione 1" class="principale">
+            <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
+        </div>
 
         <div class="prologo">
             <h2>Prologo</h2>
             <p>Questo racconto nasce all’interno della letteratura di viaggio anglosassone di fine Ottocento, quando il Mediterraneo e il Nord Africa erano osservati attraverso uno sguardo europeo insieme curioso, affascinato e profondamente segnato dalla mentalità coloniale.</p>
-            <p>Le figure che incontriamo — ufficiali, commercianti, interpreti, mediatori — appartengono a un mondo di frontiera, dove l’incontro tra culture non è mai neutrale: è sempre attraversato da rapporti di potere, interessi economici e gerarchie implicite.</p>
+            <p>Le figure che incontriamo — ufficiali, commercianti, interpreti, mediatori — appartengono a un mondo di frontiera, dove l’incontro tra culture non è mai neutrale: è sempre attraversato da rapporti di potere, interessi económicos e gerarchie implicite.</p>
             <p>“Ben Ramar e i cristiani” si colloca esattamente in questo spazio.</p>
             <p>Non è soltanto un racconto d’avventura: è una testimonianza di come l’Occidente osservava, descriveva e spesso semplificava il Marocco e il mondo ottomano all’inizio del Novecento.</p>
         </div>
 
         <h2>I – LO YACHT LORELEI</h2>
         
-        <img src="benramar-2.jpg" alt="Illustrazione 2">
+        <div class="foto-container">
+            <img src="benramar-2.jpg" alt="Illustrazione 2" class="principale">
+            <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
+        </div>
 
         <p>Il Lorelei era uno yacht costruito per il piacere e per la fuga. Non per il commercio, non per la guerra, ma per chi poteva permettersi di muoversi lungo le coste del Mediterraneo senza rendere conto a nessuno.</p>
         <p>Il narratore vi si trovava quasi per caso, in convalescenza dopo una febbre presa a Napoli. La navigazione procedeva lenta, con soste impreviste e giornate vuote, interrotte solo dal rumore dell’acqua contro lo scafo.</p>
         <p>Fu durante una di queste soste, su un tratto isolato della costa settentrionale del Marocco, che la routine cambiò. Dalla riva si avvicinò una piccola imbarcazione. A bordo c’erano due uomini.</p>
         <p>Uno appariva provato, elegante nonostante la stanchezza. L’altro, più imponente, aveva la presenza di chi è abituato a farsi largo senza chiedere permesso. Salirono a bordo con poche parole.</p>
         
-        <img src="benramar-3.jpg" alt="Illustrazione 3">
+        <div class="foto-container">
+            <img src="benramar-3.jpg" alt="Illustrazione 3" class="principale">
+            <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
+        </div>
 
         <p>Il primo si presentò come Howard Kerr. Non spiegò da dove venisse né dove fosse diretto. Non sembrava un viaggiatore, né un uomo d’affari, né un funzionario. Aveva piuttosto l’aria di qualcuno che conosceva quei luoghi abbastanza da non doverli descrivere.</p>
         <p>Con lui c’era Haj Absalaam, una guida locale dal portamento severo, rispettata anche dall’equipaggio. Un breve alterco con il primo ufficiale bastò a chiarire i rapporti di forza: non c’era arroganza, ma una calma che non ammetteva repliche. Io ero ancora debole. La febbre presa a Napoli mi aveva lasciato addosso una stanchezza persistente, e il viaggio sul Lorelei era stato scelto più per allontanarmi dall’Europa che per curiosità.</p>
@@ -96,12 +142,18 @@
 
         <h2>II – IL VIAGGIO NELL’INTERNO</h2>
 
-        <img src="benramar-4.jpg" alt="Illustrazione 4">
+        <div class="foto-container">
+            <img src="benramar-4.jpg" alt="Illustrazione 4" class="principale">
+            <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
+        </div>
 
         <p>Lasciato lo yacht, il mare scomparve in poche ore. La costa rimase alle spalle come una linea indistinta, mentre la strada si restringeva tra colline aride e villaggi di terra cruda.</p>
         <p>Kerr non parlava molto. Procedeva con passo regolare, come chi ha già percorso quei sentieri e non sente il bisogno di commentarli. Il narratore lo seguiva, ancora indebolito ma sorprendentemente lucido. C’era qualcosa in quel viaggio che lo teneva desto: l’assenza di rumore, il ritmo degli animali, la sensazione di trovarsi fuori dal tempo.</p>
 
-        <img src="benramar-5.jpg" alt="Illustrazione 5">
+        <div class="foto-container">
+            <img src="benramar-5.jpg" alt="Illustrazione 5" class="principale">
+            <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
+        </div>
 
         <p>A guidarli era Haj Absalaam. Non chiedeva indicazioni, non esitava. Conosceva piste e deviazioni come se fossero parte del suo stesso corpo. La sua presenza imponeva rispetto nei villaggi in cui si fermavano per la notte: tettoie di fango, bracieri accesi, pane caldo e poche parole.</p>
         
@@ -110,53 +162,84 @@
 
         <h2>III – Larache</h2>
 
-        <img src="benramar-6.jpg" alt="Illustrazione 6">
+        <div class="foto-container">
+            <img src="benramar-6.jpg" alt="Illustrazione 6" class="principale">
+            <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
+        </div>
 
         <p>Larache non apparve come una rivelazione, ma come una presenza. Bianca, compatta, adagiata sul mare con la naturalezza di chi non deve dimostrare nulla. Dal promontorio si vedevano le mura, la porta, la linea irregolare delle case che scendevano verso l’acqua. Il porto non era grande, ma vivo. Scialuppe, voci, casse, uomini che trattavano come se nulla al mondo potesse essere urgente più del prezzo di una partita di merce.</p>
         
-        <img src="benramar-7.jpg" alt="Illustrazione 7">
-
         <p>Fu lì che Kerr rallentò. Non guardava il porto: osservava due uomini fermi poco più avanti, sotto l’ombra di un edificio che mostrava, senza discrezione, l’architettura europea.</p>
+        
+        <div class="foto-container">
+            <img src="benramar-7.jpg" alt="Illustrazione 7" class="principale">
+            <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
+        </div>
+
         <p>Li fissò per un tempo appena percettibile.<br>
         — «Li vede?» mi disse piano.<br>
         Erano vestiti all’inglese. Completi chiari, cappelli di paglia, l’aria di chi non teme il sole perché non lo considera una minaccia.<br>
         — «Lumley. E l’altro è Farren.»<br>
-        Pronunciò i nomi come si pronuncia qualcosa che appartiene al passato ma non è stato dimenticato.</p>
+        Pronunciò i nomi come si pronuncia qualcosa che appartiene al passato ma non è stato forgotten.</p>
 
         <h2>IV – La casa oltre la collina</h2>
 
-        <img src="benramar-8.jpg" alt="Illustrazione 8">
+        <div class="foto-container">
+            <img src="benramar-8.jpg" alt="Illustrazione 8" class="principale">
+            <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
+        </div>
 
         <p>La loro casa non era nella medina. Sorgeva appena fuori, oltre una lieve altura, con un giardino che ostentava ordine europeo in un paesaggio che europeo non era. Vi abitavano con le mogli. Donne inglesi. Silenziose. Composte.</p>
         
-        <img src="benramar-9.jpg" alt="Illustrazione 9">
+        <div class="foto-container">
+            <img src="benramar-9.jpg" alt="Illustrazione 9" class="principale">
+            <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
+        </div>
 
         <p>Kerr non mostrò stupore né rancore. Mi raccontò allora, con quella sua voce sempre controllata, la storia che li legava. Anni prima, una giovane donna era stata sottratta alla sua famiglia e venduta. Non in un mercato visibile, ma in quel circuito invisibile che attraversava il Mediterraneo come una corrente sommersa. Era destinata a Costantinopoli, ad un harem. Il nome del Pascià non venne pronunciato non era necessario.</p>
         <p>La ragazza non vi arrivò mai, Kerr intercettò la rotta. Comprò informazioni, pagò uomini, navigò di notte e la riportò indietro. Lumley e Farren erano coinvolti, non come carnefici diretti ma come ingranaggi. Facilitatori, uomini d’affari. La faccenda venne insabbiata, nessuno fu processato, nessuno fu esposto. E ora vivevano lì, tranquilli e rispettabili.</p>
 
         <h2>V – Ben Ramar</h2>
 
-        <img src="benramar-10.jpg" alt="Illustrazione 10">
+        <div class="foto-container">
+            <img src="benramar-10.jpg" alt="Illustrazione 10" class="principale">
+            <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
+        </div>
 
         <p>Kerr non parlò subito. Quando lo fece, non fu per difendersi, ma per chiarire. La ragazza non era soltanto una vittima di traffico. Era figlia di Ben Ramar, uomo influente tra le rotte del Levante e legato agli ambienti del Pascià di Costantinopoli. Il suo nome non circolava nei porti per caso.</p>
         <p>Il salvataggio non generò una caccia a Kerr, Ben Ramar non aveva interesse per lui. Il suo sguardo era rivolto altrove. Lumley e Farren pur non essendo i carnefici erano gli ingranaggi visibili del meccanismo: intermediari, uomini d’affari, presenze riconoscibili. Erano loro ad aver reso possibile la vendita, loro ad aver aperto la strada. Per un uomo come Ben Ramar, l’affronto non si dimenticava. Si annotava, non per essere vendicato subito ma al momento opportuno.</p>
 
         <h2>VI – Il tranello</h2>
 
-        <img src="benramar-11.jpg" alt="Illustrazione 11">
+        <div class="foto-container">
+            <img src="benramar-11.jpg" alt="Illustrazione 11" class="principale">
+            <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
+        </div>
 
-        <p>L’invito a bordo del Lorelei fu cordiale. Il mare era immobile. Le formalità impeccabili. Kerr accettò. Non era un uomo che evitava il confronto. Il capitano offrì whisky. Lumley sorrise, Farren parlò di commerci, di nuove opportunità.</p>
+        <p>L’invito a bordo del Lorelei fue cordiale. Il mare era immobile. Le formalità impeccabili. Kerr accettò. Non era un uomo che evitava il confronto. Il capitano offrì whisky. Lumley sorrise, Farren parlò di commerci, di nuove opportunità.</p>
         <p>Poi qualcosa cambiò. Un ordine sussurrato. Uno scatto troppo rapido. Una porta che si chiude. Il tranello era semplice. Scomparsa in mare aperto, una disgrazia, un incidente, ma non riuscì.</p>
 
         <h2>VII – Ciò che resta</h2>
 
-        <img src="benramar-12.jpg" alt="Illustrazione 12">
+        <div class="foto-container">
+            <img src="benramar-12.jpg" alt="Illustrazione 12" class="principale">
+            <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
+        </div>
 
         <p>Lumley e Farren continuarono a vivere a Larache. Continuarono a ricevere ospiti. Continuarono a commerciare. Le loro mogli passeggiavano nel tardo pomeriggio lungo la collina.</p>
         <p>L’Impero non aveva bisogno di eroi. Aveva bisogno di continuità. Kerr partì, non vinse, non perse. Aveva interrotto una rotta, ma non il sistema. Il Mediterraneo continuò a respirare come aveva sempre fatto: porti, consoli, scialuppe, case oltre la collina.</p>
         <p>E sotto la superficie, le stesse correnti.</p>
 
-        <img src="benramar-13.jpg" alt="Illustrazione 13">
+        <div class="foto-container">
+            <img src="benramar-13.jpg" alt="Illustrazione 13" class="principale">
+            <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
+        </div>
+
+        <div class="firma-box">
+            <img src="sigillo-lorella.png" alt="Firma Lorella">
+        </div>
+
+        <img src="banner-finale.jpg" class="banner-chiusura" alt="Il Tappeto Volante - Chiusura">
 
     </div>
 
