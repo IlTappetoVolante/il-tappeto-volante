@@ -4,43 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ben Ramar - Il Tappeto Volante</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Special+Elite&display=swap" rel="stylesheet">
+
     <style>
         body {
-            font-family: 'Georgia', serif;
+            font-family: 'Courier Prime', monospace; /* Stile macchina da scrivere per il testo */
             margin: 0;
             padding: 20px;
-            background-color: #f4f1ea;
-            color: #333;
-            line-height: 1.7;
+            /* SFONDO COPERTINA LIBRO D'EPOCA (Gradiente effetto cuoio antico) */
+            background: radial-gradient(circle, #4a3121 0%, #1a100a 100%);
+            color: #2b2b2b;
+            line-height: 1.8;
         }
         .contenitore {
             max-width: 800px;
-            margin: 0 auto;
-            background-color: #fff;
+            margin: 30px auto;
+            /* PAGINA INGIALLITA (Color pergamena con ombra interna calda per la texture) */
+            background-color: #f6f0dd;
             padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 2px;
+            border: 1px solid #e3dac1;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6), inset 0 0 50px rgba(139,69,19,0.15);
+        }
+        h1, h2 {
+            font-family: 'Special Elite', monospace; /* Titoli con effetto battuto a macchina */
+            color: #1a1a1a;
         }
         h1 {
             text-align: center;
-            color: #2c3e50;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 24px;
+            letter-spacing: 1px;
+            font-size: 26px;
+            margin-bottom: 10px;
         }
         h2 {
             color: #8b0000;
             margin-top: 40px;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px dashed #c2b69d; /* Divisore capitoli tratteggiato stile archivio */
             padding-bottom: 10px;
+            font-size: 20px;
         }
         .prologo {
             font-style: italic;
-            color: #555;
+            color: #444;
             padding: 15px 20px;
-            background-color: #f9f9f9;
+            background-color: #fbf9f1;
             border-left: 4px solid #8b0000;
             margin-bottom: 40px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
         }
         p {
             margin-bottom: 15px;
@@ -49,13 +63,13 @@
         hr.separatore {
             border: 0;
             height: 1px;
-            background: #ccc;
+            background: #c2b69d;
             margin: 30px 0;
         }
         
-        /* AUTOMAZIONE SIGILLO AZZURRO SULLE IMMAGINI */
+        /* AUTOMAZIONE SIGILLO SULLE IMMAGINI */
         .foto-container {
-            position: relative; /* Permette al sigillo di posizionarsi sopra la foto */
+            position: relative;
             display: block;
             margin: 25px auto;
             max-width: 100%;
@@ -64,27 +78,27 @@
         .foto-container img.principale {
             max-width: 100%;
             height: auto;
-            border-radius: 4px;
+            border-radius: 2px;
             display: block;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         }
         .foto-container .sigillo-watermark {
             position: absolute;
-            top: 15px; /* Distanza dall'alto */
-            left: 15px; /* Distanza da sinistra */
-            width: 60px; /* Dimensione del sigillo sulle foto */
+            top: 2px; 
+            left: 2px; 
+            width: 30px; 
             height: auto;
-            opacity: 0.35; /* Trasparenza per non essere invasivo */
-            pointer-events: none; /* Impedisce di cliccarlo per sbaglio */
+            opacity: 0.35; 
+            pointer-events: none; 
         }
 
         /* STILE FIRMA (SIGILLO LORELLA) */
         .firma-box {
-            text-align: right; /* Allinea a destra */
+            text-align: right; 
             margin: 40px 0;
         }
         .firma-box img {
-            max-width: 130px; /* Dimensione elegante per la firma */
+            max-width: 65px; 
             height: auto;
             display: inline-block;
         }
@@ -92,10 +106,11 @@
         /* STILE BANNER FINALE DI CHIUSURA */
         .banner-chiusura {
             display: block;
-            margin: 60px auto 20px auto; /* Adeguatamente distanziato (60px in alto) */
+            margin: 60px auto 20px auto; 
             max-width: 100%;
             height: auto;
-            border-radius: 4px;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         }
     </style>
 </head>
@@ -106,14 +121,14 @@
         <hr class="separatore">
 
         <div class="foto-container">
-            <img src="benramar-1.png" alt="Illustrazione 1" class="principale">
+            <img src="benramar-1.jpg" alt="Illustrazione 1" class="principale">
             <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
         </div>
 
         <div class="prologo">
             <h2>Prologo</h2>
             <p>Questo racconto nasce all’interno della letteratura di viaggio anglosassone di fine Ottocento, quando il Mediterraneo e il Nord Africa erano osservati attraverso uno sguardo europeo insieme curioso, affascinato e profondamente segnato dalla mentalità coloniale.</p>
-            <p>Le figure che incontriamo — ufficiali, commercianti, interpreti, mediatori — appartengono a un mondo di frontiera, dove l’incontro tra culture non è mai neutrale: è sempre attraversato da rapporti di potere, interessi económicos e gerarchie implicite.</p>
+            <p>Le figure che incontriamo — ufficiali, commercianti, interpreti, mediatori — appartengono a un mondo di frontiera, dove l’incontro tra culture non è mai neutrale: è sempre attraversato da rapporti di potere, interessi economici e gerarchie implicite.</p>
             <p>“Ben Ramar e i cristiani” si colloca esattamente in questo spazio.</p>
             <p>Non è soltanto un racconto d’avventura: è una testimonianza di come l’Occidente osservava, descriveva e spesso semplificava il Marocco e il mondo ottomano all’inizio del Novecento.</p>
         </div>
@@ -121,7 +136,7 @@
         <h2>I – LO YACHT LORELEI</h2>
         
         <div class="foto-container">
-            <img src="benramar-2.png" alt="Illustrazione 2" class="principale">
+            <img src="benramar-2.jpg" alt="Illustrazione 2" class="principale">
             <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
         </div>
 
@@ -131,7 +146,7 @@
         <p>Uno appariva provato, elegante nonostante la stanchezza. L’altro, più imponente, aveva la presenza di chi è abituato a farsi largo senza chiedere permesso. Salirono a bordo con poche parole.</p>
         
         <div class="foto-container">
-            <img src="benramar-3.png" alt="Illustrazione 3" class="principale">
+            <img src="benramar-3.jpg" alt="Illustrazione 3" class="principale">
             <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
         </div>
 
@@ -143,7 +158,7 @@
         <h2>II – IL VIAGGIO NELL’INTERNO</h2>
 
         <div class="foto-container">
-            <img src="benramar-4.png" alt="Illustrazione 4" class="principale">
+            <img src="benramar-4.jpg" alt="Illustrazione 4" class="principale">
             <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
         </div>
 
@@ -151,7 +166,7 @@
         <p>Kerr non parlava molto. Procedeva con passo regolare, come chi ha già percorso quei sentieri e non sente il bisogno di commentarli. Il narratore lo seguiva, ancora indebolito ma sorprendentemente lucido. C’era qualcosa in quel viaggio che lo teneva desto: l’assenza di rumore, il ritmo degli animali, la sensazione di trovarsi fuori dal tempo.</p>
 
         <div class="foto-container">
-            <img src="benramar-5.png" alt="Illustrazione 5" class="principale">
+            <img src="benramar-5.jpg" alt="Illustrazione 5" class="principale">
             <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
         </div>
 
@@ -163,7 +178,7 @@
         <h2>III – Larache</h2>
 
         <div class="foto-container">
-            <img src="benramar-6.png" alt="Illustrazione 6" class="principale">
+            <img src="benramar-6.jpg" alt="Illustrazione 6" class="principale">
             <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
         </div>
 
@@ -172,7 +187,7 @@
         <p>Fu lì che Kerr rallentò. Non guardava il porto: osservava due uomini fermi poco più avanti, sotto l’ombra di un edificio che mostrava, senza discrezione, l’architettura europea.</p>
         
         <div class="foto-container">
-            <img src="benramar-7.png" alt="Illustrazione 7" class="principale">
+            <img src="benramar-7.jpg" alt="Illustrazione 7" class="principale">
             <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
         </div>
 
@@ -180,19 +195,19 @@
         — «Li vede?» mi disse piano.<br>
         Erano vestiti all’inglese. Completi chiari, cappelli di paglia, l’aria di chi non teme il sole perché non lo considera una minaccia.<br>
         — «Lumley. E l’altro è Farren.»<br>
-        Pronunciò i nomi come si pronuncia qualcosa che appartiene al passato ma non è stato forgotten.</p>
+        Pronunciò i nomi come si pronuncia qualcosa che appartiene al passato ma non è stato dimenticato.</p>
 
         <h2>IV – La casa oltre la collina</h2>
 
         <div class="foto-container">
-            <img src="benramar-8.png" alt="Illustrazione 8" class="principale">
+            <img src="benramar-8.jpg" alt="Illustrazione 8" class="principale">
             <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
         </div>
 
         <p>La loro casa non era nella medina. Sorgeva appena fuori, oltre una lieve altura, con un giardino che ostentava ordine europeo in un paesaggio che europeo non era. Vi abitavano con le mogli. Donne inglesi. Silenziose. Composte.</p>
         
         <div class="foto-container">
-            <img src="benramar-9.png" alt="Illustrazione 9" class="principale">
+            <img src="benramar-9.jpg" alt="Illustrazione 9" class="principale">
             <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
         </div>
 
@@ -202,36 +217,36 @@
         <h2>V – Ben Ramar</h2>
 
         <div class="foto-container">
-            <img src="benramar-10.png" alt="Illustrazione 10" class="principale">
+            <img src="benramar-10.jpg" alt="Illustrazione 10" class="principale">
             <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
         </div>
 
-        <p>Kerr non parlò subito. Quando lo fece, non fu per difendersi, ma per chiarire. La ragazza non era soltanto una vittima di traffico. Era figlia di Ben Ramar, uomo influente tra le rotte del Levante e legato agli ambienti del Pascià di Costantinopoli. Il suo nome non circolava nei porti per caso.</p>
+        <p>Kerr non parlò subito. When lo fece, non fu per difendersi, ma per chiarire. La ragazza non era soltanto una vittima di traffico. Era figlia di Ben Ramar, uomo influente tra le rotte del Levante e legato agli ambienti del Pascià di Costantinopoli. Il suo nome non circolava nei porti per caso.</p>
         <p>Il salvataggio non generò una caccia a Kerr, Ben Ramar non aveva interesse per lui. Il suo sguardo era rivolto altrove. Lumley e Farren pur non essendo i carnefici erano gli ingranaggi visibili del meccanismo: intermediari, uomini d’affari, presenze riconoscibili. Erano loro ad aver reso possibile la vendita, loro ad aver aperto la strada. Per un uomo come Ben Ramar, l’affronto non si dimenticava. Si annotava, non per essere vendicato subito ma al momento opportuno.</p>
 
         <h2>VI – Il tranello</h2>
 
         <div class="foto-container">
-            <img src="benramar-11.png" alt="Illustrazione 11" class="principale">
+            <img src="benramar-11.jpg" alt="Illustrazione 11" class="principale">
             <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
         </div>
 
-        <p>L’invito a bordo del Lorelei fue cordiale. Il mare era immobile. Le formalità impeccabili. Kerr accettò. Non era un uomo che evitava il confronto. Il capitano offrì whisky. Lumley sorrise, Farren parlò di commerci, di nuove opportunità.</p>
+        <p>L’invito a bordo del Lorelei fu cordiale. Il mare era immobile. Le formalità impeccabili. Kerr accettò. Non era un uomo che evitava il confronto. Il capitano offrì whisky. Lumley sorrise, Farren parlò di commerci, di nuove opportunità.</p>
         <p>Poi qualcosa cambiò. Un ordine sussurrato. Uno scatto troppo rapido. Una porta che si chiude. Il tranello era semplice. Scomparsa in mare aperto, una disgrazia, un incidente, ma non riuscì.</p>
 
         <h2>VII – Ciò che resta</h2>
 
         <div class="foto-container">
-            <img src="benramar-12.png" alt="Illustrazione 12" class="principale">
+            <img src="benramar-12.jpg" alt="Illustrazione 12" class="principale">
             <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
         </div>
 
-        <p>Lumley e Farren continuarono a vivere a Larache. Continuarono a ricevere ospiti. Continuarono a commerciare. Le loro mogli passeggiavano nel tardo pomeriggio lungo la collina.</p>
+        <p>Lumley e Farren continuarono a vivere a Larache. Continuarono a ricevere ospiti. Continuarono a commerciare. Le loro modi passeggiavano nel tardo pomeriggio lungo la colline.</p>
         <p>L’Impero non aveva bisogno di eroi. Aveva bisogno di continuità. Kerr partì, non vinse, non perse. Aveva interrotto una rotta, ma non il sistema. Il Mediterraneo continuò a respirare come aveva sempre fatto: porti, consoli, scialuppe, case oltre la collina.</p>
         <p>E sotto la superficie, le stesse correnti.</p>
 
         <div class="foto-container">
-            <img src="benramar-13.png" alt="Illustrazione 13" class="principale">
+            <img src="benramar-13.jpg" alt="Illustrazione 13" class="principale">
             <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
         </div>
 
