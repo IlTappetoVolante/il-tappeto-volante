@@ -1117,7 +1117,7 @@ function TappaView(dId, tId) {
 
     const styles = buildTappaStyles(tappa);
 
-<<<<<<< HEAD
+
     return renderTappaPage(diario, tappa, styles);
 }
 
@@ -1201,22 +1201,6 @@ function renderTappaExtras(tappa) {
         ${window.renderPergamenaSigilli?.() ?? ''}
     `;
 }
-=======
-    // LA NOSTRA MAGIA: Se nel file della tappa c'è un paper_color, lo usa!
-    const paperColor = t.theme.paper_color ? `background-color: ${t.theme.paper_color} !important;` : '';
-
-    return `<div class="flex flex-col h-full" style="${bgStyle}">
-           <header class="header-galleggiante">
-               <button onclick="navigate('diario', '${diario.id}')">← Indietro</button>
-           </header>
-           <main class="vista-lettura flex-1 overflow-y-auto">
-               <div class="foglio-lettura" style="${paperColor}">${withAutoTitle(t.contenuto, t.titolo).map(b => renderBlocco(b, t.theme)).join('')}
-                ${renderSigilloFinale()}
-       ${renderPergamenaSigilli()} 
-               </div>
-           </main>
-       </div>`;
-}
 
 function renderPergamenaSigilli() {
   return `
@@ -1251,8 +1235,45 @@ function renderPergamenaSigilli() {
   `;
 }
 
->>>>>>> 52753d0cefaf56887662ae370380a79381d3fc8e
+/* =============================================================================
+   SEZIONE CAPITOLI (PRONTA PER IL FUTURO)
+============================================================================= */
 
+function renderCapitoloPage(capitolo) {
+    // 1. Gestiamo lo sfondo e il colore della pagina del capitolo
+    const bgStyle = capitolo.theme?.sfondo
+        ? `background-image: url('${capitolo.theme.sfondo}'); background-size: cover; background-position: center;`
+        : `background-color: #f4f4f4;`;
+
+    const paperStyle = capitolo.theme?.paper_color
+        ? `background-color: ${capitolo.theme.paper_color} !important;`
+        : '';
+
+    // 2. Costruiamo la struttura HTML della pagina
+    return `
+        <div class="flex flex-col h-full" style="${bgStyle}">
+            
+            <header class="header-galleggiante">
+                <button onclick="navigate('hub')">← Torna all'Hub</button>
+            </header>
+
+            <main class="vista-lettura flex-1 overflow-y-auto">
+                <div class="foglio-lettura" style="${paperStyle}">
+                    
+                    <h1 class="font-ui-titolo text-2xl mb-4">${capitolo.titolo || 'Nuovo Capitolo'}</h1>
+                    
+                    <div class="contenuto-capitolo mb-8">
+                        ${capitolo.contenuto || '<p>Contenuto in arrivo...</p>'}
+                    </div>
+
+                    ${window.renderSigilloFinale?.() ?? ''}
+                    ${window.renderPergamenaSigilli?.() ?? ''}
+                    
+                </div>
+            </main>
+        </div>
+    `;
+}
 function IntroduzioneView(dId) {
 const d = (Array.isArray(DATABASE.diari) ? (DATABASE.diari.find(x => x.id === dId) || DATABASE.diari[0]) : null);
 if (!d) return HomeView();
