@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ben Ramar - Il Tappeto Volante</title>
+    <title>Ben Ramar e i cristiani - Racconti Coloniali</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,33 +14,71 @@
             font-family: 'Courier Prime', monospace;
             margin: 0;
             padding: 20px;
-            /* SFONDO COPERTINA LIBRO D'EPOCA */
-            background: radial-gradient(circle, #4a3121 0%, #1a100a 100%);
+            /* SFONDO COPERTINA CUOIO INVECCHIATO */
+            background-image: url('sfondo-cuoio.png');
+            background-size: cover;
+            background-attachment: fixed;
+            background-color: #1a100a;
             color: #2b2b2b;
             line-height: 1.8;
         }
         .contenitore {
             max-width: 800px;
             margin: 30px auto;
-            /* PAGINA INGIALLITA D'EPOCA */
+            /* PAGINA CON TEXTURE CARTA INVECCHIATA */
             background-color: #f6f0dd;
+            background-image: url('texture-carta.png');
+            background-size: cover;
             padding: 40px;
             border-radius: 2px;
             border: 1px solid #e3dac1;
             box-shadow: 0 10px 30px rgba(0,0,0,0.6), inset 0 0 50px rgba(139,69,19,0.15);
         }
-        h1, h2 {
+
+        /* STILE TESTATA SITO CON LOGO E TITOLO ACCANTO */
+        .testata-sito {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #c2b69d;
+            margin-bottom: 20px;
+        }
+        .logo-sito {
+            max-width: 100px;
+            height: auto;
+            flex-shrink: 0;
+        }
+        .testo-sito {
+            flex-grow: 1;
+            text-align: center;
+        }
+        .testo-sito h1 {
             font-family: 'Special Elite', monospace;
             color: #1a1a1a;
-        }
-        h1 {
-            text-align: center;
+            font-size: 24px;
+            margin: 0 0 5px 0;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 26px;
-            margin-bottom: 10px;
         }
-        h2 {
+        .testo-sito p {
+            font-size: 14px;
+            margin: 0;
+            font-style: italic;
+            color: #555;
+            text-align: center; /* Allineamento del sottotitolo */
+        }
+
+        /* STILE TITOLO DEL RACCONTO SPECIFICO CENTRATO PRIMA DELLA FOTO */
+        .titolo-racconto {
+            font-family: 'Special Elite', monospace;
+            text-align: center;
+            color: #2c3e50;
+            font-size: 28px;
+            margin: 40px 0 30px 0;
+        }
+
+        h2.capitolo {
+            font-family: 'Special Elite', monospace;
             color: #8b0000;
             margin-top: 40px;
             border-bottom: 1px dashed #c2b69d;
@@ -51,14 +89,14 @@
             font-style: italic;
             color: #444;
             padding: 15px 20px;
-            background-color: #fbf9f1;
+            background-color: rgba(251, 249, 241, 0.7);
             border-left: 4px solid #8b0000;
             margin-bottom: 40px;
             box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
         }
         p {
             margin-bottom: 15px;
-            text-align: justify;
+            text-align: left; /* Allineamento a sinistra (non giustificato) per effetto macchina da scrivere */
         }
         hr.separatore {
             border: 0;
@@ -111,16 +149,42 @@
             border-radius: 2px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         }
+
+        /* ADATTAMENTO MOBILE PER LA TESTATA */
+        @media (max-width: 600px) {
+            .testata-sito {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            .testo-sito {
+                text-align: center;
+            }
+            .testo-sito h1 {
+                font-size: 18px;
+            }
+            .testo-sito p {
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
 
     <div class="contenitore">
-        <h1>Il Tappeto Volante</h1>
-        <hr class="separatore">
+        
+        <header class="testata-sito">
+            <img src="111111.png" alt="Logo Sulle Tracce dei Racconti Coloniali" class="logo-sito">
+            <div class="testo-sito">
+                <h1>Sulle Tracce dei Racconti Coloniali</h1>
+                <p>Libere reinterpretazioni e visioni d'oltremare</p>
+            </div>
+        </header>
+
+        <h1 class="titolo-racconto">Ben Ramar e i cristiani</h1>
 
         <div class="foto-container">
-            <img src="benramar-1.png" alt="Illustrazione 1" class="principale">
+            <img src="benramar-1.png" alt="Ben Ramar e i cristiani - Illustrazione 1" class="principale">
             <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
         </div>
 
@@ -132,7 +196,7 @@
             <p>Non è soltanto un racconto d’avventura: è una testimonianza di come l’Occidente osservava, descriveva e spesso semplificava il Marocco e il mondo ottomano all’inizio del Novecento.</p>
         </div>
 
-        <h2>I – LO YACHT LORELEI</h2>
+        <h2 class="capitolo">I – LO YACHT LORELEI</h2>
         
         <div class="foto-container">
             <img src="benramar-2.png" alt="Illustrazione 2" class="principale">
@@ -154,7 +218,7 @@
         <p>Kerr lo capì subito. Non fece domande, non mostrò premura. Si limitò a dire che proseguiva verso Larache, via terra, e che la strada sarebbe stata lenta, senza fretta. Kerr e il suo compagno non restarono a lungo sullo yacht, il loro viaggio proseguiva.</p>
         <p>Ed è lì, lontano dal mare e dalle rotte europee, che la storia comincia davvero.</p>
 
-        <h2>II – IL VIAGGIO NELL’INTERNO</h2>
+        <h2 class="capitolo">II – IL VIAGGIO NELL’INTERNO</h2>
 
         <div class="foto-container">
             <img src="benramar-4.png" alt="Illustrazione 4" class="principale">
@@ -174,7 +238,7 @@
         <p>Le giornate scorrevano tutte uguali e tutte diverse. Albe fredde. Strade polverose. Soste improvvise sotto alberi isolati. La luce che cambiava lentamente colore sulle colline. Il viaggio durò diversi giorni. Non accadde nulla di straordinario, eppure tutto sembrava carico di un’attesa difficile da nominare. Come se la destinazione non fosse una città, ma un incontro.</p>
         <p>Fu così che arrivarono a Larache.</p>
 
-        <h2>III – Larache</h2>
+        <h2 class="capitolo">III – Larache</h2>
 
         <div class="foto-container">
             <img src="benramar-6.png" alt="Illustrazione 6" class="principale">
@@ -196,7 +260,7 @@
         — «Lumley. E l’altro è Farren.»<br>
         Pronunciò i nomi come si pronuncia qualcosa che appartiene al passato ma non è stato dimenticato.</p>
 
-        <h2>IV – La casa oltre la collina</h2>
+        <h2 class="capitolo">IV – La casa oltre la collina</h2>
 
         <div class="foto-container">
             <img src="benramar-8.png" alt="Illustrazione 8" class="principale">
@@ -213,17 +277,17 @@
         <p>Kerr non mostrò stupore né rancore. Mi raccontò allora, con quella sua voce sempre controllata, la storia che li legava. Anni prima, una giovane donna era stata sottratta alla sua famiglia e venduta. Non in un mercato visibile, ma in quel circuito invisibile che attraversava il Mediterraneo come una corrente sommersa. Era destinata a Costantinopoli, ad un harem. Il nome del Pascià non venne pronunciato non era necessario.</p>
         <p>La ragazza non vi arrivò mai, Kerr intercettò la rotta. Comprò informazioni, pagò uomini, navigò di notte e la riportò indietro. Lumley e Farren erano coinvolti, non come carnefici diretti ma come ingranaggi. Facilitatori, uomini d’affari. La faccenda venne insabbiata, nessuno fu processato, nessuno fu esposto. E ora vivevano lì, tranquilli e rispettabili.</p>
 
-        <h2>V – Ben Ramar</h2>
+        <h2 class="capitolo">V – Ben Ramar</h2>
 
         <div class="foto-container">
             <img src="benramar-10.png" alt="Illustrazione 10" class="principale">
             <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
         </div>
 
-        <p>Kerr non parlò subito. Quando lo fece, non fu per difendersi, ma per chiarire. La ragazza non era soltanto una vittima di traffico. Era figlia di Ben Ramar, uomo influente tra le rotte del Levante e legato agli ambienti del Pascià di Costantinopoli. Il suo nome non circola nei porti per caso.</p>
+        <p>Kerr non parlò subito. Quando lo fece, non fu per difendersi, ma per chiarire. La ragazza non era soltanto una vittima di traffico. Era figlia di Ben Ramar, uomo influente tra le rotte del Levante e legato agli ambienti del Pascià di Costantinopoli. Il suo nome non circula nei porti per caso.</p>
         <p>Il salvataggio non generò una caccia a Kerr, Ben Ramar non aveva interesse per lui. Il suo sguardo era rivolto altrove. Lumley e Farren pur non essendo i carnefici erano gli ingranaggi visibili del meccanismo: intermediari, uomini d’affari, presenze riconoscibili. Erano loro ad aver reso possibile la vendita, loro ad aver aperto la strada. Per un uomo come Ben Ramar, l’affronto non si dimenticava. Si annotava, non per essere vendicato subito ma al momento opportuno.</p>
 
-        <h2>VI – Il tranello</h2>
+        <h2 class="capitolo">VI – Il tranello</h2>
 
         <div class="foto-container">
             <img src="benramar-11.png" alt="Illustrazione 11" class="principale">
@@ -233,7 +297,7 @@
         <p>L’invito a bordo del Lorelei fu cordiale. Il mare era immobile. Le formalità impeccabili. Kerr accettò. Non era un uomo che evitava il confronto. Il capitano offrì whisky. Lumley sorrise, Farren parlò di commerci, di nuove opportunità.</p>
         <p>Poi qualcosa cambiò. Un ordine sussurrato. Uno scatto troppo rapido. Una porta che si chiude. Il tranello era semplice. Scomparsa in mare aperto, una disgrazia, un incidente, ma non riuscì.</p>
 
-        <h2>VII – Ciò che resta</h2>
+        <h2 class="capitolo">VII – Ciò che resta</h2>
 
         <div class="foto-container">
             <img src="benramar-12.png" alt="Illustrazione 12" class="principale">
@@ -253,9 +317,10 @@
             <img src="sigillo-lorella.png" alt="Firma Lorella">
         </div>
 
-        <img src="banner-finale.jpg" class="banner-chiusura" alt="Il Tappeto Volante - Chiusura">
+        <img src="banner-finale.jpg" class="banner-chiusura" alt="Racconti Coloniali - Chiusura">
 
     </div>
 
 </body>
 </html>
+
