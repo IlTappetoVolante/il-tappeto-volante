@@ -648,8 +648,7 @@ const pulsanteLampada = storia.quiz ? `
                <span class="text-2xl">🧞‍♂️</span> Strofina la Lampada
            </button>
        </div>` : '';
-<<<<<<< HEAD
-=======
+
 const renderSigilloFinale = () => {
   return `
     <div class="mt-12 mb-10 relative z-50">
@@ -664,7 +663,6 @@ const renderSigilloFinale = () => {
     </div>
   `;
 };
->>>>>>> 52753d0cefaf56887662ae370380a79381d3fc8e
 
 return `
  <div class="flex flex-col h-full relative overflow-hidden" style="${backgroundCSS}">
@@ -678,12 +676,8 @@ return `
      <div class="${isPergamena ? 'foglio-lettura foglio-storia foglio-pergamena' : 'foglio-lettura foglio-storia'}"
           style="${foglioStyle} border: 1px solid ${borderColor};">
        ${withAutoTitle(storia.contenuto, storia.titolo).map(b => renderBlocco(b, renderTheme)).join('')}
-<<<<<<< HEAD
        ${window.renderSigilloFinale?.() ?? ''}
-=======
-       ${renderSigilloFinale()}
-        ${renderPergamenaSigilli()}
->>>>>>> 52753d0cefaf56887662ae370380a79381d3fc8e
+       ${window.renderPergamenaSigilli?.() ?? ''} 
        ${(typeof renderQuizSection === 'function') ? renderQuizSection(storia.id) : ''}
        ${pulsanteLampada}
      </div>
@@ -694,7 +688,6 @@ return `
 }
 function LampadaView(storiaId) {
   if (!storiaId) return LampadaHubView();
-
   if (!quizState.active || quizState.storiaId !== storiaId) {
     let quizData;
     if (storiaId) {
