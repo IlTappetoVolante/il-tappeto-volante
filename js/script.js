@@ -215,7 +215,7 @@ domande: [
 window.renderSigilloFinale = window.renderSigilloFinale || function () {
     return `
         <div class="mt-10 mb-8 flex justify-end">
-            <img src="img/sigillo_ceralacca_lorella.jpg"
+            <img src="img/sigillo_ceralacca_lorella_cr.jpg"
                  alt="Sigillo in ceralacca con nome Lorella"
                  loading="lazy"
                  class="sigillo drop-shadow-lg"
@@ -1227,10 +1227,9 @@ function renderPergamenaSigilli() {
       </div>
 
       <div class="pergamena-riga">
-        <img src="img/sigillo_verde.png" class="sigillo-mini" style="width: 25px !important; height: auto !important; border: none !important; padding: 0 !important; background: transparent !important; box-shadow: none !important; object-fit: contain !important; margin-right: 10px !important;">
-        <span>Immagine generata interamente da AI</span>
+        <img src="img/sigillo_bronzo.png" class="sigillo-mini" style="width: 25px !important; height: auto !important; border: none !important; padding: 0 !important; background: transparent !important; box-shadow: none !important; object-fit: contain !important; margin-right: 10px !important;">
+        <span>Immagine di repertorio (dettagli nella sezione Crediti)</span>
       </div>
-
     </div>
   `;
 }
