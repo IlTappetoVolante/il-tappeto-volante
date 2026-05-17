@@ -227,7 +227,7 @@ window.renderSigilloFinale = window.renderSigilloFinale || function () {
 window.renderPergamenaSigilli = window.renderPergamenaSigilli || function () {
     return `
         <div class="mt-10 mb-8 flex justify-end">
-            <img src="img/sigillo_ceralacca_lorella.jpg"
+            <img src="img/sigillo_ceralacca_lorella_cr.jpg"
                  alt="Sigillo in ceralacca con nome Lorella"
                  loading="lazy"
                  class="sigillo drop-shadow-lg"
