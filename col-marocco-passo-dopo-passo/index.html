@@ -228,4 +228,5 @@ figure{margin:28px 0}.foto{position:relative}.foto>img:first-child{display:block
 <script>
 (()=>{const out=document.getElementById('contatore'),base='https://api.counterapi.dev/v1/il-tappeto-volante/col-marocco-passo-dopo-passo',key='visitato-col-marocco';const seen=sessionStorage.getItem(key)==='1';fetch(seen?base:base+'/up').then(r=>{if(!r.ok)throw 0;return r.json()}).then(d=>{const n=Number(d.count??d.value);if(!Number.isFinite(n))throw 0;sessionStorage.setItem(key,'1');out.textContent=`✨ Questo racconto ha portato in viaggio sul Tappeto Volante ${n.toLocaleString('it-IT')} lettori.`}).catch(()=>out.textContent='✨ Anche tu hai viaggiato sul Tappeto Volante con questo racconto.')})();
 </script>
+  <script data-goatcounter="https://iltappetovolante.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body></html>
