@@ -104,5 +104,6 @@
 <script>
 (()=>{const comandi=document.querySelectorAll('[data-simbolo]'),pannelli=document.querySelectorAll('.pannello'),punti=document.querySelectorAll('.punto');function apri(nome){pannelli.forEach(p=>p.classList.toggle('aperto',p.id===`simbolo-${nome}`));punti.forEach(p=>p.classList.toggle('attivo',p.dataset.simbolo===nome));const scelto=document.getElementById(`simbolo-${nome}`);if(scelto&&matchMedia('(max-width:620px)').matches)scelto.scrollIntoView({behavior:'smooth',block:'center'})}comandi.forEach(c=>c.addEventListener('click',()=>apri(c.dataset.simbolo)));apri('babbucce')})();
 </script>
+  <script data-goatcounter="https://iltappetovolante.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
