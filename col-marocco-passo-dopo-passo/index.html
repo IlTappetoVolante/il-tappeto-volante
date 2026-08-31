@@ -229,4 +229,26 @@ figure{margin:28px 0}.foto{position:relative}.foto>img:first-child{display:block
 (()=>{const out=document.getElementById('contatore'),base='https://api.counterapi.dev/v1/il-tappeto-volante/col-marocco-passo-dopo-passo',key='visitato-col-marocco';const seen=sessionStorage.getItem(key)==='1';fetch(seen?base:base+'/up').then(r=>{if(!r.ok)throw 0;return r.json()}).then(d=>{const n=Number(d.count??d.value);if(!Number.isFinite(n))throw 0;sessionStorage.setItem(key,'1');out.textContent=`✨ Questo racconto ha portato in viaggio sul Tappeto Volante ${n.toLocaleString('it-IT')} lettori.`}).catch(()=>out.textContent='✨ Anche tu hai viaggiato sul Tappeto Volante con questo racconto.')})();
 </script>
   <script data-goatcounter="https://iltappetovolante.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <audio id="musica-babbucce" loop>
+  <source src="../../audio/atlas-morocco-babbucce.mp3" type="audio/mpeg">
+</audio>
+
+<button id="audio-btn" type="button">🎵 Musica</button>
+
+<script>
+const musica = document.getElementById('musica-babbucce');
+const bottone = document.getElementById('audio-btn');
+
+musica.volume = 0.18;
+
+bottone.addEventListener('click', () => {
+  if (musica.paused) {
+    musica.play();
+    bottone.textContent = '🔊 Musica';
+  } else {
+    musica.pause();
+    bottone.textContent = '🔇 Musica';
+  }
+});
+</script>
 </body></html>
