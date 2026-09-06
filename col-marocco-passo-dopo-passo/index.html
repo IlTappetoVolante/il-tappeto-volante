@@ -20,6 +20,14 @@ figure{margin:28px 0}.foto{position:relative}.foto>img:first-child{display:block
 .cta{display:inline-block;padding:11px 22px;border:1px solid #7b321f;border-radius:999px;color:#fff8ea;background:linear-gradient(135deg,#9b3f24,#6f2517);font-weight:700;text-decoration:none}
 .blocco{max-width:48rem;margin:64px auto 0;scroll-margin-top:20px}.blocco h3{margin:0 0 22px;color:var(--terra);font:700 clamp(2rem,5vw,3rem)/1.1 "Dancing Script",cursive;text-align:center}.capo:first-letter{float:left;margin:.08em .08em 0 0;color:var(--terra);font:700 3.5rem/.8 "Dancing Script",cursive}.forte{margin:28px auto;color:#6b351f;font-size:1.1rem;font-style:italic;font-weight:700;text-align:center}.parola{color:var(--rosso);font:700 2rem/1 "Dancing Script";text-align:center}.ponte{padding:20px;border:1px solid var(--linea);border-radius:8px;background:#fffaf080}.ponte h4{text-align:center;color:var(--rosso);text-transform:uppercase;letter-spacing:.08em}.ponte ul{columns:2}.separa{width:110px;height:1px;margin:64px auto 0;border:0;background:linear-gradient(90deg,transparent,var(--oro),transparent)}
 .appendici{margin-top:72px;padding-top:34px;border-top:2px solid var(--oro)}.appendici>h2{margin:0;color:var(--rosso);font:700 clamp(2.1rem,5vw,3.2rem)/1.1 "Dancing Script";text-align:center}.intro-trad{font-size:.86rem;font-style:italic;text-align:center}.traduzioni{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}.traduzione{padding:20px;border:1px solid var(--linea);border-radius:8px;background:#fffaf088;font-size:.79rem;line-height:1.65}.traduzione>h3{margin:0 0 20px;color:var(--terra);font:700 2rem/1 "Dancing Script";text-align:center}.traduzione h4{margin:24px 0 10px;color:var(--rosso);font-size:.92rem}.mini{float:left;width:96px;height:72px;margin:3px 12px 7px 0;object-fit:cover;border:2px solid #c99a359e;border-radius:4px}.mini-blocco{display:flow-root;margin-bottom:22px}
+.scelta-lingue{display:flex;justify-content:center;flex-wrap:wrap;gap:16px;margin-top:26px}.pulsante-lingua,.pulsante-indietro{border:2px solid #8b4513;border-radius:8px;color:#8b4513;background:#fffaf080;font:700 italic 1rem Merriweather,serif;padding:12px 28px;cursor:pointer;transition:all .3s ease}.pulsante-lingua:hover,.pulsante-lingua:focus-visible,.pulsante-indietro:hover,.pulsante-indietro:focus-visible{color:#fff8dc;background:#8b4513;box-shadow:0 4px 10px #8b451366;outline:none}
+.modal-lingua{display:none;position:fixed;z-index:2000;inset:0;width:100%;height:100%;padding:20px;justify-content:center;align-items:center;background:#000000f2;backdrop-filter:blur(8px)}
+.modal-content-lingua{position:relative;width:min(900px,95%);max-height:95vh;overflow-y:auto;padding:55px clamp(22px,6vw,72px) 42px;border:2px solid #8b4513;border-radius:15px;background-color:#f8eedc;background-image:url('../img/bottone_pergamena.jpg');background-size:100% 100%;box-shadow:0 0 50px #8b4513e6}
+.modal-content-lingua .traduzione{padding:0;border:0;background:transparent;color:#2c1a1a;font-size:1rem;line-height:1.8}.modal-content-lingua .traduzione>h3{font-size:2.7rem}.modal-content-lingua .traduzione h4{font-size:1.05rem}.close-modal{position:absolute;top:12px;right:20px;border:0;color:#2c1a1a;background:transparent;font-size:2.3rem;line-height:1;cursor:pointer}.close-modal:hover,.close-modal:focus-visible{color:#8b4513;outline:none}.modal-content-lingua .pulsante-indietro{display:block;margin:24px auto 0}
+.titolo-tappa span{display:block}.titolo-tappa .riga-lunga{font-size:.82em;white-space:nowrap}
+.micro-balgha{display:inline-block;width:2.8em;height:auto;margin:0 .18em -.65em .08em;filter:drop-shadow(0 3px 2px #0004);animation:micro-passo 1.15s ease-in-out infinite alternate}
+@keyframes micro-passo{from{transform:translateY(1px) rotate(-3deg)}to{transform:translateY(-3px) rotate(3deg)}}
+.crediti{max-width:48rem;margin:64px auto 0;padding-top:28px;border-top:1px solid var(--linea)}.crediti h2{margin:0 0 16px;color:var(--terra);font:700 2rem/1.1 "Dancing Script",cursive;text-align:center}.crediti ol{padding-left:1.35rem;color:#68594d;font-size:.72rem;line-height:1.65}
 .contatore{max-width:42rem;margin:50px auto 10px;padding:18px;border-block:1px solid var(--linea);color:#60341f;font-style:italic;font-weight:700;text-align:center}.nota{margin-top:38px;color:#68594d;font-size:.72rem;text-align:center}
 .musica-storia{
   position:relative;
@@ -77,7 +85,7 @@ figure{margin:28px 0}.foto{position:relative}.foto>img:first-child{display:block
   100%{transform:translateY(1px) rotate(7deg) scale(1)}
 }
   @media(max-width:720px)
-{body{padding:8px}.pagina{margin:8px auto}.testata{flex-direction:column;gap:8px}figcaption{text-align:left}.ponte ul{columns:1}.traduzioni{grid-template-columns:1fr}.traduzione{font-size:.82rem}}
+{body{padding:8px}.pagina{margin:8px auto}.testata{flex-direction:column;gap:8px}figcaption{text-align:left}.ponte ul{columns:1}.traduzioni{grid-template-columns:1fr}.traduzione{font-size:.82rem}.titolo-tappa .riga-lunga{font-size:clamp(1.42rem,7vw,2.25rem)}.modal-lingua{padding:8px}.modal-content-lingua{width:100%;max-height:96vh;padding:48px 18px 28px;background-size:cover}.modal-content-lingua .traduzione{font-size:.9rem}.modal-content-lingua .mini{width:86px;height:66px}}
 </style>
 </head>
 <body>
@@ -98,12 +106,9 @@ figure{margin:28px 0}.foto{position:relative}.foto>img:first-child{display:block
     aria-hidden="true">
 
   <div>
-    <p class="invito-musica">
-    <strong>La musica ti accompagna</strong><br>
-      Avvolgiti nell’atmosfera del Marocco.
-    </p>
+    <p class="invito-musica" id="stato-musica"><strong>▶ Premi Play e lasciati accompagnare</strong><br>Avvolgiti nell’atmosfera del Marocco.</p>
 
-    <audio controls loop autoplay preload="metadata">
+    <audio id="musica-marocco" controls loop autoplay preload="metadata">
       <source src="https://iltappetovolante.github.io/il-tappeto-volante/audio/atlas-morocco-babbucce.mp3" type="audio/mpeg">
       Il tuo browser non supporta il lettore audio.
     </audio>
@@ -115,12 +120,12 @@ figure{margin:28px 0}.foto{position:relative}.foto>img:first-child{display:block
 <figure class="foto">
 <img src="../img/babucce_marrakech.jpeg" alt="Babbucce marocchine colorate a Marrakech">
 
-<figcaption>Foto: George Piskov / Pexels</figcaption>
+<figcaption>Colori del souk.</figcaption>
 </figure>
 </section>
 
 <section class="blocco" id="storia">
-<h3>Una pantofola? Non proprio</h3>
+<h3 class="titolo-tappa"><span>Marocco</span><span class="riga-lunga">Una pantofola? Non proprio</span></h3>
 <p class="capo">Babbucce. È un termine che conosciamo tutti.</p>
 <p>Per noi italiani richiama immediatamente le pantofole: morbide, leggere e destinate soprattutto alla casa. Eppure, in molte terre affacciate sul Mediterraneo e oltre, quella che chiamiamo babbuccia non è affatto una semplice pantofola.</p>
 <p class="forte">È una vera calzatura.</p>
@@ -128,7 +133,7 @@ figure{margin:28px 0}.foto{position:relative}.foto>img:first-child{display:block
 <figure class="foto">
 <img src="../img/marocco_costumi_1905.jpg" alt="Tavola del 1905 con differenti costumi marocchini e balgha simili">
 
-<figcaption>Tavola storica dedicata ai costumi marocchini, 1905.</figcaption>
+<figcaption>Costumi marocchini, 1905.</figcaption>
 </figure>
 <p>A prima vista, questa tavola sembra volerci mostrare la varietà dei costumi marocchini. Cambiano le tuniche, i mantelli, i copricapi, i colori e il modo di avvolgere i tessuti intorno al corpo. Ogni figura appare diversa dall’altra.</p>
 <p class="forte">Ma proviamo ad abbassare lo sguardo.</p>
@@ -137,21 +142,24 @@ figure{margin:28px 0}.foto{position:relative}.foto>img:first-child{display:block
 <p>La tavola racconta molti costumi. E una sola, ostinata babbuccia.</p>
   <figure class="foto">
 <img src="https://iltappetovolante.github.io/il-tappeto-volante/img/balgha_colorate_marrakech.jpg" alt="Balgha marocchine di diversi colori esposte a Marrakech" loading="lazy">
-<figcaption>Balgha colorate a Marrakech — Martin Adams / Unsplash.</figcaption>
+<figcaption>Balgha colorate a Marrakech.</figcaption>
 </figure>
 <p>E quel filo comune non si ferma alle strade o ai mercati. Nelle grandi celebrazioni ufficiali, il re e i dignitari indossano abiti chiari, il tarbouche rosso e balgha rigorosamente gialle. La calzatura che nella tavola attraversava la varietà dei costumi ricompare così anche nel linguaggio solenne della monarchia.</p>
   <figure class="foto">
 <img src="https://iltappetovolante.github.io/il-tappeto-volante/img/balgha_festa_marocchina.jpg" alt="Musicisti e danzatori marocchini con balgha gialle" loading="lazy">
+<figcaption>Musica e danza in abiti tradizionali.</figcaption>
 </figure>
 <p class="forte">Dai piedi del popolo a quelli del re, la balgha è uno dei segni nei quali il Marocco si riconosce.</p>
   <figure class="foto">
 <img src="https://iltappetovolante.github.io/il-tappeto-volante/img/cerimonia_reale_balgha_gialle.png" alt="Cerimonia reale marocchina con abiti tradizionali e balgha gialle" loading="lazy">
+<figcaption>Le balgha gialle nel cerimoniale reale.</figcaption>
 </figure>
 <p>Ma perché alcune terminano proprio con quella punta lunga e leggermente rivolta verso l’alto?</p>
 <p>Forse serviva a proteggere le dita. Forse facilitava il passo sotto abiti lunghi. Forse, a un certo punto, fu semplicemente il gusto a trasformarla in un segno di eleganza. Calzature con punte allungate o ricurve sono comparse in epoche e culture molto lontane tra loro. Eppure, la ragione originaria di quella forma non è stata ancora stabilita con certezza.</p>
 <p>La babbuccia conserva dunque un piccolo mistero. Ma è la sua stessa parola a indicarci la prima strada da seguire.</p>
   <figure class="foto">
 <img src="https://iltappetovolante.github.io/il-tappeto-volante/img/carovana_dromedari_deserto.jpg" alt="Dromedari in cammino fra le dune del deserto marocchino" loading="lazy">
+<figcaption>Passi nel deserto.</figcaption>
 </figure>
 <p>Il suo nome cominciò il viaggio molto più a Oriente del Marocco. Viene dal persiano <strong>pā-pūš</strong>: <em>pā</em> significa “piede” e <em>pūš</em> significa “ciò che copre”.</p>
 <p class="parola">Copripiede</p>
@@ -180,7 +188,8 @@ figure{margin:28px 0}.foto{position:relative}.foto>img:first-child{display:block
   <figure style="margin:38px auto;max-width:760px">
   <div style="aspect-ratio:16/9">
     <iframe
-      src="https://www.youtube.com/embed/52_MrwLSw-U"
+      id="video-babbuccia"
+      src="https://www.youtube.com/embed/52_MrwLSw-U?enablejsapi=1"
       title="La babbuccia: una parola in viaggio"
       loading="lazy"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -195,11 +204,11 @@ figure{margin:28px 0}.foto{position:relative}.foto>img:first-child{display:block
 
 <hr class="separa">
 <section class="blocco">
-<h3>Tra i rami dell’argan</h3>
+<h3 class="titolo-tappa"><span>Marocco sud-occidentale</span><span class="riga-lunga">Tra i rami dell’argan</span></h3>
 <figure class="foto">
 <img src="../img/capre_argan.jpg" alt="Capre sui rami di un argan vicino a Essaouira" loading="lazy">
 
-<figcaption>Grand Parc – Bordeaux, France, via Wikimedia Commons — CC BY 2.0.</figcaption>
+<figcaption>Una mensa sospesa tra cielo e terra.</figcaption>
 </figure>
 <p class="capo">Nel Marocco sud-occidentale esistono alberi capaci di resistere alla siccità, al caldo e a terreni avari di acqua.</p>
 <p>Sono gli <strong>alberi di argan</strong>, con i loro tronchi nodosi, i rami spinosi e radici tanto profonde da contribuire a trattenere il terreno e a contrastare l’avanzata del deserto.</p>
@@ -207,42 +216,46 @@ figure{margin:28px 0}.foto{position:relative}.foto>img:first-child{display:block
 <p>Non hanno bisogno di un tappeto volante. Con l’agilità di acrobate raggiungono le foglie e i frutti che crescono più in alto. Quando il pascolo a terra scarseggia, la chioma dell’albero di argan diventa una mensa sospesa tra cielo e terra.</p>
   <figure class="foto">
 <img src="https://iltappetovolante.github.io/il-tappeto-volante/img/tende_nomadi_mhamid.jpg" alt="Tende di comunità nomadi fra le dune di M’Hamid El Ghizlane, in Marocco" loading="lazy">
+<figcaption>Fra le dune di M’Hamid El Ghizlane.</figcaption>
 </figure>
 <p>Per le comunità pastorali, capre e pecore non erano soltanto animali allevati. Rappresentavano latte, nutrimento, lavoro, possibilità di scambio e una forma di sicurezza davanti a stagioni e raccolti incerti.</p>
 <p>In un’economia fondata sulla necessità, ogni risorsa possedeva un valore e nulla di ciò che era già destinato all’alimentazione veniva sprecato. Anche le pelli entravano così in una nuova catena di mestieri e di scambi.</p>
 <p>Potevano essere vendute nei mercati settimanali, scambiate con altri beni oppure affidate a commercianti capaci di trasportarle verso i centri urbani.</p>
   <figure class="foto">
 <img src="https://iltappetovolante.github.io/il-tappeto-volante/img/mercato_jemaa_el_fna.jpg" alt="Bancarelle e visitatori nel mercato di Jemaa el-Fnaa a Marrakech" loading="lazy">
+<figcaption>Il mercato di Jemaa el-Fnaa.</figcaption>
 </figure>
 <p>Lasciamo dunque le caprette a brucare tranquille tra i rami e seguiamo soltanto una pelle già entrata nel circuito del mercato.</p>
 <p>Forse viaggiò sul dorso di un mulo. Forse cambiò più volte proprietario. Forse attraversò villaggi, pianure e porte cittadine prima di raggiungere la medina.</p>
 <p>Non conosciamo il suo itinerario preciso, ma sappiamo quale luogo l’attendeva.</p>
 <p class="forte">Le concerie di Fès.</p>
 <p>Lì la pelle avrebbe perduto la rigidità della materia grezza. Acqua, sostanze concianti, pigmenti e mani esperte l’avrebbero trasformata in un materiale morbido, resistente e capace di trattenere il colore.</p>
-<p>La babbuccia non era ancora nata. Ma aveva già cominciato a viaggiare.</p>
+<p><img class="micro-balgha" src="https://iltappetovolante.github.io/il-tappeto-volante/img/balgha_danzanti-1.webp" alt="" aria-hidden="true">La babbuccia non era ancora nata. Ma aveva già cominciato a viaggiare.</p>
 </section>
 
 <hr class="separa">
 <section class="blocco">
-<h3>Fès<br><span style="white-space:nowrap;font-size:.86em">La città che cambia la pelle</span></h3>
+<h3 class="titolo-tappa"><span>Fès</span><span class="riga-lunga">La città che cambia la pelle</span></h3>
 <figure class="foto">
-<img src="../img/conceria_chouara_panorama.jpg" alt="Vasche e lavoratori in una conceria di Fès" loading="lazy">
-<figcaption>Concerie di Fès — Ramon Karolan / Pexels.</figcaption>
+<img src="../img/conceria_chouara_panorama.jpg" alt="Vasche e lavoratori nella conceria Chouara di Fès" loading="lazy">
+
+<figcaption>La conceria Chouara vista dall’alto.</figcaption>
 </figure>
 <p class="capo">A Fès, la pelle non arriva in silenzio.</p>
 <p>Entra nella medina insieme alle voci dei mercanti, al passo degli animali da soma e al rumore delle botteghe. Attraversa vicoli tanto stretti che, a volte, il cielo sembra ridursi a una striscia azzurra sospesa sopra i tetti.</p>
 <p>Poi è l’odore ad annunciare la destinazione.</p>
 <p>Prima ancora di vedere le vasche, il visitatore comprende di essere vicino alle concerie. Non a caso, sulle terrazze che si affacciano su Chouara, viene spesso offerto un rametto di menta da avvicinare al naso.</p>
 <p>Quando finalmente il cortile appare, sembra una gigantesca tavolozza sprofondata nella città. Vasche rotonde e rettangolari si stringono una accanto all’altra. Alcune contengono liquidi chiari, altre custodiscono rossi, gialli, bruni e azzurri. Tra una vasca e l’altra si muovono gli uomini, in equilibrio su bordi stretti e consumati dal tempo.</p>
-<p>
 <figure class="foto">
 <img src="https://iltappetovolante.github.io/il-tappeto-volante/img/pelli_appese_conceria_fes.jpg" alt="Pelli appese ad asciugare sopra le vasche della conceria Chouara di Fès" loading="lazy">
-</figure>  
-<strong>Chouara</strong> è la più grande tra le concerie storiche di Fès. La tradizione la fa risalire ai primi secoli della città, anche se la sua data precisa rimane incerta. Ciò che sappiamo è che la lavorazione della pelle fu molto presto una parte importante dell’economia della medina.</p>
+<figcaption>Pelli stese ad asciugare a Chouara.</figcaption>
+</figure>
+<p><strong>Chouara</strong> è la più grande tra le concerie storiche di Fès. La tradizione la fa risalire ai primi secoli della città, anche se la sua data precisa rimane incerta. Ciò che sappiamo è che la lavorazione della pelle fu molto presto una parte importante dell’economia della medina.</p>
 <p>Qui la nostra pelle comincia a dimenticare ciò che era.</p>
-<p>Viene immersa in una successione di bagni destinati a pulirla, liberarla dai residui e renderla più morbida. Acqua, calce, sale e sostanze organiche partecipano a una trasformazione lenta, faticosa e tutt’altro che profumata.</p> 
+<p>Viene immersa in una successione di bagni destinati a pulirla, liberarla dai residui e renderla più morbida. Acqua, calce, sale e sostanze organiche partecipano a una trasformazione lenta, faticosa e tutt’altro che profumata.</p>
 <figure class="foto">
 <img src="https://iltappetovolante.github.io/il-tappeto-volante/img/conciatore_nella_vasca_fes.jpg" alt="Conciatore al lavoro dentro una vasca della conceria di Fès" loading="lazy">
+<figcaption>Il lavoro dentro le vasche.</figcaption>
 </figure>
 <p>Poi arriva il colore. La pelle viene immersa, sollevata, rivoltata e lavorata affinché la tintura raggiunga ogni parte. I procedimenti tradizionali hanno utilizzato sostanze naturali, anche se oggi tecniche antiche e materiali moderni possono convivere nello stesso mondo artigiano.</p>
 <p>Quella che dalle terrazze appare come una meravigliosa composizione cromatica è, vista da vicino, un luogo di grande fatica. I conciatori lavorano a contatto con acqua e sostanze aggressive, esposti al sole, agli odori e ai rischi di un mestiere duro.</p>
@@ -250,7 +263,7 @@ figure{margin:28px 0}.foto{position:relative}.foto>img:first-child{display:block
 <figure class="foto">
 <img src="../img/pelle_gialla.jpg" alt="Artigiano accanto a pelli tinte di giallo" loading="lazy">
 
-<figcaption>Pelli tinte di giallo — Pablo RAMON / Pexels.</figcaption>
+<figcaption>Il giallo prende luce.</figcaption>
 </figure>
 <p>Quando il colore ha terminato il proprio lavoro, le pelli vengono distese e lasciate asciugare. Al sole di Fès, il giallo sembra quasi accendersi.</p>
 <p>Forse proprio una di quelle pelli, ormai morbida e luminosa, verrà scelta per una balgha tradizionale. Ma prima dovrà lasciare le vasche e incontrare un altro artigiano.</p>
@@ -259,80 +272,129 @@ figure{margin:28px 0}.foto{position:relative}.foto>img:first-child{display:block
 
 <hr class="separa">
 <section class="blocco">
-<h3>L’uomo che le insegna a camminare</h3>
+<h3 class="titolo-tappa"><span>Tangeri</span><span class="riga-lunga">L’uomo che le insegna a camminare</span></h3>
 <figure class="foto">
 <img src="../img/calzolaio_dipinto.jpg" alt="Dipinto del calzolaio di Tangeri" loading="lazy">
 
-<figcaption>Jean-Baptiste Discart, <em>Il calzolaio di Tangeri</em>, 1884–1920 — pubblico dominio.</figcaption>
+<figcaption>Una bottega di Tangeri.</figcaption>
 </figure>
-<p class="capo">La pelle lascia le concerie senza sapere ancora che cosa diventerà.</p>
-<p>Potrebbe trasformarsi in una borsa, una cintura, un pouf oppure nella copertina di un libro. La nostra, invece, continua il viaggio verso la bottega di un calzolaio.</p>
-<p>A Tangeri, tra la fine dell’Ottocento e l’inizio del Novecento, il pittore Jean-Baptiste Discart immaginò proprio una di queste botteghe.</p>
-<p>Il calzolaio lavora seduto davanti alla porta. Intorno a lui non esistono vetrine né scaffali ordinati: le calzature sono adagiate a terra, accanto alle pelli, agli utensili e alle forme utilizzate per modellarle. Il cliente attende in piedi, avvolto nella propria djellaba, mentre le mani dell’artigiano continuano pazientemente il lavoro.</p>
-<p>Discart era un pittore orientalista europeo e il suo quadro non è una fotografia documentaria. Eppure, nella cura quasi minuziosa degli oggetti, ci permette di entrare per un momento in una bottega tangerina di oltre un secolo fa.</p>
-<p>La scena sembra immobile, ma quelle mani stanno dando inizio a una trasformazione.</p>
-<p>Il calzolaio osserva la pelle e ne cerca la parte migliore. Deve riconoscerne la direzione, lo spessore e le eventuali imperfezioni. Poi appoggia le sagome e traccia le forme che diventeranno la tomaia, il rivestimento interno e la suola.</p>
-<p>Ogni taglio richiede attenzione: ciò che viene eliminato non può più essere ricucito. I pezzi separati cominciano lentamente a riconoscersi. Uno proteggerà la pianta del piede. Un altro lo avvolgerà. Un altro ancora formerà la punta.</p>
+<p class="capo">La pelle lascia le concerie senza sapere ancora che cosa diventerà. La nostra continua il viaggio verso la bottega di un calzolaio.</p>
+<p>A Tangeri, tra la fine dell’Ottocento e l’inizio del Novecento, Jean-Baptiste Discart dipinse una di queste botteghe. Il calzolaio lavora seduto davanti alla porta; intorno, pelli, utensili e forme raccontano un mestiere senza vetrine.</p>
+<p>Il quadro non è una fotografia documentaria, ma ci lascia osservare il gesto essenziale: l’artigiano sceglie la parte migliore della pelle, appoggia le sagome e taglia la tomaia, il rivestimento e la suola.</p>
 <figure class="foto">
 <img src="../img/calzolaio_ai.png" alt="Ricostruzione AI della cucitura di una babbuccia" loading="lazy">
 
-<figcaption>Ricostruzione AI realizzata per Il Tappeto Volante.</figcaption>
+<figcaption>Il ritmo della mano.</figcaption>
 </figure>
-<p>Poi entrano in scena ago e filo.</p>
-<p>Nei modelli artigianali, la tomaia viene unita alla suola attraverso una successione di punti eseguiti a mano. Il filo attraversa la pelle, torna indietro e la stringe senza lacerarla.</p>
-<p>I punti devono essere solidi, ma non sembrano prodotti da una macchina. Se osservati da vicino, possono mostrare minime differenze nella distanza e nella tensione: piccole tracce lasciate dal ritmo della mano.</p>
+<p>Poi entrano in scena ago e filo. Nei modelli artigianali, la tomaia viene unita alla suola punto dopo punto. Le minime differenze nella distanza e nella tensione sono piccole tracce lasciate dal ritmo della mano.</p>
 <p class="forte">È in quel momento che la pelle smette di essere soltanto pelle.</p>
-<p>Ha finalmente un davanti e un dietro, un interno e un esterno. Possiede una punta, una suola e uno spazio destinato ad accogliere il piede.</p>
-<p>Il conciatore le aveva dato morbidezza e colore. Il calzolaio le ha dato una forma.</p>
-<p>Ma prima di raggiungere la bottega del souk, alla nostra babbuccia manca ancora qualcosa: deve scegliere quale volto mostrare al mondo. Sobrio o ricamato, naturale o coloratissimo, rotondo oppure appuntito.</p>
+<p>Ha finalmente una punta, una suola e uno spazio destinato ad accogliere il piede. Il conciatore le aveva dato morbidezza e colore; il calzolaio le ha dato una forma.</p>
+<p><img class="micro-balgha" src="https://iltappetovolante.github.io/il-tappeto-volante/img/balgha_danzanti-1.webp" alt="" aria-hidden="true">Ma prima di raggiungere il souk, alla nostra babbuccia manca ancora qualcosa: deve scegliere quale volto mostrare al mondo. Sobrio o ricamato, naturale o coloratissimo, rotondo oppure appuntito.</p>
 <p>Come ogni viaggiatrice, deve decidere che cosa indossare.</p>
 </section>
 
 <hr class="separa">
 <section class="blocco">
-<h3>L’abito fa la babbuccia</h3>
+<h3 class="titolo-tappa"><span>Nel souk</span><span class="riga-lunga">L’abito fa la babbuccia</span></h3>
 <p class="capo">La babbuccia è pronta, ma non tutte le strade chiedono la stessa scarpa.</p>
 <p>Prima di mostrarci il colore e i ricami, capovolgiamola per un istante. Anche la parte che nessuno guarda racconta qualcosa.</p>
-<figure class="foto"><img src="../img/calzolaio_ai_suole.png" alt="Confronto fra suola artigianale e moderna" loading="lazy"><figcaption>Confronto tra suole — ricostruzione AI per Il Tappeto Volante.</figcaption></figure>
+<figure class="foto"><img src="../img/calzolaio_ai_suole.png" alt="Confronto fra suola artigianale e moderna" loading="lazy"><figcaption>Due suole, due mondi.</figcaption></figure>
 <p>Nelle lavorazioni più tradizionali, la suola può essere composta da strati di pelle tagliati, sovrapposti e cuciti. È morbida e accompagna il piede, ma porta inevitabilmente i segni del terreno sul quale cammina.</p>
 <p>Nei modelli contemporanei può comparire invece una suola di gomma, più adatta all’asfalto, all’umidità e alle esigenze di chi indossa la babbuccia anche lontano dal souk.</p>
 <p class="forte">Una suola racconta il mondo nel quale la calzatura è nata. L’altra racconta il mondo nel quale ha imparato a continuare a vivere.</p>
 <p>Ora possiamo rigirarla.</p>
-<figure class="foto"><img src="../img/balgha_gialle_culture_box.JPG" alt="Balgha marocchine in pelle gialla" loading="lazy"><figcaption>Balgha tradizionali gialle — Culture Box.</figcaption></figure>
+<figure class="foto"><img src="../img/balgha_gialle_culture_box.JPG" alt="Balgha marocchine in pelle gialla" loading="lazy"><figcaption>La balgha gialla.</figcaption></figure>
 <p>Il giallo è uno dei volti più riconoscibili della balgha marocchina. Sulla pelle liscia, il colore sembra raccogliere la luce e trattenerla. La linea è essenziale, la decorazione quasi assente e la punta leggermente affusolata.</p>
 <p>Non ha bisogno di ricami per farsi notare.</p>
 <p>Ma basta spostarsi da una bottega all’altra perché la stessa calzatura cambi completamente carattere. Il giallo lascia posto al rosso, al verde, al blu e al viola. La pelle può essere traforata, intrecciata o ricoperta di fili colorati. Compaiono motivi geometrici, fiori, perline e piccoli dettagli metallici.</p>
 <p>Alcune babbucce sembrano nate per accompagnare i passi di ogni giorno. Altre hanno tutta l’aria di essersi preparate per una festa.</p>
 <p>La punta può essere affusolata oppure arrotondata. Il tallone può restare scoperto oppure essere leggermente rialzato. La forma tradizionale può conservarsi quasi intatta o incontrare il gusto contemporaneo.</p>
 <p>La babbuccia non possiede dunque un unico volto. È sobria e vivacissima, antica e moderna, quotidiana ed elegante. Cambia secondo la mano che la realizza, il luogo in cui viene venduta e la persona che la sceglierà.</p>
-<figure class="foto"><img src="../img/babucce_souk.jpeg" alt="Bottega del souk piena di babbucce e pouf colorati" loading="lazy"><figcaption>Bottega di babbucce e pouf nel souk.</figcaption></figure>
+<figure class="foto"><img src="../img/babucce_souk.jpeg" alt="Bottega del souk piena di babbucce e pouf colorati" loading="lazy"><figcaption>In attesa nel souk.</figcaption></figure>
 <p>Ed eccola finalmente nel souk.</p>
 <p>Dopo i pascoli, i mercati, le concerie e la bottega del calzolaio, il suo viaggio sembra essere terminato. Le babbucce riempiono gli scaffali, pendono dalle pareti e si dispongono una accanto all’altra in un mosaico di forme e colori.</p>
 <p>Ora attendono.</p>
 <p>Qualcuno le osserverà, le toccherà e forse ne proverà più di un paio. Qualcun altro sceglierà proprio quella gialla, semplice e luminosa. Un viaggiatore le porterà in valigia oltre il Mediterraneo e, una volta tornato a casa, continuerà a chiamarle pantofole.</p>
-<p>Ma noi ormai conosciamo il loro segreto.</p>
+<p><img class="micro-balgha" src="https://iltappetovolante.github.io/il-tappeto-volante/img/balgha_danzanti-1.webp" alt="" aria-hidden="true">Ma noi ormai conosciamo il loro segreto.</p>
 <p class="forte">Prima di arrivare ai nostri piedi, le  babbucce avevano già percorso molta strada.</p>
 </section>
 
 <section class="appendici">
 <h2>La storia attraversa le lingue</h2>
-<p class="intro-trad">Le immagini appartengono al racconto italiano. Qui il viaggio continua in inglese e in spagnolo.</p>
-<div class="traduzioni">
-<section class="traduzione" lang="en"><h3>English</h3>
+<p class="intro-trad">Le immagini appartengono al racconto italiano. Qui il viaggio continua in inglese, spagnolo e francese.</p>
+<div class="scelta-lingue">
+<button class="pulsante-lingua" type="button" onclick="openLingua('englishModal')">Read in English</button>
+<button class="pulsante-lingua" type="button" onclick="openLingua('spanishModal')">Leer en español</button>
+<button class="pulsante-lingua" type="button" onclick="openLingua('frenchModal')">Lire en français</button>
+</div>
+</section>
+
+<div id="englishModal" class="modal-lingua" role="dialog" aria-modal="true" aria-labelledby="english-title" onclick="closeLinguaOutside(event)">
+<div class="modal-content-lingua">
+<button class="close-modal" type="button" aria-label="Close English translation" onclick="closeLingua('englishModal')">&times;</button>
+<section class="traduzione" lang="en"><h3 id="english-title">English</h3>
 <div class="mini-blocco"><img class="mini" src="../img/marocco_costumi_1905.jpg" alt="Moroccan costumes, 1905" loading="lazy"><h4>A slipper? Not quite</h4><p>Babouches. The word may make us think of soft house slippers, yet in Morocco they are proper shoes called <em>balgha</em>: plain or embroidered, naturally coloured or vivid, rounded or ending in a long, slightly upturned toe.</p><p>A 1905 costume plate appears to celebrate differences in robes, cloaks, headwear and colour. But look down: the figures are wearing the same shoes. While clothing distinguishes them, the balgha connects them—an understated element of popular cohesion, a shared form within diversity. The same thread reaches official ceremonies, where the king and dignitaries wear light garments, a red tarboosh and yellow balgha.</p><p>The word began its journey farther east. Persian <em>pā-pūš</em> means “foot-cover”. It travelled through Ottoman and Arab lands, becoming Turkish <em>pabuç</em>, Arabic <em>bābūš</em>, French <em>babouche</em> and Italian <em>babbuccia</em>.</p></div>
 <div class="mini-blocco"><img class="mini" src="../img/capre_argan.jpg" alt="Goats in an argan tree" loading="lazy"><h4>Among the argan branches</h4><p>In south-western Morocco, goats climb argan trees to reach leaves and fruit when grazing is scarce. For pastoral communities, goats and sheep meant nourishment, work, trade and security. In an economy of necessity, hides too entered a chain of crafts and exchanges. We leave the goats grazing peacefully and follow only a hide already on its way to Fez.</p></div>
-<div class="mini-blocco"><img class="mini" src="../img/conceria_fes.jpg" alt="Fez tannery" loading="lazy"><h4>The city that changes the hide</h4><p>In Fez, smell announces the tanneries before the vats appear. Chouara opens below the terraces like a palette sunk into the city. Hides are cleaned and softened through successive baths, then immersed, lifted and turned until colour reaches every part. What looks magnificent from above is, close up, a place of hard labour and still a place of production.</p></div>
+<div class="mini-blocco"><img class="mini" src="../img/conceria_chouara_panorama.jpg" alt="Fez tannery" loading="lazy"><h4>The city that changes the hide</h4><p>In Fez, smell announces the tanneries before the vats appear. Chouara opens below the terraces like a palette sunk into the city. Hides are cleaned and softened through successive baths, then immersed, lifted and turned until colour reaches every part. What looks magnificent from above is, close up, a place of hard labour and still a place of production.</p></div>
 <div class="mini-blocco"><img class="mini" src="../img/calzolaio_dipinto.jpg" alt="The Tangier shoemaker" loading="lazy"><h4>The man who teaches it to walk</h4><p>The shoemaker studies the leather, lays down patterns and cuts the upper, lining and sole. Needle and thread join the pieces. Tiny variations reveal the rhythm of the hand. At that moment leather stops being merely leather: the tanner gave it softness and colour; the shoemaker gave it form.</p></div>
 <div class="mini-blocco"><img class="mini" src="../img/balgha_gialle_culture_box.JPG" alt="Yellow Moroccan balgha" loading="lazy"><h4>The babouche wears its finest</h4><p>One sole tells of the world in which the shoe was born; another, made for modern streets, of the world in which it learned to survive. Yellow is among the most recognisable faces of the balgha, yet the souk offers red, green, blue and violet, embroidery, beads and metal details. Before reaching our feet, the babouches had already travelled a very long way.</p></div>
 </section>
-<section class="traduzione" lang="es"><h3>Español</h3>
+<button class="pulsante-indietro" type="button" onclick="closeLingua('englishModal')">Return to the story</button>
+</div>
+</div>
+
+<div id="spanishModal" class="modal-lingua" role="dialog" aria-modal="true" aria-labelledby="spanish-title" onclick="closeLinguaOutside(event)">
+<div class="modal-content-lingua">
+<button class="close-modal" type="button" aria-label="Cerrar la traducción española" onclick="closeLingua('spanishModal')">&times;</button>
+<section class="traduzione" lang="es"><h3 id="spanish-title">Español</h3>
 <div class="mini-blocco"><img class="mini" src="../img/marocco_costumi_1905.jpg" alt="Trajes marroquíes, 1905" loading="lazy"><h4>¿Una zapatilla? No exactamente</h4><p>Babuchas. La palabra puede hacernos pensar en unas zapatillas de casa, pero en Marruecos son verdaderos zapatos llamados <em>balgha</em>: sobrios o bordados, de piel natural o llenos de color, redondeados o terminados en una punta larga y ligeramente curvada.</p><p>Una lámina de 1905 parece celebrar las diferencias entre túnicas, mantos, tocados y colores. Pero bajemos la mirada: las figuras llevan el mismo calzado. Mientras la ropa las distingue, la balgha las une como un discreto elemento de cohesión popular. El mismo hilo llega a las ceremonias oficiales, donde el rey y los dignatarios visten prendas claras, tarbush rojo y balgha amarillas.</p><p>La palabra comenzó su viaje mucho más al este. El persa <em>pā-pūš</em> significa “cubrepie”. Atravesó el mundo otomano y árabe y se convirtió en el turco <em>pabuç</em>, el árabe <em>bābūš</em>, el francés <em>babouche</em> y el italiano <em>babbuccia</em>.</p></div>
 <div class="mini-blocco"><img class="mini" src="../img/capre_argan.jpg" alt="Cabras en un argán" loading="lazy"><h4>Entre las ramas del argán</h4><p>En el suroeste de Marruecos, las cabras trepan a los arganes para alcanzar hojas y frutos cuando escasea el pasto. Para las comunidades pastoriles, cabras y ovejas significaban alimento, trabajo, intercambio y seguridad. También las pieles entraban en una cadena de oficios. Dejamos a las cabras pastando tranquilamente y seguimos una piel que viaja hacia Fez.</p></div>
-<div class="mini-blocco"><img class="mini" src="../img/conceria_fes.jpg" alt="Curtiduría de Fez" loading="lazy"><h4>La ciudad que cambia la piel</h4><p>En Fez, el olor anuncia las curtidurías antes de que aparezcan las cubas. Chouara se abre bajo las terrazas como una paleta hundida en la ciudad. Las pieles se limpian, se ablandan y se sumergen hasta que el color alcanza cada parte. Lo que desde arriba parece magnífico es, de cerca, un lugar de enorme esfuerzo y todavía un lugar de producción.</p></div>
+<div class="mini-blocco"><img class="mini" src="../img/conceria_chouara_panorama.jpg" alt="Curtiduría de Fez" loading="lazy"><h4>La ciudad que cambia la piel</h4><p>En Fez, el olor anuncia las curtidurías antes de que aparezcan las cubas. Chouara se abre bajo las terrazas como una paleta hundida en la ciudad. Las pieles se limpian, se ablandan y se sumergen hasta que el color alcanza cada parte. Lo que desde arriba parece magnífico es, de cerca, un lugar de enorme esfuerzo y todavía un lugar de producción.</p></div>
 <div class="mini-blocco"><img class="mini" src="../img/calzolaio_dipinto.jpg" alt="El zapatero de Tánger" loading="lazy"><h4>El hombre que le enseña a caminar</h4><p>El zapatero estudia la piel, coloca los patrones y corta el empeine, el forro y la suela. Después, la aguja y el hilo unen las piezas. Las pequeñas diferencias revelan el ritmo de la mano. En ese momento la piel deja de ser solamente piel: el curtidor le dio suavidad y color; el zapatero le dio forma.</p></div>
 <div class="mini-blocco"><img class="mini" src="../img/balgha_gialle_culture_box.JPG" alt="Balgha marroquíes amarillas" loading="lazy"><h4>El hábito hace a la babucha</h4><p>Una suela cuenta el mundo en el que nació el calzado; otra, creada para las calles modernas, el mundo en el que aprendió a sobrevivir. El amarillo es uno de los rostros más reconocibles de la balgha, pero el zoco ofrece rojo, verde, azul y violeta, bordados, cuentas y detalles metálicos. Antes de alcanzar nuestros pies, las babuchas ya habían recorrido un largo camino.</p></div>
 </section>
-</div></section>
+<button class="pulsante-indietro" type="button" onclick="closeLingua('spanishModal')">Volver al relato</button>
+</div>
+</div>
+
+<div id="frenchModal" class="modal-lingua" role="dialog" aria-modal="true" aria-labelledby="french-title" onclick="closeLinguaOutside(event)">
+<div class="modal-content-lingua">
+<button class="close-modal" type="button" aria-label="Fermer la traduction française" onclick="closeLingua('frenchModal')">&times;</button>
+<section class="traduzione" lang="fr"><h3 id="french-title">Français</h3>
+<div class="mini-blocco"><img class="mini" src="../img/marocco_costumi_1905.jpg" alt="Costumes marocains, 1905" loading="lazy"><h4>Une pantoufle ? Pas vraiment</h4><p>Babouches. Le mot évoque peut-être de souples pantoufles d’intérieur, mais au Maroc il désigne de véritables chaussures appelées <em>balgha</em> : sobres ou brodées, en cuir naturel ou vivement colorées, arrondies ou terminées par une pointe longue et légèrement relevée.</p><p>Une planche de 1905 semble célébrer la diversité des tuniques, des manteaux, des coiffes et des couleurs. Mais baissons les yeux : tous les personnages portent les mêmes chaussures. Tandis que les vêtements les distinguent, la balgha les unit, discrète forme commune au sein de la diversité. Ce même fil rejoint les cérémonies officielles, où le roi et les dignitaires portent des vêtements clairs, un tarbouche rouge et des balgha jaunes.</p><p>Le mot a commencé son voyage bien plus à l’est. Le persan <em>pā-pūš</em> signifie « couvre-pied ». Il a traversé les mondes ottoman et arabe, devenant <em>pabuç</em> en turc, <em>bābūš</em> en arabe, <em>babouche</em> en français et <em>babbuccia</em> en italien.</p></div>
+<div class="mini-blocco"><img class="mini" src="../img/capre_argan.jpg" alt="Chèvres dans un arganier" loading="lazy"><h4>Parmi les branches de l’arganier</h4><p>Dans le sud-ouest du Maroc, les chèvres grimpent aux arganiers pour atteindre les feuilles et les fruits lorsque les pâturages se font rares. Pour les communautés pastorales, chèvres et moutons représentaient nourriture, travail, échange et sécurité. Les peaux entraient elles aussi dans une chaîne de métiers. Laissons les chèvres brouter paisiblement et suivons une peau en route vers Fès.</p></div>
+<div class="mini-blocco"><img class="mini" src="../img/conceria_chouara_panorama.jpg" alt="Tannerie de Fès" loading="lazy"><h4>La ville qui transforme la peau</h4><p>À Fès, l’odeur annonce les tanneries avant même que les cuves n’apparaissent. Chouara s’ouvre sous les terrasses comme une palette enfoncée dans la ville. Les peaux sont nettoyées, assouplies puis plongées, soulevées et retournées jusqu’à ce que la couleur pénètre chaque partie. Ce qui paraît magnifique d’en haut est, de près, un lieu de grande fatigue et toujours un lieu de production.</p></div>
+<div class="mini-blocco"><img class="mini" src="../img/calzolaio_dipinto.jpg" alt="Le cordonnier de Tanger" loading="lazy"><h4>L’homme qui lui apprend à marcher</h4><p>Le cordonnier étudie le cuir, pose les patrons et découpe la tige, la doublure et la semelle. L’aiguille et le fil réunissent ensuite les pièces. De minuscules irrégularités révèlent le rythme de la main. À cet instant, la peau cesse de n’être qu’une peau : le tanneur lui a donné douceur et couleur, le cordonnier lui donne une forme.</p></div>
+<div class="mini-blocco"><img class="mini" src="../img/balgha_gialle_culture_box.JPG" alt="Balgha marocaines jaunes" loading="lazy"><h4>L’habit fait la babouche</h4><p>Une semelle raconte le monde dans lequel la chaussure est née ; une autre, conçue pour les rues modernes, raconte celui dans lequel elle a appris à survivre. Le jaune est l’un des visages les plus reconnaissables de la balgha, mais le souk offre aussi rouge, vert, bleu et violet, broderies, perles et détails métalliques. Avant d’arriver à nos pieds, les babouches avaient déjà parcouru un très long chemin.</p></div>
+</section>
+<button class="pulsante-indietro" type="button" onclick="closeLingua('frenchModal')">Revenir au récit</button>
+</div>
+</div>
+
+<section class="crediti" aria-labelledby="titolo-crediti">
+<h2 id="titolo-crediti">Crediti delle immagini</h2>
+<ol>
+<li>Balgha danzanti — elaborazione grafica per Il Tappeto Volante.</li>
+<li>Babbucce a Marrakech — George Piskov / Pexels.</li>
+<li>Costumi marocchini, 1905 — tavola storica, pubblico dominio.</li>
+<li>Balgha colorate a Marrakech — Martin Adams / Unsplash.</li>
+<li>Musicisti e danzatori marocchini — archivio Il Tappeto Volante.</li>
+<li>Cerimonia reale e balgha gialle — archivio Il Tappeto Volante.</li>
+<li>Dromedari fra le dune — Wolfgang Hasselmann / Pixabay.</li>
+<li>Capre sull’argan — Grand Parc – Bordeaux, France / Wikimedia Commons, CC BY 2.0.</li>
+<li>Tende a M’Hamid El Ghizlane — Moussa Idrissi / Pexels.</li>
+<li>Mercato di Jemaa el-Fnaa — Faruk Tokluoğlu / Pexels.</li>
+<li>Panorama della conceria Chouara — Ramon Karolan / Pexels.</li>
+<li>Pelli appese a Chouara — Mahmut Yilmaz / Pexels.</li>
+<li>Conciatore nella vasca — Jgcachafeiro / Pexels.</li>
+<li>Pelli tinte di giallo — Pablo RAMON / Pexels.</li>
+<li>Jean-Baptiste Discart, <em>Il calzolaio di Tangeri</em>, 1884–1920 — pubblico dominio.</li>
+<li>Cucitura artigianale della babbuccia — ricostruzione AI per Il Tappeto Volante.</li>
+<li>Confronto fra suole — ricostruzione AI per Il Tappeto Volante.</li>
+<li>Balgha tradizionali gialle — Culture Box.</li>
+<li>Bottega di babbucce nel souk — archivio Il Tappeto Volante.</li>
+</ol>
+</section>
 
 <p class="contatore" id="contatore" aria-live="polite">✨ Questo racconto sta preparando un nuovo viaggio sul Tappeto Volante…</p>
 <p class="nota">Il sigillo verde identifica le ricostruzioni AI. Il sigillo bronzo indica immagini provenienti da altre fonti, citate nelle didascalie.</p>
@@ -340,5 +402,40 @@ figure{margin:28px 0}.foto{position:relative}.foto>img:first-child{display:block
 <script>
 (()=>{const out=document.getElementById('contatore'),base='https://api.counterapi.dev/v1/il-tappeto-volante/col-marocco-passo-dopo-passo',key='visitato-col-marocco';const seen=sessionStorage.getItem(key)==='1';fetch(seen?base:base+'/up').then(r=>{if(!r.ok)throw 0;return r.json()}).then(d=>{const n=Number(d.count??d.value);if(!Number.isFinite(n))throw 0;sessionStorage.setItem(key,'1');out.textContent=`✨ Questo racconto ha portato in viaggio sul Tappeto Volante ${n.toLocaleString('it-IT')} lettori.`}).catch(()=>out.textContent='✨ Anche tu hai viaggiato sul Tappeto Volante con questo racconto.')})();
 </script>
+<script>
+let modalLinguaAttivo=null;
+function openLingua(id){
+  const modal=document.getElementById(id);
+  modalLinguaAttivo=modal;
+  modal.style.display='flex';
+  document.body.style.overflow='hidden';
+  modal.querySelector('.close-modal').focus();
+}
+function closeLingua(id){
+  document.getElementById(id).style.display='none';
+  document.body.style.overflow='';
+  modalLinguaAttivo=null;
+}
+function closeLinguaOutside(event){
+  if(event.target.classList.contains('modal-lingua'))closeLingua(event.target.id);
+}
+document.addEventListener('keydown',event=>{
+  if(event.key==='Escape'&&modalLinguaAttivo)closeLingua(modalLinguaAttivo.id);
+});
+</script>
+<script>
+const musica=document.getElementById('musica-marocco');
+const statoMusica=document.getElementById('stato-musica');
+const testoFermo='<strong>▶ Premi Play e lasciati accompagnare</strong><br>Avvolgiti nell’atmosfera del Marocco.';
+const testoAttivo='<strong>🎵 La musica sta accompagnando il tuo viaggio</strong><br>Avvolgiti nell’atmosfera del Marocco.';
+musica.addEventListener('play',()=>{statoMusica.innerHTML=testoAttivo});
+musica.addEventListener('pause',()=>{statoMusica.innerHTML=testoFermo});
+window.onYouTubeIframeAPIReady=()=>{
+  new YT.Player('video-babbuccia',{events:{onStateChange:event=>{
+    if(event.data===YT.PlayerState.PLAYING&&!musica.paused)musica.pause();
+  }}});
+};
+</script>
+<script src="https://www.youtube.com/iframe_api"></script>
 <script data-goatcounter="https://iltappetovolante.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body></html>
