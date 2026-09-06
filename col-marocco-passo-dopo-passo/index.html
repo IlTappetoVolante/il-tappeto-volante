@@ -15,6 +15,7 @@
 body:before{content:"";position:fixed;inset:12px;z-index:-1;border:2px solid rgba(225,184,91,.5);outline:1px solid rgba(92,35,20,.65);outline-offset:7px;pointer-events:none}
 .pagina{width:min(980px,100%);margin:30px auto;padding:clamp(22px,5vw,50px);overflow:hidden;background:var(--pergamena);border:1px solid #e3dac1;border-radius:4px;box-shadow:0 14px 38px #2e0d0799,0 0 0 5px #be893048,inset 0 0 65px #8b451f1f}
 .testata{display:flex;align-items:center;gap:20px;padding-bottom:20px;margin-bottom:32px;border-bottom:1px solid var(--linea)}.logo{width:92px}.marchio{flex:1;text-align:center}.marchio h1{margin:0;color:var(--rosso);font:700 clamp(1.7rem,4vw,2.35rem)/1.15 "Dancing Script",cursive}.marchio p{margin:5px 0 0;font-size:.86rem;font-style:italic}
+.lingue-testata{display:flex;justify-content:center;align-items:center;gap:14px;margin:-17px auto 32px}.lingue-testata>span{color:#66554a;font-size:.76rem;font-style:italic}.bandiera-lingua{display:grid;place-items:center;width:48px;height:40px;padding:0;border:1px solid #c99a3580;border-radius:8px;background:#fffaf0b3;font-size:1.65rem;line-height:1;cursor:pointer;box-shadow:0 3px 8px #3620122e;transition:transform .2s,box-shadow .2s,background .2s}.bandiera-lingua:hover,.bandiera-lingua:focus-visible{transform:translateY(-2px);background:#fffaf0;box-shadow:0 5px 12px #36201247;outline:2px solid var(--oro);outline-offset:2px}
 .hero{text-align:center}.hero h2{margin:0 0 8px;color:var(--terra);font:700 clamp(2.5rem,8vw,4.8rem)/1.02 "Dancing Script",cursive}.sottotitolo{margin:0 auto 28px;max-width:42rem;font-style:italic}
 figure{margin:28px 0}.foto{position:relative}.foto>img:first-child{display:block;width:100%;height:auto;max-height:610px;object-fit:cover;border-radius:3px;box-shadow:0 5px 18px #36201247}.sigillo{position:absolute;top:8px;left:8px;width:34px;opacity:.55}figcaption{margin-top:8px;color:#66554a;font-size:.72rem;text-align:right}
 .cta{display:inline-block;padding:11px 22px;border:1px solid #7b321f;border-radius:999px;color:#fff8ea;background:linear-gradient(135deg,#9b3f24,#6f2517);font-weight:700;text-decoration:none}
@@ -29,6 +30,7 @@ figure{margin:28px 0}.foto{position:relative}.foto>img:first-child{display:block
 @keyframes micro-passo{from{transform:translateY(1px) rotate(-3deg)}to{transform:translateY(-3px) rotate(3deg)}}
 .crediti{max-width:48rem;margin:64px auto 0;padding-top:28px;border-top:1px solid var(--linea)}.crediti h2{margin:0 0 16px;color:var(--terra);font:700 2rem/1.1 "Dancing Script",cursive;text-align:center}.crediti ol{padding-left:1.35rem;color:#68594d;font-size:.72rem;line-height:1.65}
 .contatore{max-width:42rem;margin:50px auto 10px;padding:18px;border-block:1px solid var(--linea);color:#60341f;font-style:italic;font-weight:700;text-align:center}.nota{margin-top:38px;color:#68594d;font-size:.72rem;text-align:center}
+.firma-finale{margin:46px auto 0;text-align:center}.firma-finale p{margin:0 0 12px;color:var(--rosso);font:700 1.65rem/1.2 "Dancing Script",cursive}.sigillo-firma{width:86px;height:auto;filter:drop-shadow(0 3px 5px #4b1d1766)}.copyright{margin:30px auto 0;padding-top:20px;border-top:1px solid var(--linea);color:#68594d;font-size:.72rem;line-height:1.6;text-align:center}.copyright strong{color:var(--rosso)}
 .musica-storia{
   position:relative;
   display:grid;
@@ -85,7 +87,7 @@ figure{margin:28px 0}.foto{position:relative}.foto>img:first-child{display:block
   100%{transform:translateY(1px) rotate(7deg) scale(1)}
 }
   @media(max-width:720px)
-{body{padding:8px}.pagina{margin:8px auto}.testata{flex-direction:column;gap:8px}figcaption{text-align:left}.ponte ul{columns:1}.traduzioni{grid-template-columns:1fr}.traduzione{font-size:.82rem}.titolo-tappa .riga-lunga{font-size:clamp(1.42rem,7vw,2.25rem)}.modal-lingua{padding:8px}.modal-content-lingua{width:100%;max-height:96vh;padding:48px 18px 28px;background-size:cover}.modal-content-lingua .traduzione{font-size:.9rem}.modal-content-lingua .mini{width:86px;height:66px}}
+{body{padding:8px}.pagina{margin:8px auto}.testata{flex-direction:column;gap:8px}.lingue-testata{margin-top:-18px;flex-wrap:wrap;gap:10px}.lingue-testata>span{flex-basis:100%;text-align:center}.bandiera-lingua{width:52px;height:42px}figcaption{text-align:left}.ponte ul{columns:1}.traduzioni{grid-template-columns:1fr}.traduzione{font-size:.82rem}.titolo-tappa .riga-lunga{font-size:clamp(1.42rem,7vw,2.25rem)}.modal-lingua{padding:8px}.modal-content-lingua{width:100%;max-height:96vh;padding:48px 18px 28px;background-size:cover}.modal-content-lingua .traduzione{font-size:.9rem}.modal-content-lingua .mini{width:86px;height:66px}}
 </style>
 </head>
 <body>
@@ -97,6 +99,12 @@ figure{margin:28px 0}.foto{position:relative}.foto>img:first-child{display:block
 <p>Diari di viaggio e altre storie…</p>
 </div>
 </header>
+<nav class="lingue-testata" aria-label="Traduzioni del racconto">
+<span>Translations · Traducciones · Traductions</span>
+<button class="bandiera-lingua" type="button" onclick="openLingua('englishModal')" aria-label="Read in English" title="English">🇬🇧</button>
+<button class="bandiera-lingua" type="button" onclick="openLingua('spanishModal')" aria-label="Leer en español" title="Español">🇪🇸</button>
+<button class="bandiera-lingua" type="button" onclick="openLingua('frenchModal')" aria-label="Lire en français" title="Français">🇫🇷</button>
+</nav>
 <article>
   <div class="musica-storia">
   <img
@@ -142,16 +150,19 @@ figure{margin:28px 0}.foto{position:relative}.foto>img:first-child{display:block
 <p>La tavola racconta molti costumi. E una sola, ostinata babbuccia.</p>
   <figure class="foto">
 <img src="https://iltappetovolante.github.io/il-tappeto-volante/img/balgha_colorate_marrakech.jpg" alt="Balgha marocchine di diversi colori esposte a Marrakech" loading="lazy">
+<img class="sigillo" src="../img/sigillo_bronzo.png" alt="" aria-hidden="true">
 <figcaption>Balgha colorate a Marrakech.</figcaption>
 </figure>
 <p>E quel filo comune non si ferma alle strade o ai mercati. Nelle grandi celebrazioni ufficiali, il re e i dignitari indossano abiti chiari, il tarbouche rosso e balgha rigorosamente gialle. La calzatura che nella tavola attraversava la varietà dei costumi ricompare così anche nel linguaggio solenne della monarchia.</p>
   <figure class="foto">
 <img src="https://iltappetovolante.github.io/il-tappeto-volante/img/balgha_festa_marocchina.jpg" alt="Musicisti e danzatori marocchini con balgha gialle" loading="lazy">
+<img class="sigillo" src="../img/sigillo_bronzo.png" alt="" aria-hidden="true">
 <figcaption>Musica e danza in abiti tradizionali.</figcaption>
 </figure>
 <p class="forte">Dai piedi del popolo a quelli del re, la balgha è uno dei segni nei quali il Marocco si riconosce.</p>
   <figure class="foto">
 <img src="https://iltappetovolante.github.io/il-tappeto-volante/img/cerimonia_reale_balgha_gialle.png" alt="Cerimonia reale marocchina con abiti tradizionali e balgha gialle" loading="lazy">
+<img class="sigillo" src="../img/sigillo_blu.png" alt="" aria-hidden="true">
 <figcaption>Le balgha gialle nel cerimoniale reale.</figcaption>
 </figure>
 <p>Ma perché alcune terminano proprio con quella punta lunga e leggermente rivolta verso l’alto?</p>
@@ -159,6 +170,7 @@ figure{margin:28px 0}.foto{position:relative}.foto>img:first-child{display:block
 <p>La babbuccia conserva dunque un piccolo mistero. Ma è la sua stessa parola a indicarci la prima strada da seguire.</p>
   <figure class="foto">
 <img src="https://iltappetovolante.github.io/il-tappeto-volante/img/carovana_dromedari_deserto.jpg" alt="Dromedari in cammino fra le dune del deserto marocchino" loading="lazy">
+<img class="sigillo" src="../img/sigillo_bronzo.png" alt="" aria-hidden="true">
 <figcaption>Passi nel deserto.</figcaption>
 </figure>
 <p>Il suo nome cominciò il viaggio molto più a Oriente del Marocco. Viene dal persiano <strong>pā-pūš</strong>: <em>pā</em> significa “piede” e <em>pūš</em> significa “ciò che copre”.</p>
@@ -216,6 +228,7 @@ figure{margin:28px 0}.foto{position:relative}.foto>img:first-child{display:block
 <p>Non hanno bisogno di un tappeto volante. Con l’agilità di acrobate raggiungono le foglie e i frutti che crescono più in alto. Quando il pascolo a terra scarseggia, la chioma dell’albero di argan diventa una mensa sospesa tra cielo e terra.</p>
   <figure class="foto">
 <img src="https://iltappetovolante.github.io/il-tappeto-volante/img/tende_nomadi_mhamid.jpg" alt="Tende di comunità nomadi fra le dune di M’Hamid El Ghizlane, in Marocco" loading="lazy">
+<img class="sigillo" src="../img/sigillo_bronzo.png" alt="" aria-hidden="true">
 <figcaption>Fra le dune di M’Hamid El Ghizlane.</figcaption>
 </figure>
 <p>Per le comunità pastorali, capre e pecore non erano soltanto animali allevati. Rappresentavano latte, nutrimento, lavoro, possibilità di scambio e una forma di sicurezza davanti a stagioni e raccolti incerti.</p>
@@ -223,6 +236,7 @@ figure{margin:28px 0}.foto{position:relative}.foto>img:first-child{display:block
 <p>Potevano essere vendute nei mercati settimanali, scambiate con altri beni oppure affidate a commercianti capaci di trasportarle verso i centri urbani.</p>
   <figure class="foto">
 <img src="https://iltappetovolante.github.io/il-tappeto-volante/img/mercato_jemaa_el_fna.jpg" alt="Bancarelle e visitatori nel mercato di Jemaa el-Fnaa a Marrakech" loading="lazy">
+<img class="sigillo" src="../img/sigillo_bronzo.png" alt="" aria-hidden="true">
 <figcaption>Il mercato di Jemaa el-Fnaa.</figcaption>
 </figure>
 <p>Lasciamo dunque le caprette a brucare tranquille tra i rami e seguiamo soltanto una pelle già entrata nel circuito del mercato.</p>
@@ -238,6 +252,7 @@ figure{margin:28px 0}.foto{position:relative}.foto>img:first-child{display:block
 <h3 class="titolo-tappa"><span>Fès</span><span class="riga-lunga">La città che cambia la pelle</span></h3>
 <figure class="foto">
 <img src="../img/conceria_chouara_panorama.jpg" alt="Vasche e lavoratori nella conceria Chouara di Fès" loading="lazy">
+<img class="sigillo" src="../img/sigillo_bronzo.png" alt="" aria-hidden="true">
 
 <figcaption>La conceria Chouara vista dall’alto.</figcaption>
 </figure>
@@ -248,6 +263,7 @@ figure{margin:28px 0}.foto{position:relative}.foto>img:first-child{display:block
 <p>Quando finalmente il cortile appare, sembra una gigantesca tavolozza sprofondata nella città. Vasche rotonde e rettangolari si stringono una accanto all’altra. Alcune contengono liquidi chiari, altre custodiscono rossi, gialli, bruni e azzurri. Tra una vasca e l’altra si muovono gli uomini, in equilibrio su bordi stretti e consumati dal tempo.</p>
 <figure class="foto">
 <img src="https://iltappetovolante.github.io/il-tappeto-volante/img/pelli_appese_conceria_fes.jpg" alt="Pelli appese ad asciugare sopra le vasche della conceria Chouara di Fès" loading="lazy">
+<img class="sigillo" src="../img/sigillo_bronzo.png" alt="" aria-hidden="true">
 <figcaption>Pelli stese ad asciugare a Chouara.</figcaption>
 </figure>
 <p><strong>Chouara</strong> è la più grande tra le concerie storiche di Fès. La tradizione la fa risalire ai primi secoli della città, anche se la sua data precisa rimane incerta. Ciò che sappiamo è che la lavorazione della pelle fu molto presto una parte importante dell’economia della medina.</p>
@@ -255,6 +271,7 @@ figure{margin:28px 0}.foto{position:relative}.foto>img:first-child{display:block
 <p>Viene immersa in una successione di bagni destinati a pulirla, liberarla dai residui e renderla più morbida. Acqua, calce, sale e sostanze organiche partecipano a una trasformazione lenta, faticosa e tutt’altro che profumata.</p>
 <figure class="foto">
 <img src="https://iltappetovolante.github.io/il-tappeto-volante/img/conciatore_nella_vasca_fes.jpg" alt="Conciatore al lavoro dentro una vasca della conceria di Fès" loading="lazy">
+<img class="sigillo" src="../img/sigillo_bronzo.png" alt="" aria-hidden="true">
 <figcaption>Il lavoro dentro le vasche.</figcaption>
 </figure>
 <p>Poi arriva il colore. La pelle viene immersa, sollevata, rivoltata e lavorata affinché la tintura raggiunga ogni parte. I procedimenti tradizionali hanno utilizzato sostanze naturali, anche se oggi tecniche antiche e materiali moderni possono convivere nello stesso mondo artigiano.</p>
@@ -397,7 +414,14 @@ figure{margin:28px 0}.foto{position:relative}.foto>img:first-child{display:block
 </section>
 
 <p class="contatore" id="contatore" aria-live="polite">✨ Questo racconto sta preparando un nuovo viaggio sul Tappeto Volante…</p>
-<p class="nota">Il sigillo verde identifica le ricostruzioni AI. Il sigillo bronzo indica immagini provenienti da altre fonti, citate nelle didascalie.</p>
+<p class="nota">Il sigillo blu identifica le ricostruzioni AI. Il sigillo bronzo indica immagini provenienti da altre fonti, citate nei crediti.</p>
+<footer>
+<div class="firma-finale">
+<p>Lorella — un’Anima Nomade dal Cuore Volante</p>
+<img src="../img/sigillo_ceralacca_lorella_cr.png" class="sigillo-firma" alt="Sigillo rosso di Lorella" loading="lazy">
+</div>
+<div class="copyright">Tutti i testi, le fotografie e i contenuti originali sono di proprietà dell’autrice. Ne è vietata la riproduzione, la diffusione o l’utilizzo senza espressa autorizzazione scritta.<br><strong>© 2026 Lorella — Tutti i diritti riservati.</strong></div>
+</footer>
 </article></main>
 <script>
 (()=>{const out=document.getElementById('contatore'),base='https://api.counterapi.dev/v1/il-tappeto-volante/col-marocco-passo-dopo-passo',key='visitato-col-marocco';const seen=sessionStorage.getItem(key)==='1';fetch(seen?base:base+'/up').then(r=>{if(!r.ok)throw 0;return r.json()}).then(d=>{const n=Number(d.count??d.value);if(!Number.isFinite(n))throw 0;sessionStorage.setItem(key,'1');out.textContent=`✨ Questo racconto ha portato in viaggio sul Tappeto Volante ${n.toLocaleString('it-IT')} lettori.`}).catch(()=>out.textContent='✨ Anche tu hai viaggiato sul Tappeto Volante con questo racconto.')})();
