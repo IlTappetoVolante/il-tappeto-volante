@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ben Ramar e i cristiani: un racconto di intrighi, traffici e vendetta nel Marocco di fine Ottocento, liberamente reinterpretato da A.J. Dawson.">
+    <meta name="robots" content="index, follow">
+    <title>Ben Ramar e i cristiani | Il Tappeto Volante</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Special+Elite&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Courier Prime', monospace;
+            margin: 0;
+            padding: 20px;
+            /* SFONDO COPERTINA CUOIO INVECCHIATO */
+            background-image: url('sfondo-cuoio.png');
+            background-size: cover;
+            background-attachment: fixed;
+            background-color: #1a100a;
+            color: #2b2b2b;
+            line-height: 1.8;
+        }
+        .contenitore {
+            max-width: 800px;
+            margin: 30px auto;
+            /* PAGINA CON TEXTURE CARTA INVECCHIATA - MODIFICATA CON TRASPARENZA 90% */
+            background-color: rgba(246, 240, 221, 0.9);
+            background-image: url('texture-carta.png');
+            background-size: cover;
+            padding: 40px;
+            border-radius: 2px;
+            border: 1px solid #e3dac1;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6), inset 0 0 50px rgba(139,69,19,0.15);
+        }
+
+        /* STILE TESTATA SITO CON LOGO E TITOLO ACCANTO */
+        .testata-sito {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #c2b69d;
+            margin-bottom: 20px;
+        }
+        .logo-sito {
+            max-width: 100px;
+            height: auto;
+            flex-shrink: 0;
+        }
+        .testo-sito {
+            flex-grow: 1;
+            text-align: center;
+        }
+        .testo-sito h1 {
+            font-family: 'Special Elite', monospace;
+            color: #1a1a1a;
+            font-size: 24px;
+            margin: 0 0 5px 0;
+            text-transform: uppercase;
+        }
+        .testo-sito p {
+            font-size: 14px;
+            margin: 0;
+            font-style: italic;
+            color: #555;
+            text-align: center; /* Allineamento del sottotitolo */
+        }
+
+        /* STILE TITOLO DEL RACCONTO SPECIFICO CENTRATO PRIMA DELLA FOTO */
+        .titolo-racconto {
+            font-family: 'Special Elite', monospace;
+            text-align: center;
+            color: #2c3e50;
+            font-size: 28px;
+            margin: 40px 0 30px 0;
+        }
+
+        h2.capitolo {
+            font-family: 'Special Elite', monospace;
+            color: #8b0000;
+            margin-top: 40px;
+            border-bottom: 1px dashed #c2b69d;
+            padding-bottom: 10px;
+            font-size: 20px;
+        }
+        .prologo {
+            font-style: italic;
+            color: #444;
+            padding: 15px 20px;
+            background-color: rgba(251, 249, 241, 0.7);
+            border-left: 4px solid #8b0000;
+            margin-bottom: 40px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: left; /* Allineamento a sinistra (non giustificato) per effetto macchina da scrivere */
+        }
+        hr.separatore {
+            border: 0;
+            height: 1px;
+            background: #c2b69d;
+            margin: 30px 0;
+        }
+        
+        /* AUTOMAZIONE SIGILLO SULLE IMMAGINI */
+        .foto-container {
+            position: relative;
+            display: table;
+            margin: 25px auto;
+            max-width: 100%;
+        }
+        .foto-container img.principale {
+            max-width: 100%;
+            height: auto;
+            border-radius: 2px;
+            display: block;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .foto-container .sigillo-watermark {
+            position: absolute;
+            top: 2px; 
+            left: 2px; 
+            width: 30px; 
+            height: auto;
+            opacity: 0.35; 
+            pointer-events: none; 
+        }
+
+        /* STILE FIRMA (SIGILLO LORELLA) */
+        .firma-box {
+            text-align: right; 
+            margin: 40px 0;
+        }
+        .firma-box img {
+            max-width: 65px; 
+            height: auto;
+            display: inline-block;
+        }
+
+        .scelta-lingue {display:flex;justify-content:center;gap:14px;margin:18px 0 30px;flex-wrap:wrap}
+        .bandiera {border:1px solid #c2b69d;border-radius:999px;background:#fbf7ea;padding:7px 13px;font-size:1.45rem;cursor:pointer;box-shadow:0 2px 7px #0002}
+        .bandiera:hover,.bandiera:focus-visible{transform:translateY(-2px);outline:2px solid #8b0000;outline-offset:2px}
+        .musica-racconto{margin:25px auto 38px;padding:18px;border:1px dashed #8b0000;background:#241a16;color:#f4e8cb;text-align:center;box-shadow:0 5px 16px #0004}
+        .musica-racconto p{margin:0 0 12px;text-align:center;font-size:.92rem}
+        .musica-racconto audio{display:block;width:min(100%,520px);margin:auto;height:42px}
+        .forte{margin:26px auto;color:#6e1717;font-weight:700;font-style:italic;text-align:center}
+        .rimando-sogno{margin:45px 0 30px;padding:24px;border:1px dashed #8b0000;background:rgba(251,249,241,.88);text-align:center}
+        .rimando-sogno h2{font-family:'Special Elite',monospace;color:#8b0000;margin:0 0 10px;font-size:22px}
+        .rimando-sogno p{text-align:center;margin:8px 0}
+        .modal-lingua{display:none;position:fixed;inset:0;z-index:3000;align-items:center;justify-content:center;padding:18px;background:#000e;backdrop-filter:blur(7px)}
+        .modal-content-lingua{position:relative;width:min(760px,96vw);max-height:92vh;overflow-y:auto;padding:clamp(28px,6vw,55px);border:1px solid #c2b69d;background:#f6f0dd url('texture-carta.png') center/cover;color:#2b2b2b;box-shadow:0 12px 45px #000;border-radius:4px}
+        .modal-content-lingua h2{font-family:'Special Elite',monospace;color:#8b0000;text-align:center}
+        .modal-content-lingua h3{font-family:'Special Elite',monospace;color:#6e1717;margin-top:28px}
+        .close-modal{position:absolute;top:8px;right:15px;border:0;background:transparent;color:#8b0000;font-size:34px;cursor:pointer}
+        .pulsante-indietro{display:block;margin:30px auto 0;padding:10px 20px;border:1px solid #8b0000;background:transparent;color:#8b0000;font:700 1rem 'Courier Prime',monospace;cursor:pointer}
+        .fonte{margin:40px 0 20px;padding:20px;border-left:4px solid #8b0000;background:rgba(139,69,19,.05);font-size:14px;font-style:italic}
+        .firma-finale{text-align:center;margin:35px auto 15px;color:#4a3126;font-size:.86rem}
+        .firma-finale img{display:block;width:82px;height:auto;margin:0 auto 10px}
+        .contatore{margin:30px auto;padding:16px;border-block:1px dashed #c2b69d;color:#6e1717;font-weight:700;font-style:italic;text-align:center}
+
+        /* STILE BANNER FINALE DI CHIUSURA */
+        .banner-chiusura {
+            display: block;
+            margin: 60px auto 20px auto; 
+            max-width: 100%;
+            height: auto;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        /* ADATTAMENTO MOBILE PER LA TESTATA */
+        @media (max-width: 600px) {
+            body{padding:8px}.contenitore{margin:8px auto;padding:24px 18px}
+            .testata-sito {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            .testo-sito {
+                text-align: center;
+            }
+            .testo-sito h1 {
+                font-size: 18px;
+            }
+            .testo-sito p {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenitore">
+        
+        <header class="testata-sito">
+            <img src="logo-tondo-tappeto.png" alt="Logo Sulle Tracce dei Racconti Coloniali" class="logo-sito">
+            <div class="testo-sito">
+                <h1>Sulle Tracce dei Racconti Coloniali</h1>
+                <p>Libere reinterpretazioni e visioni d'oltremare</p>
+            </div>
+        </header>
+
+        <nav class="scelta-lingue" aria-label="Traduzioni del racconto">
+            <button class="bandiera" type="button" onclick="openLingua('englishModal')" aria-label="Read in English">🇬🇧</button>
+            <button class="bandiera" type="button" onclick="openLingua('spanishModal')" aria-label="Leer en español">🇪🇸</button>
+            <button class="bandiera" type="button" onclick="openLingua('frenchModal')" aria-label="Lire en français">🇫🇷</button>
+        </nav>
+
+        <section class="musica-racconto" aria-label="Musica del racconto">
+            <p><strong>Clicca su play per ascoltare</strong><br>Lascia che il mistero accompagni la lettura.</p>
+            <audio controls loop preload="metadata">
+                <source src="../music-download/djovan-lost-in-fez-258787.mp3" type="audio/mpeg">
+                Il tuo browser non supporta il lettore audio.
+            </audio>
+        </section>
+
+        <h1 class="titolo-racconto">Ben Ramar e i cristiani</h1>
+
+        <div class="foto-container">
+            <img src="benramar-1.png" alt="Ben Ramar e i cristiani - Illustrazione 1" class="principale">
+            <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
+        </div>
+
+        <div class="prologo">
+            <h2>Prologo</h2>
+            <p>Questo racconto nasce all’interno della letteratura di viaggio anglosassone di fine Ottocento, quando il Mediterraneo e il Nord Africa erano osservati attraverso uno sguardo europeo insieme curioso, affascinato e profondamente segnato dalla mentalità coloniale.</p>
+            <p>Le figure che incontriamo — ufficiali, commercianti, interpreti, mediatori — appartengono a un mondo di frontiera, dove l’incontro tra culture non è mai neutrale: è sempre attraversato da rapporti di potere, interessi economici e gerarchie implicite.</p>
+            <p>“Ben Ramar e i cristiani” si colloca esattamente in questo spazio.</p>
+            <p>Non è soltanto un racconto d’avventura: è anche una testimonianza di come l’Occidente osservava, descriveva e spesso deformava il Marocco e il mondo ottomano all’inizio del Novecento.</p>
+            <p>Questa libera reinterpretazione conserva il mistero dell’originale, ma rende esplicito ciò che Dawson affidava al linguaggio coloniale del suo tempo: dietro l’avventura ci sono violenza, traffico di donne e rapporti di potere.</p>
+        </div>
+
+        <h2 class="capitolo">I – LO YACHT LORELEI</h2>
+        
+        <div class="foto-container">
+            <img src="benramar-2.png" alt="Illustrazione 2" class="principale">
+            <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
+        </div>
+
+        <p>Il Lorelei era uno yacht costruito per il piacere e per la fuga. Non per il commercio, non per la guerra, ma per chi poteva permettersi di muoversi lungo le coste del Mediterraneo senza rendere conto a nessuno.</p>
+        <p>Il narratore vi si trovava quasi per caso, in convalescenza dopo una febbre presa a Napoli. La navigazione procedeva lenta, con soste impreviste e giornate vuote, interrotte solo dal rumore dell’acqua contro lo scafo.</p>
+        <p>Fu durante una di queste soste, su un tratto isolato della costa settentrionale del Marocco, che la routine cambiò. Dalla riva si avvicinò una piccola imbarcazione. A bordo c’erano due uomini.</p>
+        <p>Uno appariva provato, elegante nonostante la stanchezza. L’altro, più imponente, aveva la presenza di chi è abituato a farsi largo senza chiedere permesso. Salirono a bordo con poche parole.</p>
+        
+        <div class="foto-container">
+            <img src="benramar-3.png" alt="Illustrazione 3" class="principale">
+            <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
+        </div>
+
+        <p>Il primo si presentò come Howard Kerr. Non spiegò da dove venisse né dove fosse diretto. Non sembrava un viaggiatore, né un uomo d’affari, né un funzionario. Aveva piuttosto l’aria di qualcuno che conosceva quei luoghi abbastanza da non doverli descrivere.</p>
+        <p>Con lui c’era Haj Absalaam, una guida locale dal portamento severo, rispettata anche dall’equipaggio. Un breve alterco con il primo ufficiale bastò a chiarire i rapporti di forza: non c’era arroganza, ma una calma che non ammetteva repliche. Io ero ancora debole. La febbre presa a Napoli mi aveva lasciato addosso una stanchezza persistente, e il viaggio sul Lorelei era stato scelto più per allontanarmi dall’Europa che per curiosità.</p>
+        <p>Il narratore riconobbe infine Howard Kerr. Quando il primo ufficiale si rifiutò di ammettere Haj Absalaam sottocoperta, Kerr rinunciò al viaggio sullo yacht senza discutere. Il narratore, improvvisamente risvegliato dalla propria indolenza, raccolse i bagagli e decise di seguirli via terra.</p>
+        <p>Ed è lì, lontano dal mare e dalle rotte europee, che la storia comincia davvero.</p>
+
+        <h2 class="capitolo">II – IL VIAGGIO NELL’INTERNO</h2>
+
+        <div class="foto-container">
+            <img src="benramar-4.png" alt="Illustrazione 4" class="principale">
+            <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
+        </div>
+
+        <p>Lasciato lo yacht, il mare scomparve in poche ore. La costa rimase alle spalle come una linea indistinta, mentre la strada si restringeva tra colline aride e villaggi di terra cruda.</p>
+        <p>Kerr non parlava molto. Procedeva con passo regolare, come chi ha già percorso quei sentieri e non sente il bisogno di commentarli. Il narratore lo seguiva e, giorno dopo giorno, la febbre e l’inerzia del Lorelei sembravano abbandonarlo. C’era qualcosa in quel viaggio che lo teneva desto: l’assenza di rumore, il ritmo degli animali, la sensazione di trovarsi fuori dal tempo.</p>
+
+        <div class="foto-container">
+            <img src="benramar-5.png" alt="Illustrazione 5" class="principale">
+            <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
+        </div>
+
+        <p>A guidarli era Haj Absalaam. Non chiedeva indicazioni, non esitava. Conosceva piste e deviazioni come se fossero parte del suo stesso corpo. La sua presenza imponeva rispetto nei villaggi in cui si fermavano per la notte: tettoie di fango, bracieri accesi, pane caldo e poche parole.</p>
+        
+        <p>Le giornate scorrevano tutte uguali e tutte diverse. Albe fredde. Strade polverose. Soste improvvise sotto alberi isolati. La luce che cambiava lentamente colore sulle colline. Il viaggio durò diversi giorni. Non accadde nulla di straordinario, eppure tutto sembrava carico di un’attesa difficile da nominare. Come se la destinazione non fosse una città, ma un incontro.</p>
+        <p>Dopo cinque giorni a dorso di mulo, passando da Larache, avrebbero raggiunto Tangeri. Ma fu proprio a Larache che una casa oltre la collina riaprì una storia rimasta sospesa.</p>
+
+        <h2 class="capitolo">III – Larache</h2>
+
+        <div class="foto-container">
+            <img src="benramar-6.png" alt="Illustrazione 6" class="principale">
+            <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
+        </div>
+
+        <p>Larache non apparve come una rivelazione, ma come una presenza. Bianca, compatta, adagiata sul mare con la naturalezza di chi non deve dimostrare nulla. Era una città murata e un porto. Aveva perfino un viceconsole inglese.</p>
+        <p>Dopo i giorni trascorsi sulla strada, Kerr e il narratore cenarono sul balcone di una vera casa a due piani. Vino spagnolo, formaggio, triglie, fichi d’India, melograni, olive e couscous restituivano improvvisamente il sapore della civiltà. Fu allora che Kerr guardò verso la porta della città.</p>
+        
+        <div class="foto-container">
+            <img src="benramar-7.png" alt="Illustrazione 7" class="principale">
+            <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
+        </div>
+
+        <p>Due uomini vestiti all’europea camminavano con una donna. Il domestico non ne conosceva i nomi: disse soltanto che erano gli inglesi della grande casa oltre la collina.</p>
+        <p>Kerr invece li riconobbe. Lumley e Farren. Il narratore li aveva già incrociati anni prima a Las Palmas, sempre accompagnati dalle loro bellissime mogli e da un alone di partenze inspiegabili.</p>
+
+        <h2 class="capitolo">IV – La casa oltre la collina</h2>
+
+        <div class="foto-container">
+            <img src="benramar-8.png" alt="Illustrazione 8" class="principale">
+            <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
+        </div>
+
+        <p>La loro casa non era nella medina. Sorgeva oltre le mura e la collina, con un giardino che ostentava ordine europeo in un paesaggio che europeo non era. Vi abitavano con le mogli, due sorelle inglesi che li avevano seguiti e sposati dopo un corteggiamento tanto bizzarro quanto mondano.</p>
+        
+        <div class="foto-container">
+            <img src="benramar-9.png" alt="Illustrazione 9" class="principale">
+            <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
+        </div>
+
+        <p>Kerr raccontò allora ciò che aveva saputo da un marinaio maltese. Le assenze dei due uomini non nascondevano innocenti viaggi d’affari. Il loro yacht faceva rotta verso Arkoum, una piccola città della costa nord-occidentale africana.</p>
+        <p>Lumley e Farren commerciavano esseri umani. Non compravano le donne: le sottraevano alle famiglie con la seduzione o con l’inganno e poi le vendevano a ricchi compratori. Il principale cliente nominato da Kerr era Tewk Pascià di Costantinopoli.</p>
+        <p class="forte">Dietro la rispettabilità europea si muoveva un traffico invisibile, come una corrente sotto la superficie del Mediterraneo.</p>
+
+        <h2 class="capitolo">V – Ben Ramar</h2>
+
+        <div class="foto-container">
+            <img src="benramar-10.png" alt="Illustrazione 10" class="principale">
+            <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
+        </div>
+
+        <p>Un giorno, ad Arkoum, le voci cominciarono a inseguire i due soci. Un santo musulmano sputò davanti al loro cancello. Il cane di Lumley venne ucciso. Perfino le autorità sembravano essersi interessate a loro. Lumley e Farren fuggirono alle Canarie, lasciando le mogli nella casa con l’ordine di raggiungerli se il pericolo fosse aumentato.</p>
+        <p>Tre giorni dopo arrivò il loro vecchio servitore Abdul. Disse di voler salvare l’onore dei suoi padroni: Ben Ramar di Teheran aveva deciso di rapire le loro mogli e incendiare la casa.</p>
+        <p>Non era una vendetta senza origine. La figlia di Ben Ramar, chiamata da Dawson «la Perla», era stata rapita e venduta proprio da Lumley e Farren. Da un anno viveva come schiava di Tewk Pascià alla Sublime Porta. La sua vendita aveva fruttato ai due trafficanti metà del guadagno di un anno.</p>
+
+        <h2 class="capitolo">VI – Il tranello</h2>
+
+        <div class="foto-container">
+            <img src="benramar-11.png" alt="Illustrazione 11" class="principale">
+            <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
+        </div>
+
+        <p>Non c’erano navi in partenza per Arkoum e i due avevano poco denaro. Abdul indicò uno yacht nero, segnato da strisce d’oro. Apparteneva, disse, a un ricco mercante algerino disposto a ricondurli sulla costa africana. L’armatore era malato e non poteva riceverli. L’offerta sembrava un colpo di fortuna.</p>
+        <p>Quando lo yacht arrivò ad Arkoum, le mogli erano già state catturate, legate e nascoste in cabina. Lumley e Farren, appena sbarcati, trovarono invece soldati pronti ad arrestarli. Furono trascinati per le strade tra polvere, urla e colpi.</p>
+        <p>Poi il tumulto cambiò volto. Una parte della folla si trasformò improvvisamente in una squadra di soccorso. I due inglesi vennero strappati ai soldati e riportati di corsa proprio sullo yacht nero.</p>
+        <p>Quando le vele si gonfiarono e la costa cominciò ad allontanarsi, il padrone di casa apparve sul ponte. Le loro mogli, annunciò con un inchino, erano al sicuro nella sua cabina.</p>
+        <p class="forte">Il mercante algerino non era mai esistito. Davanti a loro c’era Ben Ramar.</p>
+
+        <h2 class="capitolo">VII – Ciò che resta</h2>
+
+        <div class="foto-container">
+            <img src="benramar-12.png" alt="Illustrazione 12" class="principale">
+            <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
+        </div>
+
+        <p>Qui il racconto rifiuta di consegnarci una soluzione. Kerr conosceva la storia soltanto fino alla partenza dello yacht. Sapeva che Lumley e Farren avevano creduto di andare incontro a una morte lenta. Non sapeva che cosa fosse accaduto dopo né quale sorte Ben Ramar avesse preparato per le due coppie.</p>
+        <p>Eppure, anni dopo, Lumley e Farren erano vivi. Abitavano nuovamente con le rispettive mogli nella grande casa oltre la collina. Ben Ramar non aveva ucciso nessuno dei quattro ma Dawson non rivela perché li avesse lasciati tornare né quale accordo fosse stato raggiunto sullo yacht nero. Kerr immaginò persino l’ipotesi più inquietante: che avessero ripreso gli antichi traffici dividendone i profitti con Ben Ramar.</p>
+        <p>Il giorno seguente Kerr e il narratore visitarono quella casa. Scoprirono molte cose, ma Dawson non le racconta. Si limita a lasciare una porta socchiusa sul mistero: la casa era ancora lì e il narratore vi aveva spezzato il pane.</p>
+        <p>L’Impero non aveva bisogno di eroi. Aveva bisogno di continuità. I porti continuavano a commerciare, le case rispettabili proteggevano i propri segreti e il Mediterraneo respirava come sempre.</p>
+        <p class="forte">In superficie, il mare. Sotto, le stesse correnti.</p>
+
+        <div class="foto-container">
+            <img src="benramar-13.png" alt="Illustrazione 13" class="principale">
+            <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
+        </div>
+
+        <div class="firma-box">
+            <img src="sigillo-lorella.png" alt="Firma Lorella">
+        </div>
+
+                <div style="margin: 40px 0 20px 0; padding: 20px; border-left: 4px solid #c2b69d; background-color: rgba(139,69,19,0.05); font-family: 'Courier Prime', monospace; font-size: 14px; font-style: italic; color: #333; line-height: 1.7; box-shadow: inset 0 0 10px rgba(0,0,0,0.02);">
+            <strong>Liberamente tratto da</strong><br>
+            "African Nights' Entertainment" di A.J. Dawson<br><br>
+            Alec John Dawson (1872–1951) è stato uno scrittore, giornalista e viaggiatore britannico. Profondo conoscitore del Nord Africa, visse a lungo in Marocco, terra che ispirò gran parte della sua produzione letteraria. I suoi racconti catturano perfettamente l'atmosfera dei mondi di frontiera dell'epoca, muovendosi costantemente tra il fascino autentico per l'esotico e l'inevitabile mentalità coloniale tipica della letteratura anglosassone a cavallo tra l'Ottocento e il Novecento.
+        </div>
+
+        <div style="margin: 30px 0 40px 0; padding: 25px; border: 1px dashed #8b0000; background-color: rgba(251, 249, 241, 0.9); font-family: 'Courier Prime', monospace; text-align: center; color: #1a1a1a; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+            <h3 style="font-family: 'Special Elite', monospace; color: #8b0000; margin: 0 0 12px 0; font-size: 18px; text-transform: uppercase; letter-spacing: 1px;">🚀 Il Tappeto Volante sta per decollare...</h3>
+            <p style="font-size: 14px; margin: 0; line-height: 1.7; font-style: italic; text-align: center;">
+                Il Tappeto Volante sta per decollare…<br>
+Ti è piaciuta questa storia? Questo è solo un piccolo frammento del viaggio.<br>
+Presto il portale si aprirà ufficialmente al pubblico con diari di viaggio inediti, racconti illustrati e stanze nascoste tutte da scoprire.<br><br>
+<strong>Resta connesso ai miei canali social per non perdere il momento del decollo e salire a bordo tra i primi. </strong>
+            </p>
+        </div>
+
+
+        <img src="banner-finale.jpg" class="banner-chiusura" alt="Racconti Coloniali - Chiusura">
+
+    </div>
+
+</body>
+</html>
