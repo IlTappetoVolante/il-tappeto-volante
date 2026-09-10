@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Entra nella tavola onirica del rapimento, tocca i simboli e scopri cosa può raccontare un sogno in cui qualcuno ci conduce altrove.">
+<meta name="robots" content="noindex, nofollow">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sognare di essere rapiti — Quando il destino ti conduce altrove">
+<meta property="og:description" content="Una tavola onirica interattiva di Viaggi da Sogno, collegata alla storia di Ben Ramar.">
+<meta property="og:url" content="https://iltappetovolante.github.io/il-tappeto-volante/viaggi-da-sogno/rapimento/">
+<meta property="og:image" content="https://iltappetovolante.github.io/il-tappeto-volante/img/sogni/preview_rapimento.jpg">
+<meta property="og:image:alt" content="Donna condotta da una figura misteriosa in una medina notturna affacciata sul mare">
+<meta property="og:site_name" content="Il Tappeto Volante">
+
+<title>Sognare di essere rapiti | Viaggi da Sogno</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --notte:#07131c;
+  --blu:#102a38;
+  --pergamena:#f4ead7;
+  --inchiostro:#2d241e;
+  --oro:#d0a13e;
+  --rosso:#8a241b;
+  --rame:#a95f31;
+  --linea:#bb8e3e66
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:#f8f0df;
+  background:
+    radial-gradient(circle at 50% 8%,#184357 0,transparent 32rem),
+    linear-gradient(160deg,#081821,#050a0e 65%);
+  font:400 16px/1.75 Merriweather,serif
+}
+button{font:inherit}
+.pagina{width:min(1040px,100%);margin:auto;padding:18px clamp(14px,4vw,38px) 60px}
+
+.testata{display:block;padding:12px 0 24px;text-align:center}
+.collab-loghi{display:flex;align-items:center;justify-content:center;gap:17px;min-height:86px}
+.logo-tappeto{width:82px;height:82px;object-fit:contain}
+.logo-sogni{width:132px;height:82px;object-fit:contain}
+.segno{color:#efc66e;font:700 2rem/1 Dancing Script,cursive}
+.claim{margin:8px 0 0;color:#f0c86c;font:700 clamp(1.45rem,4vw,2rem)/1 Dancing Script,cursive}
+
+.hero{text-align:center}
+.sovratitolo{
+  margin:15px 0 4px;
+  color:#d6a94b;
+  font-size:.74rem;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase
+}
+.hero h2{
+  margin:0;
+  color:#ffe3a0;
+  font:700 clamp(2.8rem,8vw,5.2rem)/.95 Dancing Script,cursive
+}
+.sottotitolo{margin:12px auto 30px;max-width:38rem;font-style:italic}
+
+.tavola-wrap{
+  position:relative;
+  max-width:900px;
+  margin:0 auto;
+  border:2px solid #d1a54c;
+  border-radius:6px;
+  box-shadow:0 16px 48px #000b,0 0 30px #d39a2c28;
+  overflow:hidden
+}
+.tavola{display:block;width:100%;height:auto}
+.sigillo-ai{
+  position:absolute;
+  top:10px;
+  left:10px;
+  z-index:2;
+  width:48px;
+  height:48px;
+  object-fit:contain;
+  opacity:.78;
+  filter:drop-shadow(0 2px 5px #0009)
+}
+
+.punto{
+  position:absolute;
+  width:38px;
+  height:38px;
+  border:2px solid #fff7d2;
+  border-radius:50%;
+  color:#25170a;
+  background:#e6ae3ee8;
+  box-shadow:0 0 0 5px #f8d47744,0 0 16px #fff4b5;
+  cursor:pointer;
+  transform:translate(-50%,-50%);
+  font-weight:700;
+  animation:respiro 2.4s infinite
+}
+.punto:hover,.punto:focus-visible,.punto.attivo{
+  background:#fff4c5;
+  outline:3px solid #8b251d;
+  outline-offset:2px;
+  animation:none
+}
+@keyframes respiro{
+  50%{box-shadow:0 0 0 9px #f8d47720,0 0 22px #fff4b5}
+}
+
+/* Posizioni hotspot sulla tavola */
+.p-mano{left:33%;top:31%}
+.p-luna{left:75%;top:8%}
+.p-cavallo{left:51%;top:42%}
+.p-lettere{left:42%;top:60%}
+.p-chiave{left:25%;top:82%}
+.p-gabbia{left:14%;top:30%}
+.p-mare{left:86%;top:37%}
+.p-nave{left:92%;top:23%}
+.p-gatto{left:68%;top:45%}
+
+.invito{margin:18px auto 0;color:#e8d5ae;font-size:.85rem;font-style:italic}
+
+.simboli{max-width:820px;margin:34px auto 0}
+.pannello{
+  display:none;
+  padding:24px;
+  border:1px solid var(--linea);
+  border-radius:10px;
+  color:var(--inchiostro);
+  background:linear-gradient(145deg,#fff9eb,#ead9bd);
+  box-shadow:0 8px 24px #0005
+}
+.pannello.aperto{display:block;animation:entra .25s ease}
+.pannello h3{margin:0 0 8px;color:var(--rosso);font:700 2.1rem/1 Dancing Script,cursive}
+.pannello p{margin:0}
+@keyframes entra{from{opacity:0;transform:translateY(8px)}}
+
+.elenco-simboli{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin-top:18px}
+.chip{
+  padding:8px 12px;
+  border:1px solid #d1a145;
+  border-radius:999px;
+  color:#ffeabb;
+  background:#122a35;
+  cursor:pointer
+}
+.chip:hover,.chip:focus-visible{color:#281c10;background:#f4d28b}
+
+.contenuto{
+  max-width:780px;
+  margin:70px auto 0;
+  padding:clamp(24px,5vw,48px);
+  color:var(--inchiostro);
+  background:linear-gradient(150deg,#faf1df,#ecdbc0);
+  border:1px solid #d2ad62;
+  border-radius:8px;
+  box-shadow:0 14px 38px #0008,inset 0 0 55px #8b451f18
+}
+.contenuto h2{
+  margin:0 0 24px;
+  color:var(--rosso);
+  font:700 clamp(2.25rem,6vw,3.5rem)/1 Dancing Script,cursive;
+  text-align:center
+}
+.contenuto h3{margin:38px 0 8px;color:#763522;font-size:1.08rem}
+.contenuto .capo:first-letter{
+  float:left;
+  margin:.08em .08em 0 0;
+  color:var(--rosso);
+  font:700 3.6rem/.8 Dancing Script,cursive
+}
+.variante{padding-bottom:18px;border-bottom:1px solid #af7f3236}
+
+.domande{
+  margin-top:40px;
+  padding:22px;
+  border:1px solid var(--linea);
+  border-radius:8px;
+  background:#fffaf080
+}
+.domande p{margin:8px 0;font-style:italic}
+
+.nota{
+  margin:34px 0;
+  padding:17px 20px;
+  border-left:4px solid var(--oro);
+  background:#d9bf8c30;
+  font-size:.82rem
+}
+.nota strong{color:var(--rosso)}
+
+.ponte{
+  max-width:820px;
+  margin:70px auto 0;
+  padding:clamp(25px,5vw,48px);
+  border:1px solid #d6ae57;
+  border-radius:12px;
+  text-align:center;
+  background:radial-gradient(circle at top,#244755,#0b1a22 70%);
+  box-shadow:0 14px 38px #0008
+}
+.ponte h2{
+  margin:0 0 18px;
+  color:#f2ca70;
+  font:700 clamp(2.4rem,6vw,3.7rem)/1 Dancing Script,cursive
+}
+.cta{
+  display:inline-block;
+  margin-top:18px;
+  padding:12px 23px;
+  border:1px solid #efc66e;
+  border-radius:999px;
+  color:#22170c;
+  background:linear-gradient(135deg,#f6db99,#c9902f);
+  font-weight:700;
+  text-decoration:none;
+  box-shadow:0 7px 18px #0006
+}
+.cta:hover,.cta:focus-visible{transform:translateY(-2px);box-shadow:0 10px 22px #0008}
+
+.credito{margin-top:35px;color:#bba986;font-size:.7rem;text-align:center}
+.credito strong{color:#e2be6d}
+
+@media(max-width:620px){
+  .pagina{padding-inline:9px}
+  .collab-loghi{gap:11px;min-height:72px}
+  .logo-tappeto{width:70px;height:70px}
+  .logo-sogni{width:113px;height:70px}
+  .segno{font-size:1.6rem}
+  .punto{width:32px;height:32px;font-size:.82rem}
+  .contenuto{padding:24px 18px}
+  .pannello{margin-inline:6px}
+  .ponte{margin-inline:5px}
+}
+</style>
+</head>
+
+<body>
+<main class="pagina">
+
+<header class="testata">
+  <div class="collab-loghi">
+    <img class="logo-tappeto" src="../../img/logo-tondo-tappeto.png" alt="Il Tappeto Volante">
+    <span class="segno" aria-hidden="true">&amp;</span>
+    <img class="logo-sogni" src="../../img/logo_dizionario_sogni.webp" alt="Il Dizionario dei Sogni">
+  </div>
+  <p class="claim">Una collaborazione da sogno</p>
+</header>
+
+<section class="hero">
+  <p class="sovratitolo">Tavole oniriche interattive</p>
+  <h2>Sognare di essere rapiti</h2>
+  <p class="sottotitolo">Quando il destino ti prende per mano e ti conduce altrove</p>
+
+  <div class="tavola-wrap">
+    <img class="tavola"
+         src="../../img/sogni/tavola_onirica_rapimento.webp"
+         alt="Tavola onirica notturna con una donna condotta da una figura misteriosa verso una medina sul mare">
+    <img class="sigillo-ai"
+         src="../../img/sigillo_blu.png"
+         alt="Immagine generata con intelligenza artificiale">
+
+    <button class="punto p-mano" data-simbolo="mano" aria-label="Scopri il significato della mano">1</button>
+    <button class="punto p-luna" data-simbolo="luna" aria-label="Scopri il significato della luna">2</button>
+    <button class="punto p-cavallo" data-simbolo="cavallo" aria-label="Scopri il significato del cavallo">3</button>
+    <button class="punto p-lettere" data-simbolo="lettere" aria-label="Scopri il significato delle lettere">4</button>
+    <button class="punto p-chiave" data-simbolo="chiave" aria-label="Scopri il significato della chiave">5</button>
+    <button class="punto p-gabbia" data-simbolo="gabbia" aria-label="Scopri il significato della gabbia">6</button>
+    <button class="punto p-mare" data-simbolo="mare" aria-label="Scopri il significato del mare">7</button>
+    <button class="punto p-nave" data-simbolo="nave" aria-label="Scopri il significato della nave">8</button>
+    <button class="punto p-gatto" data-simbolo="gatto" aria-label="Scopri il significato del gatto">9</button>
+  </div>
+
+  <p class="invito">Tocca i punti luminosi della tavola per seguirne i simboli.</p>
+</section>
+
+<section class="simboli" aria-live="polite">
+
+  <article class="pannello" id="simbolo-mano">
+    <h3>La mano</h3>
+    <p>È il punto in cui il sogno cambia direzione. Una mano che conduce può rappresentare fiducia, dipendenza, attrazione oppure la sensazione che una forza esterna stia decidendo il percorso al nostro posto.</p>
+  </article>
+
+  <article class="pannello" id="simbolo-luna">
+    <h3>La luna</h3>
+    <p>Appartiene al territorio dell’intuizione e di ciò che non è ancora completamente visibile. Nel sogno illumina il cammino senza spiegarlo: mostra abbastanza per proseguire, non abbastanza per sapere dove arriveremo.</p>
+  </article>
+
+  <article class="pannello" id="simbolo-cavallo">
+    <h3>Il cavallo</h3>
+    <p>Rappresenta movimento, energia e passaggio. Se si allontana può indicare che qualcosa è già cominciato e che il cambiamento procede anche mentre cerchiamo ancora di comprenderlo.</p>
+  </article>
+
+  <article class="pannello" id="simbolo-lettere">
+    <h3>Le lettere</h3>
+    <p>Sono parole non ancora ricomposte. Possono richiamare notizie, ricordi, spiegazioni mancanti oppure frammenti di una storia che chiedono di essere letti nel loro insieme.</p>
+  </article>
+
+  <article class="pannello" id="simbolo-chiave">
+    <h3>La chiave</h3>
+    <p>È la possibilità di aprire ciò che è chiuso. In un sogno di rapimento può suggerire una soluzione nascosta, l’accesso a una verità oppure il fatto che esista ancora un margine di scelta.</p>
+  </article>
+
+  <article class="pannello" id="simbolo-gabbia">
+    <h3>La gabbia</h3>
+    <p>Rappresenta costrizione, limite e perdita di libertà. Ma una gabbia aperta introduce un’ambiguità importante: ciò che trattiene potrebbe non essere più chiuso come pensiamo.</p>
+  </article>
+
+  <article class="pannello" id="simbolo-mare">
+    <h3>Il mare</h3>
+    <p>È l’altrove per eccellenza: vasto, mutevole e impossibile da controllare. Può parlare del desiderio di partire, della paura di perdersi oppure dell’ingresso in un territorio emotivo sconosciuto.</p>
+  </article>
+
+  <article class="pannello" id="simbolo-nave">
+    <h3>La nave</h3>
+    <p>È una partenza già possibile. A differenza del mare, che rappresenta l’ignoto, la nave gli dà una direzione: qualcosa può portarci lontano, volontariamente oppure perché gli eventi hanno già preso il largo.</p>
+  </article>
+
+  <article class="pannello" id="simbolo-gatto">
+    <h3>Il gatto</h3>
+    <p>Osserva senza intervenire. Può rappresentare intuito, prudenza e capacità di percepire ciò che sfugge agli altri. Nel sogno è una presenza silenziosa che sembra sapere più di quanto racconti.</p>
+  </article>
+
+  <div class="elenco-simboli" aria-label="Elenco dei simboli">
+    <button class="chip" data-simbolo="mano">1 · Mano</button>
+    <button class="chip" data-simbolo="luna">2 · Luna</button>
+    <button class="chip" data-simbolo="cavallo">3 · Cavallo</button>
+    <button class="chip" data-simbolo="lettere">4 · Lettere</button>
+    <button class="chip" data-simbolo="chiave">5 · Chiave</button>
+    <button class="chip" data-simbolo="gabbia">6 · Gabbia</button>
+    <button class="chip" data-simbolo="mare">7 · Mare</button>
+    <button class="chip" data-simbolo="nave">8 · Nave</button>
+    <button class="chip" data-simbolo="gatto">9 · Gatto</button>
+  </div>
+
+</section>
+
+<article class="contenuto">
+
+  <h2>Quando il destino ti conduce altrove</h2>
+
+  <p class="capo">Essere rapiti in sogno non significa necessariamente sognare una violenza. Molto spesso il centro della scena è la perdita della possibilità di decidere: qualcuno, qualcosa o persino una parte di noi sembra aver preso in mano il viaggio.</p>
+
+  <p>Il sogno può nascere quando sentiamo che gli eventi procedono troppo velocemente, quando una relazione esercita una forte attrazione oppure quando una nuova situazione ci trascina oltre il territorio conosciuto.</p>
+
+  <p>Ma il rapimento possiede anche un significato più antico e narrativo: essere portati via significa attraversare una soglia. Nei miti e nelle fiabe chi scompare dal proprio mondo raramente ritorna identico.</p>
+
+  <h2>Come avveniva il rapimento?</h2>
+
+  <section class="variante">
+    <h3>Essere portati via da uno sconosciuto</h3>
+    <p>Può rappresentare una parte sconosciuta della propria vita o della propria personalità che sta acquistando forza. Più che l’identità del rapitore conta spesso l’emozione provata davanti a lui.</p>
+  </section>
+
+  <section class="variante">
+    <h3>Conoscere chi ci rapisce</h3>
+    <p>Può richiamare una relazione nella quale sentiamo di avere ceduto troppo spazio oppure, al contrario, un legame capace di esercitare su di noi una forte attrazione.</p>
+  </section>
+
+  <section class="variante">
+    <h3>Seguire il rapitore senza opporsi</h3>
+    <p>Il sogno introduce un’ambiguità: forse non stiamo soltanto subendo il viaggio. Potrebbe esserci una parte di noi che desidera scoprire cosa esiste oltre la soglia.</p>
+  </section>
+
+  <section class="variante">
+    <h3>Cercare di fuggire</h3>
+    <p>Può indicare il bisogno di recuperare autonomia oppure la resistenza davanti a un cambiamento percepito come troppo rapido o imposto.</p>
+  </section>
+
+  <section class="variante">
+    <h3>Essere condotti in un luogo sconosciuto</h3>
+    <p>Rappresenta l’ingresso in una fase non ancora definita. Il luogo di destinazione, più del viaggio stesso, può suggerire ciò che il sogno sta tentando di raccontare.</p>
+  </section>
+
+  <section class="variante">
+    <h3>Essere rapiti e poi liberati</h3>
+    <p>Può segnalare la fine di una fase di costrizione oppure la scoperta che un limite apparentemente invalicabile possiede una via d’uscita.</p>
+  </section>
+
+  <section class="variante">
+    <h3>Rapire qualcuno</h3>
+    <p>Può rappresentare il desiderio di trattenere una persona, un’opportunità o una parte della propria vita che temiamo di perdere. Può anche indicare la necessità di controllare qualcosa che percepiamo come instabile.</p>
+  </section>
+
+  <section class="variante">
+    <h3>Assistere a un rapimento</h3>
+    <p>Può riflettere impotenza, preoccupazione oppure la sensazione di vedere qualcosa allontanarsi senza riuscire a intervenire.</p>
+  </section>
+
+  <section class="domande">
+    <h3>Le domande lasciate dal sogno</h3>
+    <p>Conoscevo la persona che mi conduceva via?</p>
+    <p>Provavo paura oppure curiosità?</p>
+    <p>Cercavo di resistere o la seguivo?</p>
+    <p>Dove sembrava portarmi?</p>
+    <p>C’era una possibilità di fuga?</p>
+    <p>Al risveglio avevo la sensazione di aver perso qualcosa oppure di aver attraversato una soglia?</p>
+  </section>
+
+  <aside class="nota">
+    <strong>Nota sull’interpretazione</strong><br>
+    Queste indicazioni propongono una lettura simbolica e narrativa del sogno. Non costituiscono una diagnosi psicologica: il significato personale dipende sempre dalla storia, dalle emozioni e dalle associazioni del sognatore.
+  </aside>
+
+</article>
+
+<section class="ponte">
+  <h2>Dal sogno alla storia</h2>
+  <p>Nel sogno qualcuno viene condotto oltre una soglia. Nella letteratura, a volte, accade lo stesso: il lettore viene trascinato in un mondo lontano prima ancora di sapere se può fidarsi della voce che lo guida.</p>
+  <p><strong>Ben Ramar</strong> nasce all’inizio del Novecento dentro lo sguardo europeo sul Marocco. Tra mistero, avventura e immaginario coloniale, oggi possiamo seguirne le tracce senza confondere il racconto con la realtà che pretendeva di descrivere.</p>
+  <a class="cta" href="../../ben-ramar/">Sali sul Tappeto e segui Ben Ramar</a>
+</section>
+
+<p class="credito">
+  Tavola realizzata con intelligenza artificiale per
+  <strong>Il Tappeto Volante</strong> · Viaggi da Sogno
+</p>
+
+</main>
+
+<script>
+(()=>{
+  const comandi=document.querySelectorAll('[data-simbolo]');
+  const pannelli=document.querySelectorAll('.pannello');
+  const punti=document.querySelectorAll('.punto');
+
+  function apri(nome){
+    pannelli.forEach(p=>p.classList.toggle('aperto',p.id===`simbolo-${nome}`));
+    punti.forEach(p=>p.classList.toggle('attivo',p.dataset.simbolo===nome));
+
+    const scelto=document.getElementById(`simbolo-${nome}`);
+    if(scelto && matchMedia('(max-width:620px)').matches){
+      scelto.scrollIntoView({behavior:'smooth',block:'center'});
+    }
+  }
+
+  comandi.forEach(c=>c.addEventListener('click',()=>apri(c.dataset.simbolo)));
+  apri('mano');
+})();
+</script>
+
+<script data-goatcounter="https://iltappetovolante.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+</body>
+</html>
