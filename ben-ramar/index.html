@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ben Ramar e i cristiani: un racconto di A.J. Dawson. Intrighi, traffici e vendetta nel Marocco di fine Ottocento. Liberamente reinterpretato da Il Tappeto Volante.">
+    <meta name="description" content="Ben Ramar e i cristiani: un racconto di intrighi, traffici e vendetta nel Marocco di fine Ottocento, liberamente reinterpretato da A.J. Dawson.">
     <meta name="robots" content="index, follow">
     <title>Ben Ramar e i cristiani | Il Tappeto Volante</title>
     
@@ -132,7 +132,8 @@
         }
 
         .scelta-lingue {display:flex;justify-content:center;gap:14px;margin:18px 0 30px;flex-wrap:wrap}
-        .bandiera {border:1px solid #c2b69d;border-radius:999px;background:#fbf7ea;padding:7px 13px;font-size:1.45rem;cursor:pointer;box-shadow:0 2px 7px #0002}
+        .bandiera {display:inline-flex;align-items:center;justify-content:center;border:1px solid #c2b69d;border-radius:999px;background:#fbf7ea;padding:8px 14px;cursor:pointer;box-shadow:0 2px 7px #0002}
+        .bandiera svg{display:block;width:36px;height:24px;border:1px solid #8d806c;box-shadow:0 1px 3px #0003}
         .bandiera:hover,.bandiera:focus-visible{transform:translateY(-2px);outline:2px solid #8b0000;outline-offset:2px}
         .musica-racconto{margin:25px auto 38px;padding:18px;border:1px dashed #8b0000;background:#241a16;color:#f4e8cb;text-align:center;box-shadow:0 5px 16px #0004}
         .musica-racconto p{margin:0 0 12px;text-align:center;font-size:.92rem}
@@ -147,7 +148,7 @@
         .modal-content-lingua h3{font-family:'Special Elite',monospace;color:#6e1717;margin-top:28px}
         .close-modal{position:absolute;top:8px;right:15px;border:0;background:transparent;color:#8b0000;font-size:34px;cursor:pointer}
         .pulsante-indietro{display:block;margin:30px auto 0;padding:10px 20px;border:1px solid #8b0000;background:transparent;color:#8b0000;font:700 1rem 'Courier Prime',monospace;cursor:pointer}
-        .fonte{margin:99 0 20px;padding:20px;border-left:4px solid #8b0000;background:rgba(139,69,19,.05);font-size:14px;font-style:italic}
+        .fonte{margin:40px 0 20px;padding:20px;border-left:4px solid #8b0000;background:rgba(139,69,19,.05);font-size:14px;font-style:italic}
         .firma-finale{text-align:center;margin:35px auto 15px;color:#4a3126;font-size:.86rem}
         .firma-finale img{display:block;width:82px;height:auto;margin:0 auto 10px}
         .copyright{max-width:650px;margin:0 auto 35px;color:#59493f;font-size:.72rem;line-height:1.65;text-align:center}
@@ -196,9 +197,15 @@
         </header>
 
         <nav class="scelta-lingue" aria-label="Traduzioni del racconto">
-            <button class="bandiera" type="button" onclick="openLingua('englishModal')" aria-label="Read in English">🇬🇧</button>
-            <button class="bandiera" type="button" onclick="openLingua('spanishModal')" aria-label="Leer en español">🇪🇸</button>
-            <button class="bandiera" type="button" onclick="openLingua('frenchModal')" aria-label="Lire en français">🇫🇷</button>
+            <button class="bandiera" type="button" onclick="openLingua('englishModal')" aria-label="Read in English" title="English">
+                <svg viewBox="0 0 60 36" aria-hidden="true"><rect width="60" height="36" fill="#012169"/><path d="M0 0l60 36M60 0L0 36" stroke="#fff" stroke-width="8"/><path d="M0 0l60 36M60 0L0 36" stroke="#c8102e" stroke-width="3"/><path d="M30 0v36M0 18h60" stroke="#fff" stroke-width="12"/><path d="M30 0v36M0 18h60" stroke="#c8102e" stroke-width="7"/></svg>
+            </button>
+            <button class="bandiera" type="button" onclick="openLingua('spanishModal')" aria-label="Leer en español" title="Español">
+                <svg viewBox="0 0 60 36" aria-hidden="true"><rect width="60" height="36" fill="#aa151b"/><rect y="9" width="60" height="18" fill="#f1bf00"/></svg>
+            </button>
+            <button class="bandiera" type="button" onclick="openLingua('frenchModal')" aria-label="Lire en français" title="Français">
+                <svg viewBox="0 0 60 36" aria-hidden="true"><rect width="20" height="36" fill="#0055a4"/><rect x="20" width="20" height="36" fill="#fff"/><rect x="40" width="20" height="36" fill="#ef4135"/></svg>
+            </button>
         </nav>
 
         <section class="musica-racconto" aria-label="Musica del racconto">
@@ -283,7 +290,7 @@
         </div>
 
         <p>Due uomini vestiti all’europea camminavano con una donna. Il domestico non ne conosceva i nomi: disse soltanto che erano gli inglesi della grande casa oltre la collina.</p>
-        <p>Kerr invece li riconobbe. Lumley e Farren. Li aveva già incrociati anni prima a Las Palmas, sempre accompagnati dalle loro bellissime mogli e da un alone di partenze inspiegabili.</p>
+        <p>Kerr invece li riconobbe. Lumley e Farren. Il narratore li aveva già incrociati anni prima a Las Palmas, sempre accompagnati dalle loro bellissime mogli e da un alone di partenze inspiegabili.</p>
 
         <h2 class="capitolo">IV – La casa oltre la collina</h2>
 
@@ -312,7 +319,7 @@
 
         <p>Un giorno, ad Arkoum, le voci cominciarono a inseguire i due soci. Un santo musulmano sputò davanti al loro cancello. Il cane di Lumley venne ucciso. Perfino le autorità sembravano essersi interessate a loro. Lumley e Farren fuggirono alle Canarie, lasciando le mogli nella casa con l’ordine di raggiungerli se il pericolo fosse aumentato.</p>
         <p>Tre giorni dopo arrivò il loro vecchio servitore Abdul. Disse di voler salvare l’onore dei suoi padroni: Ben Ramar di Teheran aveva deciso di rapire le loro mogli e incendiare la casa.</p>
-        <p>Non era una vendetta senza origine. La figlia di Ben Ramar, chiamata «la Perla», era stata rapita e venduta proprio da Lumley e Farren. Da un anno viveva come schiava di Tewk Pascià alla Sublime Porta. La sua vendita aveva fruttato ai due trafficanti metà del guadagno di un anno.</p>
+        <p>Non era una vendetta senza origine. La figlia di Ben Ramar, chiamata da Dawson «la Perla», era stata rapita e venduta proprio da Lumley e Farren. Da un anno viveva come schiava di Tewk Pascià alla Sublime Porta. La sua vendita aveva fruttato ai due trafficanti metà del guadagno di un anno.</p>
 
         <h2 class="capitolo">VI – Il tranello</h2>
 
@@ -336,8 +343,7 @@
 
         <p>Da quel momento nessuno sa che cosa accadde sullo yacht nero. Kerr conosceva la storia soltanto fino alla partenza. Sapeva che Lumley e Farren avevano creduto di andare incontro a una morte lenta. Non sapeva quale sorte Ben Ramar avesse preparato per le due coppie.</p>
         <p>Eppure, anni dopo, Lumley e Farren erano vivi. Abitavano nuovamente con le rispettive mogli nella grande casa oltre la collina. Che cosa aveva spinto Ben Ramar a lasciarli tornare? Quale accordo era stato raggiunto durante il viaggio? Kerr immaginò persino l’ipotesi più inquietante: che avessero ripreso gli antichi traffici dividendo con Ben Ramar i profitti.</p>
-        <p>Il giorno seguente Kerr e il suo amico visitarono quella casa. Scoprirono molte cose senza consegnarle al lettore. La casa era ancora lì.
-Ciò che era accaduto sullo yacht rimase oltre la collina.</p>
+        <p>Il giorno seguente Kerr e il narratore visitarono quella casa. Scoprirono molte cose senza consegnarle al lettore. La casa era ancora lì. Il narratore vi aveva spezzato il pane. Ciò che era accaduto sullo yacht rimase oltre la collina.</p>
         <p>L’Impero non aveva bisogno di eroi. Aveva bisogno di continuità. I porti continuavano a commerciare, le case rispettabili proteggevano i propri segreti e il Mediterraneo respirava come sempre.</p>
         <p class="forte">In superficie, il mare. Sotto, le stesse correnti.</p>
 
@@ -354,8 +360,8 @@ Ciò che era accaduto sullo yacht rimase oltre la collina.</p>
 
         <div class="fonte">
             <strong>Crediti</strong><br>
-            Illustrazioni generate con AI per <em>Il Tappeto Volante</em>.<br>
-            Musica: <a href="https://pixabay.com/music/world-lost-in-fez-258787/" target="_blank" rel="noopener noreferrer"><em>Lost in Fez</em></a> di djovan — Pixabay Content License. Brano generato con AI.
+            Illustrazioni generate con intelligenza artificiale per <em>Il Tappeto Volante</em>.<br>
+            Musica: <a href="https://pixabay.com/music/world-lost-in-fez-258787/" target="_blank" rel="noopener noreferrer"><em>Lost in Fez</em></a> di djovan — Pixabay Content License. Brano generato con intelligenza artificiale.
         </div>
 
         <img src="banner-finale.jpg" class="banner-chiusura" alt="Racconti Coloniali - Chiusura">
@@ -366,7 +372,7 @@ Ciò che era accaduto sullo yacht rimase oltre la collina.</p>
                 <img src="../img/sigillo_ceralacca_lorella_cr.png" alt="Sigillo rosso di Lorella" loading="lazy">
             </div>
             <div class="copyright">
-                Tutti i testi, le immagini e i contenuti originali sono di proprietà dell’autrice. Ne è vietata la riproduzione, la diffusione o l’utilizzo senza espressa autorizzazione scritta.<br>
+                Tutti i testi, le fotografie e i contenuti originali sono di proprietà dell’autrice. Ne è vietata la riproduzione, la diffusione o l’utilizzo senza espressa autorizzazione scritta.<br>
                 <strong>© 2026 Lorella — Tutti i diritti riservati.</strong>
             </div>
         </footer>
