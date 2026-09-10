@@ -131,17 +131,6 @@
             pointer-events: none; 
         }
 
-        /* STILE FIRMA (SIGILLO LORELLA) */
-        .firma-box {
-            text-align: right; 
-            margin: 40px 0;
-        }
-        .firma-box img {
-            max-width: 65px; 
-            height: auto;
-            display: inline-block;
-        }
-
         .scelta-lingue {display:flex;justify-content:center;gap:14px;margin:18px 0 30px;flex-wrap:wrap}
         .bandiera {border:1px solid #c2b69d;border-radius:999px;background:#fbf7ea;padding:7px 13px;font-size:1.45rem;cursor:pointer;box-shadow:0 2px 7px #0002}
         .bandiera:hover,.bandiera:focus-visible{transform:translateY(-2px);outline:2px solid #8b0000;outline-offset:2px}
@@ -161,6 +150,7 @@
         .fonte{margin:40px 0 20px;padding:20px;border-left:4px solid #8b0000;background:rgba(139,69,19,.05);font-size:14px;font-style:italic}
         .firma-finale{text-align:center;margin:35px auto 15px;color:#4a3126;font-size:.86rem}
         .firma-finale img{display:block;width:82px;height:auto;margin:0 auto 10px}
+        .copyright{max-width:650px;margin:0 auto 35px;color:#59493f;font-size:.72rem;line-height:1.65;text-align:center}
         .contatore{margin:30px auto;padding:16px;border-block:1px dashed #c2b69d;color:#6e1717;font-weight:700;font-style:italic;text-align:center}
 
         /* STILE BANNER FINALE DI CHIUSURA */
@@ -214,7 +204,7 @@
         <section class="musica-racconto" aria-label="Musica del racconto">
             <p><strong>Clicca su play per ascoltare</strong><br>Lascia che il mistero accompagni la lettura.</p>
             <audio controls loop preload="metadata">
-                <source src="../music-download/djovan-lost-in-fez-258787.mp3" type="audio/mpeg">
+                <source src="../audio/djovan-lost-in-fez-258787.mp3" type="audio/mpeg">
                 Il tuo browser non supporta il lettore audio.
             </audio>
         </section>
@@ -344,9 +334,9 @@
             <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
         </div>
 
-        <p>Qui il racconto rifiuta di consegnarci una soluzione. Kerr conosceva la storia soltanto fino alla partenza dello yacht. Sapeva che Lumley e Farren avevano creduto di andare incontro a una morte lenta. Non sapeva che cosa fosse accaduto dopo né quale sorte Ben Ramar avesse preparato per le due coppie.</p>
-        <p>Eppure, anni dopo, Lumley e Farren erano vivi. Abitavano nuovamente con le rispettive mogli nella grande casa oltre la collina. Ben Ramar non aveva ucciso nessuno dei quattro ma Dawson non rivela perché li avesse lasciati tornare né quale accordo fosse stato raggiunto sullo yacht nero. Kerr immaginò persino l’ipotesi più inquietante: che avessero ripreso gli antichi traffici dividendone i profitti con Ben Ramar.</p>
-        <p>Il giorno seguente Kerr e il narratore visitarono quella casa. Scoprirono molte cose, ma Dawson non le racconta. Si limita a lasciare una porta socchiusa sul mistero: la casa era ancora lì e il narratore vi aveva spezzato il pane.</p>
+        <p>Da quel momento nessuno sa che cosa accadde sullo yacht nero. Kerr conosceva la storia soltanto fino alla partenza. Sapeva che Lumley e Farren avevano creduto di andare incontro a una morte lenta. Non sapeva quale sorte Ben Ramar avesse preparato per le due coppie.</p>
+        <p>Eppure, anni dopo, Lumley e Farren erano vivi. Abitavano nuovamente con le rispettive mogli nella grande casa oltre la collina. Che cosa aveva spinto Ben Ramar a lasciarli tornare? Quale accordo era stato raggiunto durante il viaggio? Kerr immaginò persino l’ipotesi più inquietante: che avessero ripreso gli antichi traffici dividendo con Ben Ramar i profitti.</p>
+        <p>Il giorno seguente Kerr e il narratore visitarono quella casa. Scoprirono molte cose senza consegnarle al lettore. La casa era ancora lì. Il narratore vi aveva spezzato il pane. Ciò che era accaduto sullo yacht rimase oltre la collina.</p>
         <p>L’Impero non aveva bisogno di eroi. Aveva bisogno di continuità. I porti continuavano a commerciare, le case rispettabili proteggevano i propri segreti e il Mediterraneo respirava come sempre.</p>
         <p class="forte">In superficie, il mare. Sotto, le stesse correnti.</p>
 
@@ -355,30 +345,100 @@
             <img src="sigillo-azzurro.png" class="sigillo-watermark" alt="">
         </div>
 
-        <div class="firma-box">
-            <img src="sigillo-lorella.png" alt="Firma Lorella">
-        </div>
-
-                <div style="margin: 40px 0 20px 0; padding: 20px; border-left: 4px solid #c2b69d; background-color: rgba(139,69,19,0.05); font-family: 'Courier Prime', monospace; font-size: 14px; font-style: italic; color: #333; line-height: 1.7; box-shadow: inset 0 0 10px rgba(0,0,0,0.02);">
+        <div style="margin: 40px 0 20px 0; padding: 20px; border-left: 4px solid #c2b69d; background-color: rgba(139,69,19,0.05); font-family: 'Courier Prime', monospace; font-size: 14px; font-style: italic; color: #333; line-height: 1.7; box-shadow: inset 0 0 10px rgba(0,0,0,0.02);">
             <strong>Liberamente tratto da</strong><br>
             "African Nights' Entertainment" di A.J. Dawson<br><br>
             Alec John Dawson (1872–1951) è stato uno scrittore, giornalista e viaggiatore britannico. Profondo conoscitore del Nord Africa, visse a lungo in Marocco, terra che ispirò gran parte della sua produzione letteraria. I suoi racconti catturano perfettamente l'atmosfera dei mondi di frontiera dell'epoca, muovendosi costantemente tra il fascino autentico per l'esotico e l'inevitabile mentalità coloniale tipica della letteratura anglosassone a cavallo tra l'Ottocento e il Novecento.
         </div>
 
-        <div style="margin: 30px 0 40px 0; padding: 25px; border: 1px dashed #8b0000; background-color: rgba(251, 249, 241, 0.9); font-family: 'Courier Prime', monospace; text-align: center; color: #1a1a1a; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-            <h3 style="font-family: 'Special Elite', monospace; color: #8b0000; margin: 0 0 12px 0; font-size: 18px; text-transform: uppercase; letter-spacing: 1px;">🚀 Il Tappeto Volante sta per decollare...</h3>
-            <p style="font-size: 14px; margin: 0; line-height: 1.7; font-style: italic; text-align: center;">
-                Il Tappeto Volante sta per decollare…<br>
-Ti è piaciuta questa storia? Questo è solo un piccolo frammento del viaggio.<br>
-Presto il portale si aprirà ufficialmente al pubblico con diari di viaggio inediti, racconti illustrati e stanze nascoste tutte da scoprire.<br><br>
-<strong>Resta connesso ai miei canali social per non perdere il momento del decollo e salire a bordo tra i primi. </strong>
-            </p>
+        <div class="fonte">
+            <strong>Crediti</strong><br>
+            Illustrazioni generate con intelligenza artificiale per <em>Il Tappeto Volante</em>.<br>
+            Musica: <a href="https://pixabay.com/music/world-lost-in-fez-258787/" target="_blank" rel="noopener noreferrer"><em>Lost in Fez</em></a> di djovan — Pixabay Content License. Brano generato con intelligenza artificiale.
         </div>
-
 
         <img src="banner-finale.jpg" class="banner-chiusura" alt="Racconti Coloniali - Chiusura">
 
+        <footer>
+            <div class="firma-finale">
+                <p>Lorella — un’Anima Nomade dal Cuore Volante</p>
+                <img src="../img/sigillo_ceralacca_lorella_cr.png" alt="Sigillo rosso di Lorella" loading="lazy">
+            </div>
+            <div class="copyright">
+                Tutti i testi, le fotografie e i contenuti originali sono di proprietà dell’autrice. Ne è vietata la riproduzione, la diffusione o l’utilizzo senza espressa autorizzazione scritta.<br>
+                <strong>© 2026 Lorella — Tutti i diritti riservati.</strong>
+            </div>
+        </footer>
+
     </div>
 
+    <div id="englishModal" class="modal-lingua" role="dialog" aria-modal="true" aria-labelledby="english-title" onclick="closeLinguaOutside(event)">
+        <div class="modal-content-lingua" lang="en">
+            <button class="close-modal" type="button" aria-label="Close English translation" onclick="closeLingua('englishModal')">&times;</button>
+            <h2 id="english-title">Ben Ramar and the Christians</h2>
+            <p>The <em>Lorelei</em> sails along the Moroccan coast when a small boat approaches. Howard Kerr and Haj Absalaam come aboard, but the first officer treats the guide with contempt. Kerr refuses to accept the insult and leaves the yacht. The narrator follows them inland towards Larache.</p>
+            <p>There Kerr recognises Lumley and Farren, two Englishmen who live respectably with their wives in a house beyond the hill. Their appearance conceals an old crime: they kidnapped Ben Ramar’s daughter, known as “the Pearl”, and sold her to Tewk Pasha in Constantinople.</p>
+            <p>Ben Ramar prepares his revenge. After having their wives abducted, he lures Lumley and Farren aboard a black yacht. At Arkoum a false arrest and an equally false rescue drive them back to the vessel, where Ben Ramar finally reveals himself. Their wives are already hidden in his cabin.</p>
+            <p>From that moment no one knows what happened aboard the black yacht. Years later Lumley and Farren are alive and once again living with their wives in the house beyond the hill. What persuaded Ben Ramar to let them return? What agreement was reached during the voyage? The house beyond the hill keeps the answer behind a closed door.</p>
+            <button class="pulsante-indietro" type="button" onclick="closeLingua('englishModal')">Return to the story</button>
+        </div>
+    </div>
+
+    <div id="spanishModal" class="modal-lingua" role="dialog" aria-modal="true" aria-labelledby="spanish-title" onclick="closeLinguaOutside(event)">
+        <div class="modal-content-lingua" lang="es">
+            <button class="close-modal" type="button" aria-label="Cerrar la traducción española" onclick="closeLingua('spanishModal')">&times;</button>
+            <h2 id="spanish-title">Ben Ramar y los cristianos</h2>
+            <p>El <em>Lorelei</em> navega frente a la costa marroquí cuando se acerca una pequeña embarcación. Howard Kerr y Haj Absalaam suben a bordo, pero el primer oficial trata al guía con desprecio. Kerr no acepta la ofensa y abandona el yate. El narrador los sigue hacia el interior, rumbo a Larache.</p>
+            <p>Allí Kerr reconoce a Lumley y Farren, dos ingleses que viven respetablemente con sus esposas en una casa situada más allá de la colina. Tras aquella apariencia se oculta un antiguo crimen: secuestraron a la hija de Ben Ramar, llamada «la Perla», y la vendieron a Tewk Pachá en Constantinopla.</p>
+            <p>Ben Ramar prepara su venganza. Después de hacer secuestrar a sus esposas, atrae a Lumley y Farren a un yate negro. En Arkoum, un falso arresto y un rescate igualmente falso los devuelven al barco, donde Ben Ramar revela finalmente su identidad. Sus esposas ya están ocultas en el camarote.</p>
+            <p>Desde ese momento nadie sabe qué ocurrió a bordo del yate negro. Años después Lumley y Farren siguen vivos y vuelven a residir con sus esposas en la casa más allá de la colina. ¿Qué impulsó a Ben Ramar a dejarlos volver? ¿Qué acuerdo se alcanzó durante el viaje? La casa más allá de la colina guarda la respuesta detrás de una puerta cerrada.</p>
+            <button class="pulsante-indietro" type="button" onclick="closeLingua('spanishModal')">Volver al relato</button>
+        </div>
+    </div>
+
+    <div id="frenchModal" class="modal-lingua" role="dialog" aria-modal="true" aria-labelledby="french-title" onclick="closeLinguaOutside(event)">
+        <div class="modal-content-lingua" lang="fr">
+            <button class="close-modal" type="button" aria-label="Fermer la traduction française" onclick="closeLingua('frenchModal')">&times;</button>
+            <h2 id="french-title">Ben Ramar et les chrétiens</h2>
+            <p>Le <em>Lorelei</em> longe la côte marocaine lorsqu’une petite embarcation s’approche. Howard Kerr et Haj Absalaam montent à bord, mais le premier officier traite le guide avec mépris. Kerr refuse d’accepter l’affront et quitte le yacht. Le narrateur les suit vers l’intérieur des terres, en direction de Larache.</p>
+            <p>Là, Kerr reconnaît Lumley et Farren, deux Anglais qui vivent respectablement avec leurs épouses dans une maison située au-delà de la colline. Derrière cette apparence se cache un ancien crime : ils ont enlevé la fille de Ben Ramar, surnommée « la Perle », puis l’ont vendue à Tewk Pacha à Constantinople.</p>
+            <p>Ben Ramar prépare sa vengeance. Après avoir fait enlever leurs épouses, il attire Lumley et Farren sur un yacht noir. À Arkoum, une fausse arrestation suivie d’un faux sauvetage les ramène à bord, où Ben Ramar révèle enfin son identité. Leurs épouses sont déjà cachées dans sa cabine.</p>
+            <p>À partir de cet instant, personne ne sait ce qui s’est passé sur le yacht noir. Des années plus tard, Lumley et Farren sont vivants et habitent de nouveau avec leurs épouses dans la maison au-delà de la colline. Qu’est-ce qui a poussé Ben Ramar à les laisser revenir ? Quel accord a été conclu pendant le voyage ? La maison au-delà de la colline garde la réponse derrière une porte fermée.</p>
+            <button class="pulsante-indietro" type="button" onclick="closeLingua('frenchModal')">Revenir au récit</button>
+        </div>
+    </div>
+
+    <script>
+        let modalLinguaAttivo = null;
+
+        function openLingua(id) {
+            const modal = document.getElementById(id);
+            if (!modal) return;
+            modalLinguaAttivo = modal;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            modal.querySelector('.close-modal').focus();
+        }
+
+        function closeLingua(id) {
+            const modal = document.getElementById(id);
+            if (!modal) return;
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+            modalLinguaAttivo = null;
+        }
+
+        function closeLinguaOutside(event) {
+            if (event.target.classList.contains('modal-lingua')) {
+                closeLingua(event.target.id);
+            }
+        }
+
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape' && modalLinguaAttivo) {
+                closeLingua(modalLinguaAttivo.id);
+            }
+        });
+    </script>
 </body>
 </html>
