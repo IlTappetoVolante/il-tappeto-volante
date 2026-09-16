@@ -214,7 +214,89 @@
                 <source src="../audio/djovan-lost-in-fez-258787.mp3" type="audio/mpeg">
                 Il tuo browser non supporta il lettore audio.
             </audio>
+        </section> 
+              <section style="margin:25px auto 38px;padding:18px;border:1px dashed #8b0000;background:#f6f0dd;text-align:center;">
+            <p style="text-align:center;margin:0 0 12px;">
+                <strong>🎧 Ascolta questa storia</strong><br>
+                La voce del tuo dispositivo leggerà il racconto.
+            </p>
+
+            <button type="button" onclick="leggiStoria()">▶ Ascolta</button>
+            <button type="button" onclick="pausaStoria()">⏸ Pausa</button>
+            <button type="button" onclick="fermaStoria()">⏹ Stop</button>
         </section>
+
+        <script>
+        let paragrafiVoce = [];
+        let indiceVoce = 0;
+        let letturaInPausa = false;
+
+        function preparaTestoStoria() {
+            paragrafiVoce = [];
+
+            let elemento = document.querySelector('.titolo-racconto');
+            const fine = document.querySelector('.fonte');
+
+            while (elemento && elemento !== fine) {
+                if (
+                    elemento.matches('h1, h2, p') ||
+                    elemento.classList.contains('prologo')
+                ) {
+                    const testo = elemento.innerText.trim();
+                    if (testo) paragrafiVoce.push(testo);
+                }
+
+                elemento = elemento.nextElementSibling;
+            }
+        }
+
+        function parlaParagrafo() {
+            if (indiceVoce >= paragrafiVoce.length) {
+                indiceVoce = 0;
+                return;
+            }
+
+            const voce = new SpeechSynthesisUtterance(paragrafiVoce[indiceVoce]);
+            voce.lang = 'it-IT';
+            voce.rate = 0.95;
+
+            voce.onend = function() {
+                indiceVoce++;
+                parlaParagrafo();
+            };
+
+            speechSynthesis.speak(voce);
+        }
+
+        function leggiStoria() {
+            const musica = document.querySelector('.musica-racconto audio');
+            if (musica) musica.pause();
+
+            if (speechSynthesis.paused) {
+                speechSynthesis.resume();
+                letturaInPausa = false;
+                return;
+            }
+
+            speechSynthesis.cancel();
+            preparaTestoStoria();
+            indiceVoce = 0;
+            parlaParagrafo();
+        }
+
+        function pausaStoria() {
+            if (speechSynthesis.speaking) {
+                speechSynthesis.pause();
+                letturaInPausa = true;
+            }
+        }
+
+        function fermaStoria() {
+            speechSynthesis.cancel();
+            indiceVoce = 0;
+            letturaInPausa = false;
+        }
+        </script>
 
         <h1 class="titolo-racconto">Ben Ramar e i cristiani</h1>
 
