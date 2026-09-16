@@ -221,9 +221,18 @@
                 La voce del tuo dispositivo leggerà il racconto.
             </p>
 
-            <button type="button" onclick="leggiStoria()">▶ Ascolta</button>
-            <button type="button" onclick="pausaStoria()">⏸ Pausa</button>
-            <button type="button" onclick="fermaStoria()">⏹ Stop</button>
+            <div id="statoLettura" style="margin:12px 0;font-weight:bold;color:#6e1717;">
+    Inizio del racconto
+</div>
+
+<div style="margin-bottom:12px;">
+    <button type="button" onclick="capitoloPrecedente()">⏮ Capitolo precedente</button>
+    <button type="button" onclick="capitoloSuccessivo()">Capitolo successivo ⏭</button>
+</div>
+
+<button type="button" onclick="leggiStoria()">▶ Ascolta</button>
+<button type="button" onclick="pausaStoria()">⏸ Pausa</button>
+<button type="button" onclick="fermaStoria()">⏹ Stop</button>
         </section>
 
         <script>
