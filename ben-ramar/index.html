@@ -242,7 +242,18 @@
                     elemento.matches('h1, h2, p') ||
                     elemento.classList.contains('prologo')
                 ) {
-                    const testo = elemento.innerText.trim();
+                    let testo = elemento.innerText.trim();
+
+if (elemento.matches('h2.capitolo')) {
+    testo = testo
+        .replace(/^VII\s*[–-]\s*/i, 'Capitolo settimo. ')
+        .replace(/^VI\s*[–-]\s*/i, 'Capitolo sesto. ')
+        .replace(/^V\s*[–-]\s*/i, 'Capitolo quinto. ')
+        .replace(/^IV\s*[–-]\s*/i, 'Capitolo quarto. ')
+        .replace(/^III\s*[–-]\s*/i, 'Capitolo terzo. ')
+        .replace(/^II\s*[–-]\s*/i, 'Capitolo secondo. ')
+        .replace(/^I\s*[–-]\s*/i, 'Capitolo primo. ');
+}
                     if (testo) paragrafiVoce.push(testo);
                 }
 
