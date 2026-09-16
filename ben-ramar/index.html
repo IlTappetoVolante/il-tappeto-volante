@@ -287,14 +287,14 @@
         function pausaStoria() {
             if (speechSynthesis.speaking) {
                 speechSynthesis.pause();
-                letturaInPausa = true;
+              
             }
         }
 
         function fermaStoria() {
             speechSynthesis.cancel();
             indiceVoce = 0;
-            letturaInPausa = false;
+        
         }
         </script>
 
