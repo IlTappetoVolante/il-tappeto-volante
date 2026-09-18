@@ -44,6 +44,20 @@
       margin: 0 auto;
     }
 
+    .cover-wrap {
+      width: min(94%, 980px);
+      margin: 0 auto;
+      padding: 30px 20px 0;
+    }
+
+    .cover-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid rgba(201,164,93,.58);
+      box-shadow: 0 14px 34px rgba(0,0,0,.38);
+    }
+
     .hero {
       min-height: 92vh;
       display: flex;
@@ -216,12 +230,13 @@
       body { background: var(--dark); }
       .book { width: 100%; box-shadow: none; background-size: auto 1536px; }
       .content { width: 89%; }
+      .cover-wrap { padding: 18px 14px 0; }
+      .cover-image { border-radius: 3px; }
 
-      .hero { min-height: auto; padding: 34px 12px 38px; }
-      .hero-inner { padding: 28px 16px 30px; }
+      .hero { min-height: auto; padding: 24px 12px 34px; }
+      .hero-inner { padding: 24px 16px 28px; }
       .eyebrow { margin-bottom: 10px; font-size: .68rem; letter-spacing: .22em; }
-      h1 { font-size: clamp(2.8rem, 15vw, 4.4rem); }
-      .subtitle { margin: 12px 0 18px; font-size: 1rem; line-height: 1.45; }
+      .subtitle { margin: 0 0 18px; font-size: 1rem; line-height: 1.45; }
       .ornament { margin: 18px auto; }
       .hero-lead { font-size: 1rem; line-height: 1.55; }
       .topics { margin-top: 18px; font-size: .76rem; line-height: 1.7; }
@@ -240,10 +255,16 @@
 <body>
   <main class="book">
 
+    <div class="cover-wrap">
+      <img
+        class="cover-image"
+        src="../img/ask_ve_taht_copertina_page.webp"
+        alt="Aşk ve Taht — Between Fiction and History, a project by Il Tappeto Volante">
+    </div>
+
     <header class="hero">
       <div class="hero-inner">
         <p class="eyebrow">Il Tappeto Volante presents</p>
-        <h1>Aşk ve Taht</h1>
         <p class="subtitle">Between Fiction and History</p>
         <div class="ornament"></div>
 
@@ -309,7 +330,7 @@
 
     <footer>
       <strong>Il Tappeto Volante</strong><br>
-      Travel · Stories · Mediterranean
+      <span>© 2026 Lorella · All rights reserved</span>
     </footer>
 
   </main>
