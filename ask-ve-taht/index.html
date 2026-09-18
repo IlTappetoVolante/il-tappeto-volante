@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Aşk ve Taht — Between Fiction and History | Il Tappeto Volante</title>
+
+  <meta name="description"
+        content="Explore Aşk ve Taht beyond the screen: the history, places, archaeology, art and people of 13th-century Anatolia and the Seljuk Sultanate of Rum.">
+
+  <meta name="robots" content="index, follow">
+
+  <style>
+    :root {
+      --gold: #c9a45d;
+      --light-gold: #e2c98f;
+      --ivory: #f2ead8;
+      --muted: #cfc3aa;
+      --dark: #08191d;
+      --panel: rgba(5, 20, 24, 0.76);
+      --panel-soft: rgba(7, 25, 29, 0.58);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ivory);
+      background:
+        #211710;
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.65;
+    }
+
+    /* The old leather remains visible around the book on desktop */
+    .book {
+      width: min(100%, 1120px);
+      min-height: 100vh;
+      margin: 0 auto;
+      position: relative;
+
+      background:
+        linear-gradient(
+          rgba(4, 20, 24, 0.12),
+          rgba(4, 20, 24, 0.12)
+        ),
+        url("../img/sfondo_ask_ve_taht.webp")
+        top center / 100% auto repeat-y;
+
+      box-shadow:
+        0 0 35px rgba(0, 0, 0, 0.75),
+        0 0 90px rgba(0, 0, 0, 0.45);
+    }
+
+    .content {
+      width: min(92%, 900px);
+      margin: 0 auto;
+    }
+
+    /* ---------- HERO ---------- */
+
+    .hero {
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 70px 20px;
+    }
+
+    .hero-inner {
+      width: min(100%, 800px);
+      padding: 52px 34px;
+
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(5, 25, 29, 0.76),
+          rgba(3, 15, 18, 0.42) 65%,
+          transparent 100%
+        );
+
+      border-top: 1px solid rgba(201, 164, 93, 0.55);
+      border-bottom: 1px solid rgba(201, 164, 93, 0.55);
+    }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--light-gold);
+      font-size: 0.78rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--light-gold);
+      font-size: clamp(3rem, 8vw, 6.4rem);
+      font-weight: 500;
+      line-height: 0.98;
+      letter-spacing: 0.04em;
+      text-shadow: 0 3px 14px rgba(0, 0, 0, 0.75);
+    }
+
+    .subtitle {
+      margin: 18px 0 30px;
+      color: var(--ivory);
+      font-size: clamp(1.1rem, 3vw, 1.65rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .ornament {
+      width: 110px;
+      height: 1px;
+      margin: 26px auto;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--gold),
+        transparent
+      );
+    }
+
+    .hero-lead {
+      max-width: 650px;
+      margin: 0 auto;
+      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+      color: var(--ivory);
+    }
+
+    .topics {
+      margin: 28px auto 0;
+      color: var(--light-gold);
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+    }
+
+    .explore {
+      display: inline-block;
+      margin-top: 38px;
+      padding: 12px 22px;
+
+      color: var(--ivory);
+      border: 1px solid rgba(201, 164, 93, 0.72);
+      border-radius: 999px;
+
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.78rem;
+
+      background: rgba(0, 0, 0, 0.18);
+      transition: 0.25s ease;
+    }
+
+    .explore:hover {
+      background: rgba(201, 164, 93, 0.15);
+      transform: translateY(-2px);
+    }
+
+    /* ---------- INTRO ---------- */
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      margin: 0 0 12px;
+      color: var(--light-gold);
+      text-align: center;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 500;
+    }
+
+    .section-intro {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .intro-card {
+      margin-top: 35px;
+      padding: 30px;
+
+      background: var(--panel-soft);
+      border: 1px solid rgba(201, 164, 93, 0.35);
+      border-radius: 4px;
+
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
+      backdrop-filter: blur(2px);
+    }
+
+    .intro-card p {
+      margin: 0 0 16px;
+    }
+
+    .intro-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ---------- EPISODES ---------- */
+
+    .episodes {
+      padding-bottom: 100px;
+    }
+
+    .episode-card {
+      position: relative;
+      overflow: hidden;
+
+      margin-top: 40px;
+      padding: 38px 34px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(4, 21, 25, 0.94),
+          rgba(10, 34, 37, 0.76)
+        );
+
+      border: 1px solid rgba(201, 164, 93, 0.55);
+      border-radius: 5px;
+
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.32);
+    }
+
+    .episode-number {
+      color: var(--gold);
+      font-size: 0.76rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .episode-card h3 {
+      margin: 7px 0 14px;
+      color: var(--ivory);
+      font-size: clamp(1.6rem, 4vw, 2.3rem);
+      font-weight: 500;
+    }
+
+    .episode-card p {
+      max-width: 650px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .episode-link {
+      display: inline-block;
+      margin-top: 24px;
+      padding-bottom: 4px;
+
+      color: var(--light-gold);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold);
+      letter-spacing: 0.04em;
+    }
+
+    .coming {
+      margin-top: 26px;
+      text-align: center;
+      color: rgba(242, 234, 216, 0.55);
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    /* ---------- FOOTER ---------- */
+
+    footer {
+      padding: 45px 20px 55px;
+      text-align: center;
+      color: rgba(242, 234, 216, 0.65);
+      font-size: 0.85rem;
+
+      border-top: 1px solid rgba(201, 164, 93, 0.28);
+    }
+
+    footer strong {
+      color: var(--light-gold);
+      font-weight: 500;
+    }
+
+    /* ---------- MOBILE ---------- */
+
+    @media (max-width: 700px) {
+      body {
+        background: var(--dark);
+      }
+
+      .book {
+        width: 100%;
+        box-shadow: none;
+        background-size: auto 1536px;
+      }
+
+      .content {
+        width: 89%;
+      }
+
+      .hero {
+        min-height: 88vh;
+        padding: 45px 12px;
+      }
+
+      .hero-inner {
+        padding: 38px 18px;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+
+      .intro-card,
+      .episode-card {
+        padding: 25px 21px;
+      }
+
+      .topics {
+        line-height: 1.9;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="book">
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero
