@@ -7,18 +7,17 @@
   <meta name="robots" content="index, follow">
   <title>Episode 1 — Before the Throne | Aşk ve Taht</title>
   <meta property="og:type" content="article">
-<meta property="og:title" content="Episode 1 — Before the Throne | Aşk ve Taht">
-<meta property="og:description" content="Why did Alaeddin Keykubad spend eight years as a prisoner? Follow the story from the struggle for the Seljuk throne to Ankara, Minşar and Kezirpert — between fiction and history.">
-<meta property="og:url" content="https://iltappetovolante.github.io/il-tappeto-volante/ask-ve-taht/episode-1/">
-<meta property="og:image" content="https://iltappetovolante.github.io/il-tappeto-volante/img/ask_episode1_kaykhusraw_death.webp">
-<meta property="og:image:width" content="1536">
-<meta property="og:image:height" content="1024">
-<meta property="og:image:alt" content="Kaykhusraw I — The End of a Reign">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Episode 1 — Before the Throne | Aşk ve Taht">
-<meta name="twitter:description" content="Alaeddin Keykubad: from the struggle for the throne to eight years of captivity — between fiction and history.">
-<meta name="twitter:image" content="https://iltappetovolante.github.io/il-tappeto-volante/img/ask_episode1_kaykhusraw_death.webp">
+  <meta property="og:title" content="Episode 1 — Before the Throne | Aşk ve Taht">
+  <meta property="og:description" content="Why did Alaeddin Keykubad spend eight years as a prisoner? Follow the story from the struggle for the Seljuk throne to Ankara, Minşar and Kezirpert — between fiction and history.">
+  <meta property="og:url" content="https://iltappetovolante.github.io/il-tappeto-volante/ask-ve-taht/episode-1/">
+  <meta property="og:image" content="https://iltappetovolante.github.io/il-tappeto-volante/img/ask_episode1_kaykhusraw_death.webp">
+  <meta property="og:image:width" content="1536">
+  <meta property="og:image:height" content="1024">
+  <meta property="og:image:alt" content="Kaykhusraw I — The End of a Reign">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Episode 1 — Before the Throne | Aşk ve Taht">
+  <meta name="twitter:description" content="Alaeddin Keykubad: from the struggle for the throne to eight years of captivity — between fiction and history.">
+  <meta name="twitter:image" content="https://iltappetovolante.github.io/il-tappeto-volante/img/ask_episode1_kaykhusraw_death.webp">
   <style>
     :root{
       --ink:#f1e5c8; --muted:#cbbd9e; --gold:#d2aa58; --gold2:#ead39b;
@@ -36,7 +35,8 @@
     .topnav{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
     .btn{
       display:inline-block;padding:9px 14px;border:1px solid var(--line);border-radius:999px;
-      color:var(--ink);text-decoration:none;background:rgba(10,24,27,.78);font-size:.92rem
+      color:var(--ink);text-decoration:none;background:rgba(10,24,27,.78);font-size:.92rem;
+      font-family:inherit;cursor:pointer
     }
     .hero,.section,.compare,.sources{
       background:linear-gradient(145deg,rgba(25,22,18,.94),rgba(48,37,27,.92));
@@ -72,10 +72,29 @@
     .closing strong{color:var(--gold2);font-size:1.25rem}
     .seal{width:92px;height:auto;margin:18px auto 8px;display:block}
     footer{text-align:center;color:#c8b99a;font-size:.86rem;padding-top:18px}
+
+    /* Historical modal */
+    .modal{display:none;position:fixed;inset:0;z-index:1000;background:rgba(4,10,12,.88);overflow-y:auto;padding:24px 12px}
+    .modal.is-open{display:block}
+    .modal-content{position:relative;width:min(820px,96%);margin:20px auto;padding:28px;color:var(--ink);
+      background:linear-gradient(145deg,#211b17,#392a1e);border:3px double var(--line);border-radius:14px;
+      box-shadow:0 18px 50px rgba(0,0,0,.7)}
+    .modal-close{position:absolute;top:10px;right:14px;border:0;background:transparent;color:var(--gold2);
+      font-size:2rem;line-height:1;cursor:pointer}
+    .modal-kicker{color:var(--gold);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem}
+    .modal-content h2{padding-right:35px}
+    .modal-content figure{margin:22px 0}
+    .modal-highlight{margin:26px 0;padding:18px;text-align:center;border-top:1px solid var(--gold);
+      border-bottom:1px solid var(--gold);color:var(--gold2);font-size:1.18rem;letter-spacing:.04em}
+    .modal-note{margin-top:22px;padding:14px 16px;background:rgba(7,18,20,.42);border-left:3px solid var(--gold);
+      color:#d8c9aa;font-size:.92rem}
+    body.modal-lock{overflow:hidden}
+
     @media(max-width:720px){
       .page{width:min(94%,680px);padding-top:16px}
       .hero,.section,.sources{padding:18px}
       .compare-wrap{grid-template-columns:1fr}
+      .modal-content{padding:22px 18px}
       body{background-attachment:scroll}
     }
   </style>
@@ -146,9 +165,7 @@
     <div class="year">1220</div>
     <h2>The Prison Doors Open</h2>
     <p>When Izzeddin Kaykaus died in 1220, Alaeddin was released from captivity. He was proclaimed ruler at <strong>Sivas</strong> and later entered Konya, where his accession was celebrated again.</p>
-    <button class="btn modal-open" type="button" data-modal="sivas-modal">
-  Explore Sivas, 1220 →
-    </button>
+    <button class="btn modal-open" type="button" data-modal="sivas-modal">Explore Sivas, 1220 →</button>
     <div class="quote">Eight years after losing his struggle for the throne, the prisoner became Sultan <strong>Alaeddin Keykubad I</strong>.</div>
     <p class="bridge">This is where the historical road meets the opening world of <em>Aşk ve Taht</em>.</p>
   </section>
@@ -184,7 +201,7 @@
         <h3>The Ambush — History Moved Back in Time?</h3>
         <p><strong>In the series:</strong> Celaleddin and Arakel arrange an ambush against the newly enthroned Alaeddin.</p>
         <p><strong>In the sources examined:</strong> we have not found this 1220 ambush. A later crisis, however, is documented in <strong>1223</strong>: powerful emirs plotted to remove Alaeddin and replace him with his brother <strong>Celâleddin Keyferidun</strong>. Seyfeddin Ay-aba was among the emirs arrested.</p>
-        <p class="caution">The series <strong>may</strong> be drawing on this later political conflict and moving elements of it back to the beginning of the reign. Without a statement from the writers, that remains an interpretation, not a fact.</p>
+        <p class="caution"><em>Aşk ve Taht</em> begins with Alaeddin's accession in 1220, but the series does not necessarily imply that all subsequent events occur immediately afterward. Historical elements associated with the early years of his reign may be compressed or rearranged within the narrative.</p>
       </article>
 
       <article class="compare">
@@ -202,6 +219,7 @@
     <ul>
       <li><a href="https://islamansiklopedisi.org.tr/keykubad-i" target="_blank" rel="noopener">TDV İslâm Ansiklopedisi — “Keykubad I”</a>: succession struggle, Ankara surrender, imprisonment and accession in 1220.</li>
       <li><a href="https://islamansiklopedisi.org.tr/keykavus-i" target="_blank" rel="noopener">TDV İslâm Ansiklopedisi — “Keykâvus I”</a>: Kayseri succession, Ankara siege and Minşar imprisonment.</li>
+      <li><a href="https://islamansiklopedisi.org.tr/keykavus-i-darussifasi" target="_blank" rel="noopener">TDV İslâm Ansiklopedisi — “Keykâvus I Dârüşşifâsı”</a>: the Şifaiye complex in Sivas and the mausoleum of Izzeddin Kaykaus I.</li>
       <li><a href="https://belleten.gov.tr/tam-metin/2339/tur" target="_blank" rel="noopener">Belleten — “Selçuklularda Emîr-i Dâd Müessesesi”</a>: the 1223 emirial plot, Celâleddin Keyferidun and Seyfeddin Ay-aba.</li>
       <li><a href="https://www.atv.com.tr/ask-ve-taht/galeri/ask-ve-taht-ilk-bolumde-neler-oldu" target="_blank" rel="noopener">atv — official Episode 1 recap</a>: the series' version of Alaeddin's captivity, Celaleddin, Ayaba, Ümmühan, the ambush and the mysterious woman.</li>
     </ul>
@@ -221,7 +239,84 @@
     <div>© 2026 Lorella · All rights reserved</div>
   </footer>
 </main>
-  <script data-goatcounter="https://iltappetovolante.goatcounter.com/count"
+
+<div class="modal" id="sivas-modal" role="dialog" aria-modal="true" aria-labelledby="sivas-modal-title" aria-hidden="true">
+  <div class="modal-content">
+    <button class="modal-close" type="button" aria-label="Close modal">×</button>
+    <div class="modal-kicker">Sivas · 1220</div>
+    <h2 id="sivas-modal-title">Where the Prisoner Became Sultan</h2>
+
+    <p>When Izzeddin Kaykaus I died in 1220, the leading men of the Seljuk state gathered in Sivas to decide who would succeed him.</p>
+    <p>Their choice fell on his imprisoned brother: <strong>Alaeddin Keykubad</strong>.</p>
+    <p>After years of captivity, Alaeddin was released and proclaimed Sultan in Sivas. He would later travel to Konya, the capital of the Sultanate of Rum, where his accession was celebrated again with a great ceremony.</p>
+
+    <div class="divider"></div>
+    <h3>The Monument That Still Remembers His Brother</h3>
+    <p>Sivas still preserves an extraordinary witness to that dynastic transition.</p>
+    <p>In 1217, only three years before his death, Kaykaus had commissioned the <strong>Şifaiye</strong>, a great Seljuk hospital and medical complex.</p>
+
+    <figure>
+      <img src="../../img/sifaiye-sivas-keykavus-turbe.jpg" alt="Decorated façade of the mausoleum of Izzeddin Kaykaus I at the Şifaiye in Sivas" loading="lazy">
+      <figcaption>Mausoleum of Izzeddin Kaykaus I, Şifaiye Medrese, Sivas — photograph by Dosseman, Wikimedia Commons, CC BY-SA 4.0.</figcaption>
+    </figure>
+
+    <p>The richly decorated mausoleum incorporated into the complex became the burial place of Izzeddin Kaykaus I. Its brickwork, turquoise tiles, geometric decoration and monumental inscriptions preserve the visual language of the Seljuk world in which Alaeddin came to power.</p>
+
+    <figure>
+      <img src="../../img/keykavus-turbe-sivas.jpg" alt="Cenotaphs inside the mausoleum of Izzeddin Kaykaus I in Sivas" loading="lazy">
+      <figcaption>Cenotaphs in the mausoleum complex, photographed before restoration — Dosseman, Wikimedia Commons, CC BY-SA 4.0.</figcaption>
+    </figure>
+
+    <p>Here survives the funerary setting of the Sultan whose death opened the way for his imprisoned brother to rule.</p>
+
+    <div class="modal-highlight"><strong>ONE SULTAN WAS LAID TO REST.<br>HIS IMPRISONED BROTHER WAS RAISED TO THE THRONE.</strong></div>
+
+    <div class="modal-note"><strong>What we know — and what we do not:</strong> the sources identify Sivas as the city where Alaeddin Keykubad was proclaimed Sultan, but they do not securely identify the specific building in which the proclamation took place. The Şifaiye is shown here as a surviving monument directly connected to Kaykaus and to this dynastic transition — not as the documented site of Alaeddin's accession.</div>
+  </div>
+</div>
+
+<script>
+  const modalOpeners = document.querySelectorAll('.modal-open');
+  const modals = document.querySelectorAll('.modal');
+
+  function openModal(modal) {
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-lock');
+    const closeButton = modal.querySelector('.modal-close');
+    if (closeButton) closeButton.focus();
+  }
+
+  function closeModal(modal) {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-lock');
+  }
+
+  modalOpeners.forEach(button => {
+    button.addEventListener('click', () => {
+      const modal = document.getElementById(button.dataset.modal);
+      if (modal) openModal(modal);
+    });
+  });
+
+  modals.forEach(modal => {
+    const closeButton = modal.querySelector('.modal-close');
+    if (closeButton) closeButton.addEventListener('click', () => closeModal(modal));
+
+    modal.addEventListener('click', event => {
+      if (event.target === modal) closeModal(modal);
+    });
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      const open = document.querySelector('.modal.is-open');
+      if (open) closeModal(open);
+    }
+  });
+</script>
+<script data-goatcounter="https://iltappetovolante.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
