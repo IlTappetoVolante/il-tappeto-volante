@@ -97,6 +97,22 @@
       .modal-content{padding:22px 18px}
       body{background-attachment:scroll}
     }
+
+    /* Discovery links: subtle gold pulse, never on navigation controls. */
+    .discovery-link{
+      display:inline-flex;align-items:center;justify-content:center;gap:.4em;
+      margin:16px 0 4px;padding:12px 20px;border:2px solid #e2bd70;border-radius:999px;
+      color:#fff2cf;background:linear-gradient(135deg,#70491d,#372714);font:600 .98rem Georgia,serif;
+      text-decoration:none;cursor:pointer;box-shadow:0 0 0 2px rgba(218,174,91,.14),0 0 13px rgba(218,174,91,.27);
+      animation:goldenInvitation 3s ease-in-out infinite;
+      transition:background .2s,transform .2s;
+    }
+    .discovery-link:hover,.discovery-link:focus-visible{background:linear-gradient(135deg,#a06c28,#5a3d1a);outline:2px solid #f4dfad;outline-offset:3px;transform:translateY(-1px)}
+    @keyframes goldenInvitation{
+      0%,100%{box-shadow:0 0 0 2px rgba(218,174,91,.14),0 0 10px rgba(218,174,91,.25)}
+      50%{box-shadow:0 0 0 3px rgba(218,174,91,.40),0 0 23px rgba(239,197,105,.68)}
+    }
+    @media(prefers-reduced-motion:reduce){.discovery-link{animation:none}}
   </style>
 </head>
 <body>
@@ -165,7 +181,7 @@
     <div class="year">1220</div>
     <h2>The Prison Doors Open</h2>
     <p>When Izzeddin Kaykaus died in 1220, Alaeddin was released from captivity. He was proclaimed ruler at <strong>Sivas</strong> and later entered Konya, where his accession was celebrated again.</p>
-    <button class="btn modal-open" type="button" data-modal="sivas-modal">Explore Sivas, 1220 →</button>
+    <button class="discovery-link modal-open" type="button" data-modal="sivas-modal">Explore Sivas, 1220 →</button>
     <div class="quote">Eight years after losing his struggle for the throne, the prisoner became Sultan <strong>Alaeddin Keykubad I</strong>.</div>
     <p class="bridge">This is where the historical road meets the opening world of <em>Aşk ve Taht</em>.</p>
   </section>
@@ -178,6 +194,7 @@
       <figcaption>Official series image © atv / Bozdağ Film. Used here for commentary and historical comparison.</figcaption>
     </figure>
     <p>The series combines documented people and political tensions with invented scenes, compressed chronology and dramatic relationships. The four questions below separate what Episode 1 shows from what the sources examined can actually establish.</p>
+    <p><button class="discovery-link modal-open" type="button" data-modal="kubadabad-modal">Explore Alaeddin’s Real Palace →</button></p>
 
     <div class="compare-wrap">
       <article class="compare">
@@ -221,6 +238,8 @@
       <li><a href="https://islamansiklopedisi.org.tr/keykavus-i" target="_blank" rel="noopener">TDV İslâm Ansiklopedisi — “Keykâvus I”</a>: Kayseri succession, Ankara siege and Minşar imprisonment.</li>
       <li><a href="https://islamansiklopedisi.org.tr/keykavus-i-darussifasi" target="_blank" rel="noopener">TDV İslâm Ansiklopedisi — “Keykâvus I Dârüşşifâsı”</a>: the Şifaiye complex in Sivas and the mausoleum of Izzeddin Kaykaus I.</li>
       <li><a href="https://belleten.gov.tr/tam-metin/2339/tur" target="_blank" rel="noopener">Belleten — “Selçuklularda Emîr-i Dâd Müessesesi”</a>: the 1223 emirial plot, Celâleddin Keyferidun and Seyfeddin Ay-aba.</li>
+      <li><a href="https://islamansiklopedisi.org.tr/kubadabad-sarayi" target="_blank" rel="noopener">TDV İslâm Ansiklopedisi — “Kubâdâbâd Sarayı”</a>: the palace commissioned by Alaeddin, its setting, building history and archaeology.</li>
+      <li><a href="https://islamicart.museumwnf.org/database_item.php?id=monument%3BISL%3Btr%3BMon01%3B5%3Ben" target="_blank" rel="noopener">Discover Islamic Art — Kubadabad Palace</a>: palace plan, excavated structures and decorative tiles.</li>
       <li><a href="https://www.atv.com.tr/ask-ve-taht/galeri/ask-ve-taht-ilk-bolumde-neler-oldu" target="_blank" rel="noopener">atv — official Episode 1 recap</a>: the series' version of Alaeddin's captivity, Celaleddin, Ayaba, Ümmühan, the ambush and the mysterious woman.</li>
     </ul>
     <p class="caution">Historical conclusions on this page are limited to what the cited sources support. Where identification, chronology or causation remains uncertain, the uncertainty is stated explicitly.</p>
@@ -272,6 +291,51 @@
     <div class="modal-highlight"><strong>ONE SULTAN WAS LAID TO REST.<br>HIS IMPRISONED BROTHER WAS RAISED TO THE THRONE.</strong></div>
 
     <div class="modal-note"><strong>What we know — and what we do not:</strong> the sources identify Sivas as the city where Alaeddin Keykubad was proclaimed Sultan, but they do not securely identify the specific building in which the proclamation took place. The Şifaiye is shown here as a surviving monument directly connected to Kaykaus and to this dynastic transition — not as the documented site of Alaeddin's accession.</div>
+  </div>
+</div>
+
+
+<div class="modal" id="kubadabad-modal" role="dialog" aria-modal="true" aria-labelledby="kubadabad-modal-title" aria-hidden="true">
+  <div class="modal-content">
+    <button class="modal-close" type="button" aria-label="Close modal">×</button>
+    <div class="modal-kicker">Beyşehir · Alaeddin’s reign</div>
+    <h2 id="kubadabad-modal-title">Kubâdâbâd — Inside the Sultan’s Real Palace</h2>
+    <p>The palace interiors of <em>Aşk ve Taht</em> evoke a Seljuk court. But what can archaeology tell us about the buildings in which Alaeddin Keykubad actually lived?</p>
+    <p>On the southwestern shore of <strong>Lake Beyşehir</strong>, west of Konya, the Sultan commissioned <strong>Kubâdâbâd</strong>, a lakeside palace complex begun around <strong>1226</strong>. It belongs to the later part of his reign, not to the events of his accession in 1220.</p>
+    <p>Excavations have revealed a Great Palace, a smaller residence, courtyards and other structures. An axial <em>iwan</em>, associated with the reception or throne area, helps us understand how the court's ceremonial spaces were arranged. Above all, its surviving decoration brings the palace to life.</p>
+
+    <div class="divider"></div>
+    <h3>A Palace Reassembled in a Museum</h3>
+    <figure>
+      <img src="../../img/kubadabad-ricostruzione-piastrelle.jpg" alt="Museum display of reconstructed panels of Kubâdâbâd palace tiles at the Karatay Museum in Konya" loading="lazy">
+      <figcaption>Display of wall tiles excavated at Kubâdâbâd, Karatay Ceramics Museum, Konya. Photograph: Murat Özsoy 1958, Wikimedia Commons, CC BY-SA 4.0. The arrangement is a museum display, not a photograph of an intact palace wall.</figcaption>
+    </figure>
+    <p>Star-shaped figured tiles alternated with turquoise cross-shaped tiles to cover palace walls. People, animals and fantastic creatures made the rooms far more colourful than the surviving stone ruins suggest.</p>
+
+    <h3>The Double-Headed Eagle</h3>
+    <figure>
+      <img src="../../img/kubadabad-aquila-bicipite.jpg" alt="Seljuk glazed tile with a double-headed eagle from Kubâdâbâd" loading="lazy">
+      <figcaption>Double-headed eagle tile from Kubâdâbâd, Karatay Ceramics Museum. Photograph: Dosseman, Wikimedia Commons, CC BY-SA 4.0.</figcaption>
+    </figure>
+    <p>The double-headed eagle appears in Seljuk royal imagery. Here it survives on a glazed tile from the Sultan's own palace — an object, rather than a modern costume or set design, that connects us to his visual world.</p>
+
+    <h3>A Sun with a Human Face</h3>
+    <figure>
+      <img src="../../img/kubadabad-volto-solare.jpg" alt="Star-shaped palace tile showing a human face surrounded by radiating lines" loading="lazy">
+      <figcaption>Human-faced, sun-like motif among Kubâdâbâd tiles, Karatay Ceramics Museum. Photograph: Dosseman, Wikimedia Commons, CC BY-SA 4.0. The motif is described visually here; its precise symbolism is not established by the photographic record.</figcaption>
+    </figure>
+    <p>Among the turquoise geometric patterns is a face framed by radiating lines. Its striking, sun-like appearance reminds us that Seljuk court decoration was not limited to abstract geometry.</p>
+
+    <h3>Beyond the Tiles — Architectural Stucco</h3>
+    <figure>
+      <img src="../../img/kubadabad-stucchi.jpg" alt="Excavated fragments of ornamental architectural stucco from Kubâdâbâd on display in Konya" loading="lazy">
+      <figcaption>Ornamental stucco fragments from Kubâdâbâd, Karatay Ceramics Museum. Photograph: Dosseman, Wikimedia Commons, CC BY-SA 4.0.</figcaption>
+    </figure>
+    <p>Carved stucco fragments add another dimension to the palace's decoration. They preserve relief ornament, although these particular photographs do not establish whether each piece originally belonged to a wall, arch or ceiling.</p>
+
+    <div class="modal-highlight"><strong>THE SERIES SHOWS US A SELJUK PALACE.<br>ARCHAEOLOGY LETS US SEE THE SULTAN'S OWN WORLD.</strong></div>
+    <div class="modal-note"><strong>Fiction ↔ History:</strong> Kubâdâbâd is a real palace commissioned by Alaeddin Keykubad on Lake Beyşehir. It is <em>not</em> the Konya palace depicted in the series, nor was it built by the time of his accession in 1220. The photographed objects are museum exhibits from archaeological finds; their original arrangement cannot be inferred from the display alone.</div>
+    <p><small>Historical reading: <a href="https://islamansiklopedisi.org.tr/kubadabad-sarayi" target="_blank" rel="noopener">TDV — Kubâdâbâd Sarayı</a> · <a href="https://islamicart.museumwnf.org/database_item.php?id=monument%3BISL%3Btr%3BMon01%3B5%3Ben" target="_blank" rel="noopener">Discover Islamic Art — Kubadabad Palace</a>.</small></p>
   </div>
 </div>
 
