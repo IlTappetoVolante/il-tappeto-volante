@@ -6,320 +6,47 @@
   <title>Aşk ve Taht — Between Fiction and History | Il Tappeto Volante</title>
   <meta name="description" content="Explore Aşk ve Taht beyond the screen: the history, places, archaeology, art and people of 13th-century Anatolia and the Seljuk Sultanate of Rum.">
   <meta name="robots" content="index, follow">
-
   <style>
-    :root {
-      --gold: #c9a45d;
-      --light-gold: #e2c98f;
-      --ivory: #f2ead8;
-      --muted: #cfc3aa;
-      --dark: #08191d;
-      --panel-soft: rgba(7, 25, 29, 0.58);
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      color: var(--ivory);
-      background: #211710;
-      font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.65;
-    }
-
-    .book {
-      width: min(100%, 1120px);
-      min-height: 100vh;
-      margin: 0 auto;
-      position: relative;
-      background:
-        linear-gradient(rgba(4,20,24,.12), rgba(4,20,24,.12)),
-        url("../img/sfondo_ask_ve_taht.jpg") top center / 100% auto repeat-y;
-      box-shadow: 0 0 35px rgba(0,0,0,.75), 0 0 90px rgba(0,0,0,.45);
-    }
-
-    .content {
-      width: min(92%, 900px);
-      margin: 0 auto;
-    }
-
-    .cover-wrap {
-      width: min(94%, 980px);
-      margin: 0 auto;
-      padding: 30px 20px 0;
-    }
-
-    .cover-image {
-      display: block;
-      width: 100%;
-      height: auto;
-      border: 1px solid rgba(201,164,93,.58);
-      box-shadow: 0 14px 34px rgba(0,0,0,.38);
-    }
-
-    .hero {
-      min-height: 92vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 70px 20px;
-    }
-
-    .hero-inner {
-      width: min(100%, 800px);
-      padding: 52px 34px;
-      background: radial-gradient(circle at center, rgba(5,25,29,.76), rgba(3,15,18,.42) 65%, transparent 100%);
-      border-top: 1px solid rgba(201,164,93,.55);
-      border-bottom: 1px solid rgba(201,164,93,.55);
-    }
-
-    .eyebrow {
-      margin: 0 0 16px;
-      color: var(--light-gold);
-      font-size: .78rem;
-      letter-spacing: .28em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin: 0;
-      color: var(--light-gold);
-      font-size: clamp(3rem, 8vw, 6.4rem);
-      font-weight: 500;
-      line-height: .98;
-      letter-spacing: .04em;
-      text-shadow: 0 3px 14px rgba(0,0,0,.75);
-    }
-
-    .subtitle {
-      margin: 18px 0 30px;
-      color: var(--ivory);
-      font-size: clamp(1.1rem, 3vw, 1.65rem);
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
-    .ornament {
-      width: 110px;
-      height: 1px;
-      margin: 26px auto;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    }
-
-    .hero-lead {
-      max-width: 650px;
-      margin: 0 auto;
-      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
-    }
-
-    .topics {
-      margin: 28px auto 0;
-      color: var(--light-gold);
-      font-size: .88rem;
-      letter-spacing: .08em;
-    }
-
-    .explore {
-      display: inline-block;
-      margin-top: 38px;
-      padding: 12px 22px;
-      color: var(--ivory);
-      border: 1px solid rgba(201,164,93,.72);
-      border-radius: 999px;
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      font-size: .78rem;
-      background: rgba(0,0,0,.18);
-    }
-
-    section { padding: 70px 0; }
-
-    .section-title {
-      margin: 0 0 12px;
-      color: var(--light-gold);
-      text-align: center;
-      font-size: clamp(1.8rem, 5vw, 2.8rem);
-      font-weight: 500;
-    }
-
-    .section-intro {
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: center;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
-
-    .intro-card {
-      margin-top: 35px;
-      padding: 30px;
-      background: var(--panel-soft);
-      border: 3px double rgba(226,201,143,.78);
-      border-radius: 6px;
-      box-shadow: 0 0 0 1px rgba(201,164,93,.20), 0 12px 30px rgba(0,0,0,.28);
-    }
-
-    .intro-card p { margin: 0 0 16px; }
-    .intro-card p:last-child { margin-bottom: 0; }
-
-    .episodes { padding-bottom: 100px; }
-
-    .episode-card {
-      margin-top: 40px;
-      padding: 38px 34px;
-      background: linear-gradient(135deg, rgba(4,21,25,.94), rgba(10,34,37,.76));
-      border: 3px double rgba(226,201,143,.82);
-      border-radius: 6px;
-      box-shadow: 0 0 0 1px rgba(201,164,93,.22), 0 16px 36px rgba(0,0,0,.34);
-    }
-
-    .episode-number {
-      color: var(--gold);
-      font-size: .76rem;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-    }
-
-    .episode-card h3 {
-      margin: 7px 0 14px;
-      color: var(--ivory);
-      font-size: clamp(1.6rem, 4vw, 2.3rem);
-      font-weight: 500;
-    }
-
-    .episode-card p {
-      max-width: 650px;
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .episode-link {
-      display: inline-block;
-      margin-top: 24px;
-      padding-bottom: 4px;
-      color: var(--light-gold);
-      border-bottom: 1px solid var(--gold);
-      letter-spacing: .04em;
-    }
-
-    .coming {
-      margin-top: 26px;
-      text-align: center;
-      color: rgba(242,234,216,.55);
-      font-size: .9rem;
-      font-style: italic;
-    }
-
-    footer {
-      padding: 45px 20px 55px;
-      text-align: center;
-      color: rgba(242,234,216,.65);
-      font-size: .85rem;
-      border-top: 1px solid rgba(201,164,93,.28);
-    }
-
-    footer strong {
-      color: var(--light-gold);
-      font-weight: 500;
-    }
-
-    
-    .lorella-seal {
-      display: block;
-      width: 92px;
-      max-width: 28vw;
-      height: auto;
-      margin: 0 auto 16px;
-    }
-
-    @media (max-width: 700px) {
-      body { background: var(--dark); }
-      .book { width: 100%; box-shadow: none; background-size: auto 1536px; }
-      .content { width: 89%; }
-      .cover-wrap { padding: 18px 14px 0; }
-      .cover-image { border-radius: 3px; }
-
-      .hero { min-height: auto; padding: 24px 12px 34px; }
-      .hero-inner { padding: 24px 16px 28px; }
-      .eyebrow { margin-bottom: 10px; font-size: .68rem; letter-spacing: .22em; }
-      .subtitle { margin: 0 0 18px; font-size: 1rem; line-height: 1.45; }
-      .ornament { margin: 18px auto; }
-      .hero-lead { font-size: 1rem; line-height: 1.55; }
-      .topics { margin-top: 18px; font-size: .76rem; line-height: 1.7; }
-      .explore { margin-top: 24px; padding: 10px 18px; font-size: .7rem; }
-
-      section { padding: 42px 0; }
-      .section-title { font-size: 1.9rem; }
-      .section-intro { font-size: .96rem; }
-      .intro-card { margin-top: 24px; padding: 22px 20px; }
-      .episode-card { margin-top: 28px; padding: 25px 21px; }
-      .episodes { padding-top: 46px; padding-bottom: 65px; }
-    }
+    :root{--gold:#c9a45d;--light-gold:#e2c98f;--ivory:#f2ead8;--muted:#cfc3aa;--dark:#08191d;--panel-soft:rgba(7,25,29,.58)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}
+    body{margin:0;color:var(--ivory);background:#211710;font-family:Georgia,"Times New Roman",serif;line-height:1.65}
+    .book{width:min(100%,1120px);min-height:100vh;margin:0 auto;position:relative;background:linear-gradient(rgba(4,20,24,.12),rgba(4,20,24,.12)),url("../img/sfondo_ask_ve_taht.jpg") top center / 100% auto repeat-y;box-shadow:0 0 35px rgba(0,0,0,.75),0 0 90px rgba(0,0,0,.45)}
+    .content{width:min(92%,900px);margin:0 auto}.cover-wrap{width:min(94%,980px);margin:0 auto;padding:30px 20px 0}
+    .cover-image{display:block;width:100%;height:auto;border:1px solid rgba(201,164,93,.58);box-shadow:0 14px 34px rgba(0,0,0,.38)}
+    section{padding:70px 0}.section-title{margin:0 0 12px;color:var(--light-gold);text-align:center;font-size:clamp(1.8rem,5vw,2.8rem);font-weight:500}
+    .section-intro{max-width:700px;margin:0 auto;text-align:center;color:var(--muted);font-size:1.05rem}
+    .intro-card{margin-top:35px;padding:30px;background:var(--panel-soft);border:3px double rgba(226,201,143,.78);border-radius:6px;box-shadow:0 0 0 1px rgba(201,164,93,.20),0 12px 30px rgba(0,0,0,.28)}
+    .intro-card p{margin:0 0 16px}.intro-card p:last-child{margin-bottom:0}
+    .episodes{padding-bottom:100px}.episode-card{margin-top:40px;padding:38px 34px;background:linear-gradient(135deg,rgba(4,21,25,.94),rgba(10,34,37,.76));border:3px double rgba(226,201,143,.82);border-radius:6px;box-shadow:0 0 0 1px rgba(201,164,93,.22),0 16px 36px rgba(0,0,0,.34)}
+    .episode-number{color:var(--gold);font-size:.76rem;letter-spacing:.22em;text-transform:uppercase}
+    .episode-card h3{margin:7px 0 14px;color:var(--ivory);font-size:clamp(1.6rem,4vw,2.3rem);font-weight:500}
+    .episode-card p{max-width:650px;margin:0;color:var(--muted)}
+    .episode-link{display:inline-flex;align-items:center;justify-content:center;margin-top:24px;padding:13px 21px;border:2px solid #e2bd70;border-radius:999px;color:#fff2cf;background:linear-gradient(135deg,#70491d,#372714);font-weight:600;text-decoration:none;box-shadow:0 0 0 2px rgba(218,174,91,.14),0 0 13px rgba(218,174,91,.27);animation:goldenInvitation 3s ease-in-out infinite;transition:background .2s,transform .2s}
+    .episode-link:hover,.episode-link:focus-visible{background:linear-gradient(135deg,#a06c28,#5a3d1a);outline:2px solid #f4dfad;outline-offset:3px;transform:translateY(-1px)}
+    @keyframes goldenInvitation{0%,100%{box-shadow:0 0 0 2px rgba(218,174,91,.14),0 0 10px rgba(218,174,91,.25)}50%{box-shadow:0 0 0 3px rgba(218,174,91,.40),0 0 23px rgba(239,197,105,.68)}}
+    @media(prefers-reduced-motion:reduce){.episode-link{animation:none}}
+    .coming{margin-top:26px;text-align:center;color:rgba(242,234,216,.55);font-size:.9rem;font-style:italic}
+    footer{padding:45px 20px 55px;text-align:center;color:rgba(242,234,216,.65);font-size:.85rem;border-top:1px solid rgba(201,164,93,.28)}
+    footer strong{color:var(--light-gold);font-weight:500}.lorella-seal{display:block;width:92px;max-width:28vw;height:auto;margin:0 auto 16px}
+    @media(max-width:700px){body{background:var(--dark)}.book{width:100%;box-shadow:none;background-size:auto 1536px}.content{width:89%}.cover-wrap{padding:18px 14px 0}.cover-image{border-radius:3px}section{padding:42px 0}.section-title{font-size:1.9rem}.section-intro{font-size:.96rem}.intro-card{margin-top:24px;padding:22px 20px}.episode-card{margin-top:28px;padding:25px 21px}.episodes{padding-top:46px;padding-bottom:65px}}
   </style>
 </head>
-
 <body>
   <main class="book">
-
-    <div class="cover-wrap">
-      <img
-        class="cover-image"
-        src="../img/ask_ve_taht_copertina_page.webp"
-        alt="Aşk ve Taht — Between Fiction and History, a project by Il Tappeto Volante">
-    </div>
-
-    <section>
-      <div class="content">
-        <h2 class="section-title">Beyond the Screen</h2>
-        <p class="section-intro">
-          Follow <em>Aşk ve Taht</em> beyond the television story and into the world of
-          13th-century Anatolia, discovering the people, places and events behind the rise
-          of Sultan Alaeddin Keykubad.
-        </p>
-        <div class="intro-card">
-          <p>
-            From characters and political struggles to cities, fortresses, art and archaeology,
-            we compare the television narrative with historical sources and evidence.
-            Sometimes history gives us a clear answer. Sometimes the sources disagree.
-            And sometimes the answer is simply: <em>we do not know yet.</em>
-          </p>
-        </div>
-      </section>
-
-    <section class="episodes" id="episodes">
-      <div class="content">
-        <h2 class="section-title">Explore the Episodes</h2>
-        <p class="section-intro">Every episode opens a door onto the real world that inspired the series. Follow the story from fiction into history.</p>
-
-        <article class="episode-card">
-          <div class="episode-number">Episode 01</div>
-          <h3>Before the Throne</h3>
-          <p>
-            When we first meet Alaeddin Keykubad, he is not yet the powerful
-            Sultan remembered by history. He is a prisoner. But why did a
-            Seljuk prince end up behind fortress walls?
-          </p>
-
-          <span class="episode-link"><a href="episode-1/">Enter the historical dossier →</a></span>
-        </article>
-
-        <p class="coming">
-          New episodes and historical discoveries will be added as the series unfolds.
-        </p>
-      </div>
-    </section>
-
-    <footer>
-      <img class="lorella-seal"
-           src="../img/sigillo_ceralacca_lorella_cr.png"
-           alt="Lorella signature seal">
-      <strong>Il Tappeto Volante</strong><br>
-      <span>© 2026 Lorella · All rights reserved</span>
-    </footer>
-
+    <div class="cover-wrap"><img class="cover-image" src="../img/ask_ve_taht_copertina_page.webp" alt="Aşk ve Taht — Between Fiction and History, a project by Il Tappeto Volante"></div>
+    <section><div class="content"><h2 class="section-title">Beyond the Screen</h2>
+      <p class="section-intro">Follow <em>Aşk ve Taht</em> beyond the television story and into the world of 13th-century Anatolia, discovering the people, places and events behind the rise of Sultan Alaeddin Keykubad.</p>
+      <div class="intro-card"><p>From characters and political struggles to cities, fortresses, art and archaeology, we compare the television narrative with historical sources and evidence. Sometimes history gives us a clear answer. Sometimes the sources disagree. And sometimes the answer is simply: <em>we do not know yet.</em></p></div>
+    </div></section>
+    <section class="episodes" id="episodes"><div class="content"><h2 class="section-title">Explore the Episodes</h2>
+      <p class="section-intro">Every episode opens a door onto the real world that inspired the series. Follow the story from fiction into history.</p>
+      <article class="episode-card"><div class="episode-number">Episode 01</div><h3>Before the Throne</h3>
+        <p>When we first meet Alaeddin Keykubad, he is not yet the powerful Sultan remembered by history. He is a prisoner. But why did a Seljuk prince end up behind fortress walls?</p>
+        <a class="episode-link" href="episode-1/">Enter the historical dossier →</a>
+      </article>
+      <p class="coming">New episodes and historical discoveries will be added as the series unfolds.</p>
+    </div></section>
+    <footer><img class="lorella-seal" src="../img/sigillo_ceralacca_lorella_cr.png" alt="Lorella signature seal"><strong>Il Tappeto Volante</strong><br><span>© 2026 Lorella · All rights reserved</span></footer>
   </main>
 </body>
 </html>
