@@ -195,8 +195,9 @@
         function openBio() { document.getElementById("bioModal").style.display = "flex"; }
         function closeBio() { document.getElementById("bioModal").style.display = "none"; }
         function closeBioOutside(event) { if (event.target.id === "bioModal") closeBio(); }
-    </script>
-  <div id="contatore-visite" style="display:flex; justify-content:center; margin:24px 0;"></div>
+<div id="contatore-visite"
+     style="display:flex; justify-content:center; margin:24px 0;">
+</div>
 
 <script data-goatcounter="https://iltappetovolante.goatcounter.com/count"
         src="https://gc.zgo.at/count.js"></script>
@@ -204,7 +205,37 @@
 <script>
     window.goatcounter.visit_count({
         append: "#contatore-visite",
-        no_branding: true
+        no_branding: true,
+        style: `
+            div {
+                width: 230px;
+                height: auto;
+                padding: 14px;
+                border: 1px solid #c9a44c;
+                border-radius: 12px;
+                background: #070713;
+                color: #e2bd62;
+                font-family: Georgia, serif;
+                text-align: center;
+                box-shadow: 0 0 12px rgba(201, 164, 76, 0.25);
+            }
+
+            #gcvc-for {
+                font-size: 0;
+            }
+
+            #gcvc-for::after {
+                content: "Visite a questa pagina";
+                font-size: 16px;
+                color: #e2bd62;
+            }
+
+            #gcvc-views {
+                color: #f4cf70;
+                font-size: 32px;
+                font-weight: bold;
+            }
+        `
     });
 </script>
 </body>
