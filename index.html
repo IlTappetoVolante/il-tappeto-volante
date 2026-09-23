@@ -196,7 +196,7 @@
         function closeBio() { document.getElementById("bioModal").style.display = "none"; }
         function closeBioOutside(event) { if (event.target.id === "bioModal") closeBio(); }
     </script>     
-<div id="contatore-visite"
+<<div id="contatore-visite"
      style="display:flex; justify-content:center; margin:24px 0;">
 </div>
 
@@ -209,16 +209,16 @@
         no_branding: true,
         style: `
             div {
-                width: 230px;
-                height: auto;
-                padding: 14px;
+                width: 200px;
+                height: 60px;
+                box-sizing: border-box;
+                padding: 6px;
                 border: 1px solid #c9a44c;
-                border-radius: 12px;
+                border-radius: 8px;
                 background: #070713;
                 color: #e2bd62;
                 font-family: Georgia, serif;
                 text-align: center;
-                box-shadow: 0 0 12px rgba(201, 164, 76, 0.25);
             }
 
             #gcvc-for {
@@ -227,13 +227,14 @@
 
             #gcvc-for::after {
                 content: "Visite a questa pagina";
-                font-size: 16px;
+                font-size: 13px;
                 color: #e2bd62;
             }
 
             #gcvc-views {
                 color: #f4cf70;
-                font-size: 32px;
+                font-size: 22px;
+                line-height: 24px;
                 font-weight: bold;
             }
         `
