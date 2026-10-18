@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>La Regia Unica · Il Tappeto Volante & Il Dizionario dei Sogni</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --notte: #07131c;
+    --pergamena: #faf1df;
+    --inchiostro: #2d241e;
+    --oro: #d0a13e;
+    --oro-chiaro: #ffe3a0;
+    --rosso: #8a241b;
+    --tappeto: #4a2c1d;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    color: #f8f0df;
+    background: radial-gradient(circle at 50% 5%, #184357 0, transparent 38rem), linear-gradient(160deg, #081821, #050a0e 70%);
+    font: 400 15px/1.7 Merriweather, serif;
+    padding-bottom: 60px;
+  }
+  header {
+    text-align: center;
+    padding: 22px 15px;
+    border-bottom: 1px solid #d0a13e55;
+    background: #061017dd;
+  }
+  h1 {
+    margin: 0;
+    color: var(--oro-chiaro);
+    font: 700 clamp(2.1rem, 5vw, 2.8rem)/1.1 'Dancing Script', cursive;
+  }
+  .sub {
+    margin: 6px 0 16px;
+    font-size: 0.85rem;
+    color: #e8d5ae;
+    font-style: italic;
+  }
+  .tabs {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    max-width: 920px;
+    margin: auto;
+  }
+  .tab-btn {
+    padding: 10px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--oro);
+    background: #122a35;
+    color: var(--oro-chiaro);
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 0.86rem;
+  }
+  .tab-btn.active {
+    background: linear-gradient(135deg, #f6db99, #c9902f);
+    color: #22170c;
+  }
+  main {
+    max-width: 860px;
+    margin: 22px auto;
+    padding: 0 14px;
+  }
+  .panel { display: none; }
+  .panel.active { display: block; }
+  .card {
+    background: linear-gradient(150deg, #faf1df, #ecdbc0);
+    color: var(--inchiostro);
+    border: 1px solid #d2ad62;
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 12px 32px #0008;
+  }
+  .card h2 {
+    margin: 0 0 10px;
+    color: var(--rosso);
+    font: 700 2rem/1.1 'Dancing Script', cursive;
+  }
+  label {
+    display: block;
+    margin: 12px 0 5px;
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: #5a2818;
+  }
+  select, input[type="text"], textarea {
+    width: 100%;
+    padding: 11px 13px;
+    border-radius: 8px;
+    border: 1px solid #b58938;
+    background: #fffdf8;
+    color: var(--inchiostro);
+    font: inherit;
+    font-size: 0.94rem;
+  }
+  textarea {
+    min-height: 210px;
+    resize: vertical;
+    line-height: 1.6;
+  }
+  .btn-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+  }
+  .btn {
+    padding: 11px 16px;
+    border-radius: 999px;
+    border: 1px solid #b58938;
+    background: #122a35;
+    color: #ffeabb;
+    font-weight: 700;
+    cursor: pointer;
+    flex: 1;
+    min-width: 170px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.88rem;
+  }
+  .btn.gold {
+    background: linear-gradient(135deg, #f6db99, #c9902f);
+    color: #22170c;
+    border-color: #efc66e;
+  }
+  .preview-box {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 14px;
+    align-items: center;
+    margin-top: 14px;
+    padding: 12px;
+    background: #fff9eb;
+    border: 1px solid #d2ad62;
+    border-radius: 8px;
+  }
+  .preview-box img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--oro);
+  }
+  .badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #8a241b18;
+    color: var(--rosso);
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-top: 6px;
+    text-decoration: none;
+  }
+  .log-list {
+    margin: 8px 0 0;
+    padding-left: 18px;
+    font-size: 0.88rem;
+  }
+  .social-launchers {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  @media (max-width: 600px) {
+    .preview-box { grid-template-columns: 1fr; }
+    .preview-box img { height: 180px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>La Regia · Il Tappeto Volante &amp; Il Dizionario dei Sogni</h1>
+  <p class="sub">Post Civetta (Contacapre) &amp; Rubrica Social (FB, IG, YT)</p>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="openTab('tappeto', this)">🧞‍♂️ Il Tappeto Volante (Tutti i contenuti)</button>
+    <button class="tab-btn" onclick="openTab('porta', this)">🚪 Viaggi da Sogno (Porta &amp; Tavole)</button>
+    <button class="tab-btn" onclick="openTab('stelle', this)">⭐️ Dizionario dei Sogni (Stelle FB)</button>
+    <button class="tab-btn" onclick="openTab('sveglia', this)">🔔 Sveglia &amp; Diario</button>
+  </div>
+</header>
+
+<main>
+  <!-- TAB 1: IL TAPPETO VOLANTE -->
+  <section id="tab-tappeto" class="panel active">
+    <div class="card">
+      <h2>1. Generatore Universale Post Civetta · Il Tappeto Volante</h2>
+      <p style="margin-top:0;font-size:0.88rem;">Incolla il link di qualsiasi landing page o scegline una rapida: la Regia estrae testi e foto[span_8](start_span)[span_8](end_span)[span_9](start_span)[span_9](end_span).</p>
+
+      <label for="preset-tappeto">Scegli una pagina rapida:</label>
+      <select id="preset-tappeto" onchange="cambiaPresetTappeto()">
+        <option value="https://iltappetovolante.github.io/il-tappeto-volante/viaggi-da-sogno/porta/">🚪 Viaggi da Sogno · Sognare una Porta</option>
+        <option value="https://iltappetovolante.github.io/il-tappeto-volante/viaggi-da-sogno/babbucce/">🥿 Viaggi da Sogno · Sognare le Babbucce</option>
+        <option value="https://iltappetovolante.github.io/il-tappeto-volante/">🕌 Home Page · Il Tappeto Volante</option>
+      </select>
+
+      <label for="url-universale">Indirizzo (URL) della Landing Page:</label>
+      <input type="text" id="url-universale" value="https://iltappetovolante.github.io/il-tappeto-volante/viaggi-da-sogno/porta/">
+
+      <div class="btn-row">
+        <button class="btn gold" onclick="estraiDaQualsiasiPagina()">🔍 Leggi la Pagina e Crea i Post Civetta</button>
+      </div>
+
+      <label for="sezioni-tappeto">Sezioni o tappe trovate nella pagina:</label>
+      <select id="sezioni-tappeto" onchange="creaTestoUniversale()"></select>
+
+      <label for="tono-tappeto">Stile del Post:</label>
+      <select id="tono-tappeto" onchange="creaTestoUniversale()">
+        <option value="narrativo">✨ Narrativo e suggestivo</option>
+        <option value="curiosita">🔎 Curiosità / "Lo sapevi che..."</option>
+        <option value="domanda">💬 Domanda aperta (per social)</option>
+      </select>
+
+      <div class="preview-box">
+        <img id="img-universale" src="https://iltappetovolante.github.io/il-tappeto-volante/img/sogni/preview_porta.jpg" alt="Anteprima immagine">
+        <div>
+          <strong>Immagine trovata:</strong>
+          <p id="didascalia-universale" style="margin:4px 0;font-size:0.84rem;">Premi "Leggi la Pagina" per caricare.</p>
+          <a id="link-img-universale" class="badge" href="https://iltappetovolante.github.io/il-tappeto-volante/img/sogni/preview_porta.jpg" target="_blank">🖼️ Apri/Salva Immagine</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2. Valida e Pubblica (Copia e apri FB, IG o YT)</h2>
+      <label for="testo-universale">Bozza pronta (modificabile):</label>
+      <textarea id="testo-universale"></textarea>
+      <div class="btn-row">
+        <button class="btn" onclick="prossimaSezioneUniversale()">🎲 Pesca un altro punto</button>
+      </div>
+      <div class="social-launchers">
+        <button class="btn gold" onclick="validaESocial('testo-universale', 'Tappeto Volante', 'fb')">✅ Copia &amp; Apri FB</button>
+        <button class="btn" onclick="validaESocial('testo-universale', 'Tappeto Volante', 'ig')">📸 Copia &amp; Apri IG</button>
+        <button class="btn" onclick="validaESocial('testo-universale', 'Tappeto Volante', 'yt')">🎬 Copia &amp; Apri YT</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 2: PORTA -->
+  <section id="tab-porta" class="panel">
+    <div class="card">
+      <h2>1. Archivio Pronto · Sognare una Porta</h2>
+      <label for="page-url">Link della Tavola Onirica:</label>
+      <input type="text" id="page-url" value="https://iltappetovolante.github.io/il-tappeto-volante/viaggi-da-sogno/porta/">
+
+      <label for="spunto-porta">Scegli il segreto della Porta:</label>
+      <select id="spunto-porta" onchange="aggiornaCivettaPorta()"></select>
+
+      <div class="preview-box">
+        <img id="img-porta" src="https://iltappetovolante.github.io/il-tappeto-volante/img/sogni/preview_porta.jpg" alt="Tavola">
+        <div>
+          <strong>Immagine abbinata:</strong>
+          <p style="margin:4px 0;font-size:0.85rem;">Antica porta marocchina azzurra.</p>
+          <a id="link-img-porta" class="badge" href="https://iltappetovolante.github.io/il-tappeto-volante/img/sogni/preview_porta.jpg" target="_blank">🖼️ Apri immagine</a>
+          <span id="stato-rilancio" class="badge">Pronto</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2. Valida il Post Civetta</h2>
+      <textarea id="testo-civetta"></textarea>
+      <div class="btn-row">
+        <button class="btn" onclick="pescaSpuntoCasuale()">🎲 Pescane un altro</button>
+      </div>
+      <div class="social-launchers">
+        <button class="btn gold" onclick="validaESocial('testo-civetta', 'Tavola Porta', 'fb')">✅ Copia &amp; Apri FB</button>
+        <button class="btn" onclick="validaESocial('testo-civetta', 'Tavola Porta', 'ig')">📸 Copia &amp; Apri IG</button>
+        <button class="btn" onclick="validaESocial('testo-civetta', 'Tavola Porta', 'yt')">🎬 Copia &amp; Apri YT</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 3: STELLE -->
+  <section id="tab-stelle" class="panel">
+    <div class="card">
+      <h2>1. Post Bi/Trisettimanale · Il Dizionario dei Sogni ⭐️</h2>
+      <label for="tema-sogno">Scegli il tema onirico:</label>
+      <select id="tema-sogno" onchange="generaPostStelle()"></select>
+
+      <label for="includi-link">Includi link alla Landing Page?</label>
+      <select id="includi-link" onchange="generaPostStelle()">
+        <option value="si">Sì (porta traffico a GoatCounter)</option>
+        <option value="no">No (solo post da commenti e Stelle)</option>
+      </select>
+
+      <div class="btn-row">
+        <button class="btn" onclick="nuovoSognoCasuale()">🎲 Cambia tema</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2. Validazione prima della pubblicazione</h2>
+      <textarea id="testo-stelle"></textarea>
+      <div class="social-launchers" style="margin-top:14px;">
+        <button class="btn gold" onclick="validaESocial('testo-stelle', 'Dizionario Sogni ⭐️', 'fb')">✅ Copia &amp; Apri FB</button>
+        <button class="btn" onclick="validaESocial('testo-stelle', 'Dizionario Sogni ⭐️', 'ig')">📸 Copia &amp; Apri IG</button>
+        <button class="btn" onclick="validaESocial('testo-stelle', 'Dizionario Sogni ⭐️', 'yt')">🎬 Copia &amp; Apri YT</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 4: SVEGLIA -->
+  <section id="tab-sveglia" class="panel">
+    <div class="card">
+      <h2>🔔 Sveglia Bi/Trisettimanale</h2>
+      <p style="margin-top:0;font-size:0.9rem;">Promemoria automatico per il telefono.</p>
+      <div class="btn-row">
+        <button class="btn gold" onclick="scaricaSveglia(3)">📲 Sveglia Trisettimanale (Mar-Gio-Dom)</button>
+        <button class="btn" onclick="scaricaSveglia(2)">📲 Sveglia Bisettimanale (Mar-Ven)</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>📊 Diario Unico dei Rilanci</h2>
+      <ul id="diario-lista" class="log-list"></ul>
+    </div>
+  </section>
+</main>
+
+<script>
+let archivioUniversale = [
+  {
+    titolo: "La soglia che attende una scelta",
+    testo: "Una porta separa due spazi, ma nel sogno divide soprattutto due momenti: ciò che conosciamo e ciò che potrebbe cominciare.",
+    img: "https://iltappetovolante.github.io/il-tappeto-volante/img/sogni/preview_porta.jpg"
+  }
+];
+
+const spuntiPorta = [
+  {
+    titolo: "✨ I 7 punti luminosi della Porta Azzurra",
+    testo: `Una porta azzurra nel cuore della notte, sette punti luminosi che respirano nel silenzio e una fessura di luce dorata... 🚪✨\n\nTocca i 7 simboli sulla tavola interattiva:\n👉 {URL}\n\n💬 E a te è capitato di sognare una porta negli ultimi tempi?`
+  },
+  {
+    titolo: "🚪 Sognare una porta SENZA maniglia",
+    testo: `Ti è mai capitato di sognare una porta davanti a te... e accorgerti che NON ha la maniglia? 🚪🔍\n\nScoprilo nella tavola interattiva:\n👉 {URL}\n\n💬 Raccontamelo nei commenti! ⭐️`
+  }
+];
+
+const postStelleDB = [
+  {
+    titolo: "🚪 Il test delle 3 Porte Oniriche",
+    conLink: `🌙 IL DIZIONARIO DEI SOGNI · Come appariva la porta nel tuo sogno? 🚪✨\n\n1️⃣ SOCCHIUSA: un invito con curiosità.\n2️⃣ CHIUSA A CHIAVE: attesa.\n3️⃣ LUCE DIETRO: speranza.\n\n👉 {URL}\n\n⭐️ Sostieni la pagina con una Stella!`,
+    senzaLink: `🌙 IL DIZIONARIO DEI SOGNI · Come appariva la porta nel tuo sogno? 🚪✨\n\n💬 Raccontamelo nei commenti!\n\n⭐️ Sostieni Il Dizionario dei Sogni con una Stella!`
+  }
+];
+
+function init() {
+  popolaSelettoreUniversale();
+  const selPorta = document.getElementById('spunto-porta');
+  spuntiPorta.forEach((s, i) => {
+    const o = document.createElement('option');
+    o.value = i;
+    o.textContent = s.titolo;
+    selPorta.appendChild(o);
+  });
+  const selStelle = document.getElementById('tema-sogno');
+  postStelleDB.forEach((p, i) => {
+    const o = document.createElement('option');
+    o.value = i;
+    o.textContent = p.titolo;
+    selStelle.appendChild(o);
+  });
+  creaTestoUniversale();
+  aggiornaCivettaPorta();
+  generaPostStelle();
+  aggiornaDiario();
+}
+
+function openTab(id, btn) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function cambiaPresetTappeto() {
+  document.getElementById('url-universale').value = document.getElementById('preset-tappeto').value;
+  estraiDaQualsiasiPagina();
+}
+
+function popolaSelettoreUniversale() {
+  const sel = document.getElementById('sezioni-tappeto');
+  sel.innerHTML = '';
+  archivioUniversale.forEach((item, idx) => {
+    const o = document.createElement('option');
+    o.value = idx;
+    o.textContent = item.titolo;
+    sel.appendChild(o);
+  });
+}
+
+function creaTestoUniversale() {
+  const idx = document.getElementById('sezioni-tappeto').value || 0;
+  const tono = document.getElementById('tono-tappeto').value;
+  const url = document.getElementById('url-universale').value.trim();
+  const item = archivioUniversale[idx];
+  if (!item) return;
+
+  let out = '';
+  if (tono === 'narrativo') {
+    out = `✨ ${item.titolo} ✨\n\n«${item.testo}»\n\nScopri il racconto completo:\n👉 ${url}`;
+  } else if (tono === 'curiosita') {
+    out = `🔎 ${item.titolo}\n\n${item.testo}\n\n👉 ${url}`;
+  } else {
+    out = `🌙 ${item.titolo}\n\n💬 Scrivimelo nei commenti:\n👉 ${url}`;
+  }
+
+  document.getElementById('testo-universale').value = out;
+  if (item.img) {
+    document.getElementById('img-universale').src = item.img;
+    document.getElementById('link-img-universale').href = item.img;
+  }
+}
+
+function prossimaSezioneUniversale() {
+  const sel = document.getElementById('sezioni-tappeto');
+  if (sel.options.length > 0) {
+    sel.selectedIndex = (sel.selectedIndex + 1) % sel.options.length;
+    creaTestoUniversale();
+  }
+}
+
+async function estraiDaQualsiasiPagina() {
+  const url = document.getElementById('url-universale').value.trim();
+  if (!url) return;
+  try {
+    const res = await fetch(url);
+    const html = await res.text();
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    const pageTitle = doc.querySelector('h1')?.textContent.trim() || doc.title || 'Il Tappeto Volante';
+    const ogImg = doc.querySelector('meta[property="og:image"]')?.getAttribute('content');
+    const firstImg = doc.querySelector('main img, .tavola, figure img')?.getAttribute('src');
+    const defaultImg = ogImg ? new URL(ogImg, url).href : (firstImg ? new URL(firstImg, url).href : '');
+
+    const estratti = [];
+    doc.querySelectorAll('section, article, .pannello, .variante').forEach((b) => {
+      const h = b.querySelector('h2, h3')?.textContent.trim();
+      const p = b.querySelector('p')?.textContent.trim();
+      if (h && p && p.length > 25) {
+        estratti.push({ titolo: `${pageTitle} · ${h}`, testo: p, img: defaultImg });
+      }
+    });
+    if (estratti.length > 0) {
+      archivioUniversale = estratti;
+      popolaSelettoreUniversale();
+      creaTestoUniversale();
+      alert(`✅ Pagina letta! Estratti ${estratti.length} spunti.`);
+    }
+  } catch (e) {
+    alert('Funziona online dal tuo GitHub Pages.');
+  }
+}
+
+function aggiornaCivettaPorta() {
+  const idx = document.getElementById('spunto-porta').value;
+  const url = document.getElementById('page-url').value.trim();
+  document.getElementById('testo-civetta').value = spuntiPorta[idx].text?.replace('{URL}', url) || spuntiPorta[idx].testo.replace('{URL}', url);
+}
+
+function pescaSpuntoCasuale() {
+  const sel = document.getElementById('spunto-porta');
+  sel.selectedIndex = (sel.selectedIndex + 1) % sel.options.length;
+  aggiornaCivettaPorta();
+}
+
+function generaPostStelle() {
+  const idx = document.getElementById('tema-sogno').value;
+  const conLink = document.getElementById('includi-link').value === 'si';
+  const url = document.getElementById('page-url').value.trim();
+  const item = postStelleDB[idx];
+  document.getElementById('testo-stelle').value = (conLink ? item.conLink : item.senzaLink).replace('{URL}', url);
+}
+
+function nuovoSognoCasuale() {
+  const sel = document.getElementById('tema-sogno');
+  sel.selectedIndex = (sel.selectedIndex + 1) % sel.options.length;
+  generaPostStelle();
+}
+
+function validaESocial(textareaId, etichetta, piattaforma) {
+  const testo = document.getElementById(textareaId).value;
+  navigator.clipboard.writeText(testo).then(() => {
+    const adesso = new Date().toLocaleDateString('it-IT', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
+    const log = JSON.parse(localStorage.getItem('diario_sogni_log') || '[]');
+    log.unshift(`${adesso} · [${etichetta} -> ${piattaforma.toUpperCase()}] Copiato`);
+    localStorage.setItem('diario_sogni_log', JSON.stringify(log.slice(0, 30)));
+    aggiornaDiario();
+
+    let targetUrl = 'https://www.facebook.com/';
+    if (piattaforma === 'ig') targetUrl = 'https://www.instagram.com/';
+    if (piattaforma === 'yt') targetUrl = 'https://studio.youtube.com/';
+
+    alert(`✅ Testo copiato negli appunti! Ora si aprirà ${piattaforma.toUpperCase()}: fai "Incolla" e pubblica.`);
+    window.open(targetUrl, '_blank');
+  });
+}
+
+function aggiornaDiario() {
+  const lista = document.getElementById('diario-lista');
+  const log = JSON.parse(localStorage.getItem('diario_sogni_log') || '[]');
+  lista.innerHTML = log.length
+    ? log.map(item => `<li>${item}</li>`).join('')
+    : '<li>Nessun post registrato.</li>';
+}
+
+function scaricaSveglia(volte) {
+  const byday = volte === 3 ? 'TU,TH,SU' : 'TU,FR';
+  const descGiorni = volte === 3 ? 'Martedì, Giovedì e Domenica' : 'Martedì e Venerdì';
+  const ics = [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "BEGIN:VEVENT",
+    `SUMMARY:✨ Regia Pronta · Il Tappeto Volante & Dizionario dei Sogni ⭐️`,
+    `DESCRIPTION:Apri https://iltappetovolante.github.io/il-tappeto-volante/regia/ (${descGiorni}) per validare e pubblicare!`,
+    `RRULE:FREQ=WEEKLY;BYDAY=${byday}`,
+    "DTSTART:20261020T080000Z",
+    "DTEND:20261020T082000Z",
+    "END:VEVENT",
+    "END:VCALENDAR"
+  ].join("\r\n");
+
+  const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `sveglia-regia-${volte}x.ics`;
+  a.click();
+}
+
+init();
+</script>
+</body>
+</html>
