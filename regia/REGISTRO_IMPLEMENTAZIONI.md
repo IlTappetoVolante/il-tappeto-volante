@@ -34,3 +34,10 @@
 **Sicurezza e compatibilità:** il modulo non ricarica l'immagine per la traduzione e conserva il testo originale; utilizza la stessa autenticazione e App Check. Nessuna modifica all'indice principale della Regia.
 
 **Stato:** pubblicato sul ramo principale del repository ma solo al percorso `regia/regia-test/index.html`; sintassi degli script verificata staticamente. Da completare collaudo browser con Firebase e verifica effettiva dei pulsanti, della copia e delle lingue.
+
+
+## 2026-10-22 — Esito primo collaudo della traduzione
+
+**Verifica riferita dall'utente:** funzione «Traduci caption» provata con successo nella Regia di prova; traduzione riuscita. Il modello Gemini inizialmente selezionato è stato cambiato manualmente e il modello scelto si è rivelato molto veloce. Il nome del modello alternativo non è ancora stato comunicato; **non** modificare il modello predefinito sulla base di supposizioni.
+
+**Da verificare:** nome del modello risultato veloce, eventuale scelta come predefinito, ulteriori lingue e controlli di regressione. **Regia principale invariata.**
