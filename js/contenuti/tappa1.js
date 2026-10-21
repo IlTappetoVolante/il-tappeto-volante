@@ -248,14 +248,6 @@ const TAPPA_1_DATA = {
     },
     {
       "type": "testo",
-      "paragrafo": "E per chiudere, un ultimo volo. Lo sguardo abbraccia tutto il Corno d’Oro, il Bosforo, le moschee imperiali e la città infinita. Un gioco pirotecnico di luci che celebra il <strong>Caos Affascinante di Istanbul</strong>."
-    },
-    {
-      "type": "immagine",
-      "src": "https://i.postimg.cc/kMfL0y1Y/1762880601876.jpeg"
-    },
-    {
-      "type": "testo",
       "paragrafo": "Dopo la passeggiata nel passato, torniamo al presente. Secondo me, non c'è luogo che incarni il concetto di \"cuore pulsante\" più di Eminönü Meydanı. Non è una piazza nel senso rinascimentale italiano, un \"salotto\" ordinato. È un nodo vitale, un formicaio glorioso dove la città incontra l'acqua."
     },
     {
