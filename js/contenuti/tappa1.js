@@ -52,7 +52,7 @@ const TAPPA_1_DATA = {
         { type: "immagine", src: "img/istanbul_hippodrome_obelisks_lorella.jpg", credito: "Foto: Lorella — Il Tappeto Volante" },
         { type: "testo", paragrafo: "Nella penombra, lo sguardo interroga i due testimoni di pietra: l’<strong>Obelisco di Teodosio</strong> (portato dall’Egitto nel IV secolo) e, alle sue spalle, l’<strong>Obelisco Murato</strong>. Sono i resti dell’antica grandezza bizantina, che oggi vegliano sulla vita notturna della piazza." },
         { type: "testo", paragrafo: "La <strong>Chiesa di S. Sofia</strong> (Basilica di Santa Sofia) è oggi <strong>Aya Sofya</strong>. Lo sguardo risale, quasi con soggezione, verso l’icona di Costantinopoli: la cupola di Aya Sofya che si staglia contro il cielo. È la <strong>Ch. of S. Sophia</strong> della mappa, la chiesa madre di Bisanzio, sopravvissuta ai secoli e ancora oggi punto evocativo della città antica." },
-        { type: "immagine", src: "https://i.postimg.cc/W4WqWqWq/Hagia-Sophia-Dome.jpg" },
+        { type: "immagine", src: "img/istanbul_hagia_sophia_axp_pexels.jpg", credito: "Foto: AXP Photography / Pexels — uso gratuito" },
         { type: "testo", paragrafo: "Ed ecco che lo sguardo trova una nuova prospettiva, questa volta incorniciata. Vista da uno dei grandi portali della piazza, Aya Sofya appare come una visione al tramonto, un gigante di pietra rosa che osserva la marea di persone che anima l’antico Ippodromo." },
         { type: "immagine", src: "https://i.postimg.cc/XYZ12345/Hagia-Sophia-Framed.jpg" },
         { type: "testo", paragrafo: "Ma il cuore di Costantinopoli non batteva solo in superficie. Proprio qui accanto si nascondeva il <em>Palazzo Sommerso</em>: la <strong>Cisterna Basilica</strong>." },
