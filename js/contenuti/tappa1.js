@@ -56,7 +56,7 @@ const TAPPA_1_DATA = {
         { type: "testo", paragrafo: "Ed ecco che lo sguardo trova una nuova prospettiva, questa volta incorniciata dalla geometria scura di una grata. Tra il verde del giardino e le palme, la cupola e i minareti di Aya Sofya emergono luminosi contro il cielo azzurro: un monumento millenario osservato quasi di nascosto, attraverso una soglia della Istanbul quotidiana." },
         { type: "immagine", src: "img/istanbul_hagia_sophia_framed_emre_pexels.jpg", credito: "Foto: Emre Ateşoğlu / Pexels — uso gratuito" },
         { type: "testo", paragrafo: "Ma il cuore di Costantinopoli non batteva solo in superficie. Proprio qui accanto si nascondeva il <em>Palazzo Sommerso</em>: la <strong>Cisterna Basilica</strong>." },
-        { type: "immagine", src: "https://i.postimg.cc/9X7BqG3f/1762887390061.jpeg" },
+        { type: "immagine", src: "img/istanbul_basilica_cistern_mehmet_pexels.jpg", credito: "Foto: Mehmet Sütlaş / Pexels — uso gratuito" },
         { type: "testo", paragrafo: "Qui lo sguardo deve scendere nel buio e nell’acqua, perdendosi in una foresta di 336 colonne di marmo. In fondo, quasi per caso, incontra il mito: due teste di <strong>Medusa</strong>, capovolte e usate come basi per le colonne. Il paganesimo antico, sconfitto, fatto fondamenta della nuova città cristiana." },
         { type: "immagine", src: "https://i.postimg.cc/k4yYjGjP/1762889336497.jpeg" },
         { type: "testo", paragrafo: "In sintesi, passeggiare per il quartiere di Fatih oggi significa letteralmente camminare attraverso l’antica Costantinopoli. Lo <em>scheletro urbano</em>, le mura e i principali edifici sono ancora tutti lì, testimoni di secoli di storia." },
