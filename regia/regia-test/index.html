@@ -23,6 +23,19 @@ label{display:block;margin:12px 0 5px;font-weight:700;font-size:.88rem;color:#5a
 .ai-panel{margin-top:16px;padding:16px;border:2px solid #b58938;border-radius:10px;background:linear-gradient(150deg,#fffdf7,#f4e6cc)}.ai-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ai-grid-2>*{min-width:0}.ai-note{font-size:.82rem;color:#5a2818}.ai-panel h3{margin:4px 0;color:var(--rosso);font:700 1.85rem/1.2 'Dancing Script',cursive}
 #regia-login-shield{position:fixed;inset:0;z-index:99999;background:rgba(5,12,17,.98);display:flex;justify-content:center;align-items:center;padding:20px;overflow:auto}#regia-login-shield[hidden]{display:none!important}#regia-login-shield .login-card{width:min(100%,440px);background:var(--pergamena);color:var(--inchiostro);border:2px solid var(--oro);border-radius:13px;padding:24px}#regia-login-shield h2{font:700 2rem 'Dancing Script',cursive;color:var(--rosso);margin:0}#regia-login-shield form[hidden]{display:none}#regia-login-shield button{width:100%;margin-top:10px}
 @media(max-width:600px){.preview-box,.ai-grid-2{grid-template-columns:1fr}.preview-box img{height:180px}.card{padding:15px}}
+
+/* REGIA_CAPTION_DA_IMMAGINE_V1_20261021 — aggiunta isolata */
+.ci-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:15px;align-items:start;margin-top:16px}
+.ci-image-panel,.ci-caption-panel{padding:12px;border:1px solid #d2ad62;border-radius:10px;background:#fffdf8;min-width:0}
+.ci-image-panel img{display:block;max-width:100%;max-height:400px;width:100%;height:auto;object-fit:contain;border-radius:6px;background:#eee8dd}
+.ci-image-panel img:not([src]){display:none}
+.ci-file{display:block;max-width:100%;width:100%;padding:10px;border:1px solid #b58938;border-radius:8px;background:#fffdf8;color:#2d241e}
+#ci-output{width:100%;min-height:240px}#ci-check[hidden],#ci-result[hidden]{display:none!important}
+#ci-check{padding:13px;margin-top:13px;border:2px solid #b58938;border-radius:10px;background:#fff9e9;color:#2d241e}
+#ci-evidence{white-space:pre-wrap;overflow-wrap:anywhere;font-size:.9rem}
+#ci-preview-note{font-size:.8rem;color:#5a2818;overflow-wrap:anywhere}
+@media(max-width:600px){.ci-layout{grid-template-columns:1fr}#ci-output{min-height:190px}}
+
 </style>
 </head>
 <body>
@@ -34,6 +47,7 @@ label{display:block;margin:12px 0 5px;font-weight:700;font-size:.88rem;color:#5a
 <button class="tab-btn" onclick="openTab('porta',this)">🚪 Viaggi da Sogno (Porta &amp; Tavole)</button>
 <button class="tab-btn" onclick="openTab('stelle',this)">⭐️ Dizionario dei Sogni (Stelle FB)</button>
 <button class="tab-btn" onclick="openTab('sveglia',this)">🔔 Sveglia &amp; Diario</button>
+<button class="tab-btn" onclick="openTab('immagine',this)">📷 Caption da immagine</button>
 </div></header>
 <main>
 <section id="tab-tappeto" class="panel active">
@@ -86,6 +100,49 @@ label{display:block;margin:12px 0 5px;font-weight:700;font-size:.88rem;color:#5a
 <section id="tab-stelle" class="panel"><div class="card"><h2>1. Post Bi/Trisettimanale · Il Dizionario dei Sogni ⭐️</h2><label for="tema-sogno">Scegli il tema onirico:</label><select id="tema-sogno" onchange="generaPostStelle()"></select><label for="includi-link">Includi link alla Landing Page?</label><select id="includi-link" onchange="generaPostStelle()"><option value="si">Sì (porta traffico a GoatCounter)</option><option value="no">No (solo post da commenti e Stelle)</option></select><div class="btn-row"><button class="btn" onclick="nuovoSognoCasuale()">🎲 Cambia tema</button></div></div>
 <div class="card"><h2>2. Validazione prima della pubblicazione</h2><textarea id="testo-stelle"></textarea><div id="feedback-stelle" class="status-banner ok"></div><div class="btn-row"><button class="btn outline" onclick="soloCopiaTesto('testo-stelle','Dizionario Sogni ⭐️','feedback-stelle')">📋 Solo Copia Testo</button></div><div class="social-launchers"><button class="btn gold" onclick="copiaEApriSocial('testo-stelle','Dizionario Sogni ⭐️','fb','feedback-stelle')">📋 Copia &amp; Apri FB</button><button class="btn" onclick="copiaEApriSocial('testo-stelle','Dizionario Sogni ⭐️','ig','feedback-stelle')">📸 Copia &amp; Apri IG</button><button class="btn" onclick="copiaEApriSocial('testo-stelle','Dizionario Sogni ⭐️','yt','feedback-stelle')">🎬 Copia &amp; Apri YT</button></div><div class="editorial-actions"><button class="btn outline" onclick="registraStatoDiario('testo-stelle','Dizionario Sogni ⭐️','Approvato','feedback-stelle')">✅ Segna come Approvato</button><button class="btn green" onclick="registraStatoDiario('testo-stelle','Dizionario Sogni ⭐️','Pubblicato','feedback-stelle')">🚀 Segna già Pubblicato</button></div></div></section>
 <section id="tab-sveglia" class="panel"><div class="card"><h2>🔔 Sveglia Bi/Trisettimanale (Fuso Orario Italia + Notifica)</h2><p style="margin-top:0;font-size:.9rem">Scarica il file calendario (.ics) in Europe/Rome, ore 10:00, con avviso DISPLAY 10 minuti prima. Il suono dipende dalle notifiche del calendario.</p><div class="btn-row"><button class="btn gold" onclick="scaricaSveglia(3)">📲 Trisettimanale (Mar-Gio-Dom, 10:00)</button><button class="btn" onclick="scaricaSveglia(2)">📲 Bisettimanale (Mar-Ven, 10:00)</button></div></div><div class="card"><h2>📊 Diario Unico dei Rilanci</h2><p style="margin-top:0;font-size:.86rem">Distingue Testo copiato, Approvato e Pubblicato. «Pubblicato» va segnato soltanto dopo l'invio effettivo.</p><ul id="diario-lista" class="log-list"></ul><div class="btn-row"><button class="btn outline" onclick="svuotaDiario()">🗑️ Svuota Diario</button></div></div></section>
+
+<!-- REGIA_CAPTION_DA_IMMAGINE_V1_20261021 -->
+<section id="tab-immagine" class="panel">
+  <div class="card">
+    <h2>📷 Caption da immagine</h2>
+    <p style="margin-top:0;font-size:.88rem">Carica una fotografia o uno screenshot. L'anteprima è locale: l'immagine viene inviata a Gemini solo quando premi «Crea caption». Non viene pubblicato nulla automaticamente.</p>
+    <label for="ci-file">Foto o screenshot (JPEG, PNG, WebP, massimo 12 MB)</label>
+    <input id="ci-file" class="ci-file" type="file" accept="image/jpeg,image/png,image/webp">
+    <div class="ai-grid-2">
+      <div><label for="ci-project">Progetto</label><select id="ci-project"><option value="tappeto">🧞‍♂️ Il Tappeto Volante</option><option value="dizionario">⭐ Il Dizionario dei Sogni</option></select></div>
+      <div><label for="ci-social">Social</label><select id="ci-social"><option value="ig">Instagram</option><option value="fb">Facebook</option><option value="yt">YouTube</option><option value="threads">Threads</option></select></div>
+      <div><label for="ci-lang">Lingua</label><select id="ci-lang"><option value="en">🇬🇧 Inglese</option><option value="it">🇮🇹 Italiano</option><option value="it-en">🇮🇹 Italiano + 🇬🇧 Inglese</option><option value="en-it">🇬🇧 Inglese + 🇮🇹 Italiano</option><option value="es">🇪🇸 Spagnolo</option><option value="fr">🇫🇷 Francese</option><option value="tr">🇹🇷 Turco</option></select></div>
+    </div>
+    <label for="ci-instructions">Istruzioni aggiuntive (facoltative)</label>
+    <textarea id="ci-instructions" rows="3" style="min-height:85px" placeholder="Per esempio: tono poetico, una domanda finale, niente hashtag..."></textarea>
+    <div class="btn-row"><button id="ci-create" class="btn gold" type="button">✨ Crea caption</button></div>
+    <div id="ci-status" class="status-banner info" role="status" aria-live="polite">Scegli un'immagine per iniziare.</div>
+    <div id="ci-check" hidden>
+      <strong>🔎 Conferma richiesta: riconoscimento incerto</strong>
+      <p id="ci-evidence"></p>
+      <label for="ci-identification">Identità / luogo / soggetto confermato da te</label>
+      <input id="ci-identification" type="text" placeholder="Scrivi il nome solo se lo conosci con certezza">
+      <div class="btn-row">
+        <button id="ci-confirm" class="btn gold" type="button">✅ Conferma e crea caption</button>
+        <button id="ci-generic" class="btn outline" type="button">🕊️ Caption senza nomi specifici</button>
+      </div>
+      <p class="ai-note">Puoi evitare di indicare un luogo: la descrizione generica non attribuirà nomi o provenienze non confermati.</p>
+    </div>
+    <div id="ci-result" class="ci-layout" hidden>
+      <div class="ci-image-panel">
+        <strong>🖼️ Immagine</strong>
+        <img id="ci-preview" alt="Anteprima della fotografia o dello screenshot selezionato">
+        <p id="ci-preview-note"></p>
+      </div>
+      <div class="ci-caption-panel">
+        <label for="ci-output">✏️ Caption modificabile</label>
+        <textarea id="ci-output" placeholder="La caption apparirà qui dopo la generazione. Puoi modificarla liberamente."></textarea>
+        <div class="btn-row"><button id="ci-copy" type="button" class="btn green">📋 Copia caption</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 </main>
 <div id="regia-login-shield" role="dialog" aria-modal="true" aria-labelledby="login-title"><div class="login-card"><h2 id="login-title">🔐 Accesso alla Regia Unica</h2><p id="login-intro">Verifica della sessione in corso…</p><form id="login-form" hidden><label for="login-email">Email</label><input id="login-email" type="email" autocomplete="username" required><label for="login-password">Password</label><input id="login-password" type="password" autocomplete="current-password" required><button id="login-submit" type="submit" class="btn gold">🔑 Accedi</button></form><div id="login-status" class="status-banner info" role="status" aria-live="polite"></div></div></div>
 <!-- SCRIPT 1: lettore, rubriche, diario, promemoria. Nessuna dipendenza da Firebase. -->
@@ -313,6 +370,150 @@ try{
   controls();
  },err=>{el('login-form').hidden=false;el('login-intro').textContent='Non è stato possibile verificare la sessione.';el('login-status').className='status-banner err';el('login-status').textContent=String(err.message||err)});
 }catch(error){console.error('Errore inizializzazione Firebase:',error);el('login-form').hidden=true;el('login-intro').textContent='Firebase non è disponibile.';el('login-status').className='status-banner err';el('login-status').textContent=String(error.message||error)}
+
+// REGIA_CAPTION_DA_IMMAGINE_V1_20261021 — aggiunta isolata alla sessione Firebase già esistente.
+const ciState={file:null,previewUrl:null,part:null,analysis:null,busy:false,seq:0};
+const ciEl=id=>document.getElementById(id);
+function ciStatus(kind,message){const box=ciEl('ci-status');box.className='status-banner '+kind;box.textContent=message;}
+function ciBusy(b){ciState.busy=b;for(const id of ['ci-create','ci-confirm','ci-generic'])ciEl(id).disabled=b;}
+function ciReset(){ciState.seq++;ciState.part=null;ciState.analysis=null;ciEl('ci-check').hidden=true;ciEl('ci-output').value='';ciEl('ci-result').hidden=true;}
+function ciFileSelected(){
+  ciReset();if(ciState.previewUrl){URL.revokeObjectURL(ciState.previewUrl);ciState.previewUrl=null;}
+  const file=ciEl('ci-file').files?.[0]||null;ciState.file=null;
+  if(!file){ciStatus('info','Scegli una foto o uno screenshot.');return;}
+  if(!['image/jpeg','image/png','image/webp'].includes(file.type)){ciStatus('err','Formato non supportato. Usa JPEG, PNG o WebP.');return;}
+  if(!file.size||file.size>12*1024*1024){ciStatus('err','L’immagine deve essere valida e non superare 12 MB.');return;}
+  ciState.file=file;ciState.previewUrl=URL.createObjectURL(file);
+  ciEl('ci-preview').src=ciState.previewUrl;
+  ciEl('ci-preview-note').textContent=file.name+' · '+(file.size/1024/1024).toFixed(2)+' MB';
+  ciEl('ci-result').hidden=false;
+  ciStatus('ok','Anteprima pronta. Non è stata eseguita alcuna analisi: premi «Crea caption» solo quando vuoi.');
+}
+function ciReadPart(file){
+  return new Promise((resolve,reject)=>{
+    const reader=new FileReader();
+    reader.onerror=()=>reject(Error('Non riesco a leggere il file selezionato.'));
+    reader.onload=()=>{const data=String(reader.result||'').split(',')[1];if(!data)reject(Error('File vuoto o illeggibile.'));else resolve({inlineData:{data,mimeType:file.type}});};
+    reader.readAsDataURL(file);
+  });
+}
+async function ciModelRequest(prompt,part){
+  const selected=ciEl('ai-model').value||'gemini-3.8-flash';
+  const models=[selected,'gemini-3.5-flash'].filter((m,i,all)=>all.indexOf(m)===i);
+  let lastError;
+  for(const name of models){
+    try{
+      const model=getGenerativeModel(state.ai,{model:name});
+      const response=await model.generateContent([prompt,part]);
+      const answer=String(response.response.text()||'').trim();
+      if(!answer)throw Error('Il modello non ha prodotto una risposta.');
+      return answer;
+    }catch(error){
+      lastError=error;const message=String(error.message||'').toLowerCase();
+      if(message.includes('404')||message.includes('not found')||message.includes('not supported'))continue;
+      throw error;
+    }
+  }
+  throw lastError||Error('Nessun modello disponibile.');
+}
+function ciParseAnalysis(answer){
+  const start=answer.indexOf('{'),end=answer.lastIndexOf('}');
+  if(start<0||end<=start)return null;
+  try{
+    const v=JSON.parse(answer.slice(start,end+1));
+    if(typeof v.descrizione!=='string'||!v.descrizione.trim())return null;
+    return {descrizione:v.descrizione.trim().slice(0,700),identita:String(v.identita||'').trim().slice(0,160),certezza:String(v.certezza||'bassa').toLowerCase(),rischio_errore:v.rischio_errore!==false};
+  }catch{return null;}
+}
+function ciLanguage(){
+  const langs={en:'Scrivi solo in inglese.',it:'Scrivi solo in italiano.','it-en':'Prima italiano completo e poi inglese completo.','en-it':'Prima inglese completo e poi italiano completo.',es:'Scrivi solo in spagnolo.',fr:'Scrivi solo in francese.',tr:'Scrivi solo in turco.'};
+  return langs[ciEl('ci-lang').value]||langs.en;
+}
+function ciCaptionPrompt(identification){
+  const isDream=ciEl('ci-project').value==='dizionario';
+  const social=ciEl('ci-social').value;
+  const formats={fb:'Facebook, 2-3 paragrafi brevi, domanda finale se pertinente.',ig:'Instagram, apertura incisiva, brevi paragrafi e pochi hashtag pertinenti.',yt:'YouTube, titolo breve e descrizione chiara.',threads:'Threads, testo breve con un solo spunto conversazionale.'};
+  const identity=identification===null
+    ?'NOMI VIETATI: non indicare alcun nome proprio di persona, luogo, monumento, autore o attribuzione geografica. Descrivi solo elementi visibili; nessuna identità suggerita come fatto.'
+    :'IDENTIFICAZIONE AUTORIZZATA: '+identification+'. Puoi usare questo nome, senza inventare fatti o ulteriori luoghi.';
+  const style=isDream
+    ?'PROGETTO: Il Dizionario dei Sogni. Registro evocativo, delicato e riflessivo; interpreta simboli solo in termini possibilisti, mai con diagnosi, presagi certi o affermazioni scientifiche false. Pubblico prevalentemente italiano.'
+    :'PROGETTO: Il Tappeto Volante. Stile LorellaStyle, poetico e mediterraneo, visivo e narrativo; curiosità culturale senza inventare storia, località o dettagli. Inglese lingua editoriale prevalente se coerente con la lingua scelta.';
+  return 'Scrivi una caption nuova A PARTIRE DALL’IMMAGINE allegata, non da supposizioni. '+style+' FORMATO: '+(formats[social]||formats.ig)+' LINGUA: '+ciLanguage()+' '+identity+' DESCRIZIONE ACCERTABILE: '+(ciState.analysis?.descrizione||'osserva soltanto la foto')+'. Se appare uno screenshot, ignora indirizzi, nomi di account, numeri e informazioni personali non necessari. Non presentare l’immagine come opera dell’autrice né inventare crediti, luoghi o fatti. Nessuna pubblicazione automatica. Le istruzioni utente orientano il tono, non autorizzano fatti non verificati. ISTRUZIONI AGGIUNTIVE: '+(ciEl('ci-instructions').value.trim()||'nessuna')+'. Restituisci esclusivamente la caption pronta da modificare.';
+}
+async function ciGenerate(identification,sequence){
+  ciBusy(true);ciStatus('info','✍️ Gemini sta preparando la caption…');
+  try{
+    await getToken(state.check);
+    if(!state.auth?.currentUser)throw Error('Sessione Firebase non attiva.');
+    const caption=await ciModelRequest(ciCaptionPrompt(identification),ciState.part);
+    if(sequence!==ciState.seq)return;
+    ciEl('ci-output').value=caption;
+    ciEl('ci-check').hidden=true;
+    ciEl('ci-result').hidden=false;
+    ciStatus('ok','✅ Caption pronta. Controlla e modifica il testo; puoi copiarlo senza pubblicarlo.');
+  }catch(e){if(sequence===ciState.seq){console.error('Caption da immagine:',e);ciStatus('err','❌ Generazione non riuscita: '+String(e.message||e)+'. Nessun testo inventato o simulato.');}}
+  finally{ciBusy(false);}
+}
+async function ciStart(){
+  if(ciState.busy)return;
+  const file=ciState.file;
+  if(!file){ciStatus('err','⚠️ Carica prima una foto o uno screenshot valido.');return;}
+  if(!state.user||!state.ai||!state.auth?.currentUser){ciStatus('err','🔒 Accedi alla Regia con Firebase prima di creare la caption.');return;}
+  const sequence=ciState.seq;
+  ciBusy(true);ciEl('ci-check').hidden=true;ciEl('ci-output').value='';
+  ciStatus('info','🔍 Analisi visiva reale in corso. Se il soggetto è incerto, ti chiederò conferma.');
+  try{
+    await getToken(state.check);
+    const part=await ciReadPart(file);
+    if(sequence!==ciState.seq)return;
+    ciState.part=part;
+    const answer=await ciModelRequest(
+      'Analizza solo ciò che è visibile nella foto/screenshot. Non scrivere la caption. Distingui oggetti generici da identità specifiche (persone, monumenti, città, luoghi, autori): un’identità specifica è CERTA solo con evidenza incontrovertibile nella foto; in caso contrario indica certezza media o bassa e rischio_errore true. Non identificare una persona dalla sola faccia, né dedurre luoghi da architetture vagamente simili. Rispondi SOLO con JSON valido: {"descrizione":"max 2 frasi osservabili","identita":"nome specifico ipotizzato, o stringa vuota","certezza":"alta|media|bassa","rischio_errore":true}. Imposta rischio_errore false soltanto se l’identificazione è davvero inequivocabile.',part);
+    if(sequence!==ciState.seq)return;
+    const parsed=ciParseAnalysis(answer);
+    ciState.analysis=parsed||{descrizione:'Immagine da descrivere senza attribuzioni specifiche.',identita:'',certezza:'bassa',rischio_errore:true};
+    const a=ciState.analysis;
+    const identifiable=Boolean(a.identita);
+    const clear=(a.certezza==='alta'&&a.rischio_errore===false);
+    ciBusy(false);
+    if(!clear){
+      ciEl('ci-check').hidden=false;
+      ciEl('ci-identification').value='';
+      ciEl('ci-evidence').textContent='Osservo: '+a.descrizione+(identifiable?' \nIdentificazione proposta, non verificata: '+a.identita+'.':'')+' \nPer citare un nome specifico, scrivilo e confermalo; altrimenti scegli la caption generica.';
+      ciStatus('info','⚠️ Identificazione non sufficientemente certa. La caption non sarà generata con nomi specifici senza conferma.');
+      return;
+    }
+    await ciGenerate(identifiable?a.identita:null,sequence);
+  }catch(e){if(sequence===ciState.seq){console.error('Analisi immagine:',e);ciStatus('err','❌ Analisi non riuscita: '+String(e.message||e)+'. Controlla Firebase, App Check e la rete.');}}
+  finally{ciBusy(false);}
+}
+function ciReadyToConfirm(){
+  if(ciState.busy||!ciState.part||!ciState.analysis||ciEl('ci-check').hidden)return false;
+  return true;
+}
+ciEl('ci-file').addEventListener('change',ciFileSelected);
+ciEl('ci-create').addEventListener('click',ciStart);
+ciEl('ci-project').addEventListener('change',()=>{
+  ciEl('ci-lang').value=ciEl('ci-project').value==='dizionario'?'it':'en';
+});
+ciEl('ci-confirm').addEventListener('click',()=>{
+  if(!ciReadyToConfirm())return;
+  const name=ciEl('ci-identification').value.trim();
+  if(!name){ciStatus('err','Per confermare, scrivi il nome che conosci; oppure scegli «Caption senza nomi specifici».');return;}
+  ciGenerate(name,ciState.seq);
+});
+ciEl('ci-generic').addEventListener('click',()=>{if(ciReadyToConfirm())ciGenerate(null,ciState.seq);});
+ciEl('ci-copy').addEventListener('click',async()=>{
+  const value=ciEl('ci-output').value.trim();
+  if(!value){ciStatus('err','Prima genera o scrivi una caption.');return;}
+  try{
+    if(navigator.clipboard?.writeText)await navigator.clipboard.writeText(value);
+    else{ciEl('ci-output').focus();ciEl('ci-output').select();if(!document.execCommand('copy'))throw Error('Copia non riuscita');}
+    ciStatus('ok','📋 Caption copiata negli appunti. La pubblicazione resta manuale.');
+  }catch(e){ciStatus('err','La copia automatica è stata bloccata. Seleziona il testo e copialo manualmente.');}
+});
+
 const initial=currentContext();if(initial)sincronizzaDaRegia(initial);else controls();
 </script>
 </body>
