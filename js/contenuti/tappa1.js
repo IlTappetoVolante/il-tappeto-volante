@@ -43,7 +43,7 @@ const TAPPA_1_DATA = {
         { type: "testo", paragrafo: "Avvicinandoci al mare, la mappa menziona la <strong>Chiesa dei SS. Sergio e Bacco</strong>, oggi conosciuta come <strong>Piccola Aya Sofya (Küçük Ayasofya Camii)</strong>." },
         { type: "immagine", src: "https://i.postimg.cc/Pf0j1dXy/Little-Hagia-Sophia-Exterior.jpg" },
         { type: "testo", paragrafo: "Come dice il nome, è considerata la <em>prova generale</em> voluta dall’Imperatore Giustiniano prima di costruire la sua immensa e omonima basilica. Lo sguardo la abbraccia al crepuscolo. Come la Chora, ci mostra la sua storia stratificata: la solida struttura bizantina in mattoni del VI secolo, il portico a colonne aggiunto dagli Ottomani (il <em>son cemaat yeri</em>) e l’immancabile minareto che la trasforma in moschea." },
-        { type: "immagine", src: "https://i.postimg.cc/WzMydtQy/Little-Hagia-Sophia-Interior.jpg" },
+        { type: "immagine", src: "img/istanbul_little_hagia_sophia_interior.jpg", credito: "Foto: Bollweevil / Wikimedia Commons — CC BY-SA 3.0", fonte: "https://commons.wikimedia.org/wiki/File:Interior_of_Sergius_and_Bacchus_Church-3.JPG" },
         { type: "testo", paragrafo: "Una volta entrati, lo sguardo scala le massicce colonne di marmo fino ad ammirare la complessità della cupola a <em>ombrello</em>. Anche se oggi è spoglia dei mosaici dorati che un tempo la ricoprivano, si può ancora percepire la grandezza e la sperimentazione architettonica che Giustiniano stava testando qui, prima di creare il suo capolavoro assoluto." },
         { type: "testo", paragrafo: "Il cuore della città vecchia è dove si trovano le tracce più famose." },
         { type: "immagine", src: "https://i.postimg.cc/T3jC8kZ0/17628819998315.jpeg" },
