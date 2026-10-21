@@ -41,3 +41,5 @@
 **Verifica riferita dall'utente:** funzione «Traduci caption» provata con successo nella Regia di prova; traduzione riuscita. Il modello Gemini inizialmente selezionato è stato cambiato manualmente e il modello scelto si è rivelato molto veloce. Il nome del modello alternativo non è ancora stato comunicato; **non** modificare il modello predefinito sulla base di supposizioni.
 
 **Da verificare:** nome del modello risultato veloce, eventuale scelta come predefinito, ulteriori lingue e controlli di regressione. **Regia principale invariata.**
+
+**Conferma modello:** l'utente ha utilizzato `gemini-3.5-flash-lite` (opzione «Lite») per la traduzione della caption; risultato corretto e risposta percepita come molto veloce. La prova riguarda la traduzione testuale e non dimostra che il modello sia preferibile anche per l'analisi dell'immagine. Il predefinito non è stato modificato.
