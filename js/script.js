@@ -247,7 +247,7 @@ const textColor = theme.forceText || theme.text;
 switch (blocco.type) {
 case 'titolo': return `<h1 class="diario-titolo ${theme.text_header || textColor} font-bold">${blocco.testo}</h1>`;
 case 'testo': return `<p class="diario-text my-6 ${textColor} font-bold">${blocco.paragrafo}</p>`; 
-case 'immagine': return `<img src="${blocco.src}" alt="${blocco.alt || 'Immagine'}" class="w-full h-auto rounded-lg shadow-md my-4">`;
+case 'immagine': return `<figure class="my-4"><img src="${blocco.src}" alt="${blocco.alt || 'Immagine'}" loading="lazy" class="w-full h-auto rounded-lg shadow-md">${blocco.credito ? `<figcaption class="text-sm mt-2 opacity-80">${blocco.fonte ? `<a href="${blocco.fonte}" target="_blank" rel="noopener noreferrer">${blocco.credito}</a>` : blocco.credito}</figcaption>` : ''}</figure>`;
 case 'didascalia': return `<p class="diario-didascalia ${textColor} font-bold opacity-80">${blocco.testo}</p>`;
 case 'approfondimento':
 return `<div class="box-approfondimento ${theme.border}">
