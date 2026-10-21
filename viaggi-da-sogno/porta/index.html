@@ -99,10 +99,25 @@
 </section>
 
 <p class="credito">Tavola realizzata con intelligenza artificiale per <strong>Il Tappeto Volante</strong> · Viaggi da Sogno</p>
+<p class="credito" id="visite-pagina" aria-live="polite"><span aria-hidden="true">👁️</span> Visite a questa pagina: <strong id="numero-visite">…</strong></p>
 </main>
 <script>
 (()=>{const comandi=document.querySelectorAll('[data-simbolo]'),pannelli=document.querySelectorAll('.pannello'),punti=document.querySelectorAll('.punto');function apri(nome){pannelli.forEach(p=>p.classList.toggle('aperto',p.id===`simbolo-${nome}`));punti.forEach(p=>p.classList.toggle('attivo',p.dataset.simbolo===nome));const scelto=document.getElementById(`simbolo-${nome}`);if(scelto&&matchMedia('(max-width:620px)').matches)scelto.scrollIntoView({behavior:'smooth',block:'center'})}comandi.forEach(c=>c.addEventListener('click',()=>apri(c.dataset.simbolo)));apri('porta')})();
 </script>
 <script data-goatcounter="https://iltappetovolante.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>
+(async()=>{
+  const numero=document.getElementById('numero-visite');
+  try {
+    const risposta=await fetch('https://iltappetovolante.goatcounter.com/counter/'+encodeURIComponent('/il-tappeto-volante/viaggi-da-sogno/porta/')+'.json');
+    if(!risposta.ok) throw new Error('Contatore non disponibile');
+    const dati=await risposta.json();
+    if(typeof dati.count!=='string' && typeof dati.count!=='number') throw new Error('Conteggio non valido');
+    numero.textContent=String(dati.count);
+  } catch {
+    numero.textContent='temporaneamente non disponibili';
+  }
+})();
+</script>
 </body>
 </html>
