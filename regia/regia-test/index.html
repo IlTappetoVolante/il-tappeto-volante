@@ -423,7 +423,7 @@ async function ciModelRequest(prompt,part){
   for(const name of models){
     try{
       const model=getGenerativeModel(state.ai,{model:name});
-      const response=await model.generateContent([prompt,part]);
+      const response=await model.generateContent(part ? [prompt,part] : prompt);
       const answer=String(response.response.text()||'').trim();
       if(!answer)throw Error('Il modello non ha prodotto una risposta.');
       return answer;
