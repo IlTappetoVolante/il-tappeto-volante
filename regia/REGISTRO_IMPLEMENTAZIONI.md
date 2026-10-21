@@ -24,3 +24,13 @@
 **Nota sulle richieste immagini:** foto/screenshot vengono inviati a Firebase AI Logic solo quando richiesto; la richiesta multimodale può comportare il trattamento dell'immagine presso il fornitore AI. La qualità dell'identificazione non è garantita: il controllo di conferma è una misura cautelativa, non una verifica oggettiva dell'identità.
 
 **Collaudo consigliato:** (1) caricare foto e verificare anteprima; (2) confermare l'accesso e generare una caption; (3) usare una foto di luogo non evidente e verificare richiesta di conferma / testo senza nomi; (4) cambiare lingua/progetto e rigenerare; (5) modificare e copiare; (6) controllare le quattro schede originali; (7) provare con uno screenshot e gestire errori di rete.
+
+## 2026-10-21 — Traduci caption (v1, installata nella Regia di prova)
+
+**Richiesta:** tradurre la caption già generata senza ripetere l'analisi visiva della foto o dello screenshot.
+
+**Funzioni implementate:** selezione lingua italiano, inglese, spagnolo, francese, turco, italiano+inglese o inglese+italiano; pulsante «🌍 Traduci caption»; richiesta Firebase AI Logic esclusivamente testuale; visualizzazione separata dell'originale e della traduzione, entrambi modificabili e copiabili. La traduzione è nascosta se viene modificato l'originale o cambiata la lingua, per evitare di usare un testo obsoleto. Nessuna pubblicazione automatica.
+
+**Sicurezza e compatibilità:** il modulo non ricarica l'immagine per la traduzione e conserva il testo originale; utilizza la stessa autenticazione e App Check. Nessuna modifica all'indice principale della Regia.
+
+**Stato:** pubblicato sul ramo principale del repository ma solo al percorso `regia/regia-test/index.html`; sintassi degli script verificata staticamente. Da completare collaudo browser con Firebase e verifica effettiva dei pulsanti, della copia e delle lingue.
