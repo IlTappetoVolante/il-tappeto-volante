@@ -68,7 +68,7 @@
   const t = translations[language] || translations.it;
   const music = document.getElementById('travel-music');
   // Set this once the free music track has been selected.
-  const soundtrack = {src: '', credit: '', url: ''};
+  const soundtrack = {src: '../audio/hitslab-turkish-middle-eastern-background-music-326270.mp3', credit: 'Turkish Middle Eastern Background Music · HitsLab', url: ''};
   const source = music.dataset.musicSrc || soundtrack.src;
   if (source) {
     music.src = source;
