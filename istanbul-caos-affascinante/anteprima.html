@@ -52,14 +52,14 @@
 </article>
 <div class="pay-music"><p><strong>🎧 Accompagna il viaggio</strong></p><audio controls loop preload="none" src="../audio/hitslab-turkish-middle-eastern-background-music-326270.mp3" aria-label="Musica orientale di sottofondo"></audio><p style="font-size:.78rem">Turkish Middle Eastern Background Music · HitsLab</p></div>
 <section class="pay-offer" aria-labelledby="pass-title">
-<h2 id="pass-title">☕ Offrimi un caffè e continua il viaggio</h2>
-<p>Due possibilità per entrare nel racconto completo, senza abbonamenti o rinnovi automatici.</p>
+<h2 id="pass-title">☕ Sostieni Il Tappeto Volante e continua il viaggio</h2>
+<p>Per realizzare questi racconti e queste fotografie ho investito tempo, passione e risorse. Se desideri sostenermi affinché possa continuare a creare nuovi contenuti, puoi scegliere uno di questi contributi: ti daranno anche accesso al diario esclusivo.</p>
 <div class="pay-grid">
-<div class="pay-card"><h3>Pass settimanale</h3><div class="pay-price">3,00 €</div><small>Accessi illimitati per 7 giorni dal pagamento.</small><span class="pay-status">Pagamento in preparazione</span></div>
-<div class="pay-card"><h3>Pass sostenitore</h3><div class="pay-price">Da 5,00 €</div><small>Offerta libera da 5 €. Accesso permanente, senza scadenza programmata.</small><span class="pay-status">Pagamento in preparazione</span></div>
+<div class="pay-card"><h3>☕ Dona 3 €</h3><div class="pay-price">3,00 €</div><small>Sostieni il mio progetto: avrai accesso al racconto completo per 7 giorni, con ingressi illimitati.</small><span class="pay-status">Pagamento in preparazione</span></div>
+<div class="pay-card"><h3>💚 Dona da 5 €</h3><div class="pay-price">Da 5,00 €</div><small>Scegli liberamente quanto contribuire, a partire da 5 €: avrai accesso permanente al racconto.</small><span class="pay-status">Pagamento in preparazione</span></div>
 </div>
-<div id="pay-entry" hidden><a class="button" href="accesso.html" style="display:inline-block;margin:12px auto">🔐 Accedi o acquista il pass</a></div>
-<p class="pay-foot" id="pay-explainer">Questa è un'anteprima editoriale: il sistema di pagamento non è ancora attivo e qui non viene richiesto alcun denaro.</p>
+<div id="pay-entry" hidden><a class="button" href="accesso.html" style="display:inline-block;margin:12px auto">🔐 Accedi o sostieni il progetto</a></div>
+<p class="pay-foot" id="pay-explainer">Il contributo dà accesso a contenuti riservati; non è una donazione fiscalmente detraibile. Il sistema di accesso non è ancora attivo, perciò qui non viene richiesto alcun denaro.</p>
 </section>
 <img class="seal" src="../img/sigillo_ceralacca_lorella_cr.png" alt="Firma di Lorella" loading="lazy">
 <p class="signature-rights" style="text-align:center">© 2026 Lorella · Il Tappeto Volante. Tutti i diritti riservati sui contenuti originali.</p>
@@ -71,7 +71,7 @@
  if(!r.ok)return;const c=await r.json();
  if(!c.clientId)return;
  document.getElementById("pay-entry").hidden=false;
- document.getElementById("pay-explainer").textContent="Accedi con la tua email verificata. Il pagamento viene autorizzato da PayPal e verificato sul server prima di sbloccare il racconto.";
+ document.getElementById("pay-explainer").textContent="Il tuo contributo sostiene la creazione di nuovi racconti e dà accesso al diario riservato. PayPal verifica la transazione prima dello sblocco.";
  document.querySelectorAll(".pay-status").forEach(el=>el.textContent="Disponibile tramite accesso personale");
 }catch{}})();
 </script></body>
