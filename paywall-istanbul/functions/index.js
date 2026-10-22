@@ -15,6 +15,10 @@ const ORIGIN="https://iltappetovolante.github.io";
 const ARTICLE="istanbul-caos-affascinante";
 const ACTIVE=process.env.ISTANBUL_PAYWALL_ACTIVE==="yes"; // never accept payment before manual launch.
 const WEEK=7*24*3600*1000;
+async function contentReady(){
+  const files=await Promise.all(["it","en","es"].map(lang=>db.collection("istanbul_private_content").doc(lang).get()));
+  return files.every(snap=>snap.exists&&typeof snap.data()?.html==="string"&&snap.data().html.length>500);
+}
 function fail(msg,status=400){const e=new Error(msg);e.httpStatus=status;throw e;}
 function json(res,status,obj){res.status(status).json(obj);}
 async function accessToken(){
@@ -163,14 +167,13 @@ exports.istanbulPaywall=onRequest({
   try{
     if(path==="config"&&req.method==="GET"){
       if(!ACTIVE){json(res,200,{clientId:null,mode:MODE,article:ARTICLE,ready:false});return;}
-      const languages=await Promise.all(["it","en","es"].map(code=>db.collection("istanbul_private_content").doc(code).get()));
-      const ready=languages.every(doc=>doc.exists&&typeof doc.data()?.html==="string"&&doc.data().html.length>500);
+      const ready=await contentReady();
       json(res,200,{clientId:ready?CLIENT_ID.value():null,mode:MODE,article:ARTICLE,ready});return;
     }
     if(path==="webhook"&&req.method==="POST"){await handleWebhook(req,res);return;}
     const uid=await user(req);
     if(path==="status"&&req.method==="GET"){json(res,200,await entitlement(uid));return;}
-    if(path==="create"&&req.method==="POST"){if(!ACTIVE)fail("Acquisti non ancora attivi",503);await handleCreate(req,res,uid);return;}
+    if(path==="create"&&req.method==="POST"){if(!ACTIVE||!(await contentReady()))fail("Acquisti non ancora attivi",503);await handleCreate(req,res,uid);return;}
     if(path==="capture"&&req.method==="POST"){if(!ACTIVE)fail("Acquisti non ancora attivi",503);await handleCapture(req,res,uid);return;}
     if(path==="content"&&req.method==="GET"){
       const a=await entitlement(uid);
