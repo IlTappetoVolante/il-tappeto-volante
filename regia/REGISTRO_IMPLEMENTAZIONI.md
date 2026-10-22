@@ -72,3 +72,14 @@
 **Brano selezionato dall'utente:** «Where the Horizon Bends» (Gemini, ca. 02:57, file originale con metadati Google C2PA), assegnato alla landing \`viaggi-da-sogno/porta/\`. **Archiviato nella Libreria come MUS-003**. Non ancora pubblicato come risorsa audio nel repository GitHub; quindi non ancora collegato al lettore pubblico. Non classificarlo come Pixabay.
 
 **Stato e verifiche:** sintassi JS di entrambi gli script verificata staticamente; interfaccia e gestione Firebase ancora da collaudare da browser. La Regia principale continua a essere la copia stabile e non è stata sovrascritta.
+
+
+## 2026-10-22 — Immagini contestuali e Porta musicale (versione di prova)
+
+**Richieste:** creare immagini su richiesta per post civetta quando le immagini estratte non bastano, anche partendo da un'immagine esempio; collegare «Where the Horizon Bends» alla landing «Sognare una porta» prima di finalizzare il nuovo modulo.
+
+**Immagini (installato in test):** \`regia/regia-test/index.html\` contiene il nuovo pannello «Immagini per il post» e \`regia/regia-test/image-maker.js\` contiene il codice isolato di generazione. Due modalità: (1) generazione dalla pagina e dal post selezionati; (2) elaborazione da JPEG/PNG/WebP esempio con opzioni per colori, composizione, soggetto, stile o variante. Tipi post civetta/teaser/reel/carosello/illustrazione; social e formati 9:16, 4:5, 1:1, 16:9, 4:3; modello Nano Banana selezionabile. Anteprima dell'immagine già nella pagina, copia URL, anteprima del risultato, scaricamento e «Usa come esempio per una variante». Solo al clic, senza salvataggi o pubblicazioni automatiche. Richiede Gemini Image con piano Firebase Blaze, che può comportare costi.
+
+**Sicurezza:** la Regia stabile \`regia/index.html\` non è stata modificata. Script originali e modulo immagini superano il controllo statico della sintassi. Da collaudare in browser con Firebase e l'accesso effettivo a Nano Banana.
+
+**Porta — parzialmente preparata:** in \`viaggi-da-sogno/porta/index.html\` è stata inserita la sezione con il lettore, crediti Gemini e URL previsto \`../../audio/where_the_horizon_bends.mp3\`. Il player è nascosto finché una verifica HTTP HEAD non conferma l'esistenza dell'MP3 pubblico: nessuna interfaccia fittizia o pulsante rotto per i visitatori. **Il file audio da 4.254.891 byte (~2:57) è archiviato nella Libreria come MUS-003, ma NON è ancora nel repository GitHub**, perché il collegamento disponibile espone scritture testuali/Base64 senza accesso diretto ai byte locali del file. Caricare il file nel percorso previsto resta indispensabile per completare la richiesta. Non dichiarare il lettore come operativo prima del caricamento e del collaudo browser.
