@@ -7,15 +7,16 @@
 const {onRequest}=require("firebase-functions/v2/https");
 const {defineSecret}=require("firebase-functions/params");
 const crypto=require("node:crypto");
+const nodemailer=require("nodemailer");
 const admin=require("firebase-admin");
 if(!admin.apps.length)admin.initializeApp();
 const db=admin.firestore();
-const MAIL_KEY=defineSecret("ISTANBUL_MAIL_API_KEY");
+const GMAIL_PASS=defineSecret("ISTANBUL_GMAIL_APP_PASSWORD");
 const OTP_SECRET=defineSecret("ISTANBUL_OTP_HMAC_KEY");
 const ORIGIN="https://iltappetovolante.github.io";
 const WEEK=604800000;
 const ENABLED=process.env.ISTANBUL_OTP_ACTIVE==="yes";
-const MAIL_FROM=process.env.ISTANBUL_MAIL_FROM||"";
+const GMAIL_SENDER=String(process.env.ISTANBUL_GMAIL_SENDER||"").trim().toLowerCase();
 const EMAIL_RX=/^[^\s@]{1,64}@[^\s@]{1,255}\.[^\s@]{2,}$/;
 const normalizeEmail=x=>String(x||"").trim().toLowerCase();
 const idForEmail=email=>crypto.createHash("sha256").update(email).digest("hex");
@@ -34,17 +35,23 @@ async function privateContentReady(){
   return all.every(d=>d.exists&&typeof d.data()?.html==="string"&&d.data().html.length>500);
 }
 async function emailCode(to,code){
-  if(!MAIL_FROM||!MAIL_KEY.value())err("Servizio email non configurato",503);
-  const body={from:MAIL_FROM,to:[to],subject:"Il Tappeto Volante · Il tuo codice di accesso",text:
-  "Il Tappeto Volante — Istanbul · Il Caos Affascinante\n\n"+
-  "Il tuo codice di accesso personale è: "+code+"\n\n"+
-  "È valido per 10 minuti e può essere utilizzato una volta sola.\n"+
-  "Se non hai richiesto questo codice, ignora il messaggio.\n"+
-  "Non inviare mai questo codice ad altre persone.\n"};
-  const r=await fetch("https://api.resend.com/emails",{
-    method:"POST",headers:{"Authorization":"Bearer "+MAIL_KEY.value(),"Content-Type":"application/json"},body:JSON.stringify(body)
+  if(!EMAIL_RX.test(GMAIL_SENDER)||!GMAIL_PASS.value())err("Invio email non configurato",503);
+  // Test only: Gmail SMTP with a dedicated Google App Password kept in Firebase Secret Manager.
+  // Never put the real Gmail password or the App Password in GitHub or the browser.
+  const transport=nodemailer.createTransport({
+    host:"smtp.gmail.com",port:465,secure:true,
+    auth:{user:GMAIL_SENDER,pass:GMAIL_PASS.value()},
+    connectionTimeout:12000,greetingTimeout:12000,socketTimeout:20000
   });
-  if(!r.ok)err("Invio email non disponibile",503);
+  await transport.sendMail({
+    from:{name:"Il Tappeto Volante",address:GMAIL_SENDER},
+    to,subject:"Il Tappeto Volante · Il tuo codice di accesso",
+    text:"Il Tappeto Volante — Istanbul · Il Caos Affascinante\n\n"+
+         "Il tuo codice di accesso personale è: "+code+"\n\n"+
+         "È valido per 10 minuti e può essere utilizzato una volta sola.\n"+
+         "Se non hai richiesto questo codice, ignora il messaggio.\n"+
+         "Non inviare mai questo codice ad altre persone.\n"
+  });
 }
 async function rateIpAndEmail(email,id,code){
   const now=Date.now(),ip=String(email.ip||"").slice(0,80); // email holds {address,ip}; no raw IP persisted.
@@ -120,7 +127,7 @@ async function authenticatedReader(req){
   if(!grant.exists||!validGrant(grant.data()))err("Accesso scaduto o non attivo",403);
   return grant.data();
 }
-exports.istanbulOtpAccess=onRequest({region:"europe-west1",maxInstances:3,memory:"256MiB",secrets:[MAIL_KEY,OTP_SECRET]},async(req,res)=>{
+exports.istanbulOtpAccess=onRequest({region:"europe-west1",maxInstances:3,memory:"256MiB",secrets:[GMAIL_PASS,OTP_SECRET]},async(req,res)=>{
   if(req.method==="OPTIONS"){
     if(req.get("origin")!==ORIGIN){res.status(403).end();return;}
     res.set("Access-Control-Allow-Origin",ORIGIN).set("Vary","Origin");
@@ -134,7 +141,7 @@ exports.istanbulOtpAccess=onRequest({region:"europe-west1",maxInstances:3,memory
   const path=req.path.replace(/^\/+|\/+$/g,"");
   try{
     if(path==="ready"&&req.method==="GET"){
-      const ready=ENABLED&&Boolean(MAIL_FROM)&&await privateContentReady();
+      const ready=ENABLED&&EMAIL_RX.test(GMAIL_SENDER)&&await privateContentReady();
       respond(res,200,{ready});return;
     }
     if(!ENABLED)err("Accesso riservato non ancora attivo",503);
