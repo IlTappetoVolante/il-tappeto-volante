@@ -94,3 +94,10 @@ Richiesta: predisporre per «Istanbul · Il Caos Affascinante» un ingresso sett
 **Protezione:** le anteprime mostrano "pagamenti in preparazione" fino all'avvio esplicito della funzione backend e al caricamento privato di tutti e tre gli articoli. L'indice originale, la traduzione inglese e quella spagnola restano invariati e pubblici. La cronologia GitHub resta accessibile: contenuti precedentemente pubblici non possono essere resi retroattivamente esclusivi. Nessun pagamento attivo, nessun addebito.
 
 **Stato:** codice versionato e sintassi verificata; **non ancora deployato su Firebase né collegato a un conto PayPal**, non ancora collaudato in Sandbox. Necessari: account PayPal Developer, secret su Firebase, email link Auth, regole database, migrazione contenuti privati, collaudi Sandbox, switch Live. Vedi \`paywall-istanbul/LEGGIMI-ATTIVAZIONE.md\`. Non distribuire come paywall a pagamento finché non viene completata l'attivazione.
+
+
+## 2026-10-22 — Linguaggio editoriale: contributi al progetto
+
+Su richiesta dell'autrice sono state aggiornate le anteprime italiana, inglese e spagnola e la pagina di accesso, evidenziando lo scopo di sostenere con contributi la produzione di racconti e fotografie originali di «Il Tappeto Volante». Testo guida: «Dona 3 € per sostenere il mio progetto affinché io possa continuare a produrre questi contenuti». Restano ben specificati i vantaggi abbinati al contributo: sette giorni di accesso con 3 €, accesso permanente con contributo a discrezione da 5 €.
+
+**Chiarezza obbligatoria:** il linguaggio di sostegno non cambia la natura della transazione quando l'accesso ai contenuti è condizionato al versamento. Non indicarla come liberalità senza contropartita o donazione fiscalmente detraibile. PayPal.Me personale non è una scorciatoia per eludere le condizioni PayPal per beni/servizi. PayPal Checkout/Firebase restano non attivi, senza pagamenti disponibili fino ad attivazione e collaudo. Le tre pagine complete già pubbliche non sono state modificate.
