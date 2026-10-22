@@ -101,3 +101,20 @@ Richiesta: predisporre per «Istanbul · Il Caos Affascinante» un ingresso sett
 Su richiesta dell'autrice sono state aggiornate le anteprime italiana, inglese e spagnola e la pagina di accesso, evidenziando lo scopo di sostenere con contributi la produzione di racconti e fotografie originali di «Il Tappeto Volante». Testo guida: «Dona 3 € per sostenere il mio progetto affinché io possa continuare a produrre questi contenuti». Restano ben specificati i vantaggi abbinati al contributo: sette giorni di accesso con 3 €, accesso permanente con contributo a discrezione da 5 €.
 
 **Chiarezza obbligatoria:** il linguaggio di sostegno non cambia la natura della transazione quando l'accesso ai contenuti è condizionato al versamento. Non indicarla come liberalità senza contropartita o donazione fiscalmente detraibile. PayPal.Me personale non è una scorciatoia per eludere le condizioni PayPal per beni/servizi. PayPal Checkout/Firebase restano non attivi, senza pagamenti disponibili fino ad attivazione e collaudo. Le tre pagine complete già pubbliche non sono state modificate.
+
+## 2026-10-22 — Isolamento moduli Musica/Immagini e scorciatoie esterne
+
+**Decisione dell'autrice:** sospendere dalla Regia di prova i moduli di preparazione musica e generazione/variazione immagini, dato il potenziale costo dei servizi AI. Preservarne il codice integrale senza cancellare il lavoro.
+
+**Operazione completata su GitHub (`main`):**
+- Prima di modificare la Regia, salvata copia **integrale identica** del file `regia/regia-test/index.html` in `regia/moduli-conservati/2026-10-22/regia-test-prima-isolamento.html.txt`.
+- Copiato integralmente `regia/regia-test/image-maker.js` in `regia/moduli-conservati/2026-10-22/image-maker.js.txt`.
+- Conservati nel file `MUSICA_E_IMMAGINI_ESTRATTI.md` i blocchi originali HTML, CSS, JavaScript musicale e ponte immagini; istruzioni in `LEGGIMI.md`.
+- Tolti dalla **Regia di prova** `regia/regia-test/index.html` i pannelli «🎼 Musica per questa landing page» e «🖼️ Immagini per il post», insieme agli stili, agli handler e agli hook dedicati. Rimosso l'import di `image-maker.js` dalla pagina; cancellato il file eseguibile originario **solo dopo averne verificato la copia identica nell'archivio**.
+- Aggiunta nella parte superiore della Regia una barra «🔗 Strumenti rapidi» con link alle versioni web ufficiali di **Gemini, ChatGPT, Meta AI e Microsoft Copilot**, più la pagina ufficiale **Samsung Browser**. I link aprono una nuova scheda e non fanno chiamate alle API dalla Regia; un sito non può obbligare il dispositivo ad aprire un browser specifico.
+- **Non modificata** la Regia stabile `regia/index.html`; non modificate le landing, né l'MP3 destinato a «Sognare una porta».
+
+**Conservate nella prova**: lettura pagine, caption e traduzione, analisi di un'immagine caricata per creare una caption (distinta dalla generazione di nuove immagini), workflow editoriale, Diario, schede Porta/Stelle/Sveglia. La rimozione non sospende le richieste a Gemini eventualmente effettuate dalle altre funzioni AI e non costituisce garanzia di costo zero.
+
+**Verifiche tecniche:** confronto byte per byte dei backup prima della rimozione; HTML, CSS e script collegati ai moduli isolati non più presenti in `regia/regia-test/index.html`; sintassi dei due script inline verificata; presenza delle sezioni essenziali confermata. Test manuale sul browser e collaudo delle cinque scorciatoie ancora da eseguire.
+
