@@ -46,6 +46,13 @@ label{display:block;margin:12px 0 5px;font-weight:700;font-size:.88rem;color:#5a
 #muse-output[hidden],#muse-audio-preview[hidden]{display:none!important}
 .muse-link{display:inline-block;text-decoration:none}
 
+
+/* REGIA_IMMAGINI_CONTESTUALI_V1_20261022 */
+.imgmaker-img{display:block;max-width:100%;height:auto;max-height:480px;object-fit:contain;margin:9px auto;border-radius:8px}
+.imgmaker-preview{padding:12px;margin:12px 0;border:1px solid #d2ad62;background:#fffdf8;border-radius:9px}
+.imgmaker-upload{display:block;max-width:100%;width:100%;padding:10px;border:1px solid #b58938;border-radius:8px;color:#2d241e;background:#fffdf8}
+#img-ref-area[hidden],#img-ref-preview[hidden],#img-existing[hidden],#img-result-box[hidden]{display:none!important}
+
 </style>
 </head>
 <body>
@@ -150,6 +157,45 @@ label{display:block;margin:12px 0 5px;font-weight:700;font-size:.88rem;color:#5a
     <p class="ai-note">L'anteprima resta soltanto su questo dispositivo: per pubblicare l'MP3 sul sito è necessario archiviarlo e collegarlo alla landing. Non è previsto alcun invio automatico del file.</p>
   </div>
 </div>
+
+
+<!-- REGIA_IMMAGINI_CONTESTUALI_V1_20261022 -->
+<div class="card" id="regia-post-images">
+<h2>🖼️ Immagini per il post</h2>
+<p style="font-size:.88rem">Valuta prima le immagini già estratte dalla landing. Se non sono sufficienti, genera un’immagine nuova per il post oppure creane una a partire da un’immagine esempio.</p>
+<p class="ai-note" id="img-topic">Analizza una landing e seleziona un argomento.</p>
+<div id="img-existing" class="imgmaker-preview" hidden>
+<strong>📸 Immagine già presente nella pagina</strong>
+<img id="img-existing-image" class="imgmaker-img" alt="Immagine esistente associata al post">
+<p class="ai-note" id="img-existing-desc"></p>
+<div class="btn-row"><button id="img-existing-copy" class="btn outline" type="button">📋 Copia URL immagine</button></div>
+</div>
+<div class="ai-panel">
+<h3>✨ Crea un’immagine</h3>
+<div class="ai-grid-2">
+<div><label for="img-mode">Modalità</label><select id="img-mode"><option value="context">Dal contesto della landing e del post</option><option value="reference">Da immagine esempio + contesto</option></select></div>
+<div><label for="img-purpose">Tipo di immagine</label><select id="img-purpose"><option value="post civetta">Post civetta</option><option value="teaser">Teaser</option><option value="reel cover">Copertina Reel / Short</option><option value="carousel slide">Slide carosello</option><option value="editorial illustration">Immagine illustrativa</option></select></div>
+<div><label for="img-social">Social</label><select id="img-social"><option>Instagram</option><option>Facebook</option><option>YouTube</option><option>Threads</option></select></div>
+<div><label for="img-ratio">Formato</label><select id="img-ratio"><option value="9:16">9:16 verticale</option><option value="4:5">4:5 post verticale</option><option value="1:1">1:1 quadrato</option><option value="16:9">16:9 orizzontale</option><option value="4:3">4:3 fotografia</option></select></div>
+<div><label for="img-style">Stile</label><select id="img-style"><option value="LorellaStyle evocative poetic visual narrative">LorellaStyle evocativo</option><option value="photorealistic photography">Fotografico</option><option value="painterly illustrated art">Pittorico</option><option value="cinematic fantasy">Fantasy</option><option value="editorial collage">Collage</option></select></div>
+<div><label for="img-model">Generatore</label><select id="img-model"><option value="gemini-3.1-flash-image">Nano Banana 2</option><option value="gemini-3.1-flash-lite-image">Nano Banana 2 Lite</option><option value="gemini-nano-banana-2.1">Nano Banana 2.1</option><option value="gemini-3-pro-image">Nano Banana Pro</option></select></div>
+</div>
+<div id="img-reference-area" hidden>
+<label for="img-reference">Carica un’immagine esempio (JPEG, PNG, WebP · max 12 MB)</label>
+<input id="img-reference" class="imgmaker-upload" type="file" accept="image/jpeg,image/png,image/webp">
+<div id="img-ref-preview" class="imgmaker-preview" hidden><img id="img-ref-image" class="imgmaker-img" alt="Anteprima immagine esempio"><p id="img-ref-info" class="ai-note"></p></div>
+<label for="img-preserve">Mantieni dell’esempio</label><select id="img-preserve"><option value="colors and mood">Colori e atmosfera</option><option value="composition and framing">Composizione e inquadratura</option><option value="subject identity">Soggetto principale</option><option value="art style and textures">Stile e texture</option><option value="faithful visual variation">Variante dell’immagine</option></select>
+</div>
+<label for="img-instructions">Istruzioni aggiuntive (facoltative)</label><textarea id="img-instructions" style="min-height:100px" placeholder="Es. più luce, colori diversi, 9:16, stessi personaggi ma nuova ambientazione..."></textarea>
+<p class="ai-note">Modelli Nano Banana: richiedono un piano Firebase Blaze e possono comportare costi. La generazione avviene soltanto su richiesta, senza pubblicazione automatica.</p>
+<div class="btn-row"><button id="img-create" class="btn gold" type="button" disabled>🎨 Genera immagine per questo post</button></div>
+<div id="img-status" class="status-banner info" role="status" aria-live="polite">In attesa della landing.</div>
+<div id="img-result-box" class="imgmaker-preview" hidden>
+<strong>🖼️ Immagine generata</strong><img id="img-result-image" class="imgmaker-img" alt="Immagine creata con Gemini">
+<p class="ai-note" id="img-result-info"></p>
+<div class="btn-row"><button id="img-download" class="btn green" type="button">⬇️ Scarica immagine</button><button id="img-variation" class="btn outline" type="button">🔁 Usa come esempio per una variante</button></div>
+</div>
+</div></div>
 
 <div class="card"><h2>2. Composizione Bozza Finale e Pubblicazione Manuale</h2><p style="margin-top:0;font-size:.86rem">Conserva il testo originale o trasferisci qui la caption AI dopo la tua approvazione. Nessuna pubblicazione automatica.</p>
 <label for="testo-universale">Testo di lavoro finale:</label><textarea id="testo-universale" oninput="segnaBozzaModificata()" placeholder="Leggi una pagina o approva una caption AI..."></textarea><div id="avviso-bozza-modificata" class="dirty-indicator">✏️ Bozza modificata (richiede riapprovazione se derivata da Gemini)</div><div id="feedback-tappeto" class="status-banner ok"></div>
@@ -370,8 +416,8 @@ function paintVersions(syncText=false){const sel=el('ai-versions'),vs=versions()
  if(!vs.some(v=>v.id===state.versionId))state.versionId=vs[0].id;
  vs.forEach((v,i)=>{const label=`${vs.length-i} · ${v.approved?'✅ Approvata':'📝 Da approvare'} · ${(v.platform||'base').toUpperCase()} · ${new Date(v.createdAt).toLocaleString('it-IT')}`;sel.add(new Option(label,v.id))});sel.value=state.versionId;
  const v=active();if(syncText&&v)el('ai-caption-output').value=v.text;badge();controls()}
-function resetArgomento(){state.topicKey='';state.versionId='';state.finalVersionId=null;paintVersions(true);status('info','Prima attendi la lettura reale della pagina.');window.RegiaMusic?.sync()}
-function sincronizzaDaRegia(item){state.topicKey=normTopic(item);state.versionId=versions()[0]?.id||'';state.finalVersionId=null;paintVersions(true);status('info','✅ Estratto reale selezionato. Puoi generare una caption o richiamare una versione salvata.');window.RegiaMusic?.sync()}
+function resetArgomento(){state.topicKey='';state.versionId='';state.finalVersionId=null;paintVersions(true);status('info','Prima attendi la lettura reale della pagina.');window.RegiaMusic?.sync();window.RegiaImageMaker?.refresh()}
+function sincronizzaDaRegia(item){state.topicKey=normTopic(item);state.versionId=versions()[0]?.id||'';state.finalVersionId=null;paintVersions(true);status('info','✅ Estratto reale selezionato. Puoi generare una caption o richiamare una versione salvata.');window.RegiaMusic?.sync();window.RegiaImageMaker?.refresh()}
 // Un testo AI è utilizzabile SOLO se la versione selezionata è approvata,
 // è esattamente quella trasferita nel campo finale e non è stata modificata.
 function puoUsareTestoFinale(){const v=active(),testo=el('testo-universale').value;
@@ -449,7 +495,7 @@ try{
  onAuthStateChanged(state.auth,user=>{
   state.user=user||null;el('regia-login-shield').hidden=Boolean(user);el('login-form').hidden=Boolean(user);el('login-intro').textContent=user?'Accesso autorizzato.':'Inserisci email e password del tuo account Firebase.';
   if(user){const ctx=currentContext();if(ctx)sincronizzaDaRegia(ctx);status('ok','✅ Sessione attiva. Seleziona una pagina e genera la caption.');}else{state.finalVersionId=null;el('login-status').className='status-banner info';el('login-status').textContent='Accesso riservato: nessuna registrazione dalla Regia.'}
-  controls();window.RegiaMusic?.sync();
+  controls();window.RegiaMusic?.sync();window.RegiaImageMaker?.refresh();
  },err=>{el('login-form').hidden=false;el('login-intro').textContent='Non è stato possibile verificare la sessione.';el('login-status').className='status-banner err';el('login-status').textContent=String(err.message||err)});
 }catch(error){console.error('Errore inizializzazione Firebase:',error);el('login-form').hidden=true;el('login-intro').textContent='Firebase non è disponibile.';el('login-status').className='status-banner err';el('login-status').textContent=String(error.message||error)}
 
@@ -759,7 +805,9 @@ el('muse-audio-file').addEventListener('change',()=>{
 window.addEventListener('pagehide',()=>{if(muse.objectUrl){URL.revokeObjectURL(muse.objectUrl);muse.objectUrl=null;}});
 
 window.RegiaMusic={sync:museSync};
+window.RegiaImageBridge={getContext:currentContext,getAi:()=>state.ai,getCheck:()=>state.check,ready:()=>Boolean(state.user&&state.auth?.currentUser&&state.ai&&state.check)};
 const initial=currentContext();if(initial)sincronizzaDaRegia(initial);else controls();museSync();
 </script>
+<script type="module" src="image-maker.js?v=20261022" ></script>
 </body>
 </html>
