@@ -1,0 +1,6 @@
+// NON sostituire le regole Firestore correnti del progetto Regia senza verificarle.
+// Integrare SOLO questi blocchi nel match /databases/{database}/documents esistente.
+match /istanbul_orders/{orderId} { allow read, write: if false; }
+match /istanbul_captures/{captureId} { allow read, write: if false; }
+match /istanbul_private_content/{lang} { allow read, write: if false; }
+// Il backend usa Firebase Admin SDK e bypassa le regole client.
