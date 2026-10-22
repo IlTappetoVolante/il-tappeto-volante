@@ -43,3 +43,14 @@
 **Da verificare:** nome del modello risultato veloce, eventuale scelta come predefinito, ulteriori lingue e controlli di regressione. **Regia principale invariata.**
 
 **Conferma modello:** l'utente ha utilizzato `gemini-3.5-flash-lite` (opzione «Lite») per la traduzione della caption; risultato corretto e risposta percepita come molto veloce. La prova riguarda la traduzione testuale e non dimostra che il modello sia preferibile anche per l'analisi dell'immagine. Il predefinito non è stato modificato.
+
+
+## 2026-10-22 — Catalogo landing page nel lettore Regia (versione di prova)
+
+**Richiesta:** aggiungere al selettore della Regia le landing page mancanti.
+
+**Modifica eseguita:** il menu «Landing page del sito e collegamenti rapidi» ora contiene **11 collegamenti verificati come file index.html nel repository GitHub**, di cui **8 nuovi** rispetto alle tre voci esistenti. Suddivisione per categorie: Viaggi da Sogno (Porta, Babbucce, Rapimento), Diari di viaggio e Marocco (Noi sorelle degli Stretti, Istanbul Caos Affascinante, Col Marocco passo dopo passo), Le Mille e Una Notte (Città di Bronzo), Storia (Aşk ve Taht landing e episodio 1), Letteratura (Ben Ramar), Home del sito.
+
+**Ambito:** unicamente \`regia/regia-test/index.html\`; \`regia/index.html\` resta invariato come copia stabile. Nessuna modifica a Firebase, autenticazione, generazione/approvazione caption, traduzione, Diario o pulsanti esistenti.
+
+**Verifiche:** tutti i percorsi corrispondono a file \`index.html\` esistenti nel ramo \`main\` del repository; numero e unicità dei link controllati; entrambi gli script JavaScript hanno superato la verifica sintattica. Da collaudare nel browser l'analisi di ogni pagina. Landing non ancora presenti nel repository escluse per evitare collegamenti non funzionanti.
