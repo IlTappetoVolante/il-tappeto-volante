@@ -26,7 +26,7 @@ async function accessToken(){
 }
 async function pp(method,url,body){
   const tok=await accessToken();
-  const r=await fetch(PP+url,{method,headers:{"Authorization":"Bearer "+tok,"Content-Type":"application/json","PayPal-Request-Id":body?.requestId||undefined},body:body?JSON.stringify(body.data||body):undefined});
+  const r=await fetch(PP+url,{method,headers:{"Authorization":"Bearer "+tok,"Content-Type":"application/json"},body:method==="GET"?undefined:JSON.stringify(body?.data||body||{})});
   const txt=await r.text();let j;try{j=JSON.parse(txt)}catch{j={}};
   if(!r.ok)fail("PayPal ha rifiutato la richiesta ("+r.status+")",502);
   return j;
