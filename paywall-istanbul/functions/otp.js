@@ -91,15 +91,17 @@ async function verifyCode(req,res){
   const id=idForEmail(email);
   const grantRef=db.collection("istanbul_readers").doc(id),reqRef=db.collection("istanbul_otp_requests").doc(id);
   const now=Date.now(),expected=codeHash(id,code);
-  await db.runTransaction(async tx=>{
+  const accepted=await db.runTransaction(async tx=>{
     const [grant,otp]=await Promise.all([tx.get(grantRef),tx.get(reqRef)]);
     const saved=otp.data()||{};
-    if(!grant.exists||!validGrant(grant.data())||!saved.hash||saved.expiresAtMs<now||saved.attempts>=5)err("Codice non valido oppure scaduto",401);
-    // Constant time comparison, even though hashes are already HMACs.
-    const equal=crypto.timingSafeEqual(Buffer.from(expected,"hex"),Buffer.from(saved.hash,"hex"));
+    if(!grant.exists||!validGrant(grant.data())||!saved.hash||saved.expiresAtMs<now||saved.attempts>=5)return false;
+    // Constant-time comparison, and commit the failed attempt rather than rolling the transaction back.
+    const hashOK=/^[a-f0-9]{64}$/.test(String(saved.hash));
+    const equal=hashOK&&crypto.timingSafeEqual(Buffer.from(expected,"hex"),Buffer.from(saved.hash,"hex"));
     tx.update(reqRef,{attempts:admin.firestore.FieldValue.increment(1),...(equal?{hash:null,expiresAtMs:0,usedAtMs:now}:{})});
-    if(!equal)err("Codice non valido oppure scaduto",401);
+    return equal;
   });
+  if(!accepted)err("Codice non valido oppure scaduto",401);
   const token=await admin.auth().createCustomToken(readerUid(id));
   respond(res,200,{customToken:token});
 }
