@@ -54,11 +54,31 @@ label{display:block;margin:12px 0 5px;font-weight:700;font-size:.88rem;color:#5a
 <div class="card">
 <h2>1. Lettura Effettiva delle Landing Page</h2>
 <p style="margin-top:0;font-size:.88rem">Seleziona una pagina di prova o incolla l'URL di una pagina del sito: il lettore usa l'HTML reale e abbina le immagini pertinenti alle sezioni.</p>
-<label for="preset-tappeto">Pagine di prova e collegamenti rapidi:</label>
+<label for="preset-tappeto">Landing page del sito e collegamenti rapidi:</label>
 <select id="preset-tappeto" onchange="selezionaPresetPagina()">
-<option value="https://iltappetovolante.github.io/il-tappeto-volante/viaggi-da-sogno/porta/">🚪 Viaggi da Sogno · Sognare una porta (Test 1)</option>
-<option value="https://iltappetovolante.github.io/il-tappeto-volante/viaggi-da-sogno/babbucce/">🥿 Viaggi da Sogno · Sognare le babbucce (Test 2)</option>
-<option value="https://iltappetovolante.github.io/il-tappeto-volante/">🕌 Home Page · Il Tappeto Volante</option>
+  <optgroup label="🚪 Viaggi da Sogno">
+    <option value="https://iltappetovolante.github.io/il-tappeto-volante/viaggi-da-sogno/porta/">🚪 Sognare una porta</option>
+    <option value="https://iltappetovolante.github.io/il-tappeto-volante/viaggi-da-sogno/babbucce/">🥿 Sognare le babbucce</option>
+    <option value="https://iltappetovolante.github.io/il-tappeto-volante/viaggi-da-sogno/rapimento/">🐎 Sognare di essere rapiti</option>
+  </optgroup>
+  <optgroup label="📖 Diari di viaggio e Marocco">
+    <option value="https://iltappetovolante.github.io/il-tappeto-volante/libro-primo-noi-sorelle-degli-stretti/">📖 Libro Primo · Noi, sorelle degli Stretti</option>
+    <option value="https://iltappetovolante.github.io/il-tappeto-volante/istanbul-caos-affascinante/">🕌 Istanbul · Il Caos Affascinante</option>
+    <option value="https://iltappetovolante.github.io/il-tappeto-volante/col-marocco-passo-dopo-passo/">🇲🇦 Col Marocco, passo dopo passo</option>
+  </optgroup>
+  <optgroup label="🌙 Le Mille e Una Notte">
+    <option value="https://iltappetovolante.github.io/il-tappeto-volante/le-mille-e-una-notte/la-citta-di-bronzo/">🏺 La Città di Bronzo</option>
+  </optgroup>
+  <optgroup label="👑 Storia, fiction e realtà">
+    <option value="https://iltappetovolante.github.io/il-tappeto-volante/ask-ve-taht/">👑 Aşk ve Taht · Between Fiction and History</option>
+    <option value="https://iltappetovolante.github.io/il-tappeto-volante/ask-ve-taht/episode-1/">🏰 Aşk ve Taht · Episodio 1 — Before the Throne</option>
+  </optgroup>
+  <optgroup label="📜 Letteratura e Mediterraneo coloniale">
+    <option value="https://iltappetovolante.github.io/il-tappeto-volante/ben-ramar/">📜 Ben Ramar e i cristiani</option>
+  </optgroup>
+  <optgroup label="🏠 Sito">
+    <option value="https://iltappetovolante.github.io/il-tappeto-volante/">🏠 Home Page · Il Tappeto Volante</option>
+  </optgroup>
 </select>
 <label for="url-universale">URL della pagina da analizzare:</label>
 <input type="text" id="url-universale" value="https://iltappetovolante.github.io/il-tappeto-volante/viaggi-da-sogno/porta/">
