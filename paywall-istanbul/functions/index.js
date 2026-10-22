@@ -13,6 +13,7 @@ const MODE=process.env.ISTANBUL_PAYPAL_MODE==="live"?"live":"sandbox";
 const PP=MODE==="live"?"https://api-m.paypal.com":"https://api-m.sandbox.paypal.com";
 const ORIGIN="https://iltappetovolante.github.io";
 const ARTICLE="istanbul-caos-affascinante";
+const ACTIVE=process.env.ISTANBUL_PAYWALL_ACTIVE==="yes"; // never accept payment before manual launch.
 const WEEK=7*24*3600*1000;
 function fail(msg,status=400){const e=new Error(msg);e.httpStatus=status;throw e;}
 function json(res,status,obj){res.status(status).json(obj);}
@@ -160,16 +161,22 @@ exports.istanbulPaywall=onRequest({
   res.set("Cache-Control","no-store");
   const path=req.path.replace(/^\/+|\/+$/g,"");
   try{
-    if(path==="config"&&req.method==="GET"){json(res,200,{clientId:CLIENT_ID.value(),mode:MODE,article:ARTICLE});return;}
+    if(path==="config"&&req.method==="GET"){
+      if(!ACTIVE){json(res,200,{clientId:null,mode:MODE,article:ARTICLE,ready:false});return;}
+      const languages=await Promise.all(["it","en","es"].map(code=>db.collection("istanbul_private_content").doc(code).get()));
+      const ready=languages.every(doc=>doc.exists&&typeof doc.data()?.html==="string"&&doc.data().html.length>500);
+      json(res,200,{clientId:ready?CLIENT_ID.value():null,mode:MODE,article:ARTICLE,ready});return;
+    }
     if(path==="webhook"&&req.method==="POST"){await handleWebhook(req,res);return;}
     const uid=await user(req);
     if(path==="status"&&req.method==="GET"){json(res,200,await entitlement(uid));return;}
-    if(path==="create"&&req.method==="POST"){await handleCreate(req,res,uid);return;}
-    if(path==="capture"&&req.method==="POST"){await handleCapture(req,res,uid);return;}
+    if(path==="create"&&req.method==="POST"){if(!ACTIVE)fail("Acquisti non ancora attivi",503);await handleCreate(req,res,uid);return;}
+    if(path==="capture"&&req.method==="POST"){if(!ACTIVE)fail("Acquisti non ancora attivi",503);await handleCapture(req,res,uid);return;}
     if(path==="content"&&req.method==="GET"){
       const a=await entitlement(uid);
       if(!a.authorized)fail("Questo racconto richiede un pass attivo",403);
-      const doc=await db.collection("istanbul_private_content").doc("it").get();
+      const lang=["it","en","es"].includes(req.query.lang)?req.query.lang:"it";
+      const doc=await db.collection("istanbul_private_content").doc(lang).get();
       if(!doc.exists||typeof doc.data()?.html!=="string")fail("Contenuto privato non ancora installato",503);
       json(res,200,{html:doc.data().html,entitlement:a});return;
     }
