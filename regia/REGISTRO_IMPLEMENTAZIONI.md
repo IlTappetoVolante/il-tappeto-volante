@@ -101,3 +101,14 @@ Richiesta: predisporre per «Istanbul · Il Caos Affascinante» un ingresso sett
 Su richiesta dell'autrice sono state aggiornate le anteprime italiana, inglese e spagnola e la pagina di accesso, evidenziando lo scopo di sostenere con contributi la produzione di racconti e fotografie originali di «Il Tappeto Volante». Testo guida: «Dona 3 € per sostenere il mio progetto affinché io possa continuare a produrre questi contenuti». Restano ben specificati i vantaggi abbinati al contributo: sette giorni di accesso con 3 €, accesso permanente con contributo a discrezione da 5 €.
 
 **Chiarezza obbligatoria:** il linguaggio di sostegno non cambia la natura della transazione quando l'accesso ai contenuti è condizionato al versamento. Non indicarla come liberalità senza contropartita o donazione fiscalmente detraibile. PayPal.Me personale non è una scorciatoia per eludere le condizioni PayPal per beni/servizi. PayPal Checkout/Firebase restano non attivi, senza pagamenti disponibili fino ad attivazione e collaudo. Le tre pagine complete già pubbliche non sono state modificate.
+
+
+## 2026-10-22 — Password monouso email per il racconto Istanbul (SOLO STAGING)
+
+L'autrice richiede accesso tramite username/email e password valida una sola volta, con invio **automatico** di una nuova password alla mail del sostenitore per ogni successivo ingresso, possibilmente dal mittente «Il Tappeto Volante». Scelta tecnica: codice di otto cifre monouso valido dieci minuti, spedito via email, autenticazione Firebase via token Custom e sessione volatile del browser.
+
+**Realizzato**: \`paywall-istanbul/functions/otp.js\` per generazione, email, limiti anti-abuso, verifica codice e consegna contenuto protetto; \`grant-access.cjs\` per conferire o revocare manualmente i diritti dopo verifica dei contributi PayPal.Me; \`istanbul-caos-affascinante/accesso-monouso.html\` per accesso, ascolto e lettura; le tre anteprime del ramo staging rimandano a tale pagina. Regole Firestore aggiornate come frammento da integrare. Documentazione: \`paywall-istanbul/OTP_EMAIL_COLLAUDO.md\`.
+
+**Limiti**: i codici si consumano, non il pass; 3 € per sette giorni e contributo da 5 € per diritto permanente. Il testo integrale resta protetto da un controllo server (quando migrato) e non soltanto dal segreto dell'URL. La risposta effettiva di PayPal.Me non è disponibile automaticamente: l'autrice deve approvare l'accesso dopo aver verificato l'incasso. Invio dal mittente «Il Tappeto Volante» richiede un servizio email configurato con indirizzo/dominio autorizzato; l'implementazione al momento utilizza Resend e non ha credenziali o dominio verificato.
+
+**Stato**: sintassi JS e riferimenti verificati staticamente; nessun deploy Firebase né test reale invio email ancora effettuato, nessuna modifica alle pagine pubbliche main, nessun incasso attivato.
