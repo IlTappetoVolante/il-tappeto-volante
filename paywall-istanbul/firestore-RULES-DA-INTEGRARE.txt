@@ -4,3 +4,9 @@ match /istanbul_orders/{orderId} { allow read, write: if false; }
 match /istanbul_captures/{captureId} { allow read, write: if false; }
 match /istanbul_private_content/{lang} { allow read, write: if false; }
 // Il backend usa Firebase Admin SDK e bypassa le regole client.
+
+// Accesso monouso: queste raccolte sono solo server-side; vietato leggere i codici o i diritti direttamente dal browser.
+match /istanbul_readers/{readerId} { allow read, write: if false; }
+match /istanbul_reader_uids/{uid} { allow read, write: if false; }
+match /istanbul_otp_requests/{requestId} { allow read, write: if false; }
+match /istanbul_otp_limits/{networkId} { allow read, write: if false; }
