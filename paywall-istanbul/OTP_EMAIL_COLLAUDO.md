@@ -1,53 +1,62 @@
-# Istanbul — accesso con password monouso via email (ramo di prova)
+# Istanbul — accesso tramite codice email monouso (Gmail, ramo di prova)
 
-**STATO**: codice implementato su \`istanbul-paywall-staging\`, non attivato e non pubblicato su GitHub Pages. Le pagine integrali IT/EN/ES sono ancora pubbliche su \`main\`.
+**STATO AL 22/10/2026**: codice preparato nel ramo `istanbul-paywall-staging`; invio Gmail NON attivato, Cloud Function NON distribuita, contenuti integrali IT/EN/ES ancora pubblici su `main`. Nessun pagamento da avviare prima del collaudo.
 
-## Percorso del sostenitore
-1. Una volta che il paywall è operativo, il lettore sceglie il contributo sul proprio PayPal.Me con modalità appropriata per contenuti esclusivi. Pagamento immediato, MA PayPal.Me non notifica l'incasso alla nostra Firebase Function.
-2. L'autrice verifica l'incasso direttamente nel conto PayPal e associa il versamento a un **indirizzo email concordato**. Non fidarsi di screenshot.
-3. In questa prima versione un amministratore conferma il diritto di accesso usando uno script da un computer fidato; nessuna password di amministrazione viene conservata nel sito pubblico.
-4. Il sostenitore inserisce la sua **email (username)** e preme «Richiedi codice».
-5. Riceve un **codice a 8 cifre** via email da un mittente verificato «Il Tappeto Volante», valido **10 minuti** e utilizzabile **una sola volta**. Il codice è generato con \`crypto.randomInt\`, conservato solo sotto forma di HMAC, invalidato dopo l'uso e soggetto a un massimo di 5 tentativi.
-6. Dopo la verifica, Firebase Auth emette una sessione limitata alla scheda attuale (**inMemoryPersistence**). Il contenuto completo IT/EN/ES è servito da Firestore privato solo dopo verifica lato server del diritto.
-7. A ogni nuovo ingresso su pagina/nuova scheda si richiede un codice diverso. **La validità del pass non è monouso**: 7 giorni o permanente in base alla concessione registrata.
+## Come dovrebbe funzionare
+1. In un secondo momento il lettore paga con PayPal.Me in una modalità consentita per contenuti esclusivi. PayPal.Me NON comunica automaticamente a Firebase l'esito del pagamento.
+2. L'autrice verifica l'accredito effettivo sul proprio PayPal; un amministratore abilita l'email corretta usando `grant-access.cjs` da ambiente fidato.
+3. Il lettore inserisce l'email autorizzata e richiede un codice.
+4. Il backend Firebase genera un codice a **8 cifre**, valido **10 minuti**, monouso, e lo invia dalla vera casella Gmail del progetto.
+5. La verifica del codice avviene su Firebase; il contenuto completo arriva da Firestore privato solo se il lettore ha un diritto valido (7 giorni o accesso permanente). Ogni nuova scheda/sessione richiede un nuovo codice.
 
-Il semplice URL non permette di bypassare il controllo. I contenuti possono comunque essere fotografati o condivisi da un lettore autorizzato: non esiste una protezione assoluta della copia.
+## Preparazione Gmail (da eseguire direttamente dall'autrice, NON in chat)
+- Accedere con l'account Google che dovrà inviare le mail.
+- Attivare la **Verifica in due passaggi** per quell'account.
+- Aprire **https://myaccount.google.com/apppasswords**. Se disponibile, creare una password per l'app chiamata "Regia Istanbul OTP". Google la mostra una volta; non copiarla in chat, GitHub, screenshot o file del sito.
+- La password per le app è una credenziale sensibile che consente a un programma l'accesso al servizio email. Revocarla nell'account Google se non serve più. Google consiglia OAuth 2.0 come metodo più sicuro per integrazioni durature; questa soluzione SMTP è destinata al collaudo iniziale.
+- Se la voce "Password per le app" non è disponibile (es. Protezione avanzata o alcune impostazioni dell'account), usare OAuth 2.0 o un provider email verificato, senza aggirare le protezioni dell'account.
 
-## Nuovi file su ramo \`istanbul-paywall-staging\`
-- \`istanbul-caos-affascinante/accesso-monouso.html\`: pagina di accesso con email, OTP e lettura.
-- \`paywall-istanbul/functions/otp.js\`: backend OTP protetto con invio email API Resend, Firestore e Firebase Custom Auth Tokens.
-- \`paywall-istanbul/functions/grant-access.cjs\`: concessione e revoca diritti dopo controllo manuale dell'incasso.
-- \`paywall-istanbul/functions/index.js\`: esporta \`istanbulOtpAccess\` oltre al modulo sperimentale PayPal Checkout non attivato.
-- Anteprime IT/EN/ES del ramo di prova: link PayPal.Me da verificare e collegamento alla pagina OTP. Non pubblicate sul ramo principale.
+## Configurazione Firebase (Cloud Shell/PC, con accesso amministrativo)
+Progetto: `regia-tappeto-volante`. Prima verificare Firestore, Authentication, Cloud Functions, permessi IAM necessari e piano Blaze; possono esserci costi.
 
-## Preparazione tecnica richiesta
-1. Progetto Firebase esistente \`regia-tappeto-volante\`: Firestore, Authentication e Cloud Functions su Blaze, con la corretta autorizzazione a generare Firebase Custom Tokens per l'account di servizio della funzione (IAM role Service Account Token Creator, ove richiesto).
-2. Configurare un mittente email autentico del Tappeto. Questa implementazione usa **Resend**. Per poter inviare dal nome \`Il Tappeto Volante <accessi@tuodominio.it>\` è necessario possedere e verificare il dominio di invio con il provider (SPF/DKIM); non basta inventare un indirizzo Gmail o un mittente. In assenza di dominio proprio si deve concordare un provider email diverso che autorizzi il vero indirizzo del progetto. **Non posso attivarlo senza tale configurazione.**
-3. In un ambiente amministrativo fidato (non nella chat o su GitHub), creare in Firebase Secret Manager:
-   \`firebase functions:secrets:set ISTANBUL_MAIL_API_KEY --project regia-tappeto-volante\`
-   \`firebase functions:secrets:set ISTANBUL_OTP_HMAC_KEY --project regia-tappeto-volante\`
-   Il secondo deve essere una stringa casuale forte, generata e custodita come segreto.
-4. Nella cartella locale \`paywall-istanbul/functions/.env\` (non committare), configurare:
-   \`\`\`
-   ISTANBUL_OTP_ACTIVE=no
-   ISTANBUL_MAIL_FROM=Il Tappeto Volante <accessi@DOMINIO_VERIFICATO>
-   \`\`\`
-   Sostituire con un vero mittente verificato.
-5. Installare \`npm install --prefix functions\`, poi \`firebase deploy --only functions:istanbulOtpAccess --project regia-tappeto-volante\` dalla cartella \`paywall-istanbul\`. Finché \`ACTIVE=no\`, la pagina OTP mostra lo stato non attivo e non spedisce codici.
-6. Importare gli articoli integrali in \`istanbul_private_content/it\`, \`/en\`, \`/es\` usando \`import-content.cjs\`, con credenziali amministrative locali; NON mettere contenuti o service account privati dentro il repository pubblico.
-7. Integrare le regole Firestore appropriate e testare l'impossibilità di leggerne il contenuto direttamente dalla console client. Per nuove raccolte, usare \`firestore-RULES-DA-INTEGRARE.txt\`.
-8. Testare con un indirizzo email reale e con un contributo PayPal.Me verificato, **ma prima fare una prova senza denaro reale** (creando una concessione temporanea di test):
-   \`\`\`bash
-   cd paywall-istanbul/functions
-   node grant-access.cjs lettore@example.com week             # dry run
-   node grant-access.cjs lettore@example.com week --execute   # attivazione
-   node grant-access.cjs lettore@example.com lifetime --execute
-   node grant-access.cjs lettore@example.com revoke --execute
-   \`\`\`
-   Eseguire questi comandi da un sistema con Google Application Default Credentials autorizzate; non sulla pagina GitHub.
-9. Attivare \`ISTANBUL_OTP_ACTIVE=yes\`, ridistribuire SOLO dopo aver verificato invio email, scadenza, limiti tentativi, logout e contenuti protetti. Rivedere rate limit/App Check per il traffico reale.
-10. **Prima di pubblicizzare il paywall**, ritirare o sostituire in \`main\` le tre pagine integrali \`index.html\`, \`en.html\`, \`es.html\`; ricordare che la cronologia GitHub e copie già salvate non possono essere cancellate retroattivamente. Poi pubblicare le anteprime e il lettore OTP. Nessuna vendita pubblica finché non si è verificato l'intero percorso contributo → attivazione → email → lettura.
+In una shell **direttamente autenticata**, senza riportare l'output contenente credenziali nella chat:
 
-**Attenzione**: trasmissione iniziale codice via email e conferma contributo NON sono automazioni equivalenti: con PayPal.Me la prima versione non può riconoscere autonomamente chi ha versato denaro. La procedura admin rimane manuale. Per una vera attivazione immediata dopo pagamento servono Checkout/Webhook o una piattaforma che fornisca tali notifiche.
+```bash
+firebase functions:secrets:set ISTANBUL_GMAIL_APP_PASSWORD --project regia-tappeto-volante
+firebase functions:secrets:set ISTANBUL_OTP_HMAC_KEY --project regia-tappeto-volante
+```
 
-**Condizioni PayPal**: i versamenti in cambio di contenuti esclusivi non vanno fatti passare come trasferimenti «amici e familiari». Il loro nome editoriale «dona/sostieni» non ne modifica la natura contrattuale; verificare l'uso consentito del proprio PayPal.Me.
+Il primo valore da inserire, solo nella richiesta sicura della CLI, è la password per l'app generata da Google; il secondo è una stringa segreta casuale forte distinta. Evitare di inserirli come argomenti visibili nella cronologia dei comandi.
+
+Configurare `paywall-istanbul/functions/.env` **localmente e non su GitHub**:
+
+```dotenv
+ISTANBUL_OTP_ACTIVE=no
+ISTANBUL_GMAIL_SENDER=indirizzo-gmail-del-progetto@example.com
+```
+
+Sostituire la seconda riga con la casella **Gmail reale** che ha generato la password per l'app; il valore non è un alias fittizio. Il file `.env` è escluso dalla pubblicazione su GitHub. Il mittente pubblico sarà «Il Tappeto Volante» con l'indirizzo Gmail reale.
+
+Dalla cartella `paywall-istanbul`:
+
+```bash
+npm install --prefix functions
+npm run check --prefix functions
+firebase deploy --only functions:istanbulOtpAccess --project regia-tappeto-volante
+```
+
+Con `ISTANBUL_OTP_ACTIVE=no` la funzione resta disattivata al pubblico e non invia codici. **Non distribuire in produzione** prima del collaudo.
+
+## Prove necessarie PRIMA di qualsiasi pagamento reale
+1. Importare da ambiente amministrativo fidato gli articoli integrali IT/EN/ES nella raccolta privata `istanbul_private_content`. Non pubblicare i file privati con credenziali.
+2. Integrare e testare le regole Firestore di `firestore-RULES-DA-INTEGRARE.txt`, senza sostituire indiscriminatamente quelle già usate dalla Regia.
+3. Con un'email reale controllata dall'autrice, eseguire una concessione temporanea **di test senza denaro reale**: `grant-access.cjs <email> week --execute` da un PC/Cloud Shell autorizzato.
+4. Impostare localmente `ISTANBUL_OTP_ACTIVE=yes`, ridistribuire solo la funzione di accesso e verificare invio Gmail, scadenza dopo dieci minuti, singolo utilizzo, 5 tentativi massimi, limiti di richieste, revoca, accesso IT/EN/ES e nuovo codice a ogni ingresso.
+5. Verificare che URL e browser senza autorizzazione non possano leggere le pagine protette. Mettere nuovamente `ACTIVE=no` in caso di problemi.
+
+## Condizioni necessarie per il lancio
+- I tre file `istanbul-caos-affascinante/index.html`, `en.html`, `es.html` sono ancora leggibili pubblicamente sul ramo `main`. Prima di proporre un accesso esclusivo, sostituirli con anteprime e fare un controllo della versione pubblicata. La cronologia GitHub e copie già effettuate rimangono accessibili.
+- I pulsanti PayPal.Me nelle anteprime sul ramo staging sono **disattivati**: nessun lettore deve pagare per un accesso non operativo.
+- Un trasferimento a fronte di contenuti esclusivi è un pagamento con contropartita, anche se lo si presenta editorialmente come "sostegno" o "dona"; non usare la modalità "amici e familiari".
+- Con PayPal.Me, **l'autorizzazione dopo il pagamento è manuale**. Per abilitare l'accesso automaticamente dopo l'incasso servirà Checkout/Webhook PayPal, da integrare e verificare separatamente.
+- Un codice monouso limita l'accesso, non impedisce copie o fotografie del racconto da parte di un lettore autorizzato.
