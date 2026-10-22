@@ -55,24 +55,15 @@
 <h2 id="pass-title">☕ Sostieni Il Tappeto Volante e continua il viaggio</h2>
 <p>Per realizzare questi racconti e queste fotografie ho investito tempo, passione e risorse. Se desideri sostenermi affinché possa continuare a creare nuovi contenuti, puoi scegliere uno di questi contributi: ti daranno anche accesso al diario esclusivo.</p>
 <div class="pay-grid">
-<div class="pay-card"><h3>☕ Dona 3 €</h3><div class="pay-price">3,00 €</div><small>Sostieni il mio progetto: avrai accesso al racconto completo per 7 giorni, con ingressi illimitati.</small><span class="pay-status">Pagamento in preparazione</span></div>
-<div class="pay-card"><h3>💚 Dona da 5 €</h3><div class="pay-price">Da 5,00 €</div><small>Scegli liberamente quanto contribuire, a partire da 5 €: avrai accesso permanente al racconto.</small><span class="pay-status">Pagamento in preparazione</span></div>
+<div class="pay-card"><h3>☕ Dona 3 €</h3><div class="pay-price">3,00 €</div><small>Sostieni il mio progetto: avrai accesso al racconto completo per 7 giorni, con ingressi illimitati.</small><span class="pay-status">Accesso attivato dopo verifica del contributo</span></div>
+<div class="pay-card"><h3>💚 Dona da 5 €</h3><div class="pay-price">Da 5,00 €</div><small>Scegli liberamente quanto contribuire, a partire da 5 €: avrai accesso permanente al racconto.</small><span class="pay-status">Accesso attivato dopo verifica del contributo</span></div>
 </div>
-<div id="pay-entry" hidden><a class="button" href="accesso.html" style="display:inline-block;margin:12px auto">🔐 Accedi o sostieni il progetto</a></div>
-<p class="pay-foot" id="pay-explainer">Il contributo dà accesso a contenuti riservati; non è una donazione fiscalmente detraibile. Il sistema di accesso non è ancora attivo, perciò qui non viene richiesto alcun denaro.</p>
+<div class="pay-grid" id="paypalme-options" aria-label="Collegamenti PayPal.Me di collaudo"><div class="pay-card"><a class="button" href="https://www.paypal.me/IlTappetoVolante/3EUR" target="_blank" rel="noopener noreferrer">☕ Contribuisci 3 € con PayPal</a></div><div class="pay-card"><a class="button" href="https://www.paypal.me/IlTappetoVolante/5EUR" target="_blank" rel="noopener noreferrer">💚 Contribuisci da 5 € con PayPal</a></div></div>
+<p class="pay-foot" id="pay-explainer"><strong>Versione di collaudo: non distribuire finché il percorso di accesso riservato non sarà pronto.</strong> PayPal.Me riceve il contributo, ma non abilita automaticamente il racconto: il sostegno va verificato sul conto e l’accesso deve essere consegnato separatamente. I contributi collegati a contenuti esclusivi sono pagamenti con contropartita e non donazioni fiscalmente detraibili. Gli importi precompilati sono modificabili in PayPal: verificare il valore effettivamente ricevuto.</p>
 </section>
 <img class="seal" src="../img/sigillo_ceralacca_lorella_cr.png" alt="Firma di Lorella" loading="lazy">
 <p class="signature-rights" style="text-align:center">© 2026 Lorella · Il Tappeto Volante. Tutti i diritti riservati sui contenuti originali.</p>
 </main>
 </div>
-<script>
-(async()=>{try{
- const r=await fetch("https://europe-west1-regia-tappeto-volante.cloudfunctions.net/istanbulPaywall/config",{cache:"no-store"});
- if(!r.ok)return;const c=await r.json();
- if(!c.clientId)return;
- document.getElementById("pay-entry").hidden=false;
- document.getElementById("pay-explainer").textContent="Il tuo contributo sostiene la creazione di nuovi racconti e dà accesso al diario riservato. PayPal verifica la transazione prima dello sblocco.";
- document.querySelectorAll(".pay-status").forEach(el=>el.textContent="Disponibile tramite accesso personale");
-}catch{}})();
-</script></body>
+</body>
 </html>
