@@ -54,3 +54,21 @@
 **Ambito:** unicamente \`regia/regia-test/index.html\`; \`regia/index.html\` resta invariato come copia stabile. Nessuna modifica a Firebase, autenticazione, generazione/approvazione caption, traduzione, Diario o pulsanti esistenti.
 
 **Verifiche:** tutti i percorsi corrispondono a file \`index.html\` esistenti nel ramo \`main\` del repository; numero e unicità dei link controllati; entrambi gli script JavaScript hanno superato la verifica sintattica. Da collaudare nel browser l'analisi di ogni pagina. Landing non ancora presenti nel repository escluse per evitare collegamenti non funzionanti.
+
+
+## 2026-10-22 — Musica Gemini dalle landing page (v1, in test)
+
+**Richiesta:** dopo la lettura editoriale della landing page, proporre una colonna sonora coerente con il testo e avviarne la realizzazione con Gemini.
+
+**Implementato esclusivamente in \`regia/regia-test/index.html\`:**
+- Nuova scheda «🎼 Musica per questa landing page» nella sezione del lettore. Riutilizza i veri estratti letti, la sessione Firebase Authentication e App Check, senza nuova lettura della pagina.
+- Un pulsante «Prepara prompt musicale con Gemini» invoca Gemini Flash-Lite (fallback Flash quando esplicitamente non supportato) e produce un *prompt musicale personalizzato in inglese* da testo realmente letto: atmosfera, strumenti, sviluppo, durata desiderata, prevalentemente strumentale.
+- Prompt editabile, copia negli appunti, link per aprire Gemini Music/Lyria. L'utente deve richiedere lì la creazione del file MP3; la Regia non dichiara di generarlo.
+- Caricamento locale opzionale di MP3 fino a 30 MB e lettore di anteprima audio (object URL), senza caricamento automatico su GitHub o nel cloud.
+- Pulizia dei prompt quando cambia landing page; stessa pagina può essere elaborata nuovamente. Schede esistenti, traduzione, login e versione principale non modificate.
+
+**Motivo del flusso in due strumenti:** Firebase AI Logic *non supporta i modelli Lyria*, mentre Gemini Music / Gemini API Interactions supportano Lyria 3.5. La generazione MP3 diretta dentro Regia richiede una integrazione API server-side separata con gestione credenziali e quote; non introdurre una chiave segreta lato browser.
+
+**Brano selezionato dall'utente:** «Where the Horizon Bends» (Gemini, ca. 02:57, file originale con metadati Google C2PA), assegnato alla landing \`viaggi-da-sogno/porta/\`. **Archiviato nella Libreria come MUS-003**. Non ancora pubblicato come risorsa audio nel repository GitHub; quindi non ancora collegato al lettore pubblico. Non classificarlo come Pixabay.
+
+**Stato e verifiche:** sintassi JS di entrambi gli script verificata staticamente; interfaccia e gestione Firebase ancora da collaudare da browser. La Regia principale continua a essere la copia stabile e non è stata sovrascritta.
