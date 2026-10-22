@@ -1,0 +1,153 @@
+<!doctype html><html lang="it"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Istanbul · Il Caos Affascinante | Accesso riservato</title>
+<link rel="stylesheet" href="style.css?v=20261021-seals">
+<style>
+.pay-app{max-width:760px;margin:26px auto;padding:25px;border:1px solid #bba16f;border-radius:12px;background:#fdf7ea;color:#203b40}
+.pay-app h1{text-align:center;font-size:clamp(1.7rem,4vw,2.7rem)}.pay-app h2{font-size:1.3rem;margin:8px 0 15px}
+.pay-app p{line-height:1.7}.pay-row{display:flex;gap:12px;flex-wrap:wrap;margin:15px 0}.pay-row>*{flex:1;min-width:180px}
+.pay-plan{display:block;border:1px solid #c4a96d;border-radius:9px;padding:15px;background:#fffdf7;cursor:pointer;min-width:0}
+.pay-plan:has(input:checked){outline:2px solid #91612f}
+.pay-field{display:block;width:100%;border:1px solid #ae945e;border-radius:6px;padding:12px;background:white;color:#1b3437;font-size:1rem}
+.pay-btn{padding:12px 18px;background:#173e49;color:white;border:0;border-radius:7px;cursor:pointer;font-size:1rem}
+.pay-btn:disabled{opacity:.55;cursor:not-allowed}
+.pay-note{color:#665647;font-size:.85rem}.pay-status{padding:13px;margin:14px 0;background:#e7dcc6;border-radius:8px;line-height:1.6}
+.pay-status.error{background:#ffe4df;color:#813921}.pay-status.ok{background:#e4f3e7;color:#245835}
+#pay-private[hidden],#pay-checkout[hidden],#pay-login[hidden],#pay-logout[hidden],#pay-support[hidden]{display:none!important}
+#pay-private img{max-width:100%;height:auto}.pay-app .photo-frame{display:inline-block}
+@media(max-width:640px){.pay-app{padding:18px;margin:12px auto}}
+</style></head><body>
+<div class="paper">
+<header><a class="brand" href="../"><img src="../img/logo.png" alt=""><span>Il Tappeto Volante</span></a><nav class="languages" aria-label="Lingue"><a href="anteprima.html">← Anteprima</a></nav></header>
+<main><div class="pay-app">
+<h1>☕ Continua il viaggio</h1>
+<p><strong>Istanbul · Il Caos Affascinante</strong> — accesso personale al diario completo.</p>
+<div id="pay-login">
+<h2>1 · Accedi con la tua email</h2>
+<p>Per conservare e ritrovare il tuo acquisto usiamo un collegamento di accesso inviato alla tua email, senza password.</p>
+<label for="pay-email">La tua email</label>
+<input class="pay-field" id="pay-email" type="email" autocomplete="email" placeholder="nome@esempio.it">
+<p><button class="pay-btn" id="pay-send-link" type="button" disabled>✉️ Invia collegamento di accesso</button></p>
+<p class="pay-note">Se hai già acquistato, usa la stessa email. Controlla anche la cartella Spam.</p>
+</div>
+<div id="pay-logout" hidden><p id="pay-identity"></p><button class="pay-btn" id="pay-signout" type="button">Esci</button></div>
+<div id="pay-status" class="pay-status" role="status" aria-live="polite">Sistema di pagamento in preparazione: nessun pagamento può essere eseguito finché l'attivazione non è completata.</div>
+<div id="pay-checkout" hidden>
+<h2>2 · Scegli il tuo pass</h2>
+<div class="pay-row" role="group" aria-label="Scegli il tipo di accesso">
+<label class="pay-plan"><input type="radio" name="pay-plan" value="week" checked> <strong>3,00 € · 7 giorni</strong><span class="pay-note" style="display:block">Ingressi illimitati per una settimana dal pagamento.</span></label>
+<label class="pay-plan"><input type="radio" name="pay-plan" value="lifetime"> <strong>Da 5,00 € · Permanente</strong><span class="pay-note" style="display:block">Contributo libero, senza scadenza programmata.</span></label>
+</div>
+<div id="pay-support" hidden><label for="pay-amount">Importo scelto (€), minimo 5</label><input id="pay-amount" class="pay-field" type="number" min="5" max="500" step=".50" value="5"></div>
+<p class="pay-note">Pagamento una tantum. Nessun rinnovo automatico. L'accesso viene sbloccato dopo conferma PayPal verificata sul server.</p>
+<div id="paypal-buttons"></div>
+</div>
+<div id="pay-private" hidden aria-live="polite"><h2>📖 Il tuo racconto</h2><p class="pay-note">L'accesso è legato alla tua email verificata.</p><div id="pay-private-html"></div></div>
+</div></main></div>
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
+import {getAuth,onAuthStateChanged,sendSignInLinkToEmail,isSignInWithEmailLink,signInWithEmailLink,signOut} from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
+const config={ apiKey:'AIzaSyAEG4JOa5bY_e_Q_lCqrolXAUlibb0RNtk',
+authDomain:'regia-tappeto-volante.firebaseapp.com',
+projectId:'regia-tappeto-volante',
+storageBucket:'regia-tappeto-volante.firebasestorage.app',
+messagingSenderId:'699644566037',
+appId:'1:699644566037:web:02b7d3f35cf497613a0c1c' };
+const app=initializeApp(config);const auth=getAuth(app);
+const API="https://europe-west1-regia-tappeto-volante.cloudfunctions.net/istanbulPaywall";
+const el=id=>document.getElementById(id);let clientId=null,buttons=null,available=false;
+const update=(message,kind="")=>{el("pay-status").className="pay-status "+kind;el("pay-status").textContent=message;};
+const request=async(path,method="GET",body=null)=>{
+ const token=auth.currentUser?await auth.currentUser.getIdToken():null;
+ const response=await fetch(API+"/"+path,{method,headers:{"Content-Type":"application/json",...(token?{Authorization:"Bearer "+token}:{})},...(body?{body:JSON.stringify(body)}:{})});
+ const data=await response.json().catch(()=>({}));
+ if(!response.ok)throw Error(data.error||"Servizio temporaneamente non disponibile ("+response.status+")");
+ return data;
+};
+async function init(){
+ try{
+  const cfg=await request("config");
+  if(!cfg.clientId)throw Error("PayPal non ancora configurato.");
+  clientId=cfg.clientId;available=true;el("pay-send-link").disabled=false;
+  const script=document.createElement("script");
+  script.src="https://www.paypal.com/sdk/js?client-id="+encodeURIComponent(clientId)+"&currency=EUR&intent=capture&components=buttons";
+  script.onload=()=>{if(auth.currentUser)renderButtons();};
+  script.onerror=()=>update("Impossibile caricare PayPal. Nessun addebito effettuato.","error");
+  document.body.append(script);
+  update("Servizio disponibile. Accedi per verificare il tuo pass oppure sceglierne uno.");
+ }catch(e){available=false;el("pay-send-link").disabled=true;update("Pagamenti non ancora attivi. Questa pagina è un'anteprima tecnica: non puoi essere addebitato.","");}
+}
+function currentPlan(){
+ const plan=document.querySelector('input[name="pay-plan"]:checked')?.value||"week";
+ const amount=Number(el("pay-amount").value);
+ const cents=Math.round(amount*100);
+ if(plan==="lifetime"&&(!Number.isFinite(amount)||cents<500||cents>50000||Math.abs(amount*100-cents)>0.001))throw Error("Per l'accesso permanente scegli un importo tra 5 e 500 €.");
+ return{plan,amountCents:plan==="week"?300:cents};
+}
+async function loadAccess(){
+ if(!auth.currentUser||!available)return;
+ try{
+  const status=await request("status");
+  if(status.authorized){
+   el("pay-checkout").hidden=true;
+   const page=await request("content");
+   el("pay-private-html").innerHTML=page.html;
+   el("pay-private").hidden=false;
+   update(status.lifetime?"✅ Accesso permanente attivo.":"✅ Pass settimanale attivo fino al "+new Date(status.weeklyUntil).toLocaleString("it-IT")+".","ok");
+  }else{
+   el("pay-private").hidden=true;el("pay-checkout").hidden=false;
+   update("Non risulta un pass attivo per questa email. Puoi scegliere una delle due formule.");
+   renderButtons();
+  }
+ }catch(e){update("Impossibile verificare l'accesso: "+e.message,"error");}
+}
+function renderButtons(){
+ if(!available||!window.paypal||!auth.currentUser||el("pay-checkout").hidden)return;
+ el("paypal-buttons").replaceChildren();
+ buttons=window.paypal.Buttons({
+  createOrder:async()=>{
+    const selected=currentPlan();
+    const order=await request("create","POST",selected);return order.id;
+  },
+  onApprove:async(data)=>{
+   update("Pagamento autorizzato: verifica finale con PayPal…");
+   try{await request("capture","POST",{orderId:data.orderID});await loadAccess();}
+   catch(e){update("Il pagamento non è ancora stato confermato dal server. Non ripetere subito il pagamento: "+e.message,"error");}
+  },
+  onCancel:()=>update("Pagamento annullato. Non è stato attivato alcun accesso."),
+  onError:err=>{console.error("PayPal",err);update("PayPal ha riscontrato un problema; verifica prima di riprovare.","error");}
+ });
+ if(buttons.isEligible())buttons.render("#paypal-buttons");
+ else update("PayPal non è disponibile per questo dispositivo o conto.","error");
+}
+document.querySelectorAll('input[name="pay-plan"]').forEach(r=>r.addEventListener("change",()=>{
+ el("pay-support").hidden=document.querySelector('input[name="pay-plan"]:checked').value!=="lifetime";renderButtons();
+}));
+el("pay-amount").addEventListener("change",renderButtons);
+el("pay-send-link").addEventListener("click",async()=>{
+ const email=el("pay-email").value.trim();
+ if(!email){update("Inserisci un indirizzo email valido.","error");return;}
+ try{
+  await sendSignInLinkToEmail(auth,email,{url:location.origin+location.pathname,handleCodeInApp:true});
+  localStorage.setItem("istanbulReaderEmail",email);
+  update("Ti abbiamo inviato il collegamento di accesso. Apri la tua email e segui il link.","ok");
+ }catch(e){update("Impossibile inviare il link: "+e.message,"error");}
+});
+el("pay-signout").addEventListener("click",()=>signOut(auth));
+onAuthStateChanged(auth,async user=>{
+ el("pay-login").hidden=!!user;
+ el("pay-logout").hidden=!user;
+ el("pay-identity").textContent=user?.email?"Account: "+user.email:"";
+ if(user){await loadAccess();}
+ else{el("pay-checkout").hidden=true;el("pay-private").hidden=true;}
+});
+if(isSignInWithEmailLink(auth,location.href)){
+ let email=localStorage.getItem("istanbulReaderEmail");
+ if(!email)email=prompt("Conferma l'email su cui hai ricevuto il collegamento:");
+ if(email)signInWithEmailLink(auth,email,location.href).then(()=>{
+   localStorage.removeItem("istanbulReaderEmail");history.replaceState(null,"",location.origin+location.pathname);
+ }).catch(e=>update("Collegamento non valido o scaduto: "+e.message,"error"));
+}
+init();
+</script></body></html>
