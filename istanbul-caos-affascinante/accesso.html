@@ -93,7 +93,15 @@ async function loadAccess(){
    el("pay-checkout").hidden=true;
    const lang=new URLSearchParams(location.search).get("lang")||"it";
    const page=await request("content?lang="+encodeURIComponent(["it","en","es"].includes(lang)?lang:"it"));
-   el("pay-private-html").innerHTML=page.html;
+   const musicPanel='<aside class="media-panel" aria-labelledby="media-title" data-reading-lang="'+(["it","en","es"].includes(lang)?lang:"it")+'">'+
+     '<h2 id="media-title">🎧 Ascolta e accompagna il viaggio</h2>'+
+     '<div class="music-player"><h3>Musica di sottofondo</h3><audio id="travel-music" controls loop preload="none" src="../audio/hitslab-turkish-middle-eastern-background-music-326270.mp3" data-music-src="../audio/hitslab-turkish-middle-eastern-background-music-326270.mp3"></audio><p class="media-note" id="music-note">Turkish Middle Eastern Background Music · HitsLab</p></div>'+
+     '<div class="speech-reader"><div class="reader-actions"><button type="button" id="reader-play">▶ Ascolta il racconto</button><button type="button" id="reader-pause" disabled>⏸ Pausa</button><button type="button" id="reader-stop" disabled>■ Ferma</button></div><label for="reader-voice">Voce</label> <select id="reader-voice"><option value="">Automatica</option></select><p class="media-note" id="reader-status" role="status" aria-live="polite">Lettura pronta.</p></div></aside>';
+   el("pay-private-html").innerHTML=musicPanel+page.html;
+   if(!window.__istanbulMediaInitialized){
+     window.__istanbulMediaInitialized=true;
+     const script=document.createElement("script");script.src="media.js?v=20261021-music";document.body.append(script);
+   }
    el("pay-private").hidden=false;
    update(status.lifetime?"✅ Accesso permanente attivo.":"✅ Pass settimanale attivo fino al "+new Date(status.weeklyUntil).toLocaleString("it-IT")+".","ok");
   }else{
