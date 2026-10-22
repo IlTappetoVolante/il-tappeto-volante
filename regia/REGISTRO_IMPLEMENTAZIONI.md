@@ -83,3 +83,14 @@
 **Sicurezza:** la Regia stabile \`regia/index.html\` non è stata modificata. Script originali e modulo immagini superano il controllo statico della sintassi. Da collaudare in browser con Firebase e l'accesso effettivo a Nano Banana.
 
 **Porta — parzialmente preparata:** in \`viaggi-da-sogno/porta/index.html\` è stata inserita la sezione con il lettore, crediti Gemini e URL previsto \`../../audio/where_the_horizon_bends.mp3\`. Il player è nascosto finché una verifica HTTP HEAD non conferma l'esistenza dell'MP3 pubblico: nessuna interfaccia fittizia o pulsante rotto per i visitatori. **Il file audio da 4.254.891 byte (~2:57) è archiviato nella Libreria come MUS-003, ma NON è ancora nel repository GitHub**, perché il collegamento disponibile espone scritture testuali/Base64 senza accesso diretto ai byte locali del file. Caricare il file nel percorso previsto resta indispensabile per completare la richiesta. Non dichiarare il lettore come operativo prima del caricamento e del collaudo browser.
+
+
+## 2026-10-22 — Paywall Istanbul — anteprime e gateway (NON ancora attivo)
+
+Richiesta: predisporre per «Istanbul · Il Caos Affascinante» un ingresso settimanale da **3 €** valido 7 giorni e un accesso permanente con contributo **a discrezione da 5 €**, senza rinnovi automatici; pubblicazione imminente sui social.
+
+**Realizzato su GitHub:** tre anteprime gratuite autonome IT/EN/ES nella cartella \`istanbul-caos-affascinante/\`; una schermata \`accesso.html\` con login via link email Firebase, selezione prezzo e PayPal Buttons; progetto backend \`paywall-istanbul/\` con PayPal Orders v2, verifica server del pagamento, diritti di accesso in Firestore, servizio privato dei racconti, verifica webhook per rimborsi, script di migrazione degli articoli e guida di attivazione.
+
+**Protezione:** le anteprime mostrano "pagamenti in preparazione" fino all'avvio esplicito della funzione backend e al caricamento privato di tutti e tre gli articoli. L'indice originale, la traduzione inglese e quella spagnola restano invariati e pubblici. La cronologia GitHub resta accessibile: contenuti precedentemente pubblici non possono essere resi retroattivamente esclusivi. Nessun pagamento attivo, nessun addebito.
+
+**Stato:** codice versionato e sintassi verificata; **non ancora deployato su Firebase né collegato a un conto PayPal**, non ancora collaudato in Sandbox. Necessari: account PayPal Developer, secret su Firebase, email link Auth, regole database, migrazione contenuti privati, collaudi Sandbox, switch Live. Vedi \`paywall-istanbul/LEGGIMI-ATTIVAZIONE.md\`. Non distribuire come paywall a pagamento finché non viene completata l'attivazione.
