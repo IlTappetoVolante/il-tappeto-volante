@@ -1,0 +1,129 @@
+<!doctype html><html lang="it"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Accesso con codice monouso · Istanbul · Il Caos Affascinante</title>
+<link rel="stylesheet" href="style.css?v=20261021-seals">
+<style>
+.otp-shell{max-width:780px;margin:30px auto;padding:25px;border:1px solid #b49c74;border-radius:11px;background:#fff9ed;color:#263c41}
+.otp-shell h1{font-size:clamp(1.8rem,5vw,2.8rem);text-align:center}
+.otp-shell p{line-height:1.65}
+.otp-label{display:block;margin:12px 0 6px;font-weight:600}
+.otp-input{display:block;width:100%;max-width:450px;padding:12px;border:1px solid #b49c74;border-radius:7px;background:#fff;color:#243d3d;font-size:1.05rem}
+#otp-code{max-width:210px;letter-spacing:3px;font-size:1.35rem}
+.otp-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:12px}
+.otp-btn{padding:12px 16px;color:#fff8eb;background:#23515b;border:0;border-radius:8px;font-size:1rem;cursor:pointer}
+.otp-btn:disabled{opacity:.55;cursor:not-allowed}
+.otp-status{background:#f3e4cb;padding:14px;border-radius:7px;margin:18px 0;font-size:.94rem;line-height:1.6}
+.otp-status.ok{background:#e3f3e4;color:#23522f}
+.otp-status.err{background:#fce2d9;color:#74311d}
+.otp-status a{color:#204e5b}
+#otp-private[hidden],#otp-login[hidden],#otp-verify[hidden]{display:none!important}
+#otp-private img{max-width:100%;height:auto}
+#otp-private .media-panel{max-width:730px;margin:22px auto;border:1px solid #b49c74;padding:14px}
+#otp-private .media-panel audio{display:block;width:100%}
+.otp-help{font-size:.86rem;color:#685847}
+@media(max-width:640px){.otp-shell{margin:10px auto;padding:17px}}
+</style></head><body>
+<div class="paper">
+<header><a class="brand" href="../"><img src="../img/logo.png" alt=""><span>Il Tappeto Volante</span></a>
+<nav class="languages" aria-label="Lingua del racconto"><a href="accesso-monouso.html">🇮🇹 IT</a><a href="accesso-monouso.html?lang=en">🇬🇧 EN</a><a href="accesso-monouso.html?lang=es">🇪🇸 ES</a></nav></header>
+<main><section class="otp-shell">
+<h1>🔐 Una chiave per il tuo viaggio</h1>
+<p>Il racconto <strong>Istanbul · Il Caos Affascinante</strong> è riservato ai sostenitori già autorizzati. Dopo la conferma del contributo su PayPal.Me, puoi entrare usando la tua email.</p>
+<p class="otp-help">Non serve una password permanente. A ogni nuova visita riceverai un codice monouso direttamente sulla tua casella email. Ogni codice scade dopo 10 minuti; il diritto di lettura dura 7 giorni oppure non ha scadenza programmata, secondo il sostegno registrato.</p>
+<div id="otp-login">
+<label class="otp-label" for="otp-email">Email del sostenitore (username)</label>
+<input class="otp-input" id="otp-email" type="email" autocomplete="email" required placeholder="nome@esempio.it">
+<div class="otp-row"><button class="otp-btn" id="otp-request" type="button" disabled>✉️ Richiedi codice monouso</button></div>
+</div>
+<div id="otp-verify" hidden>
+<label class="otp-label" for="otp-code">Codice ricevuto via email</label>
+<input class="otp-input" id="otp-code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="8" pattern="[0-9]{8}" placeholder="00000000">
+<div class="otp-row"><button class="otp-btn" id="otp-enter" type="button">🔓 Entra nel racconto</button><button class="otp-btn" id="otp-again" type="button">Richiedi nuovo codice</button></div>
+</div>
+<div id="otp-status" class="otp-status" role="status" aria-live="polite">Servizio in configurazione. Nessun accesso viene concesso finché il collaudo non è completo.</div>
+<div id="otp-private" hidden>
+<p id="otp-entitlement"></p>
+<div class="otp-row"><button class="otp-btn" id="otp-exit" type="button">Esci e chiudi l'accesso</button></div>
+<div id="otp-article"></div>
+</div>
+</section></main></div>
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
+import {initializeAuth,inMemoryPersistence,signInWithCustomToken,onAuthStateChanged,signOut} from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
+const firebaseConfig={ apiKey:'AIzaSyAEG4JOa5bY_e_Q_lCqrolXAUlibb0RNtk',
+ authDomain:'regia-tappeto-volante.firebaseapp.com',
+ projectId:'regia-tappeto-volante',
+ storageBucket:'regia-tappeto-volante.firebasestorage.app',
+ messagingSenderId:'699644566037',
+ appId:'1:699644566037:web:02b7d3f35cf497613a0c1c' };
+const app=initializeApp(firebaseConfig,"istanbul-otp");
+const auth=initializeAuth(app,{persistence:inMemoryPersistence});
+const BASE="https://europe-west1-regia-tappeto-volante.cloudfunctions.net/istanbulOtpAccess";
+const el=x=>document.getElementById("otp-"+x);
+const lang=["it","en","es"].includes(new URLSearchParams(location.search).get("lang"))?new URLSearchParams(location.search).get("lang"):"it";
+let available=false,working=false;
+function status(message,level=""){el("status").className="otp-status "+level;el("status").textContent=message;}
+async function call(endpoint,method="GET",data=null){
+ const headers={"Content-Type":"application/json"};
+ const token=auth.currentUser?await auth.currentUser.getIdToken():null;
+ if(token)headers.Authorization="Bearer "+token;
+ const url=BASE+"/"+endpoint;
+ const response=await fetch(url,{method,headers,cache:"no-store",...(data?{body:JSON.stringify(data)}:{})});
+ const json=await response.json().catch(()=>({}));
+ if(!response.ok)throw Error(json.error||"Servizio non disponibile");
+ return json;
+}
+function controls(){el("request").disabled=!available||working;el("enter").disabled=!available||working;el("again").disabled=!available||working;}
+async function requestCode(){
+ const email=el("email").value.trim().toLowerCase();
+ if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){status("Inserisci un indirizzo email valido.","err");return;}
+ working=true;controls();status("Richiesta del codice in corso…");
+ try{
+   const r=await call("request-code","POST",{email});
+   el("verify").hidden=false;
+   status(r.message||"Se la tua email è abilitata, riceverai il codice entro pochi minuti.","ok");
+ }catch(error){status(error.message,"err");}
+ finally{working=false;controls();}
+}
+async function verifyCode(){
+ const email=el("email").value.trim().toLowerCase(),code=el("code").value.trim();
+ if(!/^\d{8}$/.test(code)){status("Il codice deve contenere 8 cifre.","err");return;}
+ working=true;controls();status("Verifica del codice monouso…");
+ try{
+   const r=await call("verify-code","POST",{email,code});
+   el("code").value="";
+   await signInWithCustomToken(auth,r.customToken);
+ }catch(error){status("Codice errato o scaduto. "+error.message,"err");}
+ finally{working=false;controls();}
+}
+async function readFullStory(){
+ try{
+  const [grant,story]=await Promise.all([call("status"),call("content?lang="+lang)]);
+  el("private").hidden=false;el("login").hidden=true;el("verify").hidden=true;
+  el("entitlement").textContent=grant.plan==="lifetime"?"💚 Accesso permanente attivo":"☕ Accesso valido fino al "+new Date(grant.expiresAtMs).toLocaleString("it-IT")+".";
+  const audioBox='<aside class="media-panel" data-reading-lang="'+lang+'"><h2 id="media-title">🎧 Ascolta e accompagna il viaggio</h2>'+
+   '<div class="music-player"><h3>Musica di sottofondo</h3><audio id="travel-music" controls loop preload="none" src="../audio/hitslab-turkish-middle-eastern-background-music-326270.mp3" data-music-src="../audio/hitslab-turkish-middle-eastern-background-music-326270.mp3"></audio><p class="media-note" id="music-note">Turkish Middle Eastern Background Music · HitsLab</p></div>'+
+   '<div class="speech-reader"><div class="reader-actions"><button type="button" id="reader-play">▶ Ascolta il racconto</button><button type="button" id="reader-pause" disabled>⏸ Pausa</button><button type="button" id="reader-stop" disabled>■ Ferma</button></div><label for="reader-voice">Voce</label> <select id="reader-voice"><option value="">Automatica</option></select><p class="media-note" id="reader-status" role="status" aria-live="polite">Lettura pronta.</p></div></aside>';
+  el("article").innerHTML=audioBox+story.html;
+  if(!document.getElementById("racconto"))throw Error("Racconto completo non disponibile.");
+  const script=document.createElement("script");script.src="media.js?v=20261021-music";document.body.append(script);
+  status("✅ Codice utilizzato una volta. Lettura autorizzata. A un nuovo ingresso richiedi un nuovo codice.","ok");
+ }catch(e){
+  el("private").hidden=true;el("article").replaceChildren();
+  status("Accesso non disponibile: "+e.message,"err");
+ }
+}
+el("request").addEventListener("click",requestCode);
+el("again").addEventListener("click",requestCode);
+el("enter").addEventListener("click",verifyCode);
+el("code").addEventListener("keydown",e=>{if(e.key==="Enter")verifyCode()});
+el("email").addEventListener("keydown",e=>{if(e.key==="Enter")requestCode()});
+el("exit").addEventListener("click",async()=>{el("article").replaceChildren();el("private").hidden=true;await signOut(auth);el("login").hidden=false;el("verify").hidden=true;status("Accesso chiuso. Richiedi un nuovo codice per rientrare.");});
+onAuthStateChanged(auth,u=>{if(u)readFullStory();else{el("private").hidden=true;el("login").hidden=false;}});
+call("ready").then(r=>{
+  available=Boolean(r.ready);controls();
+  if(available)status("🔐 Inserisci l'email autorizzata per ricevere un nuovo codice monouso.");
+  else status("Servizio in fase di attivazione. Il pagamento e gli accessi automatici non sono ancora operativi.");
+}).catch(()=>status("Servizio di accesso temporaneamente non disponibile.","err"));
+</script></body></html>
