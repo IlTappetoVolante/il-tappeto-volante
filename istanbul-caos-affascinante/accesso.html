@@ -138,7 +138,9 @@ el("pay-send-link").addEventListener("click",async()=>{
  const email=el("pay-email").value.trim();
  if(!email){update("Inserisci un indirizzo email valido.","error");return;}
  try{
-  await sendSignInLinkToEmail(auth,email,{url:location.origin+location.pathname,handleCodeInApp:true});
+  const lang=new URLSearchParams(location.search).get("lang");
+  const callbackUrl=location.origin+location.pathname+(["en","es"].includes(lang)?"?lang="+lang:"");
+  await sendSignInLinkToEmail(auth,email,{url:callbackUrl,handleCodeInApp:true});
   localStorage.setItem("istanbulReaderEmail",email);
   update("Ti abbiamo inviato il collegamento di accesso. Apri la tua email e segui il link.","ok");
  }catch(e){update("Impossibile inviare il link: "+e.message,"error");}
