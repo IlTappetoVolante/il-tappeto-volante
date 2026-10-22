@@ -147,6 +147,7 @@ async function handleWebhook(req,res){
   }
   res.status(200).send("OK");
 }
+exports.istanbulOtpAccess=require("./otp").istanbulOtpAccess;
 exports.istanbulPaywall=onRequest({
   region:"europe-west1",maxInstances:3,memory:"256MiB",
   secrets:[CLIENT_ID,CLIENT_SECRET,WEBHOOK_ID]
