@@ -15,7 +15,7 @@ const STORIA_HURREM_DATA = [
     },
     {
         type: "testo",
-        paragrafo: "Nata come Aleksandra Lisowska in Rutenia (oggi Ucraina), era figlia di un prete ortodosso. Rapita dai tartari durante un raid, fu venduta al mercato degli schiavi di Istanbul. Nonostante la tragedia, la sua intelligenza vivace e il suo spirito indomabile la fecero notare subito. Fu acquistata per l'Harem del Sultano."
+        paragrafo: "Nata come Aleksandra Lisowska in Rutenia (oggi Ucraina), era figlia di un prete ortodosso. Catturata dai Tatari di Crimea durante un’incursione, fu venduta al mercato degli schiavi di Istanbul. Nonostante la tragedia, la sua intelligenza vivace e il suo spirito indomabile la fecero notare subito. Fu acquistata per l'Harem del Sultano."
     },
 
     // 2. COLEI CHE RIDE
