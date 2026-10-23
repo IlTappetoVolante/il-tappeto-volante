@@ -70,6 +70,7 @@ label{display:block;margin:12px 0 5px;font-weight:700;font-size:.88rem;color:#5a
 <p style="margin-top:0;font-size:.88rem">Seleziona una pagina di prova o incolla l'URL di una pagina del sito: il lettore usa l'HTML reale e abbina le immagini pertinenti alle sezioni.</p>
 <label for="preset-tappeto">Landing page del sito e collegamenti rapidi:</label>
 <select id="preset-tappeto" onchange="selezionaPresetPagina()">
+<option value="" selected disabled>— Seleziona… —</option>
   <optgroup label="🚪 Viaggi da Sogno">
     <option value="https://iltappetovolante.github.io/il-tappeto-volante/viaggi-da-sogno/porta/">🚪 Sognare una porta</option>
     <option value="https://iltappetovolante.github.io/il-tappeto-volante/viaggi-da-sogno/babbucce/">🥿 Sognare le babbucce</option>
@@ -99,8 +100,8 @@ label{display:block;margin:12px 0 5px;font-weight:700;font-size:.88rem;color:#5a
 <option value="https://iltappetovolante.github.io/il-tappeto-volante/hurrem/es.html">👑 Hürrem · De esclava a reina — Español</option>
 </select>
 <label for="url-universale">URL della pagina da analizzare:</label>
-<input type="text" id="url-universale" value="https://iltappetovolante.github.io/il-tappeto-volante/viaggi-da-sogno/porta/">
-<div class="btn-row"><button id="btn-fetch-page" class="btn gold" onclick="leggiPaginaReale()">🔍 Analizza ed Estrai Contenuti Reali dalla Pagina</button><button class="btn outline" onclick="selezionaFessuraDiLuce()">🕯️ Vai a «La fessura di luce»</button></div>
+<input type="text" id="url-universale" value="" placeholder="Seleziona una pagina oppure incolla il link">
+<div class="btn-row"><button id="btn-fetch-page" class="btn gold" onclick="leggiPaginaReale()">🔍 Analizza ed Estrai Contenuti Reali dalla Pagina</button></div>
 <div id="fetch-status" class="status-banner info" role="status" aria-live="polite">In attesa di lettura.</div>
 <label for="sezioni-tappeto">Argomenti individuati nella pagina (<span id="count-argomenti">0</span>):</label>
 <select id="sezioni-tappeto" onchange="gestisciCambioArgomento()" disabled><option value="">-- Nessuna pagina ancora letta --</option></select>
@@ -115,7 +116,7 @@ label{display:block;margin:12px 0 5px;font-weight:700;font-size:.88rem;color:#5a
 <p class="ai-note">Usa esclusivamente l'estratto realmente letto. Le versioni vengono salvate nel browser di questo dispositivo. Ogni nuova versione deve essere approvata prima della copia sui social.</p>
 <div class="ai-grid-2"><div><label for="ai-lang">Lingua caption:</label><select id="ai-lang"><option value="en" selected>🇬🇧 English</option><option value="it">🇮🇹 Italiano</option><option value="en-it">🇬🇧 + 🇮🇹 Bilingue</option></select></div><div><label for="ai-model">Modello Gemini:</label><select id="ai-model"><option value="gemini-3.8-flash" selected>Gemini 3.8 Flash (stabile)</option><option value="gemini-3.5-flash">Gemini 3.5 Flash (alternativa)</option><option value="gemini-3.5-flash-lite">Gemini 3.5 Flash-Lite (alternativa)</option></select></div></div>
 <label for="ai-angle">Taglio editoriale (facoltativo):</label><input id="ai-angle" type="text" placeholder="Es. Poetico e suggestivo, senza aggiungere informazioni non presenti">
-<div id="ai-status" class="status-banner info" role="status" aria-live="polite">Accedi, attendi la lettura reale e seleziona «La fessura di luce».</div>
+<div id="ai-status" class="status-banner info" role="status" aria-live="polite">Accedi, seleziona una pagina e analizza i suoi contenuti.</div>
 <div class="btn-row"><button id="btn-ai-generate" class="btn gold" disabled>✨ Genera caption con Gemini</button><button id="btn-ai-regenerate" class="btn" disabled>🔄 Un'altra proposta</button></div>
 <label for="ai-versions">Versioni salvate per questo argomento (<span id="ai-version-count">0</span>):</label><select id="ai-versions" disabled><option>-- Nessuna versione --</option></select>
 <label for="ai-caption-output">Proposta AI (modificabile, ma una modifica richiede nuova approvazione):</label><textarea id="ai-caption-output" placeholder="Qui apparirà la caption generata..."></textarea>
@@ -274,7 +275,7 @@ async function leggiPaginaReale(){
  }catch(e){impostaStato('err',`❌ Lettura fallita: ${e.message||String(e)}. Non viene sostituita da un testo predefinito.`);sel.replaceChildren(new Option('-- Lettura non riuscita --',''));window.RegiaAI?.resetArgomento();return false}finally{btn.disabled=false}
 }
 async function selezionaFessuraDiLuce(){if(!chiediConfermaSeBozzaModificata())return;const url='https://iltappetovolante.github.io/il-tappeto-volante/viaggi-da-sogno/porta/';if(!$('url-universale').value.includes('/porta/')||!argomentiEstratti.length){$('url-universale').value=url;if(!await leggiPaginaReale())return}const i=argomentiEstratti.findIndex(x=>x.titolo.toLowerCase().includes('fessura di luce'));if(i<0){impostaStato('err','Il simbolo «La fessura di luce» non è stato trovato nell’HTML reale.');return}if(!chiediConfermaSeBozzaModificata())return;$('sezioni-tappeto').selectedIndex=i;indiceArgomentoPrecedente=i;mostraSchedaEditoriale()}
-function selezionaPresetPagina(){$('url-universale').value=$('preset-tappeto').value;leggiPaginaReale()}
+function selezionaPresetPagina(){const url=$('preset-tappeto').value;if(!url)return;$('url-universale').value=url;leggiPaginaReale()}
 function mostraSchedaEditoriale(){const idx=Number.parseInt($('sezioni-tappeto').value,10),item=argomentiEstratti[idx],scheda=$('scheda-editoriale');if(!item){scheda.style.display='none';window.RegiaAI?.resetArgomento();return}scheda.style.display='block';$('badge-categoria').textContent=item.categoria;$('scheda-titolo').textContent=item.titolo;$('scheda-url').href=item.urlFonte;$('scheda-url').textContent=item.urlFonte;$('scheda-estratto').textContent=item.estratto;aggiornaBoxImmagineScheda(item.imgUrl,item.imgAlt,item.titolo);
  const alt=$('selettore-img-alternativa-wrap'),sel=$('select-img-alternativa');if(immaginiPaginaCorrente.length>1){alt.style.display='block';sel.replaceChildren();immaginiPaginaCorrente.forEach((obj,i)=>{const o=new Option(`${i+1}. ${obj.alt.slice(0,65)}`,String(i));sel.add(o);if(obj.url===item.imgUrl)sel.value=String(i)})}else alt.style.display='none';
  $('testo-universale').value=`${item.titolo}\n\n${item.estratto}\n\nFonte: ${item.urlFonte}`;resetStatoBozza();window.RegiaAI?.sincronizzaDaRegia(item)}
@@ -305,7 +306,7 @@ function generaPostStelle(){const x=postStelleDB[$('tema-sogno').value];if(x)$('
 function nuovoSognoCasuale(){const s=$('tema-sogno');s.selectedIndex=(s.selectedIndex+1)%s.options.length;generaPostStelle()}
 function scaricaSveglia(volte){const byday=volte===3?'TU,TH,SU':'TU,FR',giorni=volte===3?'Martedì, Giovedì e Domenica':'Martedì e Venerdì',dtstamp=new Date().toISOString().replace(/[-:]/g,'').split('.')[0]+'Z';
 const lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Il Tappeto Volante//La Regia Unica//IT','CALSCALE:GREGORIAN','METHOD:PUBLISH','BEGIN:VTIMEZONE','TZID:Europe/Rome','BEGIN:DAYLIGHT','TZOFFSETFROM:+0100','TZOFFSETTO:+0200','TZNAME:CEST','DTSTART:19700329T020000','RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU','END:DAYLIGHT','BEGIN:STANDARD','TZOFFSETFROM:+0200','TZOFFSETTO:+0100','TZNAME:CET','DTSTART:19701025T030000','RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU','END:STANDARD','END:VTIMEZONE','BEGIN:VEVENT',`UID:regia-tappeto-sogni-${volte}x@iltappetovolante.github.io`,`DTSTAMP:${dtstamp}`,'SUMMARY:✨ Regia Pronta · Il Tappeto Volante & Dizionario dei Sogni ⭐️',`DESCRIPTION:Apri https://iltappetovolante.github.io/il-tappeto-volante/regia/ (${giorni}) per validare il post.`,'DTSTART;TZID=Europe/Rome:20261020T100000','DTEND;TZID=Europe/Rome:20261020T102000',`RRULE:FREQ=WEEKLY;BYDAY=${byday}`,'BEGIN:VALARM','ACTION:DISPLAY','DESCRIPTION:Promemoria Regia: post da validare e pubblicare!','TRIGGER:-PT10M','END:VALARM','END:VEVENT','END:VCALENDAR'];const blob=new Blob([lines.join('\r\n')+'\r\n'],{type:'text/calendar;charset=utf-8'}),a=document.createElement('a'),u=URL.createObjectURL(blob);a.href=u;a.download=`sveglia-regia-italia-${volte}x.ics`;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1000)}
-function init(){for(const [id,db] of [['spunto-porta',spuntiPorta],['tema-sogno',postStelleDB]]){db.forEach((x,i)=>$(id).add(new Option(x.titolo,String(i))))}aggiornaCivettaPorta();generaPostStelle();aggiornaDiario();if(location.protocol.startsWith('http'))leggiPaginaReale()}
+function init(){for(const [id,db] of [['spunto-porta',spuntiPorta],['tema-sogno',postStelleDB]]){db.forEach((x,i)=>$(id).add(new Option(x.titolo,String(i))))}aggiornaCivettaPorta();generaPostStelle();aggiornaDiario();}
 init();
 </script>
 <!-- SCRIPT 2: Firebase Authentication, App Check, AI Logic e versionamento editoriale -->
