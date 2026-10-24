@@ -118,15 +118,23 @@
   }
   renderSteps();
   const read=document.getElementById('read-story'), stop=document.getElementById('stop-story');
+  const music=document.getElementById('sapori-music');
+  let resumeMusic=false, speaking=false, speechId=0;
+  if(music){music.volume=.25;music.addEventListener('play',()=>{if(speaking)music.pause()});}
+  function restoreMusic(){speaking=false;if(resumeMusic&&music){resumeMusic=false;music.play().catch(()=>{});}}
   if(!('speechSynthesis' in window)){read.hidden=true;stop.hidden=true}
   else {
     read.onclick=()=>{
+      const current=++speechId;
+      resumeMusic=resumeMusic||!!(music&&!music.paused);
+      speaking=true;if(music)music.pause();
       speechSynthesis.cancel();
       const msg=new SpeechSynthesisUtterance(d.story);msg.lang=d.voice;msg.rate=.91;
+      msg.onend=msg.onerror=()=>{if(current===speechId)restoreMusic();};
       speechSynthesis.speak(msg);
     };
-    stop.onclick=()=>speechSynthesis.cancel();
-    window.addEventListener('pagehide',()=>speechSynthesis.cancel());
+    stop.onclick=()=>{speechId++;speechSynthesis.cancel();restoreMusic();};
+    window.addEventListener('pagehide',()=>{speechId++;resumeMusic=false;speaking=false;speechSynthesis.cancel();if(music)music.pause();});
   }
   // Same visible GoatCounter widget and styles already used in Il Tappeto Volante.
   const style='div{width:220px;min-height:62px;box-sizing:border-box;padding:7px;border:1px solid #c9a44c;border-radius:8px;background:#070713;color:#e2bd62;font-family:Georgia,serif;text-align:center}#gcvc-for{font-size:0}#gcvc-for::after{content:"'+d.visit+'";font-size:13px;color:#e2bd62}#gcvc-views{font-size:22px;line-height:26px;font-weight:bold;color:#f4cf70}';
