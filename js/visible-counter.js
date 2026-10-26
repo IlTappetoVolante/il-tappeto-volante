@@ -3,7 +3,16 @@
 (function () {
   'use strict';
   function init() {
+    // Il tracciamento GoatCounter usa il canonical URL, se presente.
+    // Così /pagina/ e /pagina/index.html leggono lo stesso conteggio.
     var currentPath = window.location.pathname || '/';
+    var canonical = document.querySelector('link[rel="canonical"][href]');
+    if (canonical) {
+      try {
+        var canonicalURL = new URL(canonical.href, window.location.href);
+        if (canonicalURL.origin === window.location.origin) currentPath = canonicalURL.pathname + canonicalURL.search;
+      } catch (e) { /* Usa l'indirizzo della pagina. */ }
+    }
     var original = document.querySelector('iframe[src*="goatcounter.com/counter/"]');
     if (original) {
       // Usa il percorso effettivamente aperto ("/" e "/index.html" possono avere conteggi diversi).
@@ -42,11 +51,13 @@
     var frame = document.createElement('iframe');
     frame.title = caption;
     frame.loading = 'lazy';
-    frame.width = '220';
-    frame.height = '68';
-    frame.style.cssText = 'display:block;border:0;margin:0 auto;max-width:100%;';
+    frame.width = '200';
+    frame.height = '60';
+    frame.style.cssText = 'display:block;border:0;margin:0 auto;max-width:100%;background:#181c21;';
     frame.referrerPolicy = 'strict-origin-when-cross-origin';
-    var skin = 'div {background:#111a22;color:#f4cf70;border:1px solid #b79557;border-radius:8px;font-family:Georgia,serif;}#gcvc-for{display:none}#gcvc-views{font-size:25px;line-height:50px;color:#f4cf70;}';
+    var skin = 'html,body{margin:0!important;padding:0!important;background:#181c21!important;overflow:hidden!important}' +
+      'div{box-sizing:border-box;background:#111a22;color:#f4cf70;border:1px solid #b79557;border-radius:8px;font-family:Georgia,serif}' +
+      '#gcvc-for{display:none}#gcvc-views{font-size:25px;line-height:50px;color:#f4cf70}';
     frame.src = 'https://iltappetovolante.goatcounter.com/counter/' +
       encodeURIComponent(currentPath) + '.html?no_branding=1&style=' +
       encodeURIComponent(skin);
