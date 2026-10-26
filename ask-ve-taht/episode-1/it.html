@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aşk ve Taht — Episode 1: Before the Throne. Follow Alaeddin Keykubad from the succession struggle of 1211 to captivity, release and the historical questions behind the series.">
+  <meta name="robots" content="index, follow">
+  <title>Episodio 1 — Prima del trono | Aşk ve Taht</title>
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Episode 1 — Before the Throne | Aşk ve Taht">
+  <meta property="og:description" content="Why did Alaeddin Keykubad spend eight years as a prisoner? Follow the story from the struggle for the Seljuk throne to Ankara, Minşar and Kezirpert — between fiction and history.">
+  <meta property="og:url" content="https://iltappetovolante.github.io/il-tappeto-volante/ask-ve-taht/episode-1/it.html">
+  <meta property="og:image" content="https://iltappetovolante.github.io/il-tappeto-volante/img/ask_episode1_kaykhusraw_death.webp">
+  <meta property="og:image:width" content="1536">
+  <meta property="og:image:height" content="1024">
+  <meta property="og:image:alt" content="Kaykhusraw I — The End of a Reign">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Episode 1 — Before the Throne | Aşk ve Taht">
+  <meta name="twitter:description" content="Alaeddin Keykubad: from the struggle for the throne to eight years of captivity — between fiction and history.">
+  <meta name="twitter:image" content="https://iltappetovolante.github.io/il-tappeto-volante/img/ask_episode1_kaykhusraw_death.webp">
+  <style>
+    :root{
+      --ink:#f1e5c8; --muted:#cbbd9e; --gold:#d2aa58; --gold2:#ead39b;
+      --night:#102a31; --paper:#241d18; --paper2:#35281d; --red:#7d2e28;
+      --line:rgba(226,201,143,.72); --shadow:rgba(0,0,0,.45);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; color:var(--ink); font-family:Georgia,"Times New Roman",serif;
+      line-height:1.65; background:#14292e url("../../img/sfondo_ask_ve_taht.jpg") top center/cover fixed;
+    }
+    a{color:var(--gold2)}
+    .page{width:min(1080px,94%);margin:auto;padding:28px 0 64px}
+    .topnav{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+    .btn{
+      display:inline-block;padding:9px 14px;border:1px solid var(--line);border-radius:999px;
+      color:var(--ink);text-decoration:none;background:rgba(10,24,27,.78);font-size:.92rem;
+      font-family:inherit;cursor:pointer
+    }
+    .hero,.section,.compare,.sources{
+      background:linear-gradient(145deg,rgba(25,22,18,.94),rgba(48,37,27,.92));
+      border:3px double var(--line);box-shadow:0 14px 36px var(--shadow);border-radius:14px;
+    }
+    .hero{padding:28px;text-align:center}
+    .eyebrow{letter-spacing:.22em;text-transform:uppercase;color:var(--gold2);font-size:.78rem}
+    h1{font-size:clamp(2rem,6vw,4.4rem);line-height:1.03;margin:.2em 0;color:#f6e9c8}
+    .subtitle{font-size:clamp(1.05rem,2.6vw,1.45rem);color:var(--gold2);margin:.3em 0}
+    .lead{max-width:760px;margin:18px auto 0;color:#e8dcc0}
+    .section{padding:26px;margin-top:24px}
+    h2{font-size:clamp(1.5rem,4vw,2.35rem);margin:0 0 12px;color:var(--gold2)}
+    h3{color:#f0d79c;margin-top:0}
+    .year{font-size:.82rem;letter-spacing:.18em;color:#d8bd7b;text-transform:uppercase}
+    figure{margin:20px 0 8px}
+    figure img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid rgba(234,211,155,.45)}
+    figcaption{font-size:.86rem;color:var(--muted);margin-top:8px}
+    .quote{
+      margin:18px 0;padding:14px 18px;border-left:4px solid var(--gold);
+      background:rgba(7,18,20,.42);font-size:1.08rem
+    }
+    .bridge{text-align:center;font-size:1.16rem;color:#f0d79c;margin:18px 0 0}
+    .divider{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:22px 0}
+    .compare-wrap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:18px}
+    .compare{padding:20px}
+    .tag{display:inline-block;font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;
+      border:1px solid var(--gold);padding:4px 8px;border-radius:999px;color:var(--gold2);margin-bottom:10px}
+    .compare p:last-child{margin-bottom:0}
+    .caution{font-style:italic;color:#d8c9aa}
+    .sources{padding:24px;margin-top:24px}
+    .sources li{margin:.55em 0}
+    .closing{text-align:center;padding:30px 18px}
+    .closing strong{color:var(--gold2);font-size:1.25rem}
+    .seal{width:92px;height:auto;margin:18px auto 8px;display:block}
+    footer{text-align:center;color:#c8b99a;font-size:.86rem;padding-top:18px}
+
+    /* Historical modal */
+    .modal{display:none;position:fixed;inset:0;z-index:1000;background:rgba(4,10,12,.88);overflow-y:auto;padding:24px 12px}
+    .modal.is-open{display:block}
+    .modal-content{position:relative;width:min(820px,96%);margin:20px auto;padding:28px;color:var(--ink);
+      background:linear-gradient(145deg,#211b17,#392a1e);border:3px double var(--line);border-radius:14px;
+      box-shadow:0 18px 50px rgba(0,0,0,.7)}
+    .modal-close{position:absolute;top:10px;right:14px;border:0;background:transparent;color:var(--gold2);
+      font-size:2rem;line-height:1;cursor:pointer}
+    .modal-kicker{color:var(--gold);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem}
+    .modal-content h2{padding-right:35px}
+    .modal-content figure{margin:22px 0}
+    .modal-highlight{margin:26px 0;padding:18px;text-align:center;border-top:1px solid var(--gold);
+      border-bottom:1px solid var(--gold);color:var(--gold2);font-size:1.18rem;letter-spacing:.04em}
+    .modal-note{margin-top:22px;padding:14px 16px;background:rgba(7,18,20,.42);border-left:3px solid var(--gold);
+      color:#d8c9aa;font-size:.92rem}
+    body.modal-lock{overflow:hidden}
+
+    @media(max-width:720px){
+      .page{width:min(94%,680px);padding-top:16px}
+      .hero,.section,.sources{padding:18px}
+      .compare-wrap{grid-template-columns:1fr}
+      .modal-content{padding:22px 18px}
+      body{background-attachment:scroll}
+    }
+
+    /* Discovery links: subtle gold pulse, never on navigation controls. */
+    .discovery-link{
+      display:inline-flex;align-items:center;justify-content:center;gap:.4em;
+      margin:16px 0 4px;padding:12px 20px;border:2px solid #e2bd70;border-radius:999px;
+      color:#fff2cf;background:linear-gradient(135deg,#70491d,#372714);font:600 .98rem Georgia,serif;
+      text-decoration:none;cursor:pointer;box-shadow:0 0 0 2px rgba(218,174,91,.14),0 0 13px rgba(218,174,91,.27);
+      animation:goldenInvitation 3s ease-in-out infinite;
+      transition:background .2s,transform .2s;
+    }
+    .discovery-link:hover,.discovery-link:focus-visible{background:linear-gradient(135deg,#a06c28,#5a3d1a);outline:2px solid #f4dfad;outline-offset:3px;transform:translateY(-1px)}
+    @keyframes goldenInvitation{
+      0%,100%{box-shadow:0 0 0 2px rgba(218,174,91,.14),0 0 10px rgba(218,174,91,.25)}
+      50%{box-shadow:0 0 0 3px rgba(218,174,91,.40),0 0 23px rgba(239,197,105,.68)}
+    }
+    @media(prefers-reduced-motion:reduce){.discovery-link{animation:none}}
+  </style>
+<style id="itv-landing-brand-style">.itv-brand-header{display:block!important;position:static!important;text-align:center!important;padding:24px 18px!important;height:auto!important}
+.landing-brand{box-sizing:border-box!important;width:100%!important;max-width:440px!important;margin:0 auto 26px!important;padding:14px 18px 12px!important;border:1px solid #bc914f88!important;border-radius:18px!important;background:#121a2cee!important;text-align:center!important}
+.landing-brand .project-logo{display:block!important;width:100%!important;max-width:100%!important;height:auto!important;object-fit:contain!important;margin:0 auto 12px!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+.landing-brand .brand-socials{display:flex!important;align-items:center!important;justify-content:center!important;gap:18px!important}
+.landing-brand .brand-socials>a{display:inline-flex!important;align-items:center!important;justify-content:center!important;box-sizing:border-box!important;width:44px!important;height:44px!important;padding:0!important;color:#e7c585!important;border:1px solid #bc914f66!important;border-radius:50%!important;background:transparent!important}
+.landing-brand .brand-socials svg{width:25px!important;height:25px!important}
+.landing-brand .brand-handle{display:block!important;margin:8px 0 0!important;color:#eed5a1!important;font:400 1rem/1.5 Georgia,serif!important;letter-spacing:.04em!important}
+.itv-brand-header .languages{position:static!important;justify-content:center!important}
+@media(max-width:360px){.landing-brand .brand-socials{gap:12px!important}}</style><style id="itv-brand-colors">.landing-brand{border:2px solid #d8b76c!important}
+.landing-brand img.project-logo{filter:drop-shadow(1px 0 0 #e9c875) drop-shadow(-1px 0 0 #e9c875) drop-shadow(0 1px 0 #e9c875) drop-shadow(0 -1px 0 #e9c875)!important}
+.landing-brand .brand-socials>a[aria-label="Facebook"]{background:#1877f2!important;color:#fff!important;border:1px solid #6daaff!important}
+.landing-brand .brand-socials>a[aria-label="Instagram"]{background:linear-gradient(35deg,#ffb442,#ec334e 48%,#bb207b)!important;color:#fff!important;border:1px solid #ff8c96!important}
+.landing-brand .brand-socials>a[aria-label="YouTube"]{background:#ff0000!important;color:#fff!important;border:1px solid #ff7272!important}
+.landing-brand .brand-socials>a[aria-label="YouTube"] svg rect{fill:#fff!important}
+.landing-brand .brand-socials>a[aria-label="YouTube"] svg path{fill:#ff0000!important}
+.landing-brand .brand-socials>a:focus-visible{outline:3px solid #fff!important;outline-offset:4px}</style><style id="itv-language-nav">.itv-languages{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:14px auto 22px;padding:6px}.itv-languages a{color:#ead1a0;text-decoration:none;border:1px solid #b69a62;border-radius:20px;padding:5px 12px;font:14px Georgia,serif}.itv-languages a[aria-current="page"]{background:#d7b877;color:#1d2428;font-weight:bold}</style><link rel="alternate" hreflang="en" href="https://iltappetovolante.github.io/il-tappeto-volante/ask-ve-taht/episode-1/"><link rel="alternate" hreflang="it" href="https://iltappetovolante.github.io/il-tappeto-volante/ask-ve-taht/episode-1/it.html"><link rel="alternate" hreflang="es" href="https://iltappetovolante.github.io/il-tappeto-volante/ask-ve-taht/episode-1/es.html"></head>
+<body>
+<main class="page">
+  <nav class="topnav" aria-label="Navigazione della pagina">
+    <a class="btn" href="../it.html">← Aşk ve Taht</a>
+    <a class="btn" href="#fiction-history">Finzione ↔ Storia</a>
+    <a class="btn" href="#sources">Fonti</a>
+  </nav>
+
+  <header class="hero"><div class="landing-brand"><img class="project-logo" src="../../img/logo-landing.webp" alt="Il Tappeto Volante" width="800" height="376"><div class="brand-socials"><span aria-hidden="true">👉</span><a href="https://www.facebook.com/share/1KH3FNkRP2/" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14 22v-9h3l.5-4H14V7c0-1.2.4-2 2-2h2V1.4A24 24 0 0015 1c-3 0-5 1.8-5 5v3H7v4h3v9z"/></svg></a><a href="https://www.instagram.com/iltappetovolante/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.youtube.com/@iltappetovolante" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="5" fill="currentColor"/><path d="m10 8 6 4-6 4z" fill="#151c30"/></svg></a></div><p class="brand-handle">@iltappetovolante</p></div>
+    <div class="eyebrow">Episodio 01</div>
+    <h1>Prima del trono</h1>
+    <div class="subtitle">Il prigioniero che diventò sultano</div>
+    <p class="lead">Quando <em>Aşk ve Taht</em> ha inizio, Alaeddin Keykubad sta uscendo da anni di prigionia. Ma la vicenda che lo aveva condotto dietro le mura di una fortezza era cominciata molto prima che si aprissero le porte della sua cella.</p>
+  </header><nav class="itv-languages" aria-label="Lingua / Language / Idioma"><a href="./" lang="en">🇬🇧 English</a><a href="it.html" lang="it" aria-current="page">🇮🇹 Italiano</a><a href="es.html" lang="es">🇪🇸 Español</a></nav>
+
+  <section class="section">
+    <div class="year">1211</div>
+    <h2>Muore un sultano</h2>
+    <figure>
+      <img src="../../img/ask_episode1_kaykhusraw_death.webp" alt="Evocative historical visualization of the death of Sultan Kaykhusraw I" loading="eager">
+      <figcaption>Ricostruzione storica evocativa realizzata con il supporto dell'AI. La scena non ricostruisce una cerimonia funebre documentata.</figcaption>
+    </figure>
+    <p>Il sultano <strong>Kaykhusraw I</strong> morì nel 1211 dopo la battaglia di Alaşehir. La sua morte aprì immediatamente la questione della successione nel Sultanato selgiuchide di Rum.</p>
+    <p>I dignitari dello Stato scelsero il primogenito, <strong>Izzeddin Kaykaus</strong>, allora melik di Malatya. Fu convocato e incoronato a Kayseri. Suo fratello minore <strong>Alaeddin Keykubad</strong>, melik di Tokat, rifiutò di accettare la decisione.</p>
+  </section>
+
+  <section class="section">
+    <h2>Fratello contro fratello</h2>
+    <p>Alaeddin si alleò con <strong>Levon II dell'Armenia ciliciana</strong> e con suo zio <strong>Mughith al-Din Tughril Shah</strong>, melik di Erzurum, e mosse contro Kayseri. L'alleanza non durò: Levon si ritirò dopo aver trattato con la parte di Kaykaus, mentre Tughril Shah tornò a Erzurum.</p>
+    <p>Rimasto senza sostegni sufficienti, Alaeddin abbandonò l'assedio e si ritirò nel <strong>castello di Ankara</strong>.</p>
+  </section>
+
+  <section class="section">
+    <div class="year">1212</div>
+    <h2>Ankara — Il trono era perduto</h2>
+    <figure>
+      <img src="../../img/ask_episode1_ankara_castle.jpg" alt="Ankara Castle on its hill beneath a rainbow" loading="lazy">
+      <figcaption>Ankara Kalesi — Uğur Güler (Ugur0641), Wikimedia Commons, CC BY-SA 4.0.</figcaption>
+    </figure>
+    <p>Kaykaus pose sotto assedio il castello di Ankara. Quando le provviste diminuirono, Alaeddin accettò di arrendersi a condizione che né lui né gli abitanti di Ankara subissero danni.</p>
+    <div class="quote">Aveva combattuto per il trono. Adesso era prigioniero di suo fratello.</div>
+  </section>
+
+  <section class="section">
+    <h2>La strada verso Minşar</h2>
+    <p>Dopo la resa, Alaeddin fu condotto a oriente e imprigionato nel <strong>castello di Minşar, vicino a Malatya</strong>. Le fonti conservano anche un episodio più cupo: Kaykaus voleva far uccidere il fratello, ma il suo maestro <strong>Mecdüddin Ishak</strong> lo impedì.</p>
+    <figure>
+      <img src="../../img/ask_episode1_minsar_masara.jpg" alt="Ruins associated with Masara or Muşar Castle" loading="lazy">
+      <figcaption>Castello di Masara (noto anche come Muşar Kalesi) — fotografia di Engin Örüm, 2022. Fonte: Kültür Envanteri. CC BY-NC-ND 4.0. Immagine mostrata senza modifiche.</figcaption>
+    </figure>
+    <p class="caution">La fotografia documenta il paesaggio e i ruderi identificati come Masara/Muşar. Non va interpretata come una ricostruzione della prigionia di Alaeddin.</p>
+  </section>
+
+  <section class="section">
+    <h2>Da Minşar a Kezirpert</h2>
+    <figure>
+      <img src="../../img/ask_episode1_minsar_kezirpert.webp" alt="Illustrated geographical plate From Minşar to Kezirpert, The Lost Fortresses of Malatya" loading="lazy">
+      <figcaption>Il Tappeto Volante — tavola geografica narrativa. Kezirpert è volutamente contrassegnata con punti interrogativi perché la sua esatta ubicazione moderna non è accertata.</figcaption>
+    </figure>
+    <p>Tradizioni successive e ricostruzioni moderne collocano la prigionia di Alaeddin prima a Minşar e poi a <strong>Kezirpert</strong>. L'identificazione precisa di Kezirpert nel paesaggio odierno resta incerta: per questo la carta presenta la sua posizione come una questione storica, non come un luogo archeologico stabilito.</p>
+  </section>
+
+  <section class="section">
+    <div class="year">1220</div>
+    <h2>Si aprono le porte della prigione</h2>
+    <p>Quando Izzeddin Kaykaus morì nel 1220, Alaeddin fu liberato dalla prigionia. Fu proclamato sovrano a <strong>Sivas</strong> e successivamente entrò a Konya, dove la sua ascesa al trono fu nuovamente celebrata.</p>
+    <button class="discovery-link modal-open" type="button" data-modal="sivas-modal">Esplora Sivas, 1220 →</button>
+    <div class="quote">Otto anni dopo aver perso la lotta per il trono, il prigioniero divenne il sultano <strong>Alaeddin Keykubad I</strong>.</div>
+    <p class="bridge">È qui che il percorso storico incontra il mondo iniziale di <em>Aşk ve Taht</em>.</p>
+  </section>
+
+  <section class="section" id="fiction-history">
+    <div class="eyebrow">Episodio 1</div>
+    <h2>Finzione ↔ Storia</h2>
+    <figure>
+      <img src="../../img/ask_episode1_fiction_history.webp" alt="Alaeddin Keykubad in Aşk ve Taht" loading="lazy">
+      <figcaption>Immagine ufficiale della serie © atv / Bozdağ Film. Utilizzata qui per commento e confronto storico.</figcaption>
+    </figure>
+    <p>La serie combina persone realmente esistite e tensioni politiche documentate con scene inventate, cronologia condensata e rapporti drammatizzati. Le quattro domande seguenti distinguono ciò che mostra l'episodio 1 da quanto le fonti esaminate consentono effettivamente di stabilire.</p>
+    <p><button class="discovery-link modal-open" type="button" data-modal="kubadabad-modal">Esplora il vero palazzo di Alaeddin →</button></p>
+
+    <div class="compare-wrap">
+      <article class="compare">
+        <span class="tag">Diritto al trono</span>
+        <h3>Celaleddin — Chi aveva diritto di regnare?</h3>
+        <p><strong>Nella serie:</strong> Celaleddin è furioso perché gli emiri scelgono un fratello rimasto otto anni in prigionia e ritiene che il trono spettasse a lui.</p>
+        <p><strong>Nella storia:</strong> Celâleddin Keyferidun fu un vero principe selgiuchide e fratello di Alaeddin. Le fonti esaminate <em>non</em> documentano però lo specifico scontro e le parole mostrate nell'episodio 1.</p>
+        <p class="caution">Non consideriamo quindi quella rivendicazione drammatica come un discorso o un evento storicamente attestato.</p>
+      </article>
+
+      <article class="compare">
+        <span class="tag">Tradimento</span>
+        <h3>Ümmühan e Ayaba</h3>
+        <p><strong>Nella serie:</strong> Alaeddin crede che sua madre Ümmühan Hatun e l'atabeg Ayaba lo abbiano tradito e siano responsabili della sua prigionia.</p>
+        <p><strong>Nella storia:</strong> le fonti esaminate spiegano la prigionia di Alaeddin con il fallimento della lotta per la successione, l'assedio di Ankara e la resa del 1212. Non attestano come causa un tradimento da parte della madre.</p>
+        <p><strong>Diverso è il caso di Ayaba:</strong> Seyfeddin Ay-aba fu un emiro realmente esistito e molto potente. Più tardi, nel 1223, figurò tra gli emiri coinvolti nel violento scontro politico di Alaeddin con la vecchia élite militare.</p>
+      </article>
+
+      <article class="compare">
+        <span class="tag">Cronologia</span>
+        <h3>L'imboscata — La storia spostata indietro nel tempo?</h3>
+        <p><strong>Nella serie:</strong> Celaleddin e Arakel organizzano un'imboscata contro Alaeddin, appena salito al trono.</p>
+        <p><strong>Nelle fonti esaminate:</strong> non abbiamo trovato testimonianze di questa imboscata del 1220. È però documentata una crisi successiva, nel <strong>1223</strong>: potenti emiri complottarono per deporre Alaeddin e sostituirlo con suo fratello <strong>Celâleddin Keyferidun</strong>. Seyfeddin Ay-aba era tra gli emiri arrestati.</p>
+        <p class="caution"><em>Aşk ve Taht</em> inizia con l'ascesa al trono di Alaeddin nel 1220, ma la serie non implica necessariamente che tutti gli eventi successivi avvengano subito dopo. Elementi storici dei primi anni del regno possono essere condensati o riordinati nella narrazione.</p>
+      </article>
+
+      <article class="compare">
+        <span class="tag">La donna misteriosa</span>
+        <h3>La donna che ricordava</h3>
+        <p><strong>Nella serie:</strong> anni prima della prigionia, una giovane misteriosa salvò la vita di Alaeddin e rimase impressa nella sua memoria durante la reclusione. Alla fine dell'episodio 1, un'arciera mascherata lo ferisce alla spalla, fugge e viene inseguita fino al ciglio di un precipizio.</p>
+        <p>Alaeddin riconosce la donna di cui ha ricordato gli occhi per anni, ma a questo punto del racconto non conosce ancora tutta la verità sulla sua identità.</p>
+        <p><strong>Nella storia:</strong> le fonti esaminate non documentano l'incontro precedente alla prigionia, la freccia o l'inseguimento. Consideriamo quindi queste scene parte della narrazione drammatica della serie, salvo l'emergere di nuove prove.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sources" id="sources">
+    <h2>Fonti e note</h2>
+    <ul>
+      <li><a href="https://islamansiklopedisi.org.tr/keykubad-i" target="_blank" rel="noopener">TDV İslâm Ansiklopedisi — “Keykubad I”</a>: lotta per la successione, resa di Ankara, prigionia e ascesa al trono nel 1220.</li>
+      <li><a href="https://islamansiklopedisi.org.tr/keykavus-i" target="_blank" rel="noopener">TDV İslâm Ansiklopedisi — “Keykâvus I”</a>: successione a Kayseri, assedio di Ankara e prigionia a Minşar.</li>
+      <li><a href="https://islamansiklopedisi.org.tr/keykavus-i-darussifasi" target="_blank" rel="noopener">TDV İslâm Ansiklopedisi — “Keykâvus I Dârüşşifâsı”</a>: complesso della Şifaiye a Sivas e mausoleo di Izzeddin Kaykaus I.</li>
+      <li><a href="https://belleten.gov.tr/tam-metin/2339/tur" target="_blank" rel="noopener">Belleten — “Selçuklularda Emîr-i Dâd Müessesesi”</a>: complotto degli emiri del 1223, Celâleddin Keyferidun e Seyfeddin Ay-aba.</li>
+      <li><a href="https://islamansiklopedisi.org.tr/kubadabad-sarayi" target="_blank" rel="noopener">TDV İslâm Ansiklopedisi — “Kubâdâbâd Sarayı”</a>: palazzo commissionato da Alaeddin, collocazione, storia edilizia e archeologia.</li>
+      <li><a href="https://islamicart.museumwnf.org/database_item.php?id=monument%3BISL%3Btr%3BMon01%3B5%3Ben" target="_blank" rel="noopener">Discover Islamic Art — Palazzo di Kubadabad</a>: planimetria del palazzo, edifici scavati e piastrelle decorative.</li>
+      <li><a href="https://www.atv.com.tr/ask-ve-taht/galeri/ask-ve-taht-ilk-bolumde-neler-oldu" target="_blank" rel="noopener">atv — riassunto ufficiale dell'episodio 1</a>: versione della serie sulla prigionia di Alaeddin, Celaleddin, Ayaba, Ümmühan, l'imboscata e la donna misteriosa.</li>
+    </ul>
+    <p class="caution">Le conclusioni storiche di questa pagina si limitano a ciò che sostengono le fonti citate. Quando identificazioni, cronologie o rapporti causali sono incerti, l'incertezza è dichiarata esplicitamente.</p>
+  </section>
+
+  <section class="section closing">
+    <h2>Dove ci lascia l'episodio 1</h2>
+    <p>Alaeddin è sopravvissuto a una lotta per il trono, ad anni di prigionia e al ritorno al potere.</p>
+    <p><strong>Ma il trono non mette fine alla lotta.<br>Ne inaugura una nuova.</strong></p>
+    <p><span class="btn" aria-disabled="true">Episodio 2 — prossimamente</span></p>
+  </section>
+
+  <footer>
+    <img class="seal" src="../../img/sigillo_ceralacca_lorella_cr.png" alt="Lorella seal" loading="lazy">
+    <div><strong>Il Tappeto Volante</strong></div>
+    <div>© 2026 Lorella · Tutti i diritti riservati</div>
+  </footer>
+</main>
+
+<div class="modal" id="sivas-modal" role="dialog" aria-modal="true" aria-labelledby="sivas-modal-title" aria-hidden="true">
+  <div class="modal-content">
+    <button class="modal-close" type="button" aria-label="Close modal">×</button>
+    <div class="modal-kicker">Sivas · 1220</div>
+    <h2 id="sivas-modal-title">Dove il prigioniero divenne sultano</h2>
+
+    <p>Quando Izzeddin Kaykaus I morì nel 1220, gli uomini più influenti dello Stato selgiuchide si riunirono a Sivas per decidere il successore.</p>
+    <p>La loro scelta cadde sul fratello prigioniero: <strong>Alaeddin Keykubad</strong>.</p>
+    <p>Dopo anni di prigionia, Alaeddin fu liberato e proclamato sultano a Sivas. In seguito si recò a Konya, capitale del Sultanato di Rum, dove la sua ascesa fu nuovamente celebrata con una grande cerimonia.</p>
+
+    <div class="divider"></div>
+    <h3>Il monumento che ricorda ancora suo fratello</h3>
+    <p>Sivas conserva tuttora una testimonianza straordinaria di quel passaggio dinastico.</p>
+    <p>Nel 1217, appena tre anni prima della morte, Kaykaus aveva commissionato la <strong>Şifaiye</strong>, un grande ospedale e complesso medico selgiuchide.</p>
+
+    <figure>
+      <img src="../../img/sifaiye-sivas-keykavus-turbe.jpg" alt="Decorated façade of the mausoleum of Izzeddin Kaykaus I at the Şifaiye in Sivas" loading="lazy">
+      <figcaption>Mausoleo di Izzeddin Kaykaus I, Şifaiye Medrese, Sivas — fotografia di Dosseman, Wikimedia Commons, CC BY-SA 4.0.</figcaption>
+    </figure>
+
+    <p>Il mausoleo riccamente decorato, incorporato nel complesso, divenne il luogo di sepoltura di Izzeddin Kaykaus I. I suoi mattoni, le piastrelle turchesi, i motivi geometrici e le iscrizioni monumentali conservano il linguaggio visivo del mondo selgiuchide in cui Alaeddin giunse al potere.</p>
+
+    <figure>
+      <img src="../../img/keykavus-turbe-sivas.jpg" alt="Cenotaphs inside the mausoleum of Izzeddin Kaykaus I in Sivas" loading="lazy">
+      <figcaption>Cenotafi nel complesso del mausoleo, fotografati prima del restauro — Dosseman, Wikimedia Commons, CC BY-SA 4.0.</figcaption>
+    </figure>
+
+    <p>Qui sopravvive l'ambiente funerario del sultano la cui morte aprì la via al governo del fratello prigioniero.</p>
+
+    <div class="modal-highlight"><strong>UN SULTANO FU DEPOSTO NELLA TOMBA.<br>SUO FRATELLO PRIGIONIERO FU ELEVATO AL TRONO.</strong></div>
+
+    <div class="modal-note"><strong>Ciò che sappiamo — e ciò che non sappiamo:</strong> le fonti indicano Sivas come città in cui Alaeddin Keykubad fu proclamato sultano, ma non individuano con certezza l'edificio preciso in cui avvenne la proclamazione. La Şifaiye è mostrata come monumento superstite direttamente legato a Kaykaus e al passaggio dinastico, non come luogo documentato dell'ascesa di Alaeddin.</div>
+  </div>
+</div>
+
+
+<div class="modal" id="kubadabad-modal" role="dialog" aria-modal="true" aria-labelledby="kubadabad-modal-title" aria-hidden="true">
+  <div class="modal-content">
+    <button class="modal-close" type="button" aria-label="Close modal">×</button>
+    <div class="modal-kicker">Beyşehir · il regno di Alaeddin</div>
+    <h2 id="kubadabad-modal-title">Kubâdâbâd — Dentro il vero palazzo del sultano</h2>
+    <p>Gli interni di palazzo di <em>Aşk ve Taht</em> evocano una corte selgiuchide. Ma cosa ci racconta l'archeologia degli edifici in cui Alaeddin Keykubad visse davvero?</p>
+    <p>Sulla riva sudoccidentale del <strong>lago di Beyşehir</strong>, a ovest di Konya, il sultano commissionò <strong>Kubâdâbâd</strong>, un complesso palaziale sul lago la cui costruzione iniziò intorno al <strong>1226</strong>. Appartiene alla fase più tarda del suo regno, non agli avvenimenti dell'ascesa al trono nel 1220.</p>
+    <p>Gli scavi hanno rivelato un Palazzo Grande, una residenza minore, cortili e altre strutture. Un <em>iwan</em>assiale, associato alla zona di ricevimento o del trono, aiuta a comprendere l'organizzazione degli spazi cerimoniali della corte. Soprattutto, le decorazioni superstiti fanno rivivere il palazzo.</p>
+
+    <div class="divider"></div>
+    <h3>Un palazzo ricomposto in museo</h3>
+    <figure>
+      <img src="../../img/kubadabad-ricostruzione-piastrelle.jpg" alt="Museum display of reconstructed panels of Kubâdâbâd palace tiles at the Karatay Museum in Konya" loading="lazy">
+      <figcaption>Esposizione di piastrelle murali scavate a Kubâdâbâd, Museo delle Ceramiche Karatay, Konya. Fotografia: Murat Özsoy 1958, Wikimedia Commons, CC BY-SA 4.0. È un allestimento museale, non la fotografia di una parete palaziale intatta.</figcaption>
+    </figure>
+    <p>Piastrelle figurate a stella si alternavano a piastrelle cruciformi turchesi sulle pareti del palazzo. Figure umane, animali e creature fantastiche rendevano gli ambienti molto più colorati di quanto suggeriscano oggi i ruderi di pietra.</p>
+
+    <h3>L'aquila bicipite</h3>
+    <figure>
+      <img src="../../img/kubadabad-aquila-bicipite.jpg" alt="Seljuk glazed tile with a double-headed eagle from Kubâdâbâd" loading="lazy">
+      <figcaption>Piastrella con aquila bicipite da Kubâdâbâd, Museo delle Ceramiche Karatay. Fotografia: Dosseman, Wikimedia Commons, CC BY-SA 4.0.</figcaption>
+    </figure>
+    <p>L'aquila bicipite compare nell'iconografia regale selgiuchide. Qui sopravvive su una piastrella smaltata del palazzo del sultano: un oggetto, non un costume moderno o una scenografia, che ci avvicina al suo universo visivo.</p>
+
+    <h3>Un sole dal volto umano</h3>
+    <figure>
+      <img src="../../img/kubadabad-volto-solare.jpg" alt="Star-shaped palace tile showing a human face surrounded by radiating lines" loading="lazy">
+      <figcaption>Motivo a volto umano simile a un sole tra le piastrelle di Kubâdâbâd, Museo delle Ceramiche Karatay. Fotografia: Dosseman, Wikimedia Commons, CC BY-SA 4.0. Il motivo è descritto qui nel suo aspetto; il significato preciso non è attestato dalla documentazione fotografica.</figcaption>
+    </figure>
+    <p>Tra i motivi geometrici turchesi emerge un volto incorniciato da raggi. Il suo sorprendente aspetto solare ricorda che la decorazione della corte selgiuchide non si limitava alle forme astratte.</p>
+
+    <h3>Oltre le piastrelle — Gli stucchi architettonici</h3>
+    <figure>
+      <img src="../../img/kubadabad-stucchi.jpg" alt="Excavated fragments of ornamental architectural stucco from Kubâdâbâd on display in Konya" loading="lazy">
+      <figcaption>Frammenti di stucco ornamentale da Kubâdâbâd, Museo delle Ceramiche Karatay. Fotografia: Dosseman, Wikimedia Commons, CC BY-SA 4.0.</figcaption>
+    </figure>
+    <p>I frammenti di stucco scolpito aggiungono un'altra dimensione alle decorazioni palaziali. Conservano ornati in rilievo, anche se queste fotografie non consentono di stabilire se ciascun pezzo appartenesse a una parete, a un arco o a un soffitto.</p>
+
+    <div class="modal-highlight"><strong>LA SERIE CI MOSTRA UN PALAZZO SELGIUCHIDE.<br>L'ARCHEOLOGIA CI PERMETTE DI VEDERE IL MONDO DEL SULTANO.</strong></div>
+    <div class="modal-note"><strong>Finzione ↔ Storia:</strong> Kubâdâbâd è un vero palazzo commissionato da Alaeddin Keykubad sul lago Beyşehir. Non è <em>non</em> il palazzo di Konya raffigurato nella serie, né era già stato costruito al momento della sua ascesa al trono nel 1220. Gli oggetti fotografati sono reperti archeologici esposti in museo; l'allestimento non permette di dedurne la collocazione originaria.</div>
+    <p><small>Letture storiche: <a href="https://islamansiklopedisi.org.tr/kubadabad-sarayi" target="_blank" rel="noopener">TDV — Kubâdâbâd Sarayı</a> · <a href="https://islamicart.museumwnf.org/database_item.php?id=monument%3BISL%3Btr%3BMon01%3B5%3Ben" target="_blank" rel="noopener">Discover Islamic Art — Palazzo di Kubadabad</a>.</small></p>
+  </div>
+</div>
+
+<script>
+  const modalOpeners = document.querySelectorAll('.modal-open');
+  const modals = document.querySelectorAll('.modal');
+
+  function openModal(modal) {
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-lock');
+    const closeButton = modal.querySelector('.modal-close');
+    if (closeButton) closeButton.focus();
+  }
+
+  function closeModal(modal) {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-lock');
+  }
+
+  modalOpeners.forEach(button => {
+    button.addEventListener('click', () => {
+      const modal = document.getElementById(button.dataset.modal);
+      if (modal) openModal(modal);
+    });
+  });
+
+  modals.forEach(modal => {
+    const closeButton = modal.querySelector('.modal-close');
+    if (closeButton) closeButton.addEventListener('click', () => closeModal(modal));
+
+    modal.addEventListener('click', event => {
+      if (event.target === modal) closeModal(modal);
+    });
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      const open = document.querySelector('.modal.is-open');
+      if (open) closeModal(open);
+    }
+  });
+</script>
+<div id="contatore-visite"
+     style="display:flex; justify-content:center; margin:24px 0;">
+</div>
+
+<script data-goatcounter="https://iltappetovolante.goatcounter.com/count"
+        src="https://gc.zgo.at/count.js"></script>
+
+<script>
+    window.goatcounter.visit_count({
+        append: "#contatore-visite",
+      path: "/il-tappeto-volante/ask-ve-taht/episode-1/it.html",
+        no_branding: true,
+        style: `
+            div {
+                width: 200px;
+                height: 60px;
+                box-sizing: border-box;
+                padding: 6px;
+                border: 1px solid #c9a44c;
+                border-radius: 8px;
+                background: #070713;
+                color: #e2bd62;
+                font-family: Georgia, serif;
+                text-align: center;
+            }
+
+            #gcvc-for {
+                font-size: 0;
+            }
+
+            #gcvc-for::after {
+                content: "Visite a questa pagina";
+                font-size: 13px;
+                color: #e2bd62;
+            }
+
+            #gcvc-views {
+                color: #f4cf70;
+                font-size: 22px;
+                line-height: 24px;
+                font-weight: bold;
+            }
+        `
+    });
+</script>
+<script src="/il-tappeto-volante/js/visible-counter.js?v=20261026" defer></script>
+</body>
+</html>
