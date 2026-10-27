@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="theme-color" content="#111322">
+<title>Consegna riservata | Dizionario dei Sogni</title>
+<style>
+:root{color-scheme:dark;--bg:#0c1020;--panel:#171d2c;--ink:#f8f4e8;--muted:#c9cfdb;--gold:#e6ca90;--line:#9e8b65aa}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 8% 0,#2f2845,transparent 46%),#0c1020;color:var(--ink);font:15px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:740px;margin:0 auto;padding:42px 16px 55px}
+h1,h2{font-family:Georgia,serif;font-weight:400}h1{font-size:clamp(2rem,6vw,3.1rem);line-height:1.12;margin:.3rem 0 1rem}h2{font-size:1.5rem;margin:.2rem 0 1rem}
+.eyebrow{font-size:.73rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.intro{color:var(--muted);max-width:60ch}
+section{padding:24px;background:var(--panel);border:1px solid #ac946b68;border-radius:17px;margin:22px 0;box-shadow:0 10px 33px #03071030}
+.notice{background:#293344;border-left:4px solid var(--gold);padding:13px 16px;border-radius:4px}
+.notice strong{color:var(--gold)}
+label{display:block;font-weight:650;margin:17px 0 6px}
+input,textarea{font:inherit;background:#252e40;border:1px solid #a7987dbd;border-radius:10px;color:#fff;width:100%;padding:12px;min-height:43px}
+input:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid #bdd9cc;outline-offset:3px}
+input::placeholder{color:#d0d5df99}
+fieldset{border:0;margin:0;padding:0;min-width:0}legend{font:1.4rem Georgia,serif;margin:4px 0 7px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}.hint{font-size:.8rem;color:var(--muted);margin:7px 0 0}
+.check{display:flex;align-items:start;gap:12px;font-size:.88rem;font-weight:400;margin-top:20px}.check input{width:18px;min-width:18px;height:18px;min-height:18px;accent-color:#cdb681;margin:4px 0 0}
+button{display:block;margin:25px 0 10px;width:100%;border:0;border-radius:10px;background:#e4c78c;color:#1c2025;font-weight:800;font-size:1rem;padding:14px}
+button:disabled{opacity:.45;cursor:not-allowed}
+a{color:var(--gold)}
+footer{text-align:center;color:var(--muted);font-size:.83rem;margin-top:24px}
+[hidden]{display:none!important}
+@media(max-width:560px){.grid{grid-template-columns:1fr}section{padding:18px}}
+</style>
+</head>
+<body>
+<main>
+<div class="eyebrow">✦ Dizionario dei Sogni · Fase riservata</div>
+<h1>Un indirizzo per il tuo sogno</h1>
+<p class="intro">Questa fase si apre esclusivamente tramite un collegamento personale, dopo che il pagamento è stato verificato. Servono solo i dati necessari ad abbinare il pagamento e consegnare la tua tote bag.</p>
+<section id="gate">
+<h2>Verifica del pagamento</h2>
+<p id="gateStatus" class="notice" role="status"><strong>Modulo non disponibile.</strong> La procedura riservata di verifica PayPal non è ancora attiva. Nessun dato personale viene richiesto o inviato da questa pagina.</p>
+<p class="hint">Non inserire dati di consegna nella barra degli indirizzi né nei commenti social. Non è sufficiente tornare sulla pagina dopo aver aperto PayPal: la transazione deve essere verificata dal sistema.</p>
+</section>
+<form id="delivery" hidden autocomplete="on" novalidate>
+<section>
+<p class="eyebrow">01 · Associazione al pagamento</p>
+<fieldset>
+<legend>Chi ha effettuato il pagamento?</legend>
+<label for="payerName">Nome e cognome del mittente del pagamento PayPal *</label>
+<input id="payerName" name="payerName" autocomplete="off" maxlength="120" required placeholder="Come indicato sulla transazione PayPal">
+<p class="hint">Può essere diverso dal nome di chi riceverà la borsa. Il sistema effettua comunque una verifica autonoma della transazione.</p>
+</fieldset>
+</section>
+<section>
+<p class="eyebrow">02 · Dati per la consegna</p>
+<fieldset>
+<legend>A chi dobbiamo inviare la borsa?</legend>
+<label for="recipient">Nome e cognome del destinatario *</label>
+<input id="recipient" name="recipient" autocomplete="shipping name" maxlength="120" required>
+<label for="street">Via / piazza e indirizzo *</label>
+<input id="street" name="street" autocomplete="shipping address-line1" maxlength="150" required>
+<div class="grid">
+<div><label for="number">Numero civico *</label><input id="number" name="number" maxlength="20" required placeholder="Es. 12 o SNC"></div>
+<div><label for="zip">CAP *</label><input id="zip" name="zip" autocomplete="shipping postal-code" inputmode="numeric" maxlength="5" pattern="[0-9]{5}" required placeholder="5 cifre"></div>
+<div><label for="city">Comune *</label><input id="city" name="city" autocomplete="shipping address-level2" maxlength="90" required></div>
+<div><label for="province">Provincia (sigla) *</label><input id="province" name="province" maxlength="2" pattern="[A-Za-z]{2}" required placeholder="Es. LE"></div>
+</div>
+<label for="phone">Telefono per il corriere *</label>
+<input id="phone" name="phone" type="tel" autocomplete="shipping tel" inputmode="tel" maxlength="22" pattern="[+0-9 ().-]{7,22}" required>
+<label for="email">Email per comunicazioni sulla consegna *</label>
+<input id="email" name="email" type="email" autocomplete="shipping email" maxlength="180" required>
+<label for="deliveryNotes">Indicazioni utili al corriere (facoltative)</label>
+<textarea id="deliveryNotes" name="deliveryNotes" rows="2" maxlength="200" placeholder="Es. interno, scala, citofono (solo se necessari)"></textarea>
+<p class="hint">Solo indirizzi in Italia. Non inserire dati del sogno, documenti d'identità, codici fiscali o altre informazioni non necessarie.</p>
+</fieldset>
+</section>
+<section id="privacy">
+<p class="eyebrow">03 · Riservatezza</p>
+<h2>Come verranno usati i dati</h2>
+<p>Nome del mittente PayPal: <strong>abbinamento della transazione verificata</strong>. Nome e recapiti del destinatario: <strong>preparazione della spedizione, comunicazioni sulla consegna e trasmissione dei soli dati necessari al corriere incaricato</strong>.</p>
+<p>Non sono previsti utilizzi per pubblicità, newsletter, pubblicazione sui social o profilazione. I dati non vanno inseriti su GitHub né nella pagina pubblica di simulazione.</p>
+<p class="notice"><strong>Informativa completa da finalizzare prima dell'attivazione:</strong> indicare il nome e recapito del titolare del trattamento, base giuridica, destinatari, tempi di conservazione, modalità di esercizio dei diritti e altri elementi richiesti dall'art. 13 GDPR. La base giuridica prevista per i dati necessari a consegnare un bene acquistato è l'esecuzione del contratto, non un consenso obbligatorio aggiuntivo.</p>
+<label for="privacyRead" class="check"><input type="checkbox" id="privacyRead" required> Ho letto l'informativa sul trattamento dei dati. Prendo atto che i dati saranno usati per associare il pagamento e gestire la consegna e che quelli necessari verranno comunicati al corriere.</label>
+<p class="hint">Questa dichiarazione serve a documentare la presa visione, non costituisce un'autorizzazione a finalità ulteriori.</p>
+<button type="submit" id="submit" disabled>Conferma i dati per la spedizione</button>
+<p id="formStatus" class="notice" role="status">Invio non attivo finché il pagamento non è verificato, il servizio privato non è configurato e l'informativa non è completa.</p>
+</section>
+</form>
+<footer>
+<p><a href="../">← Torna alla simulazione</a></p>
+<p>Il Dizionario dei Sogni · pagina riservata di consegna</p>
+</footer>
+</main>
+<script>
+(function(){
+"use strict";
+// Backend sicuro da integrare via HTTPS: verifica ticket monouso associato a transazione PayPal verificata;
+// esegue controllo lato server e salva i dati in archivio privato protetto da regole e autorizzazioni.
+// NON inserire credenziali PayPal, chiavi segrete, indirizzi o ticket nei file pubblici di GitHub.
+const DELIVERY_API_URL="";
+const PRIVACY_NOTICE_FINALIZED=false;
+const el=id=>document.getElementById(id);
+let paidTicket=null;
+const params=new URLSearchParams(window.location.hash.slice(1));
+const ticket=params.get("t")||"";
+if(window.location.hash)history.replaceState(null,"",window.location.pathname+window.location.search);
+async function start(){
+  if(!DELIVERY_API_URL||!ticket){
+    el("gateStatus").textContent="Modulo non disponibile: la verifica sicura del pagamento non è ancora configurata. Nessun dato personale viene raccolto.";
+    return;
+  }
+  try{
+    const res=await fetch(DELIVERY_API_URL,{method:"POST",headers:{"Content-Type":"application/json"},cache:"no-store",body:JSON.stringify({action:"verifyPaidTicket",ticket})});
+    if(!res.ok)throw Error("Impossibile verificare il pagamento");
+    const data=await res.json();
+    if(data.verified!==true||data.paymentStatus!=="COMPLETED")throw Error("Pagamento non confermato");
+    paidTicket=ticket;
+    if(!PRIVACY_NOTICE_FINALIZED){
+      el("gateStatus").textContent="Pagamento verificato. Il modulo resta sospeso fino al completamento dell'informativa privacy del progetto.";
+      return;
+    }
+    el("gate").hidden=true;
+    el("delivery").hidden=false;
+    el("submit").disabled=false;
+    el("formStatus").textContent="Compila solo i dati necessari alla consegna.";
+  }catch(e){
+    el("gateStatus").textContent="Non è possibile confermare il pagamento. Non inserire dati personali: contatta privatamente il progetto.";
+  }
+}
+el("delivery").addEventListener("submit",async function(event){
+  event.preventDefault();
+  if(!paidTicket||!PRIVACY_NOTICE_FINALIZED||!DELIVERY_API_URL)return;
+  if(!this.checkValidity()){this.reportValidity();return;}
+  if(!el("privacyRead").checked){el("formStatus").textContent="Prima conferma la presa visione dell'informativa.";return;}
+  let formData=Object.fromEntries(new FormData(this).entries());
+  delete formData.privacyRead;
+  el("submit").disabled=true;
+  el("formStatus").textContent="Invio protetto in corso…";
+  try{
+    const res=await fetch(DELIVERY_API_URL,{method:"POST",headers:{"Content-Type":"application/json"},cache:"no-store",body:JSON.stringify({action:"saveShippingForPaidOrder",ticket:paidTicket,shipping:formData,privacyAcknowledged:true})});
+    if(!res.ok)throw Error("Invio non riuscito");
+    const json=await res.json();
+    if(json.saved!==true)throw Error("Conferma non ricevuta");
+    this.reset();this.hidden=true;paidTicket=null;
+    el("gate").hidden=false;
+    el("gateStatus").textContent="Dati di consegna ricevuti. La richiesta sarà lavorata secondo i termini concordati.";
+  }catch(e){
+    el("formStatus").textContent="Impossibile confermare la ricezione dei dati. Non reinviare più volte senza prima verificare con il progetto.";
+    el("submit").disabled=false;
+  }
+});
+start();
+})();
+</script>
+</body>
+</html>
