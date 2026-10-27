@@ -43,7 +43,7 @@ fieldset{border:0;padding:0;margin:0}legend{font-size:.91rem;font-weight:600;mar
 .hr{height:1px;background:#99865b66;margin:17px 0}.total{display:flex;align-items:baseline;justify-content:space-between;gap:15px}.total b{font-size:1.55rem;color:var(--gold)}.total small{display:block;color:var(--muted);font-size:.79rem}
 .action{border:0;border-radius:12px;padding:14px 17px;background:linear-gradient(135deg,#f4ddac,#c6a96b);color:#1a1a21;font-weight:800;font-size:.96rem;cursor:pointer;text-align:center}
 .action:disabled{opacity:.5;cursor:not-allowed}.secondary{border:1px solid #c1b092;background:transparent;color:var(--ink);font-weight:700;border-radius:12px;padding:12px 15px;cursor:pointer}
-.action-bar{display:grid;gap:10px;margin-top:18px}.answer{display:none;margin-top:18px;padding:17px;background:#1c2e35;border:1px solid #9bc0bd80;border-radius:12px}.answer.active{display:block}.answer p{margin:4px 0 14px}.answer textarea{font-size:.79rem;min-height:190px}.btn-row{display:flex;gap:9px;flex-wrap:wrap;margin-top:11px}
+.action-bar{display:grid;gap:10px;margin-top:18px}.payment{margin-top:20px;padding:22px 18px;background:#202838;border:1px solid #d1ad6d8c;border-radius:15px}.payment h3{font-size:1.8rem;margin:0 0 8px}.payment .pay-consent{display:flex;align-items:flex-start;gap:11px;margin:12px 0;font-size:.85rem;font-weight:400}.payment input[type=checkbox]{width:auto;margin-top:5px;accent-color:#d1b87c}.payment button{margin:12px 0;width:100%}.pay-info{font-size:.83rem;color:#f0d9a8;border-left:3px solid #d9bd7e;background:#3b3d4780;padding:10px;border-radius:5px}.answer{display:none;margin-top:18px;padding:17px;background:#1c2e35;border:1px solid #9bc0bd80;border-radius:12px}.answer.active{display:block}.answer p{margin:4px 0 14px}.answer textarea{font-size:.79rem;min-height:190px}.btn-row{display:flex;gap:9px;flex-wrap:wrap;margin-top:11px}
 footer{max-width:890px;margin:20px auto 0;text-align:center;padding:35px 20px 40px;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem}
 footer .closing{font:italic 1.55rem "Cormorant Garamond",Georgia,serif;color:#e1ca9b;margin-bottom:17px}
 #contatore-visite{min-height:82px}#toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);padding:9px 16px;border-radius:10px;background:#d5c29a;color:#1c1b20;box-shadow:0 6px 30px #0007;display:none;z-index:5;text-align:center;font-weight:700}
@@ -113,7 +113,7 @@ footer .closing{font:italic 1.55rem "Cormorant Garamond",Georgia,serif;color:#e1
 <p class="minor">Il sostegno è davvero volontario: anche 0 € è una scelta possibile. Non modifica l'accesso alla simulazione né il valore della creazione.</p>
 <div class="hr"></div>
 <div class="total"><span><strong>Totale indicativo</strong><small>Comprensivo dell'eventuale sostegno scelto</small></span><b id="grandTotal" aria-live="polite">22,90 €</b></div>
-<p class="minor">Per spedizioni italiane ipotizziamo 6 € con ritiro e consegna a domicilio; tariffa e copertura geografica da verificare. Tempo previsto: circa 15 giorni dalla conferma della richiesta e dei dettagli. Nessun pagamento su questa pagina.</p>
+<p class="minor">Per spedizioni italiane ipotizziamo 6 € con ritiro e consegna a domicilio; tariffa e copertura geografica da verificare. Tempo previsto: circa 15 giorni dal pagamento verificato e dalla conferma dei dettagli. Il pulsante PayPal sarà operativo dopo verifica del conto e dei costi.</p>
 </section>
 </section>
 <section class="panel" aria-labelledby="preview-title">
@@ -141,6 +141,16 @@ footer .closing{font:italic 1.55rem "Cormorant Garamond",Georgia,serif;color:#e1
 <div class="btn-row"><button type="button" class="action" id="share">Condividi il riepilogo</button><button type="button" class="secondary" id="copy">Copia il testo</button></div>
 <p class="minor">Sul telefono, «Condividi» apre le app di condivisione disponibili. Il progetto non riceve nulla automaticamente da questa pagina. Non inserire indirizzi o dati sensibili nel testo.</p>
 </div>
+<section class="payment" aria-labelledby="payHead">
+<p class="eyebrow">Prima il pagamento, poi la realizzazione</p>
+<h3 id="payHead">Pagamento sicuro con PayPal</h3>
+<p style="font-size:.86rem">Nessuna borsa viene acquistata né stampata prima che il pagamento sia stato <strong>verificato sul conto PayPal del Tappeto Volante</strong>. Per questa borsa personalizzata si utilizza la modalità «beni e servizi».</p>
+<div class="total"><span><strong>Totale per PayPal</strong><small>Compresa spedizione Italia e sostegno facoltativo</small></span><b id="payTotal">22,90 €</b></div>
+<label class="pay-consent"><input id="payConsent" type="checkbox">Ho verificato il riepilogo e compreso che la realizzazione partirà dopo il pagamento confermato e la condivisione dei dettagli necessari.</label>
+<button type="button" id="payNow" class="action" disabled>Paga con PayPal del Tappeto Volante</button>
+<p id="payInfo" class="pay-info" role="status">Collegamento PayPal in attesa di verifica: al momento nessun pagamento può essere avviato.</p>
+<p class="minor">Il prezzo è ancora una stima e dovrà essere confermato prima di attivare l'incasso. Ritiro e consegna in Italia: 6 € previsti, da verificare con il corriere; consegna indicativa entro 15 giorni dalla conferma del pagamento e dei dettagli. Il sito non registra ordini né verifica pagamenti automaticamente. Non inserire qui indirizzi o dati sensibili.</p>
+</section>
 </section>
 </div>
 </main>
@@ -160,6 +170,9 @@ var palettes={
 notte:{base:"#102c45",mid:"#355b68",light:"#e9cd8c",line:"#e9d1a7",glow:"#badbd1"},
 aurora:{base:"#183e41",mid:"#558478",light:"#f7d7a3",line:"#f4ddb2",glow:"#b6e0bc"},
 tramonto:{base:"#56364e",mid:"#ad676f",light:"#f8d5a2",line:"#f4d8b9",glow:"#ffe1a4"}};
+// Compilare SOLO con l'URL PayPal.Me verificato nella pagina del conto del titolare.
+var PAYPAL_LINK_VERIFICATO="";
+var COSTI_CONFERMATI=false;
 var mood="notte";
 var shapes={
 luna:'<path d="M157 65 A65 65 0 1 0 224 174 A75 75 0 0 1 157 65Z" fill="__L__"/><circle cx="105" cy="115" r="4" fill="__W__"/><circle cx="196" cy="97" r="3" fill="__W__"/>',
@@ -221,12 +234,26 @@ var k=$("symbol").value,has=!!k;
 $("otherWrap").hidden=k!=="altro";
 $("customWrap").hidden=$("support").value!=="custom";
 $("grandTotal").textContent=fmt(17.9+getSupport());
+$("payTotal").textContent=fmt(17.9+getSupport());
 $("prepare").disabled=!has||(k==="altro"&&!$("other").value.trim());
 $("plainBag").innerHTML=bag("",false);
 $("dreamBag").innerHTML=bag(has?illustration(k):"",has);
 $("smallArt").innerHTML=has?'<svg viewBox="0 0 280 300" aria-hidden="true">'+illustration(k)+'</svg>':'';
 $("choiceLine").textContent=has?"Il tuo simbolo: "+selectedLabel():"Scegli un simbolo per cominciare";
 $("answer").classList.remove("active");
+$("payConsent").checked=false;
+refreshPayment();
+}
+function refreshPayment(){
+var paypal=PAYPAL_LINK_VERIFICATO.trim();
+var valid=/^https:\/\/(www\.)?paypal\.me\/[A-Za-z0-9._-]+\/?$/i.test(paypal);
+var ready=valid && COSTI_CONFERMATI && $("answer").classList.contains("active") && $("payConsent").checked && !$("prepare").disabled;
+$("payNow").disabled=!ready;
+$("payInfo").textContent=!valid?"PayPal non è ancora attivo: manca la verifica dell'esatto link PayPal.Me del Tappeto Volante. Nessun destinatario è stato inserito per supposizione.":
+!COSTI_CONFERMATI?"PayPal non è ancora attivo: vanno confermati i costi definitivi di stampa e consegna.":
+!$("answer").classList.contains("active")?"Prima prepara e condividi il riepilogo del sogno.":
+!$("payConsent").checked?"Verifica il riepilogo e conferma la presa visione delle condizioni.":
+"Il pagamento verrà aperto su PayPal. Scrivi il simbolo scelto nella nota del pagamento e conserva la ricevuta; l'ordine partirà solo dopo verifica dell'accredito.";
 }
 function message(){
 var sym=selectedLabel(),detail=$("story").value.trim(),moodLabels={notte:"Notte stellata",aurora:"Aurora",tramonto:"Tramonto"};
@@ -238,7 +265,7 @@ return "IL DIZIONARIO DEI SOGNI — RICHIESTA DI CREAZIONE\n"+
 "Costi vivi simulati: "+fmt(17.9)+" (di cui spedizione Italia "+fmt(6)+")\n"+
 "Sostegno facoltativo scelto: "+fmt(getSupport())+"\n"+
 "Totale indicativo: "+fmt(17.9+getSupport())+"\n"+
-"Consegna prevista: circa 15 giorni dalla conferma dell'ordine, da verificare.\n"+
+"Consegna prevista: circa 15 giorni dal pagamento verificato e dalla conferma dei dettagli, da verificare.\n"+
 "Chiedo informazioni e un preventivo confermato: questa comunicazione non è un ordine vincolante e non autorizza pagamenti.\n"+
 "Anteprima visualizzata: esempio standard con filigrana; immagine definitiva personalizzata da concordare.";
 }
@@ -247,7 +274,14 @@ $("symbol").addEventListener("change",update);
 $("other").addEventListener("input",update);
 $("support").addEventListener("change",update);
 $("custom").addEventListener("input",update);
-$("story").addEventListener("input",function(){$("answer").classList.remove("active");});
+$("story").addEventListener("input",function(){$("answer").classList.remove("active");refreshPayment();});
+$("payConsent").addEventListener("change",refreshPayment);
+$("payNow").addEventListener("click",function(){
+refreshPayment();if($("payNow").disabled)return;
+var amount=(17.9+getSupport()).toFixed(2);
+var link=PAYPAL_LINK_VERIFICATO.replace(/\/$/,"")+"/"+amount+"EUR";
+window.open(link,"_blank","noopener,noreferrer");
+});
 Array.prototype.forEach.call(document.querySelectorAll("[data-mood]"),function(b){
 b.addEventListener("click",function(){
 mood=b.getAttribute("data-mood");
@@ -255,7 +289,7 @@ Array.prototype.forEach.call(document.querySelectorAll("[data-mood]"),function(e
 update();
 });});
 $("prepare").addEventListener("click",function(){
-$("requestText").value=message();$("answer").classList.add("active");$("answer").scrollIntoView({behavior:"smooth",block:"start"});
+$("requestText").value=message();$("answer").classList.add("active");refreshPayment();$("answer").scrollIntoView({behavior:"smooth",block:"start"});
 });
 $("reset").addEventListener("click",function(){
 $("symbol").value="";$("other").value="";$("story").value="";$("support").value="5";$("custom").value="5";mood="notte";
