@@ -115,7 +115,7 @@ footer .closing{font:italic 1.55rem "Cormorant Garamond",Georgia,serif;color:#e1
 <p class="minor">Il sostegno è davvero volontario: anche 0 € è una scelta possibile. Non modifica l'accesso alla simulazione né il valore della creazione.</p>
 <div class="hr"></div>
 <div class="total"><span><strong>Totale indicativo</strong><small>Comprensivo dell'eventuale sostegno scelto</small></span><b id="grandTotal" aria-live="polite">29,90 €</b></div>
-<p class="minor">Per spedizioni italiane ipotizziamo 6 € con ritiro e consegna a domicilio; tariffa e copertura geografica da verificare. Tempo previsto: circa 15 giorni dal pagamento verificato e dalla conferma dei dettagli. Il pulsante PayPal sarà operativo dopo verifica del conto e dei costi.</p>
+<p class="minor">Per spedizioni italiane ipotizziamo 6 € con ritiro e consegna a domicilio; tariffa e copertura geografica da verificare. Tempo previsto: circa 15 giorni dal pagamento verificato e dalla conferma dei dettagli. Il pulsante Stripe sarà operativo dopo la verifica dell’identità, dei costi e il collaudo del sistema di pagamento.</p>
 </section>
 </section>
 <section class="panel" aria-labelledby="preview-title">
@@ -145,14 +145,14 @@ footer .closing{font:italic 1.55rem "Cormorant Garamond",Georgia,serif;color:#e1
 </div>
 <section class="payment" aria-labelledby="payHead">
 <p class="eyebrow">Prima il pagamento, poi la realizzazione</p>
-<h3 id="payHead">Pagamento sicuro con PayPal</h3>
-<p style="font-size:.86rem">Nessuna borsa viene acquistata né stampata prima che il pagamento sia stato <strong>verificato sul conto PayPal del Tappeto Volante</strong>. Per questa borsa personalizzata si utilizza la modalità «beni e servizi».</p>
-<div class="total"><span><strong>Totale per PayPal</strong><small>Compresa spedizione Italia e sostegno facoltativo</small></span><b id="payTotal">29,90 €</b></div>
+<h3 id="payHead">Pagamento sicuro con Stripe</h3>
+<p style="font-size:.86rem">Nessuna borsa viene acquistata né stampata prima che il pagamento sia stato <strong>confermato e verificato tramite Stripe</strong>. Il pagamento riguarda la realizzazione di un bene personalizzato, non una donazione.</p>
+<div class="total"><span><strong>Totale previsto per Stripe</strong><small>Compresa spedizione Italia e sostegno facoltativo</small></span><b id="payTotal">29,90 €</b></div>
 <label class="pay-consent"><input id="payConsent" type="checkbox">Ho verificato il riepilogo e compreso che la realizzazione partirà dopo il pagamento confermato e la condivisione dei dettagli necessari.</label>
-<button type="button" id="payNow" class="action" disabled>Paga con PayPal del Tappeto Volante</button>
-<p id="payInfo" class="pay-info" role="status">Collegamento PayPal in attesa di verifica: al momento nessun pagamento può essere avviato.</p>
-<p class="minor">Il prezzo è ancora una stima e dovrà essere confermato prima di attivare l’incasso. Ritiro e consegna in Italia: 6 € previsti, da verificare con il corriere; consegna indicativa entro 15 giorni dalla conferma del pagamento e dei dettagli. Il sito non registra ordini né verifica pagamenti automaticamente. Non inserire qui indirizzi o dati sensibili.</p>
-<div class="callout"><strong>📦 Dopo il pagamento verificato: i dati di consegna</strong><p style="font-size:.85rem;margin:9px 0 0">Soltanto dopo la conferma dell’accredito riceverai un collegamento riservato per comunicare <strong>nome e cognome del mittente del pagamento PayPal</strong> (per associarlo alla transazione), nome del destinatario, indirizzo completo, CAP, città, provincia, telefono ed email per la consegna. Potrai leggere prima l’informativa privacy e confermare di averne preso visione. I dati saranno trattati per la gestione della richiesta e la spedizione, senza usi promozionali.</p><p class="minor" style="margin-bottom:0">Questa seconda fase richiede un sistema riservato che verifichi il pagamento e protegga i dati: non è ancora attiva. Nessun indirizzo viene raccolto nella simulazione pubblica.</p></div>
+<button type="button" id="payNow" class="action" disabled>Procedi al pagamento sicuro con Stripe</button>
+<p id="payInfo" class="pay-info" role="status">Stripe non è ancora attivo: la verifica dell’identità e l’integrazione sicura devono essere completate. Nessun pagamento può essere avviato.</p>
+<p class="minor">Il prezzo è ancora una stima e dovrà essere confermato prima di attivare l’incasso. Ritiro e consegna in Italia: 6 € previsti, da verificare con il corriere; consegna indicativa entro 15 giorni dalla conferma del pagamento e dei dettagli. Il sito non registra ancora richieste né verifica pagamenti automaticamente. Non inserire qui indirizzi o dati sensibili.</p>
+<div class="callout"><strong>📦 Dopo il pagamento verificato: i dati di consegna</strong><p style="font-size:.85rem;margin:9px 0 0">Soltanto dopo la conferma dell’accredito riceverai un collegamento riservato per comunicare <strong>nome e cognome di chi ha effettuato il pagamento</strong> (per associarlo alla transazione), nome del destinatario, indirizzo completo, CAP, città, provincia, telefono ed email per la consegna. Potrai leggere prima l’informativa privacy e confermare di averne preso visione. I dati saranno trattati per la gestione della richiesta e la spedizione, senza usi promozionali.</p><p class="minor" style="margin-bottom:0">Questa seconda fase richiede un sistema riservato che verifichi il pagamento e protegga i dati: non è ancora attiva. Nessun indirizzo viene raccolto nella simulazione pubblica.</p></div>
 </section>
 </section>
 </div>
@@ -173,9 +173,12 @@ var palettes={
 notte:{base:"#102c45",mid:"#355b68",light:"#e9cd8c",line:"#e9d1a7",glow:"#badbd1"},
 aurora:{base:"#183e41",mid:"#558478",light:"#f7d7a3",line:"#f4ddb2",glow:"#b6e0bc"},
 tramonto:{base:"#56364e",mid:"#ad676f",light:"#f8d5a2",line:"#f4d8b9",glow:"#ffe1a4"}};
-// Compilare SOLO con l'URL PayPal.Me verificato nella pagina del conto del titolare.
-var PAYPAL_LINK_VERIFICATO="";
+// Checkout Stripe: il browser non deve mai contenere chiavi segrete o creare addebiti.
+// L’endpoint HTTPS autenticato dovrà creare lato server una Checkout Session con importo
+// ricalcolato e numero univoco della richiesta. Verificare l’accredito tramite webhook.
+var STRIPE_CHECKOUT_API_URL="";
 var COSTI_CONFERMATI=false;
+var CONDIZIONI_PUBBLICATE=false;
 var mood="notte";
 var shapes={
 luna:'<path d="M157 65 A65 65 0 1 0 224 174 A75 75 0 0 1 157 65Z" fill="__L__"/><circle cx="105" cy="115" r="4" fill="__W__"/><circle cx="196" cy="97" r="3" fill="__W__"/>',
@@ -248,15 +251,20 @@ $("payConsent").checked=false;
 refreshPayment();
 }
 function refreshPayment(){
-var paypal=PAYPAL_LINK_VERIFICATO.trim();
-var valid=/^https:\/\/(www\.)?paypal\.me\/[A-Za-z0-9._-]+\/?$/i.test(paypal);
-var ready=valid && COSTI_CONFERMATI && $("answer").classList.contains("active") && $("payConsent").checked && !$("prepare").disabled;
+var active=STRIPE_CHECKOUT_API_URL.trim();
+var valid=false;
+try{
+  var parsed=new URL(active);
+  valid=parsed.protocol==="https:" && parsed.hostname!=="localhost";
+}catch(e){}
+var ready=valid && COSTI_CONFERMATI && CONDIZIONI_PUBBLICATE && $("answer").classList.contains("active") && $("payConsent").checked && !$("prepare").disabled;
 $("payNow").disabled=!ready;
-$("payInfo").textContent=!valid?"PayPal non è ancora attivo: manca la verifica dell'esatto link PayPal.Me del Tappeto Volante. Nessun destinatario è stato inserito per supposizione.":
-!COSTI_CONFERMATI?"PayPal non è ancora attivo: vanno confermati i costi definitivi di stampa e consegna.":
-!$("answer").classList.contains("active")?"Prima prepara e condividi il riepilogo del sogno.":
-!$("payConsent").checked?"Verifica il riepilogo e conferma la presa visione delle condizioni.":
-"Il pagamento verrà aperto su PayPal. Scrivi il simbolo scelto nella nota del pagamento e conserva la ricevuta; l'ordine partirà solo dopo verifica dell'accredito.";
+$("payInfo").textContent=!valid?"Stripe non è attivo: manca ancora il collegamento al servizio di checkout sicuro. Nessun pagamento può essere avviato.":
+!COSTI_CONFERMATI?"Stripe non è attivo: dobbiamo confermare i costi di produzione e consegna.":
+!CONDIZIONI_PUBBLICATE?"Stripe non è attivo: occorre pubblicare e collaudare le condizioni della fornitura.":
+!$("answer").classList.contains("active")?"Prepara prima il riepilogo della tua richiesta.":
+!$("payConsent").checked?"Prima conferma la presa visione del riepilogo e delle condizioni.":
+"Il pagamento avverrà nella pagina sicura di Stripe. La richiesta sarà lavorata solo dopo la verifica effettiva del pagamento.";
 }
 function message(){
 var sym=selectedLabel(),detail=$("story").value.trim(),moodLabels={notte:"Notte stellata",aurora:"Aurora",tramonto:"Tramonto"};
@@ -279,11 +287,35 @@ $("support").addEventListener("change",update);
 $("custom").addEventListener("input",update);
 $("story").addEventListener("input",function(){$("answer").classList.remove("active");refreshPayment();});
 $("payConsent").addEventListener("change",refreshPayment);
-$("payNow").addEventListener("click",function(){
-refreshPayment();if($("payNow").disabled)return;
-var amount=(24.9+getSupport()).toFixed(2);
-var link=PAYPAL_LINK_VERIFICATO.replace(/\/$/,"")+"/"+amount+"EUR";
-window.open(link,"_blank","noopener,noreferrer");
+$("payNow").addEventListener("click",async function(){
+  refreshPayment();if($("payNow").disabled)return;
+  var button=$("payNow");
+  button.disabled=true;
+  $("payInfo").textContent="Preparazione del pagamento sicuro…";
+  try{
+    var response=await fetch(STRIPE_CHECKOUT_API_URL,{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      cache:"no-store",
+      body:JSON.stringify({
+        action:"createCheckoutSession",
+        symbol:selectedLabel(),
+        mood:mood,
+        supportEUR:getSupport()
+      })
+    });
+    if(!response.ok)throw new Error("Pagamento non disponibile");
+    var result=await response.json();
+    // Il totale viene sempre ricalcolato e confermato sul server.
+    // Il browser non determina da solo l'importo effettivo.
+    var destination=new URL(result.checkout_url||"");
+    if(destination.protocol!=="https:" || destination.hostname!=="checkout.stripe.com")throw new Error("Link di pagamento non valido");
+    window.location.assign(destination.href);
+  }catch(e){
+    $("payInfo").textContent="Il collegamento a Stripe non è disponibile. Nessun pagamento confermato. Riprova soltanto quando il servizio sarà attivo.";
+    refreshPayment();
+    button.disabled=false;
+  }
 });
 Array.prototype.forEach.call(document.querySelectorAll("[data-mood]"),function(b){
 b.addEventListener("click",function(){
