@@ -80,6 +80,17 @@ footer .closing{font:italic 1.55rem "Cormorant Garamond",Georgia,serif;color:#e1
 <label for="story">Un particolare che vuoi raccontarci (facoltativo)</label>
 <textarea id="story" maxlength="420" placeholder="Es. Nel sogno, la porta si apriva su un giardino illuminato…"></textarea>
 <p class="minor">Max 420 caratteri. Non inserire dati personali o informazioni particolarmente intime: questa pagina non salva né trasmette il testo.</p>
+<label for="phraseMode">✍️ Vuoi aggiungere una frase ispirata al tuo sogno?</label>
+<select id="phraseMode">
+<option value="none">No, preferisco soltanto l’illustrazione</option>
+<option value="mine">Sì, scelgo io la frase</option>
+<option value="suggest">Sì, vorrei una proposta dell’autrice</option>
+</select>
+<div id="phraseWrap" hidden>
+<label for="phraseText">La frase che desideri sulla borsa</label>
+<input id="phraseText" type="text" maxlength="80" placeholder="Es. Oltre questa porta comincia il mio viaggio">
+</div>
+<p class="minor"><strong>Un pensiero in più, senza sovrapprezzo.</strong> La frase è facoltativa e gratuita: la sua disposizione verrà concordata nelle proposte definitive. La simulazione mostra solo un esempio, non il testo già impaginato.</p>
 <fieldset>
 <legend>Che atmosfera vorresti?</legend>
 <div class="pills" id="moods" role="group" aria-label="Atmosfera">
@@ -92,7 +103,7 @@ footer .closing{font:italic 1.55rem "Cormorant Garamond",Georgia,serif;color:#e1
 <section class="costs" aria-labelledby="cost-title">
 <p class="eyebrow">Un gesto consapevole</p>
 <h3 id="cost-title">I costi, con trasparenza</h3>
-<p class="hint">Questa è una <strong>simulazione indicativa</strong> dei costi per una tote bag personalizzata, inclusa una quota stimata per gli strumenti AI, non ancora un preventivo definitivo.</p>
+<p class="hint">Questa è una <strong>simulazione indicativa</strong> dei costi per una tote bag personalizzata, inclusa una quota stimata per gli strumenti AI, non ancora un preventivo definitivo. L’eventuale frase ispirata al sogno è compresa gratuitamente.</p>
 <div class="cost-list">
 <span>Borsa in tela neutra</span><span class="value">3,70 €</span>
 <span>Stampa illustrata a colori</span><span class="value">8,00 €</span>
@@ -238,10 +249,11 @@ return symbols[s];
 function update(){
 var k=$("symbol").value,has=!!k;
 $("otherWrap").hidden=k!=="altro";
+$("phraseWrap").hidden=$("phraseMode").value!=="mine";
 $("customWrap").hidden=$("support").value!=="custom";
 $("grandTotal").textContent=fmt(24.9+getSupport());
 $("payTotal").textContent=fmt(24.9+getSupport());
-$("prepare").disabled=!has||(k==="altro"&&!$("other").value.trim());
+$("prepare").disabled=!has||(k==="altro"&&!$("other").value.trim())||($("phraseMode").value==="mine"&&!$("phraseText").value.trim());
 $("plainBag").innerHTML=bag("",false);
 $("dreamBag").innerHTML=bag(has?illustration(k):"",has);
 $("smallArt").innerHTML=has?'<svg viewBox="0 0 280 300" aria-hidden="true">'+illustration(k)+'</svg>':'';
@@ -267,11 +279,12 @@ $("payInfo").textContent=!valid?"Stripe non è attivo: manca ancora il collegame
 "Il pagamento avverrà nella pagina sicura di Stripe. La richiesta sarà lavorata solo dopo la verifica effettiva del pagamento.";
 }
 function message(){
-var sym=selectedLabel(),detail=$("story").value.trim(),moodLabels={notte:"Notte stellata",aurora:"Aurora",tramonto:"Tramonto"};
+var sym=selectedLabel(),detail=$("story").value.trim(),phraseMode=$("phraseMode").value,phraseText=$("phraseText").value.trim(),moodLabels={notte:"Notte stellata",aurora:"Aurora",tramonto:"Tramonto"};
 return "IL DIZIONARIO DEI SOGNI — RICHIESTA DI CREAZIONE\n"+
 "Simbolo predominante: "+sym+"\n"+
 "Atmosfera: "+moodLabels[mood]+"\n"+
 "Particolare del sogno: "+(detail||"Non specificato")+"\n"+
+"Frase sulla borsa (gratuita): "+(phraseMode==="mine"?phraseText:phraseMode==="suggest"?"Richiedo una breve frase proposta dall’autrice":"Non richiesta")+"\n"+
 "Supporto desiderato: tote bag in tela naturale\n"+
 "Costi di realizzazione stimati (inclusa quota di creazione immagine AI pari a 5 €): "+fmt(24.9)+" (di cui spedizione Italia "+fmt(6)+")\n"+
 "Sostegno facoltativo scelto: "+fmt(getSupport())+"\n"+
@@ -286,6 +299,8 @@ $("other").addEventListener("input",update);
 $("support").addEventListener("change",update);
 $("custom").addEventListener("input",update);
 $("story").addEventListener("input",function(){$("answer").classList.remove("active");refreshPayment();});
+$("phraseMode").addEventListener("change",update);
+$("phraseText").addEventListener("input",update);
 $("payConsent").addEventListener("change",refreshPayment);
 $("payNow").addEventListener("click",async function(){
   refreshPayment();if($("payNow").disabled)return;
@@ -327,7 +342,7 @@ $("prepare").addEventListener("click",function(){
 $("requestText").value=message();$("answer").classList.add("active");refreshPayment();$("answer").scrollIntoView({behavior:"smooth",block:"start"});
 });
 $("reset").addEventListener("click",function(){
-$("symbol").value="";$("other").value="";$("story").value="";$("support").value="5";$("custom").value="5";mood="notte";
+$("symbol").value="";$("other").value="";$("story").value="";$("phraseMode").value="none";$("phraseText").value="";$("support").value="5";$("custom").value="5";mood="notte";
 Array.prototype.forEach.call(document.querySelectorAll("[data-mood]"),function(el){el.setAttribute("aria-pressed",String(el.getAttribute("data-mood")==="notte"));});
 update();window.scrollTo({top:0,behavior:"smooth"});
 });
