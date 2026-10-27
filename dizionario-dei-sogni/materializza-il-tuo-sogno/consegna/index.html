@@ -38,16 +38,16 @@ footer{text-align:center;color:var(--muted);font-size:.83rem;margin-top:24px}
 <p class="intro">Questa fase si apre esclusivamente tramite un collegamento personale, dopo che il pagamento è stato verificato. Servono solo i dati necessari ad abbinare il pagamento e consegnare la tua tote bag.</p>
 <section id="gate">
 <h2>Verifica del pagamento</h2>
-<p id="gateStatus" class="notice" role="status"><strong>Modulo non disponibile.</strong> La procedura riservata di verifica PayPal non è ancora attiva. Nessun dato personale viene richiesto o inviato da questa pagina.</p>
-<p class="hint">Non inserire dati di consegna nella barra degli indirizzi né nei commenti social. Non è sufficiente tornare sulla pagina dopo aver aperto PayPal: la transazione deve essere verificata dal sistema.</p>
+<p id="gateStatus" class="notice" role="status"><strong>Modulo non disponibile.</strong> La procedura riservata di verifica Stripe non è ancora attiva. Nessun dato personale viene richiesto o inviato da questa pagina.</p>
+<p class="hint">Non inserire dati di consegna nella barra degli indirizzi né nei commenti social. Non è sufficiente tornare sulla pagina dopo aver aperto Stripe: la transazione deve essere verificata dal sistema.</p>
 </section>
 <form id="delivery" hidden autocomplete="on" novalidate>
 <section>
 <p class="eyebrow">01 · Associazione al pagamento</p>
 <fieldset>
 <legend>Chi ha effettuato il pagamento?</legend>
-<label for="payerName">Nome e cognome del mittente del pagamento PayPal *</label>
-<input id="payerName" name="payerName" autocomplete="off" maxlength="120" required placeholder="Come indicato sulla transazione PayPal">
+<label for="payerName">Nome e cognome di chi ha effettuato il pagamento *</label>
+<input id="payerName" name="payerName" autocomplete="off" maxlength="120" required placeholder="Come indicato sulla transazione Stripe">
 <p class="hint">Può essere diverso dal nome di chi riceverà la borsa. Il sistema effettua comunque una verifica autonoma della transazione.</p>
 </fieldset>
 </section>
@@ -77,7 +77,7 @@ footer{text-align:center;color:var(--muted);font-size:.83rem;margin-top:24px}
 <section id="privacy">
 <p class="eyebrow">03 · Riservatezza</p>
 <h2>Come verranno usati i dati</h2>
-<p>Nome del mittente PayPal: <strong>abbinamento della transazione verificata</strong>. Nome e recapiti del destinatario: <strong>preparazione della spedizione, comunicazioni sulla consegna e trasmissione dei soli dati necessari al corriere incaricato</strong>.</p>
+<p>Nome del mittente Stripe: <strong>abbinamento della transazione verificata</strong>. Nome e recapiti del destinatario: <strong>preparazione della spedizione, comunicazioni sulla consegna e trasmissione dei soli dati necessari al corriere incaricato</strong>.</p>
 <p>Non sono previsti utilizzi per pubblicità, newsletter, pubblicazione sui social o profilazione. I dati non vanno inseriti su GitHub né nella pagina pubblica di simulazione.</p>
 <p class="notice"><strong>Informativa completa da finalizzare prima dell'attivazione:</strong> indicare il nome e recapito del titolare del trattamento, base giuridica, destinatari, tempi di conservazione, modalità di esercizio dei diritti e altri elementi richiesti dall'art. 13 GDPR. La base giuridica prevista per i dati necessari a consegnare un bene acquistato è l'esecuzione del contratto, non un consenso obbligatorio aggiuntivo.</p>
 <label for="privacyRead" class="check"><input type="checkbox" id="privacyRead" required> Ho letto l'informativa sul trattamento dei dati. Prendo atto che i dati saranno usati per associare il pagamento e gestire la consegna e che quelli necessari verranno comunicati al corriere.</label>
@@ -94,9 +94,9 @@ footer{text-align:center;color:var(--muted);font-size:.83rem;margin-top:24px}
 <script>
 (function(){
 "use strict";
-// Backend sicuro da integrare via HTTPS: verifica ticket monouso associato a transazione PayPal verificata;
+// Backend sicuro da integrare via HTTPS: verifica ticket monouso associato a transazione Stripe verificata;
 // esegue controllo lato server e salva i dati in archivio privato protetto da regole e autorizzazioni.
-// NON inserire credenziali PayPal, chiavi segrete, indirizzi o ticket nei file pubblici di GitHub.
+// NON inserire credenziali Stripe, chiavi segrete, indirizzi o ticket nei file pubblici di GitHub.
 const DELIVERY_API_URL="";
 const PRIVACY_NOTICE_FINALIZED=false;
 const el=id=>document.getElementById(id);
@@ -113,7 +113,7 @@ async function start(){
     const res=await fetch(DELIVERY_API_URL,{method:"POST",headers:{"Content-Type":"application/json"},cache:"no-store",body:JSON.stringify({action:"verifyPaidTicket",ticket})});
     if(!res.ok)throw Error("Impossibile verificare il pagamento");
     const data=await res.json();
-    if(data.verified!==true||data.paymentStatus!=="COMPLETED")throw Error("Pagamento non confermato");
+    if(data.verified!==true||data.paymentStatus!=="paid")throw Error("Pagamento non confermato");
     paidTicket=ticket;
     if(!PRIVACY_NOTICE_FINALIZED){
       el("gateStatus").textContent="Pagamento verificato. Il modulo resta sospeso fino al completamento dell'informativa privacy del progetto.";
