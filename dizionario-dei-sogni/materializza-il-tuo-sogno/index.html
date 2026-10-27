@@ -92,15 +92,17 @@ footer .closing{font:italic 1.55rem "Cormorant Garamond",Georgia,serif;color:#e1
 <section class="costs" aria-labelledby="cost-title">
 <p class="eyebrow">Un gesto consapevole</p>
 <h3 id="cost-title">I costi, con trasparenza</h3>
-<p class="hint">Questa è una <strong>simulazione indicativa</strong> dei costi vivi per una tote bag personalizzata, non ancora un preventivo definitivo.</p>
+<p class="hint">Questa è una <strong>simulazione indicativa</strong> dei costi per una tote bag personalizzata, inclusa una quota stimata per gli strumenti AI, non ancora un preventivo definitivo.</p>
 <div class="cost-list">
 <span>Borsa in tela neutra</span><span class="value">2,70 €</span>
 <span>Stampa illustrata a colori</span><span class="value">8,00 €</span>
+<span>Creazione immagine onirica personalizzata · quota servizi AI</span><span class="value">5,00 €</span>
 <span>Confezione e materiali</span><span class="value">1,20 €</span>
 <span>Ritiro e consegna a domicilio · Italia</span><span class="value">6,00 €</span>
 </div>
 <div class="hr"></div>
-<div class="total"><span><strong>Costi vivi stimati</strong><small>Da confermare prima di procedere</small></span><b>17,90 €</b></div>
+<p class="minor">La quota di 5 € per la creazione dell’immagine è una <strong>stima di ripartizione dei costi dei due abbonamenti AI</strong> usati per il progetto, non un costo a consumo misurato per ogni singola immagine. Il lavoro creativo e le altre spese non sono qui quantificati.</p>
+<div class="total"><span><strong>Costi di realizzazione stimati</strong><small>Da confermare prima di procedere</small></span><b>22,90 €</b></div>
 <label for="support">Sostegno facoltativo al Dizionario dei Sogni</label>
 <select id="support">
 <option value="0">Nessun contributo · 0 €</option>
@@ -112,7 +114,7 @@ footer .closing{font:italic 1.55rem "Cormorant Garamond",Georgia,serif;color:#e1
 <div id="customWrap" hidden><label for="custom">Importo libero in euro</label><input type="number" id="custom" min="0" max="500" step="0.5" inputmode="decimal" value="5"></div>
 <p class="minor">Il sostegno è davvero volontario: anche 0 € è una scelta possibile. Non modifica l'accesso alla simulazione né il valore della creazione.</p>
 <div class="hr"></div>
-<div class="total"><span><strong>Totale indicativo</strong><small>Comprensivo dell'eventuale sostegno scelto</small></span><b id="grandTotal" aria-live="polite">22,90 €</b></div>
+<div class="total"><span><strong>Totale indicativo</strong><small>Comprensivo dell'eventuale sostegno scelto</small></span><b id="grandTotal" aria-live="polite">27,90 €</b></div>
 <p class="minor">Per spedizioni italiane ipotizziamo 6 € con ritiro e consegna a domicilio; tariffa e copertura geografica da verificare. Tempo previsto: circa 15 giorni dal pagamento verificato e dalla conferma dei dettagli. Il pulsante PayPal sarà operativo dopo verifica del conto e dei costi.</p>
 </section>
 </section>
@@ -145,7 +147,7 @@ footer .closing{font:italic 1.55rem "Cormorant Garamond",Georgia,serif;color:#e1
 <p class="eyebrow">Prima il pagamento, poi la realizzazione</p>
 <h3 id="payHead">Pagamento sicuro con PayPal</h3>
 <p style="font-size:.86rem">Nessuna borsa viene acquistata né stampata prima che il pagamento sia stato <strong>verificato sul conto PayPal del Tappeto Volante</strong>. Per questa borsa personalizzata si utilizza la modalità «beni e servizi».</p>
-<div class="total"><span><strong>Totale per PayPal</strong><small>Compresa spedizione Italia e sostegno facoltativo</small></span><b id="payTotal">22,90 €</b></div>
+<div class="total"><span><strong>Totale per PayPal</strong><small>Compresa spedizione Italia e sostegno facoltativo</small></span><b id="payTotal">27,90 €</b></div>
 <label class="pay-consent"><input id="payConsent" type="checkbox">Ho verificato il riepilogo e compreso che la realizzazione partirà dopo il pagamento confermato e la condivisione dei dettagli necessari.</label>
 <button type="button" id="payNow" class="action" disabled>Paga con PayPal del Tappeto Volante</button>
 <p id="payInfo" class="pay-info" role="status">Collegamento PayPal in attesa di verifica: al momento nessun pagamento può essere avviato.</p>
@@ -233,8 +235,8 @@ function update(){
 var k=$("symbol").value,has=!!k;
 $("otherWrap").hidden=k!=="altro";
 $("customWrap").hidden=$("support").value!=="custom";
-$("grandTotal").textContent=fmt(17.9+getSupport());
-$("payTotal").textContent=fmt(17.9+getSupport());
+$("grandTotal").textContent=fmt(22.9+getSupport());
+$("payTotal").textContent=fmt(22.9+getSupport());
 $("prepare").disabled=!has||(k==="altro"&&!$("other").value.trim());
 $("plainBag").innerHTML=bag("",false);
 $("dreamBag").innerHTML=bag(has?illustration(k):"",has);
@@ -262,9 +264,9 @@ return "IL DIZIONARIO DEI SOGNI — RICHIESTA DI CREAZIONE\n"+
 "Atmosfera: "+moodLabels[mood]+"\n"+
 "Particolare del sogno: "+(detail||"Non specificato")+"\n"+
 "Supporto desiderato: tote bag in tela naturale\n"+
-"Costi vivi simulati: "+fmt(17.9)+" (di cui spedizione Italia "+fmt(6)+")\n"+
+"Costi di realizzazione stimati (inclusa quota di creazione immagine AI pari a 5 €): "+fmt(22.9)+" (di cui spedizione Italia "+fmt(6)+")\n"+
 "Sostegno facoltativo scelto: "+fmt(getSupport())+"\n"+
-"Totale indicativo: "+fmt(17.9+getSupport())+"\n"+
+"Totale indicativo: "+fmt(22.9+getSupport())+"\n"+
 "Consegna prevista: circa 15 giorni dal pagamento verificato e dalla conferma dei dettagli, da verificare.\n"+
 "Chiedo informazioni e un preventivo confermato: questa comunicazione non è un ordine vincolante e non autorizza pagamenti.\n"+
 "Anteprima visualizzata: esempio standard con filigrana; immagine definitiva personalizzata da concordare.";
@@ -278,7 +280,7 @@ $("story").addEventListener("input",function(){$("answer").classList.remove("act
 $("payConsent").addEventListener("change",refreshPayment);
 $("payNow").addEventListener("click",function(){
 refreshPayment();if($("payNow").disabled)return;
-var amount=(17.9+getSupport()).toFixed(2);
+var amount=(22.9+getSupport()).toFixed(2);
 var link=PAYPAL_LINK_VERIFICATO.replace(/\/$/,"")+"/"+amount+"EUR";
 window.open(link,"_blank","noopener,noreferrer");
 });
