@@ -26,6 +26,7 @@
 .musica-dedicata audio{width:100%;margin:10px auto 0}.musica-dedicata .nota-musica{font-size:.78rem;color:#5a2818;margin:7px 0 0}
 
 </style>
+<link rel="stylesheet" href="../esperienza.css?v=20261028">
 </head>
 <body>
 <main class="pagina">
@@ -115,9 +116,7 @@
 <p class="credito">Tavola realizzata con intelligenza artificiale per <strong>Il Tappeto Volante</strong> · Viaggi da Sogno</p>
 <p class="credito" id="visite-pagina" aria-live="polite"><span aria-hidden="true">👁️</span> Visite a questa pagina: <strong id="numero-visite">…</strong></p>
 </main>
-<script>
-(()=>{const comandi=document.querySelectorAll('[data-simbolo]'),pannelli=document.querySelectorAll('.pannello'),punti=document.querySelectorAll('.punto');function apri(nome){pannelli.forEach(p=>p.classList.toggle('aperto',p.id===`simbolo-${nome}`));punti.forEach(p=>p.classList.toggle('attivo',p.dataset.simbolo===nome));const scelto=document.getElementById(`simbolo-${nome}`);if(scelto&&matchMedia('(max-width:620px)').matches)scelto.scrollIntoView({behavior:'smooth',block:'center'})}comandi.forEach(c=>c.addEventListener('click',()=>apri(c.dataset.simbolo)));apri('porta')})();
-</script>
+<script src="../interazioni.js?v=20261028" defer></script>
 <script>
 /* Verifica la presenza reale del file prima di mostrare il lettore, senza riproduzione automatica. */
 (async()=>{

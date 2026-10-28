@@ -66,7 +66,8 @@ a{color:inherit}
 .p-luna{left:86%;top:9%}
 .p-orizzonte{left:78%;top:72%}
 .p-prato{left:42%;top:87%}
-</style></head>
+</style><link rel="stylesheet" href="../esperienza.css?v=20261028">
+</head>
 <body><main class="pagina">
 <header class="testata"><div class="collab-loghi">
 <img class="logo-tappeto" src="../../img/logo-tondo-tappeto.png" alt="Il Tappeto Volante">
@@ -87,6 +88,7 @@ a{color:inherit}
 <button class="punto p-orizzonte" data-simbolo="orizzonte" aria-label="Scopri il simbolo: L’orizzonte lontano" aria-pressed="false">7</button>
 <button class="punto p-prato" data-simbolo="prato" aria-label="Scopri il simbolo: L’erba dorata" aria-pressed="false">8</button>
 </div><p class="invito">Tocca i punti luminosi della tavola per seguirne i simboli.</p></section>
+<!-- Musica del cavallo: non sovrascrivere una traccia già in uso senza identificarne il file. -->
 <section class="simboli" aria-label="Significati dei simboli" aria-live="polite">
 <article class="pannello" id="simbolo-cavallo"><h2>Il cavallo</h2><p>È il cuore della scena: una forza viva che può evocare energia, desiderio di autonomia, movimento e istinto. Il suo significato cambia secondo ciò che proviamo: fiducia, meraviglia, paura oppure il bisogno di lasciarci trasportare.</p></article>
 <article class="pannello" id="simbolo-impennata"><h2>L’impennata</h2><p>Il cavallo si solleva e il terreno sembra allontanarsi. L’impennata può parlare di slancio, ribellione o di un’emozione che fatica a rimanere contenuta. Non è necessariamente un pericolo: conta se, nel sogno, lo abbiamo vissuto come potenza o come minaccia.</p></article>
@@ -142,19 +144,7 @@ a{color:inherit}
 <a class="cta" href="../rapimento/">Sali sul Tappeto e segui l’altro sogno</a></section>
 <p class="credito">Tavola realizzata con intelligenza artificiale per <strong>Il Tappeto Volante</strong> · Viaggi da Sogno</p>
 </main>
-<script>
-(()=>{
- const pannelli=[...document.querySelectorAll('.pannello')], punti=[...document.querySelectorAll('.punto')], comandi=[...document.querySelectorAll('[data-simbolo]')];
- function apri(nome){
-  pannelli.forEach(p=>p.classList.toggle('aperto',p.id===`simbolo-${nome}`));
-  comandi.forEach(c=>{const attivo=c.dataset.simbolo===nome;c.classList.toggle('attivo',attivo);c.setAttribute('aria-pressed',String(attivo))});
-  const scelto=document.getElementById(`simbolo-${nome}`);
-  if(scelto&&matchMedia('(max-width:620px)').matches&&document.activeElement?.classList.contains('punto'))scelto.scrollIntoView({behavior:'smooth',block:'center'});
- }
- comandi.forEach(c=>c.addEventListener('click',()=>apri(c.dataset.simbolo)));
- apri('cavallo');
-})();
-</script>
+<script src="../interazioni.js?v=20261028" defer></script>
 <script data-goatcounter="https://iltappetovolante.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="/il-tappeto-volante/js/visible-counter.js?v=20261026" defer></script>
 </body></html>

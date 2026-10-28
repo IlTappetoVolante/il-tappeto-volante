@@ -1,0 +1,12 @@
+/* Viaggi da Sogno — interazioni comuni, musica e lettura vocale */
+.pannello{scroll-margin-top:24px}
+.musica-dedicata,.lettura-onirica{max-width:760px;margin:25px auto 0;padding:17px 20px;border:1px solid #d2ad62;border-radius:10px;background:#f4ead7;color:#2d241e;text-align:center}
+.musica-dedicata[hidden],.lettura-onirica[hidden]{display:none!important}
+.musica-dedicata h2,.lettura-onirica h2{font:700 1.8rem/1.25 'Dancing Script',cursive;color:#8a241b;margin:0 0 8px}
+.musica-dedicata audio{display:block;width:100%;margin:12px auto 0}
+.musica-dedicata .nota-musica,.lettura-onirica .nota-voce{font-size:.78rem;line-height:1.6;color:#5a2818;margin:8px 0 0}
+.lettura-onirica .comandi-voce{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:12px auto}
+.lettura-onirica button{padding:8px 14px;border:1px solid #b98835;border-radius:999px;background:#fff9ea;color:#5c2f1a;cursor:pointer}
+.lettura-onirica button:hover,.lettura-onirica button:focus-visible{background:#f0d99a;outline-offset:2px}
+.lettura-onirica button:disabled{opacity:.55;cursor:not-allowed}
+@media(prefers-reduced-motion:reduce){.pannello.aperto{animation:none}}

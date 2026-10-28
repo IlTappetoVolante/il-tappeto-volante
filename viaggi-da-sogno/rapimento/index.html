@@ -240,6 +240,7 @@ button{font:inherit}
   .ponte{margin-inline:5px}
 }
 </style>
+<link rel="stylesheet" href="../esperienza.css?v=20261028">
 </head>
 
 <body>
@@ -281,6 +282,11 @@ button{font:inherit}
   <p class="invito">Tocca i punti luminosi della tavola per seguirne i simboli.</p>
 </section>
 
+<section class="musica-dedicata" aria-label="La musica di Sognare di essere rapiti" data-musica-in-attesa="rapimento">
+<h2>🎵 La colonna sonora del sogno</h2>
+<p>Spazio predisposto per il brano che accompagnerà questa tavola.</p>
+<p class="nota-musica">Il lettore verrà attivato quando sarà scelto e collegato il file audio.</p>
+</section>
 <section class="simboli" aria-live="polite">
 
   <article class="pannello" id="simbolo-mano">
@@ -425,26 +431,7 @@ button{font:inherit}
 
 </main>
 
-<script>
-(()=>{
-  const comandi=document.querySelectorAll('[data-simbolo]');
-  const pannelli=document.querySelectorAll('.pannello');
-  const punti=document.querySelectorAll('.punto');
-
-  function apri(nome){
-    pannelli.forEach(p=>p.classList.toggle('aperto',p.id===`simbolo-${nome}`));
-    punti.forEach(p=>p.classList.toggle('attivo',p.dataset.simbolo===nome));
-
-    const scelto=document.getElementById(`simbolo-${nome}`);
-    if(scelto && matchMedia('(max-width:620px)').matches){
-      scelto.scrollIntoView({behavior:'smooth',block:'center'});
-    }
-  }
-
-  comandi.forEach(c=>c.addEventListener('click',()=>apri(c.dataset.simbolo)));
-  apri('mano');
-})();
-</script>
+<script src="../interazioni.js?v=20261028" defer></script>
 
 <script data-goatcounter="https://iltappetovolante.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
