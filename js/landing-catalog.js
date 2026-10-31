@@ -53,30 +53,6 @@ window.ITVLandingCatalog={
   ],
   "stories": [
     {
-      "id": "sorelle",
-      "group": "diari",
-      "title": {
-        "it": "Noi, sorelle degli Stretti"
-      },
-      "urls": {
-        "it": "libro-primo-noi-sorelle-degli-stretti/"
-      }
-    },
-    {
-      "id": "istanbul",
-      "group": "diari",
-      "title": {
-        "it": "Il Caos Affascinante di Istanbul",
-        "en": "Istanbul · Fascinating Chaos",
-        "es": "Estambul · El Caos Fascinante"
-      },
-      "urls": {
-        "it": "istanbul-caos-affascinante/",
-        "en": "istanbul-caos-affascinante/en.html",
-        "es": "istanbul-caos-affascinante/es.html"
-      }
-    },
-    {
       "id": "hurrem",
       "group": "storie",
       "title": {
