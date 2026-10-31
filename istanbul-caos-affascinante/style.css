@@ -9,3 +9,6 @@
 .media-panel h2{font-size:30px;margin:0 0 15px}.media-panel h3{font-size:16px;margin:12px 0 8px}.music-player audio{width:100%;display:block}.media-note{font:14px/1.6 Georgia,serif;margin:10px 0}.speech-reader{border-top:1px solid #c9ae7e;margin-top:18px;padding-top:18px}.reader-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}.reader-actions button{font:14px/1.5 Georgia,serif;color:#fff;background:#214e52;border:1px solid #214e52;border-radius:4px;padding:10px 13px;cursor:pointer}.reader-actions button:disabled{opacity:.45;cursor:default}.reader-actions button:focus-visible,.speech-reader select:focus-visible{outline:3px solid #a77636;outline-offset:3px}.speech-reader label{font-size:14px}.speech-reader select{max-width:100%;padding:8px;color:#214e52;background:#faf3e4;border:1px solid #b99a64;border-radius:3px;font:14px Georgia,serif}
 @media(max-width:550px){.media-panel{margin:24px 18px;padding:18px}.photo-frame::after{right:8px;bottom:8px;width:48px}.reader-actions button{flex:1 1 auto}.speech-reader select{display:block;width:100%;margin-top:7px}}
 @media print{.media-panel{display:none}}
+
+/* Approfondimento su Costantinopoli: sigillo bronzo su tutte le immagini della sezione, senza alterare i crediti originali. */
+details#storia .photo-frame::after{background-image:url('../img/sigillo_bronzo.png')!important}
