@@ -25,7 +25,8 @@
       '.itv-story-menu label{display:block;color:#f2ca80!important;margin:0 0 9px!important;font:700 14px/1.4 Merriweather,Georgia,serif!important}',
       '.itv-story-menu .itv-story-controls{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;align-items:stretch}',
       '.itv-story-menu select{max-width:540px;width:100%;flex:1 1 265px;min-width:0;min-height:48px;padding:10px 14px;border:1px solid #d2af70;border-radius:10px;background:#fff9ed;color:#2d261e;font:400 16px/1.5 Merriweather,Georgia,serif;cursor:pointer}',
-      '.itv-story-menu button{min-height:48px;padding:11px 20px;border:1px solid #f5d292;border-radius:999px;background:linear-gradient(135deg,#f4db9d,#c99543);color:#25170c;font:700 15px/1.35 Merriweather,Georgia,serif;cursor:pointer}',
+      '.itv-story-menu button,.itv-story-menu .itv-story-featured{min-height:48px;padding:11px 20px;border:1px solid #f5d292;border-radius:999px;background:linear-gradient(135deg,#f4db9d,#c99543);color:#25170c;font:700 15px/1.35 Merriweather,Georgia,serif;cursor:pointer}',
+      '.itv-story-menu .itv-story-featured{display:inline-flex;align-items:center;justify-content:center;margin:0 auto 22px;text-decoration:none}',
       '.itv-story-menu button:disabled{opacity:.55;cursor:not-allowed}',
       '.itv-story-menu :is(select,button,a):focus-visible{outline:3px solid #fff7c9!important;outline-offset:3px!important}',
       '.itv-story-menu .itv-story-home{display:inline-block;margin-top:18px!important;color:#f7dfa1!important;text-decoration:underline!important;text-underline-offset:4px!important;font:400 13px/1.6 Merriweather,Georgia,serif!important}',
@@ -56,7 +57,16 @@
     btn.addEventListener("click",()=>{if(select.value)location.assign(select.value);});
     const controls=document.createElement("div");controls.className="itv-story-controls";controls.append(select,btn);
     const home=document.createElement("a");home.className="itv-story-home";home.href=root.href;home.textContent=labels[5];
-    section.append(heading,intro,label,controls,home);
+    section.append(heading,intro);
+    if(canonical("col-marocco-passo-dopo-passo/")===canonical(location.href)){
+      const featured=document.createElement("a");
+      featured.className="itv-story-featured";
+      featured.href=new URL("hurrem/",root).href;
+      featured.textContent="Leggi la storia di Hürrem";
+      section.append(featured);
+      btn.textContent="Apri la storia scelta";
+    }
+    section.append(label,controls,home);
     const footer=Array.from(document.querySelectorAll("footer")).pop(),main=document.querySelector("main");
     if(footer)footer.insertAdjacentElement("beforebegin",section);
     else if(main){const credit=Array.from(main.querySelectorAll(".credito,.crediti,.firma-finale,.copyright")).pop();if(credit)credit.insertAdjacentElement("beforebegin",section);else main.append(section);}
