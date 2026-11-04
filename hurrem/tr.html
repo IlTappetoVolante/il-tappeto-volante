@@ -66,13 +66,14 @@ document.getElementById('quiz-form').addEventListener('change',function(){
  const status=document.getElementById('voice-status');
  const start=document.getElementById('read-start'),pause=document.getElementById('read-pause'),stop=document.getElementById('read-stop');
  if(!('speechSynthesis' in window)){status.textContent='Tarayıcınızda sesli okuma kullanılamıyor.';[start,pause,stop].forEach(b=>b.disabled=true);return;}
- const synth=window.speechSynthesis;let queue=[],index=0,active=false,current,resumeMusic=false;
+ const synth=window.speechSynthesis;let queue=[],index=0,active=false,current,resumeMusic=false,startTimer;
+ const clearStartTimer=()=>window.clearTimeout(startTimer);
  function restoreMusic(){if(resumeMusic){resumeMusic=false;music.play().catch(()=>{});}}
- function next(){if(!active||index>=queue.length){active=false;restoreMusic();status.textContent='Okuma tamamlandı.';return;}current=new SpeechSynthesisUtterance(queue[index++]);current.lang='tr-TR';current.rate=.92;const voice=synth.getVoices().find(v=>v.lang.toLowerCase().startsWith('tr'));if(voice)current.voice=voice;current.onend=next;current.onerror=function(e){if(e.error!=='canceled'&&e.error!=='interrupted'){active=false;restoreMusic();status.textContent=e.error==='language-unavailable'||e.error==='voice-unavailable'?'Türkçe ses kullanılamıyor. Cihazınızın metin okuma ayarlarını kontrol edin.':"Okuma kesildi. Yeniden denemek için Dinle'ye basın.";}};synth.speak(current);}
- start.onclick=function(){resumeMusic=resumeMusic||!music.paused;music.pause();active=false;synth.cancel();queue=Array.from(document.querySelectorAll('.chapter h2,.chapter>p:not(.number)')).flatMap(el=>el.textContent.match(/[^.!?]+[.!?]+|[^.!?]+$/g)||[el.textContent]);index=0;active=true;status.textContent='Okunuyor…';next();};
+ function next(){if(!active||index>=queue.length){active=false;restoreMusic();status.textContent='Okuma tamamlandı.';return;}current=new SpeechSynthesisUtterance(queue[index++]);current.lang='tr-TR';current.rate=.92;const voice=synth.getVoices().find(v=>v.lang.toLowerCase().startsWith('tr'));if(voice)current.voice=voice;const utterance=current;current.onstart=clearStartTimer;current.onend=()=>{clearStartTimer();next();};current.onerror=function(e){clearStartTimer();if(e.error!=='canceled'&&e.error!=='interrupted'){active=false;restoreMusic();status.textContent=e.error==='language-unavailable'||e.error==='voice-unavailable'?'Türkçe ses kullanılamıyor. Cihazınızın metin okuma ayarlarını kontrol edin.':"Okuma kesildi. Yeniden denemek için Dinle'ye basın.";}};startTimer=window.setTimeout(()=>{if(active&&current===utterance){active=false;synth.cancel();restoreMusic();status.textContent='Sesli okuma başlamadı. Cihazınızın Türkçe metin okuma ayarlarını kontrol edin.';}},6000);try{synth.speak(current);}catch(e){current.onerror({error:'speech-failed'});}}
+ start.onclick=function(){resumeMusic=resumeMusic||!music.paused;music.pause();active=false;clearStartTimer();if(synth.speaking||synth.pending||synth.paused)synth.cancel();if(synth.paused)synth.resume();queue=Array.from(document.querySelectorAll('.chapter h2,.chapter>p:not(.number)')).flatMap(el=>el.textContent.match(/[^.!?]+[.!?]+|[^.!?]+$/g)||[el.textContent]);index=0;active=true;status.textContent='Okunuyor…';next();};
  pause.onclick=function(){if(!active)return;if(synth.paused){synth.resume();status.textContent='Okunuyor…';}else{synth.pause();status.textContent='Okuma duraklatıldı.';}};
- stop.onclick=function(){active=false;synth.cancel();restoreMusic();status.textContent='Okuma durduruldu.';};
- window.addEventListener('pagehide',()=>{active=false;synth.cancel();});
+ stop.onclick=function(){active=false;clearStartTimer();synth.cancel();restoreMusic();status.textContent='Okuma durduruldu.';};
+ window.addEventListener('pagehide',()=>{active=false;clearStartTimer();synth.cancel();});
 })();
 </script>
 
