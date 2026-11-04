@@ -1,0 +1,33 @@
+.tv-exhibition-links {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 1.5rem 1rem 2rem;
+  background: #100d1b;
+  color: #f7eee0;
+  text-align: center;
+}
+.tv-exhibition-links ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .75rem 1.25rem;
+  max-width: 64rem;
+  margin: 0 auto 1.25rem;
+  padding: 0;
+  list-style: none;
+}
+.tv-exhibition-links a { color: #f2d28a; }
+.tv-exhibition-links .tv-exhibition-button {
+  display: inline-block;
+  padding: .75rem 1.25rem;
+  border: 1px solid #d8ad64;
+  border-radius: .65rem;
+  background: #493075;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+.tv-exhibition-links a:focus-visible {
+  outline: 2px solid #f2d28a;
+  outline-offset: 4px;
+}
