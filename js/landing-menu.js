@@ -58,13 +58,13 @@
     const controls=document.createElement("div");controls.className="itv-story-controls";controls.append(select,btn);
     const home=document.createElement("a");home.className="itv-story-home";home.href=root.href;home.textContent=labels[5];
     section.append(heading,intro);
-    if(canonical("col-marocco-passo-dopo-passo/")===canonical(location.href)){
+    {
       const featured=document.createElement("a");
       featured.className="itv-story-featured";
-      featured.href=new URL("hurrem/",root).href;
+      featured.href=new URL(canonical("hurrem/")===canonical(location.href)?"hurrem/#cap-1":"hurrem/",root).href;
       featured.textContent="Leggi la storia di Hürrem";
       section.append(featured);
-      btn.textContent="Apri la storia scelta";
+      btn.textContent={it:"Apri la storia scelta",en:"Open the selected story",es:"Abre la historia elegida"}[lang];
     }
     section.append(label,controls,home);
     const footer=Array.from(document.querySelectorAll("footer")).pop(),main=document.querySelector("main");
