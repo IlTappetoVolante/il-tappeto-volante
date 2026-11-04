@@ -355,16 +355,6 @@ figure{margin:28px 0}.foto{position:relative}.foto>img:first-child{display:block
 <a class="cta" href="../viaggi-da-sogno/babbucce/">Scopri cosa significa sognare le babbucce</a>
 </aside>
 
-<section class="appendici">
-<h2>La storia attraversa le lingue</h2>
-<p class="intro-trad">Le immagini appartengono al racconto italiano. Qui il viaggio continua in inglese, spagnolo e francese.</p>
-<div class="scelta-lingue">
-<button class="pulsante-lingua" type="button" onclick="openLingua('englishModal')">Read in English</button>
-<button class="pulsante-lingua" type="button" onclick="openLingua('spanishModal')">Leer en español</button>
-<button class="pulsante-lingua" type="button" onclick="openLingua('frenchModal')">Lire en français</button>
-</div>
-</section>
-
 <div id="englishModal" class="modal-lingua" role="dialog" aria-modal="true" aria-labelledby="english-title" onclick="closeLinguaOutside(event)">
 <div class="modal-content-lingua">
 <button class="close-modal" type="button" aria-label="Close English translation" onclick="closeLingua('englishModal')">&times;</button>
@@ -432,8 +422,8 @@ figure{margin:28px 0}.foto{position:relative}.foto>img:first-child{display:block
 </ol>
 </section>
 
-<p class="contatore" id="contatore" aria-live="polite">✨ Questo racconto sta preparando un nuovo viaggio sul Tappeto Volante…</p>
 <p class="nota">Il sigillo blu identifica le ricostruzioni AI. Il sigillo bronzo indica immagini provenienti da altre fonti, citate nei crediti.</p>
+<span id="tv-continue" aria-hidden="true"></span>
 <footer>
 <div class="firma-finale">
 <p>Lorella — un’Anima Nomade dal Cuore Volante</p>
@@ -442,9 +432,6 @@ figure{margin:28px 0}.foto{position:relative}.foto>img:first-child{display:block
 <div class="copyright">Tutti i testi, le fotografie e i contenuti originali sono di proprietà dell’autrice. Ne è vietata la riproduzione, la diffusione o l’utilizzo senza espressa autorizzazione scritta.<br><strong>© 2026 Lorella — Tutti i diritti riservati.</strong></div>
 </footer>
 </article></main>
-<script>
-(()=>{const out=document.getElementById('contatore'),base='https://api.counterapi.dev/v1/il-tappeto-volante/col-marocco-passo-dopo-passo',key='visitato-col-marocco';const seen=sessionStorage.getItem(key)==='1';fetch(seen?base:base+'/up').then(r=>{if(!r.ok)throw 0;return r.json()}).then(d=>{const n=Number(d.count??d.value);if(!Number.isFinite(n))throw 0;sessionStorage.setItem(key,'1');out.textContent=`✨ Questo racconto ha portato in viaggio sul Tappeto Volante ${n.toLocaleString('it-IT')} lettori.`}).catch(()=>out.textContent='✨ Anche tu hai viaggiato sul Tappeto Volante con questo racconto.')})();
-</script>
 <script>
 let modalLinguaAttivo=null;
 function openLingua(id){
@@ -487,7 +474,4 @@ window.onYouTubeIframeAPIReady=()=>{
 <script defer src="/il-tappeto-volante/js/landing-catalog.js?v=20261031"></script>
 <script defer src="/il-tappeto-volante/js/landing-menu.js?v=20261031"></script>
 
-<div class="tv-exhibition-links" id="tv-continue">
-<nav aria-label="Altre letture del Tappeto Volante"><h2>Continua il viaggio</h2><ul><li><a href="/il-tappeto-volante/istanbul-caos-affascinante/">Istanbul · Il caos affascinante</a></li><li><a href="/il-tappeto-volante/libro-primo-noi-sorelle-degli-stretti/">Noi, sorelle degli Stretti</a></li><li><a href="/il-tappeto-volante/hurrem/">Hürrem Sultan</a></li><li><a href="/il-tappeto-volante/ben-ramar/">Ben Ramar e i cristiani</a></li><li><a href="/il-tappeto-volante/ask-ve-taht/">Aşk ve Taht</a></li><li><a href="/il-tappeto-volante/ask-ve-taht/episode-1/">Aşk ve Taht · Episodio 1</a></li><li><a href="/il-tappeto-volante/i-sapori-in-viaggio/episodio-1/">I Sapori in Viaggio</a></li><li><a href="/il-tappeto-volante/viaggi-da-sogno/babbucce/">Sognare le babbucce</a></li><li><a href="/il-tappeto-volante/viaggi-da-sogno/porta/">Sognare una porta</a></li><li><a href="/il-tappeto-volante/viaggi-da-sogno/cavallo/">Sognare un cavallo</a></li><li><a href="/il-tappeto-volante/viaggi-da-sogno/rapimento/">Sognare di essere rapiti</a></li></ul></nav>
-</div>
 </body></html>
