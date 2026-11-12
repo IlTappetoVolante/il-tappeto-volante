@@ -140,7 +140,11 @@
         .tappeto-label { display: none; }
         html:not([lang="it"]) .tappeto-label { display: block; padding: 10px; color: #fff3cf; background: #2c1a1a; line-height: 1.35; }
         html:not([lang="it"]) .pulsante-tappeto-wrap { width: min(80%, 380px); }
-        .sigillo-wrapper { padding: 0; border: 0; background: transparent; }
+        .sigillo-wrapper { display: inline-flex; align-items: center; gap: 8px; padding: 0; border: 0; background: transparent; }
+        .sigillo-indicatore { font-size: 1.55rem; line-height: 1; }
+        .bio-counter { margin: 0 auto; color: #2c1a1a; text-align: center; }
+        .bio-counter figcaption { margin-bottom: 8px; font-weight: bold; }
+        .bio-counter iframe { display: block; border: 0; margin: 0 auto; }
         .sigillo-wrapper:hover::after, .sigillo-wrapper:focus-visible::after { content: attr(aria-label); }
         @media (max-width: 768px) {
             .sezione-pergamena, .contenuto-testuale p { box-sizing: border-box; }
@@ -182,7 +186,7 @@
     <footer>
         <div class="riga-anima-sigillo">
             <div class="testo-anima">"Questo sito è il Diario di un'Anima Nomade dal Cuore Volante"</div>
-            <button type="button" class="sigillo-wrapper" onclick="openBio()" aria-label="Chi è l'Anima Nomade?"><img src="img/sigillo_ceralacca_lorella_cr.png" class="sigillo-footer" alt=""></button>
+            <button type="button" class="sigillo-wrapper" onclick="openBio()" aria-label="Chi è l'Anima Nomade?"><img src="img/sigillo_ceralacca_lorella_cr.png" class="sigillo-footer" alt=""><span class="sigillo-indicatore" aria-hidden="true">👈</span></button>
         </div>
         <div class="licenza-giustificata">Tutti i testi, le fotografie e i contenuti originali sono di proprietà dell'autrice. Ne è vietata la riproduzione, la diffusione o l'utilizzo senza espressa autorizzazione scritta.</div>
         <div class="copyright-chiusura">© 2026 Lorella — Tutti i diritti riservati.</div>
@@ -222,6 +226,10 @@
                     <div class="cornice-oro"><img src="img/frammenti_di_altrove.jpg"><div class="didascalia-minimal">FRAMMENTI DI ALTROVE</div></div>
                 </div>
             </div>
+            <figure class="bio-counter">
+                <figcaption id="bio-counter-label">Visite alla biografia</figcaption>
+                <iframe id="bio-counter-frame" title="Visite alla biografia" width="200" height="60"></iframe>
+            </figure>
             <button class="pulsante-indietro" onclick="closeBio()">Torna al Diario</button>
         </div>
     </div>
@@ -257,6 +265,7 @@
                 [".colonna-foto-laterale .cornice-oro:nth-child(2) .didascalia-minimal","TRACES ON PAPER","HUELLAS DE PAPEL"],
                 [".bottom-left-wrap .didascalia-minimal","MATTER AND THOUGHT","MATERIA Y PENSAMIENTO"],
                 [".bottom-right-wrap .didascalia-minimal","FRAGMENTS FROM ELSEWHERE","FRAGMENTOS DE OTROS LUGARES"],
+                ["#bio-counter-label","Biography visits","Visitas a la biografía"],
                 [".pulsante-indietro","Back to the journal","Volver al diario"]];
             for (const [selector, english, spanish] of translations) {
                 document.querySelector(selector).textContent = language === "en" ? english : spanish;
@@ -273,7 +282,28 @@
             }
         })();
 
-        function openBio() { document.getElementById("bioModal").style.display = "flex"; }
+        const bioAnalyticsPath = "/il-tappeto-volante/biografia";
+        let bioVisitCounted = false;
+
+        function openBio() {
+            document.getElementById("bioModal").style.display = "flex";
+
+            if (!bioVisitCounted && typeof window.goatcounter?.count === "function") {
+                window.goatcounter.count({
+                    path: bioAnalyticsPath,
+                    title: "Biografia – L’Istinto della Traccia"
+                });
+                bioVisitCounted = true;
+            }
+
+            const counter = document.getElementById("bio-counter-frame");
+            if (!counter.hasAttribute("src")) {
+                counter.title = document.getElementById("bio-counter-label").textContent;
+                const style = "#gcvc-for{display:none}#gcvc-views{color:#f4cf70;font-size:22px}div{box-sizing:border-box;padding:8px;background:#070713;border:1px solid #c9a44c;border-radius:8px}";
+                counter.src = "https://iltappetovolante.goatcounter.com/counter/" +
+                    encodeURIComponent(bioAnalyticsPath) + ".html?no_branding=1&style=" + encodeURIComponent(style);
+            }
+        }
         function closeBio() { document.getElementById("bioModal").style.display = "none"; }
         function closeBioOutside(event) { if (event.target.id === "bioModal") closeBio(); }
     </script>     
