@@ -124,15 +124,41 @@
     .bottom-right-wrap { order: 3; } 
 }
 
+        @media (min-width: 769px) {
+            .sezione-pergamena { display: grid; grid-template-columns: minmax(0, 1fr); }
+            .img-pergamena-bg, .contenuto-testuale { grid-area: 1 / 1; }
+            .img-pergamena-bg { box-sizing: border-box; height: 100%; min-height: 0; }
+            .contenuto-testuale { position: relative; box-sizing: border-box; justify-self: center; margin: 24px 0; }
+        }
+        .home-languages { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 18px 12px 0; }
+        .home-languages a, .home-support a { color: #f2d28a; border: 1px solid currentColor; border-radius: 8px; padding: 10px 16px; text-decoration: none; }
+        .home-languages a[aria-current], .home-support a:hover { background: #f2d28a; color: #070812; }
+        .home-languages a:focus-visible, .home-support a:focus-visible, .pulsante-tappeto-wrap:focus-visible, .sigillo-wrapper:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+        .home-support { box-sizing: border-box; width: min(90%, 680px); text-align: center; margin: 24px auto 4px; line-height: 1.65; }
+        .home-support p { margin: 0 0 10px; }
+        .home-support a { display: inline-block; margin-top: 6px; font-weight: bold; }
+        .tappeto-label { display: none; }
+        html:not([lang="it"]) .tappeto-label { display: block; padding: 10px; color: #fff3cf; background: #2c1a1a; line-height: 1.35; }
+        html:not([lang="it"]) .pulsante-tappeto-wrap { width: min(80%, 380px); }
+        .sigillo-wrapper { padding: 0; border: 0; background: transparent; }
+        .sigillo-wrapper:hover::after, .sigillo-wrapper:focus-visible::after { content: attr(aria-label); }
+        @media (max-width: 768px) {
+            .sezione-pergamena, .contenuto-testuale p { box-sizing: border-box; }
+        }
  </style>
 <link rel="stylesheet" href="/il-tappeto-volante/css/exhibition-links.css"></head>
 <body>
-    <img src="img/sfondo_home.jpg" class="header-img">
+    <img src="img/sfondo_home.jpg" class="header-img" alt="Il Tappeto Volante">
+    <nav class="home-languages" aria-label="Lingua della pagina">
+        <a href="?lang=it" lang="it" hreflang="it" aria-current="true">Italiano</a>
+        <a href="?lang=en" lang="en" hreflang="en">English</a>
+        <a href="?lang=es" lang="es" hreflang="es">Español</a>
+    </nav>
 <div class="tv-collections-top"><a class="tv-exhibition-button" href="https://ko-fi.com/iltappetovolante/shop" data-goatcounter-click="ko-fi-esposizione" data-goatcounter-title="Guarda le collezioni del Tappeto">Guarda le collezioni del Tappeto</a></div>
 
-    <img src="img/divisore_oro.jpg" class="divisore">
+    <img src="img/divisore_oro.jpg" class="divisore" alt="">
     <div class="sezione-pergamena">
-        <img src="img/bottone_pergamena.jpg" class="img-pergamena-bg">
+        <img src="img/bottone_pergamena.jpg" class="img-pergamena-bg" alt="">
         <div class="contenuto-testuale">
             <span class="incipit-pergamena">Il Tappeto Volante è un luogo di viaggio e di racconto.</span>
             <p>Un diario che attraversa città reali e immaginate, storie antiche e voci lontane, seguendo il filo invisibile che unisce Oriente e Mediterraneo.</p>
@@ -140,17 +166,23 @@
             <p>Non c’è un percorso obbligato. C’è solo un invito: salire sul tappeto e lasciarsi portare.</p>
             <a class="pulsante-tappeto-wrap" href="/il-tappeto-volante/col-marocco-passo-dopo-passo/">
                 <img src="img/sali_sul_tappeto1.png" alt="Sali sul Tappeto">
+                <span class="tappeto-label"></span>
             </a>
         </div>
     </div>
-    <img src="img/divisore_oro.jpg" class="divisore">
-    <img src="img/mappa_sito_tappeto.jpg" class="mappa-sito">
-    <img src="img/divisore_oro.jpg" class="divisore">
+    <section class="home-support" aria-labelledby="home-support-link">
+        <p>Il Tappeto Volante è un progetto culturale indipendente e autofinanziato. Con diari, immagini e racconti esploriamo le storie e i legami tra le sponde del Mediterraneo meridionale.</p>
+        <p>Il tuo sostegno ci aiuta a continuare la ricerca e a dare vita a nuove storie.</p>
+        <a id="home-support-link" href="https://ko-fi.com/iltappetovolante" data-goatcounter-click="ko-fi-supportaci" data-goatcounter-title="Supportaci">Supportaci</a>
+    </section>
+    <img src="img/divisore_oro.jpg" class="divisore" alt="">
+    <img src="img/mappa_sito_tappeto.jpg" class="mappa-sito" alt="Mappa del sito Il Tappeto Volante">
+    <img src="img/divisore_oro.jpg" class="divisore" alt="">
     <div class="linea-dorata-fine"></div>
     <footer>
         <div class="riga-anima-sigillo">
             <div class="testo-anima">"Questo sito è il Diario di un'Anima Nomade dal Cuore Volante"</div>
-            <div class="sigillo-wrapper" onclick="openBio()"><img src="img/sigillo_ceralacca_lorella_cr.png" class="sigillo-footer"></div>
+            <button type="button" class="sigillo-wrapper" onclick="openBio()" aria-label="Chi è l'Anima Nomade?"><img src="img/sigillo_ceralacca_lorella_cr.png" class="sigillo-footer" alt=""></button>
         </div>
         <div class="licenza-giustificata">Tutti i testi, le fotografie e i contenuti originali sono di proprietà dell'autrice. Ne è vietata la riproduzione, la diffusione o l'utilizzo senza espressa autorizzazione scritta.</div>
         <div class="copyright-chiusura">© 2026 Lorella — Tutti i diritti riservati.</div>
@@ -194,6 +226,53 @@
         </div>
     </div>
     <script>
+        (() => {
+            const language = new URLSearchParams(window.location.search).get("lang");
+            if (language !== "en" && language !== "es") return;
+
+            document.documentElement.lang = language;
+            document.querySelector(".home-languages [aria-current]").removeAttribute("aria-current");
+            document.querySelector(`.home-languages [hreflang="${language}"]`).setAttribute("aria-current", "true");
+
+            const translations = [["title","Il Tappeto Volante – Home","Il Tappeto Volante – Inicio"],
+                [".tv-exhibition-button","Explore the Flying Carpet collections","Explora las colecciones de la Alfombra Voladora"],
+                [".incipit-pergamena","Il Tappeto Volante is a place for journeys and stories.","Il Tappeto Volante es un lugar para viajar y contar historias."],
+                [".contenuto-testuale > p:nth-of-type(1)","A journal that travels through real and imagined cities, ancient stories and distant voices, following the invisible thread that connects the East and the Mediterranean.","Un diario que recorre ciudades reales e imaginadas, historias antiguas y voces lejanas, siguiendo el hilo invisible que une Oriente y el Mediterráneo."],
+                [".contenuto-testuale > p:nth-of-type(2)","Here, travel is also a way of seeing: a way to look, listen and piece things together.","Aquí, viajar es también una forma de mirar, escuchar y recomponer lo que descubrimos."],
+                [".contenuto-testuale > p:nth-of-type(3)","There’s no set route. Just an invitation to step onto the carpet and see where it takes you.","No hay un itinerario obligatorio. Solo una invitación a subir a la alfombra y dejarse llevar."],
+                [".tappeto-label","Step onto the carpet","Sube a la alfombra"],
+                [".home-support p:first-child","Il Tappeto Volante is an independent, self-funded cultural project. Through journals, images and stories, we explore the histories and connections between the shores of the Southern Mediterranean.","Il Tappeto Volante es un proyecto cultural independiente y autofinanciado. A través de diarios, imágenes y relatos, exploramos las historias y los vínculos entre las orillas del Mediterráneo meridional."],
+                [".home-support p:nth-child(2)","Your support helps us keep researching and bring new stories to life.","Tu apoyo nos ayuda a seguir investigando y a dar vida a nuevas historias."],
+                ["#home-support-link","Support us","Apóyanos"],
+                [".testo-anima","“This site is the journal of a Nomadic Soul with a Flying Heart.”","«Este sitio es el diario de un Alma Nómada con un Corazón Volador»."],
+                [".licenza-giustificata","All texts, photographs and original content belong to the author. They may not be reproduced, distributed or used without her express written permission.","Todos los textos, fotografías y contenidos originales son propiedad de la autora. Queda prohibida su reproducción, difusión o uso sin su autorización expresa y por escrito."],
+                [".copyright-chiusura","© 2026 Lorella — All rights reserved.","© 2026 Lorella — Todos los derechos reservados."],
+                [".titolo-bio","The Instinct to Trace","El instinto de la huella"],
+                [".testo-bio-poetico p:nth-of-type(1)","I don’t choose art. I breathe it. Photography is how I freeze a moment in the world, drawing is how I touch its outlines, and storytelling is the thread I use to stitch the pieces together.","El arte no lo elijo, lo respiro. La fotografía es mi forma de detener un instante del mundo, el dibujo me permite tocar sus contornos y la narrativa es el hilo con el que vuelvo a unir las piezas."],
+                [".testo-bio-poetico p:nth-of-type(2)","I was born in the quiet hour, when grown-ups rest and rules begin to fade. While the world slept, I slipped away, with a BMX bike and the urge to get past the two blocks that were my first frontier.","Nací en la hora del silencio, cuando los mayores descansan y las reglas se desdibujan. Mientras el mundo dormía, me escapaba con una bicicleta de BMX y la necesidad de ir más allá de aquellas dos manzanas que fueron mi primera frontera."],
+                [".testo-bio-poetico p:nth-of-type(3)","I’ve spent my life widening that circle. From the cobblestones of my village to the dust of the South, I came to hear the call of the sands of the Middle East and the winds of North Africa.","He pasado la vida ampliando ese perímetro. Desde los adoquines de mi pueblo hasta el polvo del Sur, llegué a sentir la llamada de las arenas de Oriente Medio y del viento del norte de África."],
+                [".testo-bio-poetico p:nth-of-type(4)","I’m looking for the feeling of that first horizon shifting. I’m still that little girl pedalling into the unknown.","Busco la sensación de aquel primer horizonte que se desplaza. Sigo siendo aquella niña que pedalea hacia lo desconocido."],
+                [".firma-nomade","I am a Nomadic Soul with a Flying Heart, and this is my journal.","Soy un Alma Nómada con un Corazón Volador, y este es mi diario."],
+                [".colonna-foto-laterale .cornice-oro:nth-child(1) .didascalia-minimal","BEYOND WHAT WE SEE","MÁS ALLÁ DE LA MIRADA"],
+                [".colonna-foto-laterale .cornice-oro:nth-child(2) .didascalia-minimal","TRACES ON PAPER","HUELLAS DE PAPEL"],
+                [".bottom-left-wrap .didascalia-minimal","MATTER AND THOUGHT","MATERIA Y PENSAMIENTO"],
+                [".bottom-right-wrap .didascalia-minimal","FRAGMENTS FROM ELSEWHERE","FRAGMENTOS DE OTROS LUGARES"],
+                [".pulsante-indietro","Back to the journal","Volver al diario"]];
+            for (const [selector, english, spanish] of translations) {
+                document.querySelector(selector).textContent = language === "en" ? english : spanish;
+            }
+
+            const attributes = [[".home-languages","aria-label","Page language","Idioma de la página"],
+                [".sigillo-wrapper","aria-label","Who is the Nomadic Soul?","¿Quién es el Alma Nómada?"],
+                [".mappa-sito","alt","Il Tappeto Volante site map","Mapa del sitio Il Tappeto Volante"],
+                [".pulsante-tappeto-wrap img","alt","",""],
+                ["#home-support-link","data-goatcounter-title","Support us","Apóyanos"],
+                [".tv-exhibition-button","data-goatcounter-title","Explore the Flying Carpet collections","Explora las colecciones de la Alfombra Voladora"]];
+            for (const [selector, attribute, english, spanish] of attributes) {
+                document.querySelector(selector).setAttribute(attribute, language === "en" ? english : spanish);
+            }
+        })();
+
         function openBio() { document.getElementById("bioModal").style.display = "flex"; }
         function closeBio() { document.getElementById("bioModal").style.display = "none"; }
         function closeBioOutside(event) { if (event.target.id === "bioModal") closeBio(); }
@@ -206,7 +285,7 @@
         src="https://gc.zgo.at/count.js"></script>
 
 <script>
-    window.goatcounter.visit_count({
+    window.goatcounter?.visit_count?.({
         append: "#contatore-visite",
         no_branding: true,
         style: `
@@ -228,7 +307,7 @@
             }
 
             #gcvc-for::after {
-                content: "Visite a questa pagina";
+                content: "${({ en: "Visits to this page", es: "Visitas a esta página" })[document.documentElement.lang] || "Visite a questa pagina"}";
                 font-size: 13px;
                 color: #e2bd62;
             }
