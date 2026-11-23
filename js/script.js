@@ -1222,7 +1222,7 @@ function renderPergamenaSigilli() {
           <span>Scatto originale dell’autrice</span>
         </li>
         <li class="pergamena-riga">
-          <img src="img/sigillo-ai.webp" class="sigillo-mini" width="35" height="35" alt="">
+          <img src="img/sigillo_blu.png" class="sigillo-mini" width="35" height="35" alt="">
           <span>Scatto originale rielaborato con AI</span>
         </li>
         <li class="pergamena-riga">
