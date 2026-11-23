@@ -496,3 +496,47 @@ img.sigillo-mini {
   border-radius: 0 !important;      /* Toglie i bordi arrotondati delle foto */
 }
 }
+
+.pergamena-sigilli {
+  padding: clamp(12px, 2.5vw, 20px);
+  text-align: left;
+  line-height: 1.2;
+}
+
+.pergamena-sigilli .pergamena-intro {
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.pergamena-sigilli .pergamena-intro p,
+.pergamena-sigilli .pergamena-titolo {
+  margin: 0 0 6px;
+}
+
+.pergamena-sigilli .pergamena-legenda {
+  display: grid;
+  gap: 2px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pergamena-sigilli .pergamena-riga {
+  display: grid;
+  grid-template-columns: 35px minmax(0, 1fr);
+  align-items: center;
+  justify-items: start;
+  gap: 8px;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.pergamena-sigilli img.sigillo-mini {
+  width: 35px !important;
+  height: 35px !important;
+  object-fit: contain !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  background: transparent !important;
+}
