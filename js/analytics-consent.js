@@ -69,6 +69,20 @@
     const panel = document.createElement('aside');
     panel.style.cssText = 'position:fixed;bottom:12px;right:12px;z-index:2147483646;max-width:min(24rem,calc(100vw - 24px));padding:10px;background:#fff;color:#202124;border:1px solid #777;border-radius:8px;font:14px/1.4 system-ui';
     document.body.append(panel);
+    const settings = document.createElement('div');
+    settings.style.cssText = 'padding:8px;text-align:center;position:relative';
+    const footer = document.querySelector('footer');
+    (footer || document.body).append(settings);
+
+    const settingsButton = button('', () => {
+        expanded = !expanded;
+        render();
+        if (expanded) panel.querySelector('button')?.focus();
+    });
+    settingsButton.style.textDecoration = 'underline';
+    panel.id = 'analytics-consent-panel';
+    settingsButton.setAttribute('aria-controls', panel.id);
+    settings.append(settingsButton);
 
     function button(text, action) {
         const control = document.createElement('button');
@@ -83,10 +97,10 @@
         const [notice, accept, decline, preferences, disable, privacy] =
             messages[document.documentElement.lang.split('-')[0]] || messages.it;
         panel.replaceChildren();
-        if (!expanded) {
-            panel.append(button(preferences, () => { expanded = true; render(); }));
-            return;
-        }
+        settingsButton.textContent = preferences;
+        settingsButton.setAttribute('aria-expanded', String(expanded));
+        panel.hidden = !expanded;
+        if (!expanded) return;
         const paragraph = document.createElement('p');
         paragraph.style.margin = '0 4px 6px';
         paragraph.textContent = notice;
