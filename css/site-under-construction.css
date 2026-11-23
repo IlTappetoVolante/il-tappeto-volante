@@ -1,0 +1,25 @@
+body > .site-under-construction {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: .65rem 1rem;
+  border-bottom: 2px solid #a35b00;
+  background: #ffdf86;
+  color: #321c00;
+  text-align: center;
+  font: 700 1rem/1.4 system-ui, sans-serif;
+}
+
+.site-under-construction__signal {
+  display: inline-block;
+  margin-inline-end: .35em;
+  animation: site-construction-blink 1.5s ease-in-out 3;
+}
+
+@keyframes site-construction-blink {
+  50% { opacity: .25; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-under-construction__signal { animation: none; }
+}
