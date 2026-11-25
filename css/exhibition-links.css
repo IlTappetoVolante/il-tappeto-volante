@@ -33,3 +33,15 @@
   outline: 2px solid #f2d28a;
   outline-offset: 4px;
 }
+
+/* Continuous collection-button pulse across all pages; respect reduced motion. */
+@keyframes tv-collection-pulse {
+  0%, 100% { color:#fff; text-shadow:none; box-shadow:none; }
+  50% { color:#ffe29b; text-shadow:0 0 7px #ffdc83,0 0 14px #ffd77a; box-shadow:0 0 14px #e9b85c; }
+}
+.tv-collections-top .tv-exhibition-button {
+  animation:tv-collection-pulse 1.4s ease-in-out infinite !important;
+}
+@media (prefers-reduced-motion:reduce) {
+  .tv-collections-top .tv-exhibition-button { animation:none !important; }
+}
