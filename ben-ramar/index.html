@@ -214,7 +214,7 @@ function parlaParagrafo(){
     if(indiceVoce>=paragrafiVoce.length){ speechSynthesis.cancel(); indiceVoce=0; capitoloCorrente=0; aggiornaStato(); return; }
     trovaCapitoloCorrente();
     const voce=new SpeechSynthesisUtterance(paragrafiVoce[indiceVoce]);
-    voce.lang='it-IT'; voce.rate=.95;
+    voce.lang='it-IT'; voce.rate=.95;{const lang=voce.lang.toLowerCase().split('-')[0];const vv=window.speechSynthesis.getVoices().filter(v=>v.lang.toLowerCase().split('-')[0]===lang);const chosen=vv.find(v=>v.name===({it:'Google italiano',en:'Google UK English Female',es:'Google español'})[lang])||vv.find(v=>v.default)||vv[0];if(chosen)voce.voice=chosen;}
     voce.onend=()=>{indiceVoce++; parlaParagrafo();};
     speechSynthesis.speak(voce);
 }
