@@ -58,7 +58,7 @@
    if(!letturaAttiva)return;
    if(indice>=segmenti.length){termina();return}
    const frase=new SpeechSynthesisUtterance(segmenti[indice++]);
-   frase.lang='it-IT';frase.rate=1;
+   frase.lang='it-IT';frase.rate=1;{const lang=frase.lang.toLowerCase().split('-')[0];const vv=window.speechSynthesis.getVoices().filter(v=>v.lang.toLowerCase().split('-')[0]===lang);const chosen=vv.find(v=>v.name===({it:'Google italiano',en:'Google UK English Female',es:'Google español'})[lang])||vv.find(v=>v.default)||vv[0];if(chosen)frase.voice=chosen;}
    frase.onend=()=>{if(letturaAttiva)prosegui()};
    frase.onerror=(e)=>{if(e.error!=='interrupted'&&e.error!=='canceled'){letturaAttiva=false;aggiorna();messaggio.textContent='Lettura non disponibile in questo momento.'}};
    sintesi.speak(frase);
