@@ -20,7 +20,7 @@
 <style>.hero{text-align:center}.hero .city{font-family:Merriweather,serif;font-size:1.4rem}.hero h1{font-family:'Dancing Script',cursive;text-align:center}article h2,article h3{text-align:center;font-family:Merriweather,serif}article figure{display:flex;flex-direction:column;align-items:center;margin-bottom:1.5rem}#racconto figure > figcaption.caption,#racconto > p.caption{display:block!important;width:100%!important;max-width:100%!important;box-sizing:border-box;float:none!important;clear:both;text-align:center!important;text-align-last:center!important;font-style:italic;margin:.65rem auto 0!important;padding:0!important;line-height:1.5}.missing{border:1px dashed #a78655;padding:1rem;text-align:center}.draft-note{text-align:center;font-size:.9rem}article figure img{height:auto;max-width:100%;object-fit:contain}@media(min-width:768px){article figure img{max-height:82vh;width:auto;display:block;margin:auto}}.closing{text-align:center}.closing img{width:75px}.closing p{font-size:12px;font-weight:bold;color:#785502}</style></head><body>
 <aside class="site-under-construction" lang="it" aria-label="Lavori in corso"><span class="site-under-construction__signal" aria-hidden="true">🚧</span>Versione limitata del sito in costruzione</aside><a class="skip" href="#racconto">Vai al racconto</a><div class="paper"><header class="itv-brand-header"><div class="landing-brand"><img class="project-logo" src="../img/logo-landing.webp" alt="Il Tappeto Volante" width="800" height="376"><div class="brand-socials"><span aria-hidden="true">👉</span><a href="https://www.facebook.com/share/1KH3FNkRP2/" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14 22v-9h3l.5-4H14V7c0-1.2.4-2 2-2h2V1.4A24 24 0 0015 1c-3 0-5 1.8-5 5v3H7v4h3v9z"/></svg></a><a href="https://www.instagram.com/iltappetovolante/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.youtube.com/@iltappetovolante" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="5" fill="currentColor"/><path d="m10 8 6 4-6 4z" fill="#151c30"/></svg></a></div><p class="brand-handle">@iltappetovolante</p></div>
 <div class="tv-collections-top"><a class="tv-exhibition-button" href="https://ko-fi.com/iltappetovolante/shop" data-goatcounter-click="ko-fi-esposizione" data-goatcounter-title="Guarda le collezioni del Tappeto">Guarda le collezioni del Tappeto</a></div>
-<nav class="languages" aria-label="Lingua"><a href="index.html" aria-current="page">🇮🇹</a></nav></header><main><section class="hero"><p>LA PORTA DEI DIARI</p><p class="city">Tangeri</p><h1>La Sentinella</h1><p class="draft-note">Versione di lavoro · immagini e crediti in verifica</p></section><article id="racconto"></article><p class="closing"><a href="../libro-primo-noi-sorelle-degli-stretti/">Torna al diario</a></p></main></div><script>
+<nav class="languages" aria-label="Lingua"><a href="index.html" aria-current="page">🇮🇹</a></nav></header><main><section class="hero"><p>LA PORTA DEI DIARI</p><p class="city">Tangeri</p><h1>La Sentinella</h1><p class="draft-note">Versione di lavoro · immagini e crediti in verifica</p></section><aside class="media-panel" aria-labelledby="media-title" data-reading-lang="it"><h2 id="media-title">Ascolta e accompagna il viaggio</h2><div class="music-player"><h3>Musica di sottofondo</h3><audio id="travel-music" controls loop preload="none" aria-label="Musica di sottofondo" data-music-src=""></audio><p class="media-note" id="music-note">La musica sarà aggiunta dopo la scelta del brano.</p></div><div class="speech-reader"><div class="reader-actions"><button type="button" id="reader-play">▶ Ascolta il racconto</button><button type="button" id="reader-pause" disabled>⏸ Pausa</button><button type="button" id="reader-stop" disabled>■ Ferma</button></div><label for="reader-voice">Voce</label> <select id="reader-voice"><option value="">Automatica</option></select><p class="media-note" id="reader-status" role="status" aria-live="polite">Lettura pronta.</p></div></aside><article id="racconto"></article><p class="closing"><a href="../libro-primo-noi-sorelle-degli-stretti/">Torna al diario</a></p></main></div><script>
 const TAPPA_2_DATA = {
     id: "tappa-2",
     titolo: "Seconda Tappa: La Sentinella",
@@ -310,4 +310,203 @@ for(const item of TAPPA_2_DATA.contenuto){
  if(el)root.append(el);
 }
 const footer=document.createElement('div');footer.className='closing';footer.innerHTML='<img src="../img/sigillo_ceralacca_lorella_cr.png" alt="Firma di Lorella"><p>© 2026 Lorella — Tutti i diritti riservati.</p>';root.append(footer);
+</script><script>
+(() => {
+  'use strict';
+  const translations = {
+  "it": {
+    "head": "Ascolta e accompagna il viaggio",
+    "music": "Musica di sottofondo",
+    "pending": "La musica sarà aggiunta dopo la scelta del brano.",
+    "listen": "Ascolta il racconto",
+    "pause": "Pausa",
+    "resume": "Riprendi",
+    "stop": "Ferma",
+    "voice": "Voce",
+    "auto": "Automatica",
+    "ready": "Lettura pronta.",
+    "reading": "Lettura in corso…",
+    "paused": "Lettura in pausa.",
+    "finished": "Lettura terminata.",
+    "unsupported": "La lettura vocale non è disponibile in questo browser.",
+    "error": "Non riesco ad avviare la voce. Prova un’altra voce o il lettore del browser.",
+    "rights": "© 2026 Lorella · Il Tappeto Volante. Tutti i diritti riservati sui testi e sulle fotografie originali. Le immagini di altri autori restano attribuite ai rispettivi titolari.",
+    "author": "Fotografia di Lorella",
+    "external": "Immagine da fonte esterna"
+  },
+  "en": {
+    "head": "Listen and travel",
+    "music": "Background music",
+    "pending": "Music will be added once the track has been chosen.",
+    "listen": "Listen to the story",
+    "pause": "Pause",
+    "resume": "Resume",
+    "stop": "Stop",
+    "voice": "Voice",
+    "auto": "Automatic",
+    "ready": "Ready to read.",
+    "reading": "Reading…",
+    "paused": "Reading paused.",
+    "finished": "Reading finished.",
+    "unsupported": "Speech playback is unavailable in this browser.",
+    "error": "The voice could not start. Try another voice or your browser’s reading feature.",
+    "rights": "© 2026 Lorella · Il Tappeto Volante. All rights reserved for original text and photographs. Images by other authors remain credited to their respective owners.",
+    "author": "Photograph by Lorella",
+    "external": "Image from an external source"
+  },
+  "es": {
+    "head": "Escucha y acompaña el viaje",
+    "music": "Música de fondo",
+    "pending": "La música se añadirá cuando se haya elegido la pieza.",
+    "listen": "Escuchar el relato",
+    "pause": "Pausa",
+    "resume": "Reanudar",
+    "stop": "Detener",
+    "voice": "Voz",
+    "auto": "Automática",
+    "ready": "Lectura lista.",
+    "reading": "Leyendo…",
+    "paused": "Lectura en pausa.",
+    "finished": "Lectura terminada.",
+    "unsupported": "La lectura en voz alta no está disponible en este navegador.",
+    "error": "No se ha podido iniciar la voz. Prueba otra voz o el lector del navegador.",
+    "rights": "© 2026 Lorella · Il Tappeto Volante. Todos los derechos reservados sobre los textos y las fotografías originales. Las imágenes de otros autores conservan sus respectivas atribuciones.",
+    "author": "Fotografía de Lorella",
+    "external": "Imagen de una fuente externa"
+  }
+};
+  const panel = document.querySelector('.media-panel');
+  if (!panel) return;
+  const language = panel.dataset.readingLang || document.documentElement.lang || 'it';
+  const t = translations[language] || translations.it;
+  const music = document.getElementById('travel-music');
+  // Set this once the free music track has been selected.
+  const soundtrack = {src: '', credit: '', url: ''};
+  const source = music.dataset.musicSrc || soundtrack.src;
+  if (source) {
+    music.src = source;
+    const note = document.getElementById('music-note');
+    note.textContent = music.dataset.musicCredit || soundtrack.credit;
+    if (soundtrack.url) {
+      const link = document.createElement('a');
+      link.href = soundtrack.url;
+      link.textContent = soundtrack.credit;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      note.replaceChildren(link);
+    }
+  }
+  const play = document.getElementById('reader-play');
+  const pause = document.getElementById('reader-pause');
+  const stop = document.getElementById('reader-stop');
+  const voiceSelect = document.getElementById('reader-voice');
+  const status = document.getElementById('reader-status');
+  if (!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)) {
+    play.disabled = true;
+    voiceSelect.disabled = true;
+    status.textContent = t.unsupported;
+    return;
+  }
+  const synth = window.speechSynthesis;
+  let voices = [], chunks = [], index = 0, offset = 0, current = null;
+  let state = 'idle', generation = 0, resumeMusic = false;
+  function setState(next, message) {
+    state = next;
+    play.disabled = next === 'playing';
+    pause.disabled = next === 'idle';
+    stop.disabled = next === 'idle';
+    voiceSelect.disabled = next !== 'idle';
+    pause.textContent = next === 'paused' ? '▶ ' + t.resume : '⏸ ' + t.pause;
+    status.textContent = message;
+  }
+  function refreshVoices() {
+    const selected = voiceSelect.value;
+    voices = synth.getVoices().filter(v => v.lang.toLowerCase().split('-')[0] === language);
+    voiceSelect.replaceChildren(new Option(t.auto, ''));
+    voices.forEach(v => voiceSelect.add(new Option(v.name + ' · ' + v.lang, v.voiceURI)));
+    if (voices.some(v => v.voiceURI === selected)) voiceSelect.value = selected;
+  }
+  refreshVoices();
+  synth.addEventListener('voiceschanged', refreshVoices);
+  function splitText(text) {
+    const result = [];
+    for (let sentence of text.match(/[^.!?…]+[.!?…]*\s*/gu) || [text]) {
+      sentence = sentence.trim();
+      while (sentence.length > 220) {
+        const space = sentence.lastIndexOf(' ', 220);
+        const cut = space > 60 ? space : 220;
+        result.push(sentence.slice(0, cut));
+        sentence = sentence.slice(cut).trim();
+      }
+      if (sentence) result.push(sentence);
+    }
+    return result;
+  }
+  function restoreMusic() {
+    if (resumeMusic) music.play().catch(() => {});
+    resumeMusic = false;
+  }
+  function finish(message) {
+    generation++;
+    synth.cancel();
+    current = null;
+    setState('idle', message);
+    restoreMusic();
+  }
+  function speakChunk() {
+    if (index >= chunks.length) { finish(t.finished); return; }
+    const token = ++generation;
+    const utterance = new SpeechSynthesisUtterance(chunks[index].slice(offset));
+    current = utterance; // Retain the utterance while the browser is speaking.
+    utterance.lang = {it:'it-IT', en:'en-GB', es:'es-ES'}[language] || language;
+    const voice = voices.find(v => v.voiceURI === voiceSelect.value) || voices.find(v => v.default) || voices[0];
+    if (voice) utterance.voice = voice;
+    const startOffset = offset;
+    utterance.onboundary = event => {
+      if (token === generation && event.name === 'word') offset = startOffset + event.charIndex;
+    };
+    utterance.onend = () => {
+      if (token !== generation || state !== 'playing') return;
+      index++; offset = 0; speakChunk();
+    };
+    utterance.onerror = event => {
+      if (token !== generation || event.error === 'canceled' || event.error === 'interrupted') return;
+      finish(t.error);
+    };
+    synth.speak(utterance);
+  }
+  function start() {
+    if (state === 'playing') return;
+    if (state !== 'paused') {
+      const nodes = document.querySelectorAll('h1, #racconto h2, #racconto h3, #racconto summary, #racconto p:not(.signature-rights):not(.missing):not(.closing p), #racconto figcaption');
+      chunks = Array.from(nodes).flatMap(node => splitText(node.textContent.replace(/\s+/g, ' ').trim()));
+      index = 0; offset = 0;
+      resumeMusic = !music.paused;
+      music.pause();
+    }
+    synth.cancel();
+    setState('playing', t.reading);
+    speakChunk();
+  }
+  play.addEventListener('click', start);
+  pause.addEventListener('click', () => {
+    if (state === 'paused') { start(); return; }
+    if (state !== 'playing') return;
+    // Cancel and retain the word offset; this also works on mobile engines
+    // whose native pause/resume implementation is incomplete.
+    generation++;
+    synth.cancel();
+    current = null;
+    setState('paused', t.paused);
+  });
+  stop.addEventListener('click', () => finish(t.ready));
+  window.addEventListener('pagehide', () => {
+    generation++;
+    synth.cancel();
+    music.pause();
+    resumeMusic = false;
+    setState('idle', t.ready);
+  });
+})();
+
 </script></body></html>
