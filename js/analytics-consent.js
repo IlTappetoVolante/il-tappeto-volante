@@ -15,6 +15,7 @@
     let expanded;
     let lastPage;
     try { choice = localStorage.getItem(preference); } catch {}
+    if (choice !== 'yes' && choice !== 'no') choice = null;
     expanded = !choice;
 
     function recordPage() {
@@ -79,7 +80,7 @@
         render();
         if (expanded) panel.querySelector('button')?.focus();
     });
-    settingsButton.style.textDecoration = 'underline';
+    settingsButton.style.cssText += ';text-decoration:underline;background:transparent;border:0;color:inherit;cursor:pointer';
     panel.id = 'analytics-consent-panel';
     settingsButton.setAttribute('aria-controls', panel.id);
     settings.append(settingsButton);
@@ -100,6 +101,7 @@
         settingsButton.textContent = preferences;
         settingsButton.setAttribute('aria-expanded', String(expanded));
         panel.hidden = !expanded;
+        panel.style.setProperty('display', expanded ? 'block' : 'none', 'important');
         if (!expanded) return;
         const paragraph = document.createElement('p');
         paragraph.style.margin = '0 4px 6px';
