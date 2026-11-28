@@ -129,7 +129,7 @@
       resumeMusic=resumeMusic||!!(music&&!music.paused);
       speaking=true;if(music)music.pause();
       speechSynthesis.cancel();
-      const msg=new SpeechSynthesisUtterance(d.story);msg.lang=d.voice;msg.rate=.91;
+      const msg=new SpeechSynthesisUtterance(d.story);msg.lang=d.voice;msg.rate=.91;{const lang=msg.lang.toLowerCase().split('-')[0];const vv=window.speechSynthesis.getVoices().filter(v=>v.lang.toLowerCase().split('-')[0]===lang);const chosen=vv.find(v=>v.name===({it:'Google italiano',en:'Google UK English Female',es:'Google español'})[lang])||vv.find(v=>v.default)||vv[0];if(chosen)msg.voice=chosen;}
       msg.onend=msg.onerror=()=>{if(current===speechId)restoreMusic();};
       speechSynthesis.speak(msg);
     };
