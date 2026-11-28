@@ -113,8 +113,10 @@
     voiceSelect.replaceChildren(new Option(t.auto, ''));
     voices.forEach(v => voiceSelect.add(new Option(v.name + ' · ' + v.lang, v.voiceURI)));
     if (voices.some(v => v.voiceURI === selected)) voiceSelect.value = selected;
+    else if (!voiceSelect.dataset.userSelected) { const preferred = voices.find(v => v.name === ({it:'Google italiano',en:'Google UK English Female',es:'Google español'})[language]); if (preferred) voiceSelect.value = preferred.voiceURI; }
   }
   refreshVoices();
+  voiceSelect.addEventListener('change', () => { voiceSelect.dataset.userSelected = 'true'; });
   synth.addEventListener('voiceschanged', refreshVoices);
   function splitText(text) {
     const result = [];
@@ -147,7 +149,8 @@
     const utterance = new SpeechSynthesisUtterance(chunks[index].slice(offset));
     current = utterance; // Retain the utterance while the browser is speaking.
     utterance.lang = {it:'it-IT', en:'en-GB', es:'es-ES'}[language] || language;
-    const voice = voices.find(v => v.voiceURI === voiceSelect.value) || voices.find(v => v.default) || voices[0];
+    const available = synth.getVoices().filter(v => v.lang.toLowerCase().split('-')[0] === language);
+    const voice = available.find(v => v.voiceURI === voiceSelect.value) || available.find(v => v.name === ({it:'Google italiano',en:'Google UK English Female',es:'Google español'})[language]) || available.find(v => v.default) || available[0];
     if (voice) utterance.voice = voice;
     const startOffset = offset;
     utterance.onboundary = event => {
