@@ -61,9 +61,10 @@
     {
       const featured=document.createElement("a");
       featured.className="itv-story-featured";
-      featured.href=new URL(canonical("hurrem/")===canonical(location.href)?"hurrem/#cap-1":"hurrem/",root).href;
-      featured.textContent="Leggi la storia di Hürrem";
-      section.append(featured);
+      const bronze="le-mille-e-una-notte/la-citta-di-bronzo/";
+      featured.href=new URL(bronze,root).href;
+      featured.textContent={it:"Leggi La Città di Bronzo",en:"Read The City of Brass (IT)",es:"Lee La Ciudad de Bronce (IT)"}[lang];
+      if(canonical(bronze)!==canonical(location.href))section.append(featured);
       btn.textContent={it:"Apri la storia scelta",en:"Open the selected story",es:"Abre la historia elegida"}[lang];
     }
     section.append(label,controls,home);
