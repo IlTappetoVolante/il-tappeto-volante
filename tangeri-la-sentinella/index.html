@@ -167,7 +167,7 @@ const TAPPA_2_DATA = {
         },
         { 
             type: "immagine", 
-            src: "img/tangeri-grotta-africa.jpg", // Foto 24218.jpg (Africa shape)
+            src: "img/tangeri-grotta-africa.jpg", owner: "external", // Foto 24218.jpg (Africa shape)
             alt: "Finestra a forma d'Africa"
         },
         { 
@@ -303,7 +303,7 @@ for(const item of TAPPA_2_DATA.contenuto){
  if(item.type==='immagine'){
   el=document.createElement('figure');
   if(!item.src||item.src.startsWith('INSERISCI_')){const p=document.createElement('p');p.className='missing';p.textContent='Fotografia da recuperare · '+(item.alt||item.src||'');el.append(p);}
-  else{const img=document.createElement('img');img.src=item.src.startsWith('img/')?'../'+item.src:item.src;img.alt=item.alt||'Immagine del diario di Tangeri';img.loading='lazy';img.addEventListener('error',()=>{const p=document.createElement('p');p.className='missing';p.textContent='Immagine non disponibile · '+img.alt;img.replaceWith(p);});const name=item.src.split('/').pop();const owner=/(?:-ai\.|^tangeri-avatar-|^il_faro_chiama\.)/i.test(name)?'ai':/^(?:cap-spartel-|tangeri-grotta-|tangeri-strada-costiera\.|mura-tangeri\.)/i.test(name)?'lorella':null;if(owner){const frame=document.createElement('span');frame.className='photo-frame';frame.dataset.owner=owner;frame.title=owner==='ai'?'Immagine con intervento AI':'Fotografia di Lorella';img.addEventListener('error',()=>{frame.classList.remove('photo-frame');});frame.append(img);el.append(frame);}else el.append(img);}
+  else{const img=document.createElement('img');img.src=item.src.startsWith('img/')?'../'+item.src:item.src;img.alt=item.alt||'Immagine del diario di Tangeri';img.loading='lazy';img.addEventListener('error',()=>{const p=document.createElement('p');p.className='missing';p.textContent='Immagine non disponibile · '+img.alt;img.replaceWith(p);});const name=item.src.split('/').pop();const owner=item.owner||(/(?:-ai\.|^tangeri-avatar-|^il_faro_chiama\.)/i.test(name)?'ai':/^(?:cap-spartel-|tangeri-grotta-|tangeri-strada-costiera\.|mura-tangeri\.)/i.test(name)?'lorella':null);if(owner){const frame=document.createElement('span');frame.className='photo-frame';frame.dataset.owner=owner;frame.title=owner==='ai'?'Immagine con intervento AI':owner==='external'?'Immagine di repertorio · Preso al volo':'Fotografia di Lorella';img.addEventListener('error',()=>{frame.classList.remove('photo-frame');});frame.append(img);el.append(frame);}else el.append(img);}
  }else if(item.type==='testo'){el=document.createElement('div');el.innerHTML=item.paragrafo;if(!el.querySelector('p')){const p=document.createElement('p');p.innerHTML=el.innerHTML;el.replaceChildren(p);}}
  else if(item.type==='didascalia'){const previous=root.lastElementChild;el=document.createElement(previous?.tagName==='FIGURE'?'figcaption':'p');el.className='caption';el.style.setProperty('text-align','center','important');el.style.setProperty('width','100%','important');el.textContent=item.testo;if(previous?.tagName==='FIGURE'){previous.append(el);el=null;}}
  else if(item.type==='titolo'){el=document.createElement('h3');el.textContent=item.titolo;el.style.setProperty('text-align','center','important');el.style.setProperty('text-transform','none','important');}
